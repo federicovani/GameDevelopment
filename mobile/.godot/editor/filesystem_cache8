@@ -1,13 +1,13 @@
 ea4bc82a6ad023ab7ee23ee620429895
 ::res://::1733924960
 ::res://assets/::1733924960
-::res://assets/globali/::1733924957
-necromancer.tscn::PackedScene::1967994279176473620::1733924898::0::1::::<><>::uid://caopkrdhyl6nt::::res://assets/globali/Necromancer_creativekind-Sheet.png
+::res://assets/globali/::1733924997
+necromancer.tscn::PackedScene::1967994279176473620::1733924997::0::1::::<><>::uid://caopkrdhyl6nt::::res://assets/globali/Necromancer_creativekind-Sheet.png
 Necromancer_creativekind-Sheet.png::CompressedTexture2D::4802672166655539265::1733924898::1733924932::1::::<><>::
 ::res://assets/globali/Skeleton/::1493933070
 ::res://assets/globali/Skeleton/Files/::1493931650
 ::res://assets/globali/Skeleton/GIFS/::1493931650
-::res://assets/globali/Skeleton/Sprite Sheets/::1733913159
+::res://assets/globali/Skeleton/Sprite Sheets/::1733924966
 Skeleton Attack.png::CompressedTexture2D::9142587648020999639::1493932872::1733924966::1::::<><>::
 Skeleton Dead.png::CompressedTexture2D::8946022412132080210::1493932902::1733924966::1::::<><>::
 Skeleton Hit.png::CompressedTexture2D::2074583528801813320::1493932942::1733924966::1::::<><>::
@@ -20,7 +20,7 @@ delete.png::CompressedTexture2D::1961430816508370201::1733924898::1733924932::1:
 delete.png::CompressedTexture2D::494898022905427162::1733924898::1733924932::1::::<><>::
 ::res://assets/livello_sara/::1733924932
 delete.png::CompressedTexture2D::6620405346525300745::1733924898::1733924932::1::::<><>::
-::res://scenes/::1733924962
+::res://scenes/::1733924967
 ::res://scenes/globali/::1733924962
 player.tscn::PackedScene::5496749362484375832::1733924898::0::1::::<><>::
 skeleton.tscn::PackedScene::-1::1733920744::0::1::::<><>::
