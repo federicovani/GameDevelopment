@@ -1,41 +1,41 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1733924960
-::res://assets/::1733924960
-::res://assets/globali/::1733924957
-necromancer.tscn::PackedScene::1967994279176473620::1733924898::0::1::::<><>::uid://caopkrdhyl6nt::::res://assets/globali/Necromancer_creativekind-Sheet.png
-Necromancer_creativekind-Sheet.png::CompressedTexture2D::4802672166655539265::1733924898::1733924932::1::::<><>::
-::res://assets/globali/Skeleton/::1493933070
-::res://assets/globali/Skeleton/Files/::1493931650
-::res://assets/globali/Skeleton/GIFS/::1493931650
-::res://assets/globali/Skeleton/Sprite Sheets/::1733913159
-Skeleton Attack.png::CompressedTexture2D::9142587648020999639::1493932872::1733924966::1::::<><>::
-Skeleton Dead.png::CompressedTexture2D::8946022412132080210::1493932902::1733924966::1::::<><>::
-Skeleton Hit.png::CompressedTexture2D::2074583528801813320::1493932942::1733924966::1::::<><>::
-Skeleton Idle.png::CompressedTexture2D::8216917219048415757::1493932952::1733924966::1::::<><>::
-Skeleton React.png::CompressedTexture2D::6294700548958581727::1493932964::1733924966::1::::<><>::
-Skeleton Walk.png::CompressedTexture2D::1194032503305262711::1493932974::1733924966::1::::<><>::
-::res://assets/livello_elisa/::1733924932
-delete.png::CompressedTexture2D::1961430816508370201::1733924898::1733924932::1::::<><>::
-::res://assets/livello_federico/::1733924932
-delete.png::CompressedTexture2D::494898022905427162::1733924898::1733924932::1::::<><>::
-::res://assets/livello_sara/::1733924932
-delete.png::CompressedTexture2D::6620405346525300745::1733924898::1733924932::1::::<><>::
-::res://scenes/::1733924962
-::res://scenes/globali/::1733924962
-player.tscn::PackedScene::5496749362484375832::1733924898::0::1::::<><>::
-skeleton.tscn::PackedScene::-1::1733920744::0::1::::<><>::
-::res://scenes/livello_elisa/::1733924898
-livello_elisa.tscn::PackedScene::3564720137617299658::1733924898::0::1::::<><>::
-::res://scenes/livello_federico/::1733924898
-livello_federico.tscn::PackedScene::9146952854555710338::1733924898::0::1::::<><>::
-::res://scenes/livello_sara/::1733924898
-livello_sara.tscn::PackedScene::1127341572595250171::1733924898::0::1::::<><>::
-::res://scripts/::1733924898
-::res://scripts/globali/::1733924932
-delete.png::CompressedTexture2D::7705234739032791831::1733924898::1733924932::1::::<><>::
-::res://scripts/livello_elisa/::1733924932
-delete.png::CompressedTexture2D::1588671229341018740::1733924898::1733924932::1::::<><>::
-::res://scripts/livello_federico/::1733924932
-delete.png::CompressedTexture2D::5657182436692986354::1733924898::1733924932::1::::<><>::
-::res://scripts/livello_sara/::1733924932
-delete.png::CompressedTexture2D::8643594335447306282::1733924898::1733924932::1::::<><>::
+::res://::1733921482
+::res://assets/::1733919572
+::res://assets/globali/::1733925044
+necromancer.tscn::PackedScene::1967994279176473620::1733919572::0::1::::<><>::uid://caopkrdhyl6nt::::res://assets/globali/Necromancer_creativekind-Sheet.png
+Necromancer_creativekind-Sheet.png::CompressedTexture2D::4802672166655539265::1733919572::1733921483::1::::<><>::
+::res://assets/globali/Skeleton/::1733925044
+::res://assets/globali/Skeleton/Files/::1733925044
+::res://assets/globali/Skeleton/GIFS/::1733925044
+::res://assets/globali/Skeleton/Sprite Sheets/::1733925044
+Skeleton Attack.png::CompressedTexture2D::9142587648020999639::1733925044::1733925051::1::::<><>::
+Skeleton Dead.png::CompressedTexture2D::8946022412132080210::1733925044::1733925051::1::::<><>::
+Skeleton Hit.png::CompressedTexture2D::2074583528801813320::1733925044::1733925051::1::::<><>::
+Skeleton Idle.png::CompressedTexture2D::8216917219048415757::1733925044::1733925051::1::::<><>::
+Skeleton React.png::CompressedTexture2D::6294700548958581727::1733925044::1733925051::1::::<><>::
+Skeleton Walk.png::CompressedTexture2D::1194032503305262711::1733925044::1733925051::1::::<><>::
+::res://assets/livello_elisa/::1733921483
+delete.png::CompressedTexture2D::1961430816508370201::1733397187::1733921483::1::::<><>::
+::res://assets/livello_federico/::1733921483
+delete.png::CompressedTexture2D::494898022905427162::1733397187::1733921483::1::::<><>::
+::res://assets/livello_sara/::1733921483
+delete.png::CompressedTexture2D::6620405346525300745::1733397187::1733921483::1::::<><>::
+::res://scenes/::1733397255
+::res://scenes/globali/::1733925044
+player.tscn::PackedScene::5496749362484375832::1733396849::0::1::::<><>::
+skeleton.tscn::PackedScene::-1::1733925044::0::1::::<><>::
+::res://scenes/livello_elisa/::1733225811
+livello_elisa.tscn::PackedScene::3564720137617299658::1733225811::0::1::::<><>::
+::res://scenes/livello_federico/::1733225811
+livello_federico.tscn::PackedScene::9146952854555710338::1733225811::0::1::::<><>::
+::res://scenes/livello_sara/::1733225811
+livello_sara.tscn::PackedScene::1127341572595250171::1733225811::0::1::::<><>::
+::res://scripts/::1733397245
+::res://scripts/globali/::1733921483
+delete.png::CompressedTexture2D::7705234739032791831::1733397187::1733921483::1::::<><>::
+::res://scripts/livello_elisa/::1733921483
+delete.png::CompressedTexture2D::1588671229341018740::1733397187::1733921483::1::::<><>::
+::res://scripts/livello_federico/::1733921483
+delete.png::CompressedTexture2D::5657182436692986354::1733397187::1733921483::1::::<><>::
+::res://scripts/livello_sara/::1733921483
+delete.png::CompressedTexture2D::8643594335447306282::1733397187::1733921483::1::::<><>::
