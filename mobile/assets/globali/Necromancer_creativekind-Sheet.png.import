@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dgwttjy6spsdc"
-path="res://.godot/imported/delete.png-bff06c9f9030366521f667cb2c9f623a.ctex"
+uid="uid://caopkrdhyl6nt"
+path="res://.godot/imported/Necromancer_creativekind-Sheet.png-c586fef08f2846594c6d50de1c7eddf8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/globali/delete.png"
-dest_files=["res://.godot/imported/delete.png-bff06c9f9030366521f667cb2c9f623a.ctex"]
+source_file="res://assets/globali/Necromancer_creativekind-Sheet.png"
+dest_files=["res://.godot/imported/Necromancer_creativekind-Sheet.png-c586fef08f2846594c6d50de1c7eddf8.ctex"]
 
 [params]
 
