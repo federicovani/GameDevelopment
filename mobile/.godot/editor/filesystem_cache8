@@ -1,9 +1,9 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1733930521
+::res://::1733930652
 ::res://assets/::1733930490
-::res://assets/globali/::1733927956
+::res://assets/globali/::1733930522
 Necromancer_creativekind-Sheet.png::CompressedTexture2D::4802672166655539265::1733921026::1733930522::1::::<><>::
-::res://assets/globali/Blue_witch/::1733927972
+::res://assets/globali/Blue_witch/::1733930522
 B_witch_attack.png::CompressedTexture2D::2666906296737081713::1733927956::1733930522::1::::<><>::
 B_witch_charge.png::CompressedTexture2D::3554841871864497670::1733927956::1733930522::1::::<><>::
 B_witch_death.png::CompressedTexture2D::5908232380703699748::1733927956::1733930522::1::::<><>::
@@ -12,7 +12,7 @@ B_witch_run.png::CompressedTexture2D::529889872433144419::1733927956::1733930522
 B_witch_take_damage.png::CompressedTexture2D::7925716284578811614::1733927956::1733930522::1::::<><>::
 ::res://assets/globali/Outline/::1733927706
 ::res://assets/globali/Outline/120x80_gifs/::1733927706
-::res://assets/globali/Outline/120x80_PNGSheets/::1733927717
+::res://assets/globali/Outline/120x80_PNGSheets/::1733930522
 _Attack2.png::CompressedTexture2D::6882269719293508971::1733927706::1733930522::1::::<><>::
 _Attack2NoMovement.png::CompressedTexture2D::1968449621505488329::1733927706::1733930522::1::::<><>::
 _Attack.png::CompressedTexture2D::274988322818777508::1733927706::1733930522::1::::<><>::
@@ -46,17 +46,17 @@ _WallSlide.png::CompressedTexture2D::608907994819454648::1733927706::1733930522:
 ::res://assets/globali/Skeleton/::1733925558
 ::res://assets/globali/Skeleton/Files/::1733925558
 ::res://assets/globali/Skeleton/GIFS/::1733925558
-::res://assets/globali/Skeleton/Sprite Sheets/::1733926345
+::res://assets/globali/Skeleton/Sprite Sheets/::1733930522
 Skeleton Attack.png::CompressedTexture2D::9142587648020999639::1733925558::1733930522::1::::<><>::
 Skeleton Dead.png::CompressedTexture2D::8946022412132080210::1733925558::1733930522::1::::<><>::
 Skeleton Hit.png::CompressedTexture2D::2074583528801813320::1733925558::1733930522::1::::<><>::
 Skeleton Idle.png::CompressedTexture2D::8216917219048415757::1733925558::1733930522::1::::<><>::
 Skeleton React.png::CompressedTexture2D::6294700548958581727::1733925558::1733930522::1::::<><>::
 Skeleton Walk.png::CompressedTexture2D::1194032503305262711::1733925558::1733930522::1::::<><>::
-::res://assets/livello_elisa/::1733926345
+::res://assets/livello_elisa/::1733930522
 delete.png::CompressedTexture2D::1961430816508370201::1733911072::1733930522::1::::<><>::
 ::res://assets/livello_federico/::1733927956
-::res://assets/livello_federico/PixelFantasy_Caves_1/::1733927972
+::res://assets/livello_federico/PixelFantasy_Caves_1/::1733930522
 background1.png::CompressedTexture2D::6242477738490388238::1733927956::1733930522::1::::<><>::
 background2.png::CompressedTexture2D::8985724731855442413::1733927956::1733930522::1::::<><>::
 background3.png::CompressedTexture2D::8529933699688692449::1733927956::1733930522::1::::<><>::
@@ -67,11 +67,11 @@ props1.png::CompressedTexture2D::8857988227595648378::1733927956::1733930522::1:
 props2.png::CompressedTexture2D::95345545998567725::1733927956::1733930522::1::::<><>::
 ::res://assets/livello_federico/PixelFantasy_Caves_1/PSD/::1733927956
 ::res://assets/livello_sara/::1733930490
-::res://assets/livello_sara/PixelPlatformerSet1v/::1733930490
+::res://assets/livello_sara/PixelPlatformerSet1v/::1733930522
 main_lev_build.png::CompressedTexture2D::914876279046013573::1733930490::1733930522::1::::<><>::
 other_and_decorative.png::CompressedTexture2D::6690539114577231658::1733930490::1733930522::1::::<><>::
 public-license.txt::TextFile::-1::1733930490::0::1::::<><>::
-::res://assets/livello_sara/PixelPlatformerSet1v/Anim/::1733930490
+::res://assets/livello_sara/PixelPlatformerSet1v/Anim/::1733930522
 diamond-01.png::CompressedTexture2D::6854582266348323310::1733930490::1733930522::1::::<><>::
 diamond-02.png::CompressedTexture2D::4677623424573131091::1733930490::1733930522::1::::<><>::
 diamond-03.png::CompressedTexture2D::2612204535277254971::1733930490::1733930522::1::::<><>::
@@ -93,7 +93,7 @@ torch-C-01.png::CompressedTexture2D::5147717873151290193::1733930490::1733930522
 torch-C-02.png::CompressedTexture2D::3257087628629967957::1733930490::1733930522::1::::<><>::
 torch-C-03.png::CompressedTexture2D::132814027002810476::1733930490::1733930522::1::::<><>::
 torch-C-04.png::CompressedTexture2D::3007924216640360012::1733930490::1733930522::1::::<><>::
-::res://assets/livello_sara/PixelPlatformerSet1v/Background/::1733930490
+::res://assets/livello_sara/PixelPlatformerSet1v/Background/::1733930522
 01 background.png::CompressedTexture2D::5303442247005001771::1733930490::1733930522::1::::<><>::
 02 background.png::CompressedTexture2D::559735923413374052::1733930490::1733930522::1::::<><>::
 03 background A.png::CompressedTexture2D::5375009369429551734::1733930490::1733930522::1::::<><>::
@@ -101,7 +101,7 @@ torch-C-04.png::CompressedTexture2D::3007924216640360012::1733930490::1733930522
 04 background.png::CompressedTexture2D::1283085860542049571::1733930490::1733930522::1::::<><>::
 05 background.png::CompressedTexture2D::2633528595246321466::1733930490::1733930522::1::::<><>::
 ::res://assets/livello_sara/PixelPlatformerSet1v/Character/::1733930490
-::res://assets/livello_sara/PixelPlatformerSet1v/Character/Sprite/::1733930490
+::res://assets/livello_sara/PixelPlatformerSet1v/Character/Sprite/::1733930522
 attack-01.png::CompressedTexture2D::3641153752074091863::1733930490::1733930522::1::::<><>::
 attack-02.png::CompressedTexture2D::8211655002860502305::1733930490::1733930522::1::::<><>::
 attack-03.png::CompressedTexture2D::452445050439014724::1733930490::1733930522::1::::<><>::
@@ -145,11 +145,11 @@ livello_federico.tscn::PackedScene::9146952854555710338::1733911072::0::1::::<><
 ::res://scenes/livello_sara/::1733911072
 livello_sara.tscn::PackedScene::1127341572595250171::1733911072::0::1::::<><>::
 ::res://scripts/::1733930243
-::res://scripts/globali/::1733926345
+::res://scripts/globali/::1733930522
 delete.png::CompressedTexture2D::7705234739032791831::1733911072::1733930522::1::::<><>::
-::res://scripts/livello_elisa/::1733926345
+::res://scripts/livello_elisa/::1733930522
 delete.png::CompressedTexture2D::1588671229341018740::1733911072::1733930522::1::::<><>::
-::res://scripts/livello_federico/::1733926345
+::res://scripts/livello_federico/::1733930522
 delete.png::CompressedTexture2D::5657182436692986354::1733911072::1733930522::1::::<><>::
-::res://scripts/livello_sara/::1733926345
+::res://scripts/livello_sara/::1733930522
 delete.png::CompressedTexture2D::8643594335447306282::1733911072::1733930522::1::::<><>::
