@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c84q7rgy8bd2b"]
+[gd_scene load_steps=10 format=3 uid="uid://dfkwtyydjgj0k"]
 
 [ext_resource type="Texture2D" uid="uid://ttdieflig7fd" path="res://assets/globali/Blue_witch/B_witch_idle.png" id="1_u4alw"]
 
@@ -64,7 +64,7 @@ scale = Vector2(3.875, 3.52083)
 sprite_frames = SubResource("SpriteFrames_xsvuk")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.181425
+frame_progress = 0.894352
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
