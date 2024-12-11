@@ -90,8 +90,9 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qsxmv")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.224072
+frame_progress = 0.957406
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-5, 20.5)
 shape = SubResource("RectangleShape2D_86jqi")
