@@ -1,7 +1,13 @@
 <<<<<<< HEAD
+res://assets/globali/Skeleton/Sprite Sheets
+res://assets/globali/Blue_witch
+res://scenes/globali
+=======
+res://assets/globali/Blue_witch
+res://assets/globali
+<<<<<<< HEAD
 res://
 res://assets/globali/Outline/120x80_PNGSheets
-res://assets/globali
 <<<<<<< HEAD
 =======
 res://assets/globali/Skeleton/Sprite Sheets
@@ -9,6 +15,6 @@ res://assets/globali/Skeleton/Sprite Sheets
 =======
 >>>>>>> c215eef66fb8b9e21b6853fa8e7a0c41b10c6b16
 res://scenes/globali
-res://assets/globali/Blue_witch
 res://assets/globali/Skeleton/Sprite Sheets
+>>>>>>> 76984feb89c2e0339a795662394ba18caeef83b4
 res://scenes

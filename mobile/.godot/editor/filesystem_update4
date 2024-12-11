@@ -1,3 +1,11 @@
+<<<<<<< HEAD
+res://assets/globali/necromancer.tscn
+res://scripts/player.tscn
 res://scenes/globali/necromancer.tscn
 res://scenes/globali/skeleton.tscn
 res://scenes/globali/witch.tscn
+res://scenes/globali/knight.tscn
+=======
+res://scenes/globali/necromancer.tscn
+res://scenes/globali/witch.tscn
+>>>>>>> 76984feb89c2e0339a795662394ba18caeef83b4

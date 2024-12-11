@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://cooqavu4dysdh"]
+[gd_scene load_steps=14 format=3 uid="uid://cmvr0blmdbg8h"]
 
 [ext_resource type="Texture2D" uid="uid://c4kfopaq80tkc" path="res://assets/globali/Outline/120x80_PNGSheets/_Idle.png" id="1_gs2d1"]
 
@@ -90,8 +90,9 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qsxmv")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.224072
+frame_progress = 0.903188
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-5, 20.5)
 shape = SubResource("RectangleShape2D_86jqi")

@@ -2,16 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1k8dx1ovnlc8"
-path="res://.godot/imported/delete.png-b5830929af0d476b53e87373c98179f0.ctex"
+<<<<<<< HEAD
+uid="uid://byxfkudpexoqx"
+=======
+uid="uid://caywvog0ng70q"
+>>>>>>> 76984feb89c2e0339a795662394ba18caeef83b4
+path="res://.godot/imported/run-07.png-6bdfb15ec95a74ff59c8552666d0a4e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/livello_sara/delete.png"
-dest_files=["res://.godot/imported/delete.png-b5830929af0d476b53e87373c98179f0.ctex"]
+source_file="res://assets/livello_sara/PixelPlatformerSet1v/Character/Sprite/run-07.png"
+dest_files=["res://.godot/imported/run-07.png-6bdfb15ec95a74ff59c8552666d0a4e6.ctex"]
 
 [params]
 

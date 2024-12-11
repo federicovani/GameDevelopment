@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://bfac6r4tb0m06"]
+
+[ext_resource type="Texture2D" uid="uid://caopkrdhyl6nt" path="res://assets/globali/Necromancer_creativekind-Sheet.png" id="1_lbsrm"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5ve38"]
+atlas = ExtResource("1_lbsrm")
+region = Rect2(0, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mo6kv"]
+atlas = ExtResource("1_lbsrm")
+region = Rect2(160, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hass1"]
+atlas = ExtResource("1_lbsrm")
+region = Rect2(320, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g0hth"]
+atlas = ExtResource("1_lbsrm")
+region = Rect2(480, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_24rk2"]
+atlas = ExtResource("1_lbsrm")
+region = Rect2(640, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w807b"]
+atlas = ExtResource("1_lbsrm")
+region = Rect2(800, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p43ir"]
+atlas = ExtResource("1_lbsrm")
+region = Rect2(960, 0, 160, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p6d3b"]
+atlas = ExtResource("1_lbsrm")
+region = Rect2(1120, 0, 160, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_edtdv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5ve38")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mo6kv")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hass1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g0hth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_24rk2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_w807b")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p43ir")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p6d3b")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_x3b5d"]
+size = Vector2(38, 44)
+
+[node name="Necromancer" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+sprite_frames = SubResource("SpriteFrames_edtdv")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.797166
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(2, 26)
+shape = SubResource("RectangleShape2D_x3b5d")
