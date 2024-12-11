@@ -1,6 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
-::res://::1733927371
-::res://assets/::1733927689
+::res://::1733930392
+::res://assets/::1733930395
 ::res://assets/globali/::1733930176
 Necromancer_creativekind-Sheet.png::CompressedTexture2D::4802672166655539265::1733924898::1733924932::1::::<><>::
 ::res://assets/globali/Blue_witch/::1733927377
@@ -12,7 +12,7 @@ B_witch_run.png::CompressedTexture2D::529889872433144419::1610930130::1733927377
 B_witch_take_damage.png::CompressedTexture2D::7925716284578811614::1610930182::1733927377::1::::<><>::
 ::res://assets/globali/Outline/::1733930176
 ::res://assets/globali/Outline/120x80_gifs/::1733930176
-::res://assets/globali/Outline/120x80_PNGSheets/::1733930176
+::res://assets/globali/Outline/120x80_PNGSheets/::1733930231
 _Attack2.png::CompressedTexture2D::6882269719293508971::1733930176::1733930231::1::::<><>::
 _Attack2NoMovement.png::CompressedTexture2D::1968449621505488329::1733930176::1733930231::1::::<><>::
 _Attack.png::CompressedTexture2D::274988322818777508::1733930176::1733930231::1::::<><>::
@@ -66,14 +66,78 @@ mainlev_build.png::CompressedTexture2D::1137943349655778869::1733927689::1733927
 props1.png::CompressedTexture2D::8857988227595648378::1733927689::1733927709::1::::<><>::
 props2.png::CompressedTexture2D::95345545998567725::1733927689::1733927709::1::::<><>::
 ::res://assets/livello_federico/PixelFantasy_Caves_1/PSD/::1733927689
-::res://assets/livello_sara/::1733924932
-delete.png::CompressedTexture2D::6620405346525300745::1733924898::1733924932::1::::<><>::
+::res://assets/livello_sara/::1733930400
+::res://assets/livello_sara/PixelPlatformerSet1v/::1733930346
+main_lev_build.png::CompressedTexture2D::7913336153699801178::1558450100::1733930552::1::::<><>::
+other_and_decorative.png::CompressedTexture2D::717705188707317044::1558449932::1733930552::1::::<><>::
+public-license.txt::TextFile::-1::1557339268::0::1::::<><>::
+::res://assets/livello_sara/PixelPlatformerSet1v/Anim/::1558467186
+diamond-01.png::CompressedTexture2D::2590102729385865537::1558451088::1733930552::1::::<><>::
+diamond-02.png::CompressedTexture2D::8827450164774380878::1558451088::1733930552::1::::<><>::
+diamond-03.png::CompressedTexture2D::4188934075463613338::1558451088::1733930552::1::::<><>::
+diamond-04.png::CompressedTexture2D::2057199100728777289::1558451086::1733930552::1::::<><>::
+diamond-05.png::CompressedTexture2D::5501180277681837040::1558451086::1733930552::1::::<><>::
+light-01.png::CompressedTexture2D::3415015708494672981::1558450222::1733930552::1::::<><>::
+light-02.png::CompressedTexture2D::741997437421027258::1558450222::1733930552::1::::<><>::
+light-03.png::CompressedTexture2D::6951464346774571284::1558450222::1733930552::1::::<><>::
+light-04.png::CompressedTexture2D::8362830891166036072::1558450222::1733930552::1::::<><>::
+torch-A-01.png::CompressedTexture2D::6359899346828829619::1558450332::1733930552::1::::<><>::
+torch-A-02.png::CompressedTexture2D::2920466753988024898::1558450332::1733930552::1::::<><>::
+torch-A-03.png::CompressedTexture2D::7649477231684691040::1558450330::1733930552::1::::<><>::
+torch-A-04.png::CompressedTexture2D::4017693036053641357::1558450330::1733930552::1::::<><>::
+torch-B-01.png::CompressedTexture2D::3168868758205511680::1558450384::1733930552::1::::<><>::
+torch-B-02.png::CompressedTexture2D::1952787778195918729::1558450382::1733930552::1::::<><>::
+torch-B-03.png::CompressedTexture2D::6452794537612603938::1558450382::1733930552::1::::<><>::
+torch-B-04.png::CompressedTexture2D::3661169276404002282::1558450382::1733930552::1::::<><>::
+torch-C-01.png::CompressedTexture2D::7112705810547294196::1558450478::1733930552::1::::<><>::
+torch-C-02.png::CompressedTexture2D::6169329926474241792::1558450478::1733930552::1::::<><>::
+torch-C-03.png::CompressedTexture2D::6376516700879168704::1558450476::1733930552::1::::<><>::
+torch-C-04.png::CompressedTexture2D::351291547822242980::1558450476::1733930552::1::::<><>::
+::res://assets/livello_sara/PixelPlatformerSet1v/Background/::1558467084
+01 background.png::CompressedTexture2D::8301732305453162721::1558450612::1733930552::1::::<><>::
+02 background.png::CompressedTexture2D::5744024398391885150::1558450666::1733930552::1::::<><>::
+03 background A.png::CompressedTexture2D::1567649783595441744::1558450686::1733930552::1::::<><>::
+03 background B.png::CompressedTexture2D::2561714473137616507::1558450992::1733930552::1::::<><>::
+04 background.png::CompressedTexture2D::1254585758474596118::1558450706::1733930552::1::::<><>::
+05 background.png::CompressedTexture2D::7407424822804771407::1558450730::1733930552::1::::<><>::
+::res://assets/livello_sara/PixelPlatformerSet1v/Character/::1558886790
+::res://assets/livello_sara/PixelPlatformerSet1v/Character/Sprite/::1558886790
+attack-01.png::CompressedTexture2D::1316302618950591382::1558885686::1733930552::1::::<><>::
+attack-02.png::CompressedTexture2D::5603384625367669183::1558885684::1733930552::1::::<><>::
+attack-03.png::CompressedTexture2D::583051096423545410::1558885680::1733930552::1::::<><>::
+attack-04.png::CompressedTexture2D::6133292889613427588::1558885678::1733930552::1::::<><>::
+attack-05.png::CompressedTexture2D::8060402808197629677::1558885676::1733930552::1::::<><>::
+attack-06.png::CompressedTexture2D::4411780883611699339::1558885674::1733930552::1::::<><>::
+attack-07-continue.png::CompressedTexture2D::6784130152736495763::1558885670::1733930552::1::::<><>::
+attack-08-continue.png::CompressedTexture2D::4414680241214237527::1558885668::1733930552::1::::<><>::
+dead-01.png::CompressedTexture2D::4208066745245452802::1558885634::1733930552::1::::<><>::
+dead-02.png::CompressedTexture2D::1324915864407316164::1558885630::1733930552::1::::<><>::
+dead-03.png::CompressedTexture2D::3636496448037261254::1558885628::1733930552::1::::<><>::
+dead-04.png::CompressedTexture2D::3975794949641442419::1558885624::1733930552::1::::<><>::
+idle-01.png::CompressedTexture2D::4359584222281023470::1558885664::1733930552::1::::<><>::
+idle-02.png::CompressedTexture2D::6200254071437271922::1558885662::1733930552::1::::<><>::
+idle-03.png::CompressedTexture2D::444186095584192588::1558885660::1733930552::1::::<><>::
+idle-04.png::CompressedTexture2D::6743114470204872189::1558885656::1733930552::1::::<><>::
+idle-05.png::CompressedTexture2D::8832236208834390714::1558885654::1733930552::1::::<><>::
+idle-06.png::CompressedTexture2D::5212810933196202780::1558885652::1733930552::1::::<><>::
+jump-01.png::CompressedTexture2D::3711035574981050480::1558885648::1733930552::1::::<><>::
+jump-02.png::CompressedTexture2D::7330138177881886044::1558885646::1733930552::1::::<><>::
+jump-landing-01.png::CompressedTexture2D::2217359543422378264::1558885642::1733930552::1::::<><>::
+jump-landing-02.png::CompressedTexture2D::4691571329001540652::1558885640::1733930552::1::::<><>::
+jump-landing-03.png::CompressedTexture2D::5188907862811760445::1558885636::1733930552::1::::<><>::
+run-01.png::CompressedTexture2D::2106745437163045980::1558885704::1733930552::1::::<><>::
+run-02.png::CompressedTexture2D::3155220933769843144::1558885702::1733930552::1::::<><>::
+run-03.png::CompressedTexture2D::1113168934159386294::1558885698::1733930552::1::::<><>::
+run-04.png::CompressedTexture2D::5251669611997191052::1558885696::1733930552::1::::<><>::
+run-05.png::CompressedTexture2D::2425367399716621076::1558885694::1733930552::1::::<><>::
+run-06.png::CompressedTexture2D::3675577518887814783::1558885692::1733930552::1::::<><>::
+run-07.png::CompressedTexture2D::2503767109306809745::1558885688::1733930552::1::::<><>::
 ::res://scenes/::1733924967
-::res://scenes/globali/::1733930176
-knight.tscn::PackedScene::-1::1733930176::0::1::::<><>::
-necromancer.tscn::PackedScene::1967994279176473620::1733925732::0::1::::<><>::uid://caopkrdhyl6nt::::res://assets/globali/Necromancer_creativekind-Sheet.png
-witch.tscn::PackedScene::7149969682898596283::1733930159::0::1::::<><>::uid://ttdieflig7fd::::res://assets/globali/Blue_witch/B_witch_idle.png
-skeleton.tscn::PackedScene::8518733419507224877::1733927429::0::1::::<><>::uid://dpcloqtc4w22l::::res://assets/globali/Skeleton/Sprite Sheets/Skeleton Idle.png<>uid://ransniyhrad0::::res://assets/globali/Skeleton/Sprite Sheets/Skeleton Walk.png
+::res://scenes/globali/::1733930293
+knight.tscn::PackedScene::5659536327667978489::1733930293::0::1::::<><>::uid://c4kfopaq80tkc::::res://assets/globali/Outline/120x80_PNGSheets/_Idle.png
+necromancer.tscn::PackedScene::1967994279176473620::1733930232::0::1::::<><>::uid://caopkrdhyl6nt::::res://assets/globali/Necromancer_creativekind-Sheet.png
+witch.tscn::PackedScene::7149969682898596283::1733930232::0::1::::<><>::uid://ttdieflig7fd::::res://assets/globali/Blue_witch/B_witch_idle.png
+skeleton.tscn::PackedScene::8518733419507224877::1733930232::0::1::::<><>::uid://dpcloqtc4w22l::::res://assets/globali/Skeleton/Sprite Sheets/Skeleton Idle.png<>uid://ransniyhrad0::::res://assets/globali/Skeleton/Sprite Sheets/Skeleton Walk.png
 ::res://scenes/livello_elisa/::1733924898
 livello_elisa.tscn::PackedScene::3564720137617299658::1733924898::0::1::::<><>::
 ::res://scenes/livello_federico/::1733924898
