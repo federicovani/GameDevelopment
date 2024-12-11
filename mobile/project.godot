@@ -10,10 +10,10 @@ config_version=5
 
 [application]
 
-config/name="Mobile"
-config/features=PackedStringArray("4.3", "Forward Plus")
+config/name="Game Development"
+config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
-[dotnet]
+[rendering]
 
-project/assembly_name="Mobile"
+renderer/rendering_method="mobile"
