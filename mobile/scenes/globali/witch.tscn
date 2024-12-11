@@ -1,0 +1,72 @@
+[gd_scene load_steps=10 format=3 uid="uid://c84q7rgy8bd2b"]
+
+[ext_resource type="Texture2D" uid="uid://ttdieflig7fd" path="res://assets/globali/Blue_witch/B_witch_idle.png" id="1_u4alw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ihw6d"]
+atlas = ExtResource("1_u4alw")
+region = Rect2(0, 0, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6w0bt"]
+atlas = ExtResource("1_u4alw")
+region = Rect2(0, 48, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vtl5k"]
+atlas = ExtResource("1_u4alw")
+region = Rect2(0, 96, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u3w8p"]
+atlas = ExtResource("1_u4alw")
+region = Rect2(0, 144, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kbqsh"]
+atlas = ExtResource("1_u4alw")
+region = Rect2(0, 192, 32, 48)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7us7r"]
+atlas = ExtResource("1_u4alw")
+region = Rect2(0, 240, 32, 48)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_xsvuk"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ihw6d")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6w0bt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vtl5k")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_u3w8p")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kbqsh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_7us7r")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ahg1"]
+size = Vector2(47, 97)
+
+[node name="CharacterBody2D" type="CharacterBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 3
+position = Vector2(3.8147e-06, -86)
+scale = Vector2(3.875, 3.52083)
+sprite_frames = SubResource("SpriteFrames_xsvuk")
+animation = &"idle"
+autoplay = "idle"
+frame_progress = 0.181425
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(-3.5, -78.5)
+shape = SubResource("RectangleShape2D_3ahg1")

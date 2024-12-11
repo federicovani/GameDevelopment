@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://hby5sif1x5g5"
-path="res://.godot/imported/delete.png-397b51aa8bfe57692d64580d05f9313c.ctex"
+uid="uid://bd84s678gkq4h"
+path="res://.godot/imported/B_witch_attack.png-9fc41e4ee005f1a2ec8853f106562ba2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/livello_federico/delete.png"
-dest_files=["res://.godot/imported/delete.png-397b51aa8bfe57692d64580d05f9313c.ctex"]
+source_file="res://assets/globali/Blue_witch/B_witch_attack.png"
+dest_files=["res://.godot/imported/B_witch_attack.png-9fc41e4ee005f1a2ec8853f106562ba2.ctex"]
 
 [params]
 
