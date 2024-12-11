@@ -1,5 +1,6 @@
 ea4bc82a6ad023ab7ee23ee620429895
 <<<<<<< HEAD
+<<<<<<< HEAD
 ::res://::1733921482
 ::res://assets/::1733919572
 ::res://assets/globali/::1733925044
@@ -84,9 +85,12 @@ delete.png::CompressedTexture2D::5657182436692986354::1733911072::1733911187::1:
 delete.png::CompressedTexture2D::8643594335447306282::1733911072::1733911187::1::::<><>::
 =======
 ::res://::1733924960
+=======
+::res://::1733925124
+>>>>>>> 4deb167965a8f60713b85af76544d9a7d93ee48f
 ::res://assets/::1733924960
-::res://assets/globali/::1733924997
-necromancer.tscn::PackedScene::1967994279176473620::1733924997::0::1::::<><>::uid://caopkrdhyl6nt::::res://assets/globali/Necromancer_creativekind-Sheet.png
+::res://assets/globali/::1733925127
+necromancer.tscn::PackedScene::1967994279176473620::1733925320::0::1::::<><>::uid://caopkrdhyl6nt::::res://assets/globali/Necromancer_creativekind-Sheet.png
 Necromancer_creativekind-Sheet.png::CompressedTexture2D::4802672166655539265::1733924898::1733924932::1::::<><>::
 ::res://assets/globali/Skeleton/::1493933070
 ::res://assets/globali/Skeleton/Files/::1493931650
@@ -105,8 +109,7 @@ delete.png::CompressedTexture2D::494898022905427162::1733924898::1733924932::1::
 ::res://assets/livello_sara/::1733924932
 delete.png::CompressedTexture2D::6620405346525300745::1733924898::1733924932::1::::<><>::
 ::res://scenes/::1733924967
-::res://scenes/globali/::1733924962
-player.tscn::PackedScene::5496749362484375832::1733924898::0::1::::<><>::
+::res://scenes/globali/::1733925165
 skeleton.tscn::PackedScene::-1::1733920744::0::1::::<><>::
 ::res://scenes/livello_elisa/::1733924898
 livello_elisa.tscn::PackedScene::3564720137617299658::1733924898::0::1::::<><>::
@@ -114,7 +117,8 @@ livello_elisa.tscn::PackedScene::3564720137617299658::1733924898::0::1::::<><>::
 livello_federico.tscn::PackedScene::9146952854555710338::1733924898::0::1::::<><>::
 ::res://scenes/livello_sara/::1733924898
 livello_sara.tscn::PackedScene::1127341572595250171::1733924898::0::1::::<><>::
-::res://scripts/::1733924898
+::res://scripts/::1733925165
+player.tscn::PackedScene::5496749362484375832::1733925320::0::1::::<><>::
 ::res://scripts/globali/::1733924932
 delete.png::CompressedTexture2D::7705234739032791831::1733924898::1733924932::1::::<><>::
 ::res://scripts/livello_elisa/::1733924932
