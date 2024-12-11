@@ -193,9 +193,9 @@ size = Vector2(16, 24)
 texture_filter = 1
 position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_afixt")
-animation = &"walk"
+animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.186001
+frame_progress = 0.362501
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, -12)
