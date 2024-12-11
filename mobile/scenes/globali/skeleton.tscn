@@ -195,7 +195,15 @@ position = Vector2(0, -16)
 sprite_frames = SubResource("SpriteFrames_afixt")
 animation = &"idle"
 autoplay = "idle"
+<<<<<<< HEAD
 frame_progress = 0.242013
+=======
+<<<<<<< HEAD
+frame_progress = 0.261686
+=======
+frame_progress = 0.891873
+>>>>>>> 016ec2d20802284493bf6773e698ea54a26a7e4a
+>>>>>>> 5b223d80072101a0a3f29d5ef3f2fc09c05e1d31
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

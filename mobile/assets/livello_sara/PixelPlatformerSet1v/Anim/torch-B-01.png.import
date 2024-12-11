@@ -2,7 +2,11 @@
 
 importer="texture"
 type="CompressedTexture2D"
+<<<<<<< HEAD
 uid="uid://blfa2negywd5i"
+=======
+uid="uid://dqv40s5wekujn"
+>>>>>>> 5b223d80072101a0a3f29d5ef3f2fc09c05e1d31
 path="res://.godot/imported/torch-B-01.png-26ddf5f59348957a45d16d4256525a25.ctex"
 metadata={
 "vram_texture": false
