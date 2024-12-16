@@ -64,7 +64,19 @@ scale = Vector2(3.875, 3.52083)
 sprite_frames = SubResource("SpriteFrames_xsvuk")
 animation = &"idle"
 autoplay = "idle"
+<<<<<<< HEAD
 frame_progress = 0.544331
+=======
+<<<<<<< HEAD
+frame_progress = 0.117277
+=======
+<<<<<<< HEAD
+frame_progress = 0.544331
+=======
+frame_progress = 0.941448
+>>>>>>> 76984feb89c2e0339a795662394ba18caeef83b4
+>>>>>>> a8b7253cf03600f693cce5b3e06d8d9630dd4deb
+>>>>>>> 214ad09bee201f40a28a5047425d97abd215f85d
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

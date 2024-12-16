@@ -1,3 +1,11 @@
-[gd_scene format=3 uid="uid://bq11ojl7t5xeg"]
+[gd_scene load_steps=2 format=3 uid="uid://bq11ojl7t5xeg"]
+
+[ext_resource type="PackedScene" uid="uid://c84q7rgy8bd2b" path="res://scenes/globali/witch.tscn" id="1_4h36q"]
 
 [node name="livello_elisa" type="Node2D"]
+
+[node name="CharacterBody2D" parent="." instance=ExtResource("1_4h36q")]
+position = Vector2(4, 4)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(2, 4)
