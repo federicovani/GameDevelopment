@@ -231,7 +231,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"attack",
-"speed": 5.0
+"speed": 10.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -313,7 +313,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"walk",
-"speed": 5.0
+"speed": 10.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d7dy1"]
@@ -325,10 +325,9 @@ size = Vector2(16, 24)
 texture_filter = 1
 position = Vector2(0, -19)
 sprite_frames = SubResource("SpriteFrames_afixt")
-animation = &"attack"
+animation = &"walk"
 autoplay = "idle"
-frame = 16
-frame_progress = 0.498792
+frame_progress = 0.552966
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
