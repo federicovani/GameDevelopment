@@ -1,3 +1,7 @@
 res://scenes/globali/necromancer.tscn
+res://scenes/globali/skeleton.tscn
 res://scenes/globali/witch.tscn
-res://scenes/livello_elisa/livello_elisa.tscn
+res://scenes/globali/knight.tscn
+res://scenes/livello_federico/livello_federico.tscn
+res://scenes/livello_federico/background.tscn
+res://scenes/livello_sara/background.tscn
