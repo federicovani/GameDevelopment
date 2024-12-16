@@ -11,11 +11,7 @@ config_version=5
 [application]
 
 config/name="Game Development"
-<<<<<<< HEAD
 run/main_scene="res://scenes/livello_federico/background.tscn"
-=======
-run/main_scene="res://scenes/livello_federico/livello_federico.tscn"
->>>>>>> 90c3b2fb3256d7f00db4fed3ae1f9c9b720f26ce
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
@@ -25,8 +21,4 @@ project/assembly_name="Game Development"
 
 [rendering]
 
-<<<<<<< HEAD
 renderer/rendering_method="mobile"
-=======
-textures/canvas_textures/default_texture_filter=0
->>>>>>> 90c3b2fb3256d7f00db4fed3ae1f9c9b720f26ce
