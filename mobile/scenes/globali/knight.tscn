@@ -1,5 +1,6 @@
-[gd_scene load_steps=14 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=15 format=3 uid="uid://cmvr0blmdbg8h"]
 
+[ext_resource type="Script" path="res://scripts/globali/knight.gd" id="1_3twg6"]
 [ext_resource type="Texture2D" uid="uid://c4kfopaq80tkc" path="res://assets/globali/Outline/120x80_PNGSheets/_Idle.png" id="1_gs2d1"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_irhb1"]
@@ -80,23 +81,23 @@ animations = [{
 "speed": 10.0
 }]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_86jqi"]
-size = Vector2(20, 37)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sbt4y"]
+size = Vector2(17, 38)
 
 [node name="knight" type="CharacterBody2D"]
+z_index = 5
+script = ExtResource("1_3twg6")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
+position = Vector2(3, -1)
 sprite_frames = SubResource("SpriteFrames_qsxmv")
 animation = &"idle"
 autoplay = "idle"
-<<<<<<< HEAD
-frame_progress = 0.957406
-=======
-frame_progress = 0.239632
->>>>>>> 016ec2d20802284493bf6773e698ea54a26a7e4a
+frame_progress = 0.903188
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
-position = Vector2(-5, 20.5)
-shape = SubResource("RectangleShape2D_86jqi")
+z_index = 5
+position = Vector2(-2.5, 20)
+shape = SubResource("RectangleShape2D_sbt4y")

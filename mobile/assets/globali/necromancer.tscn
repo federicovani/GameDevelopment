@@ -1,37 +1,37 @@
-[gd_scene load_steps=12 format=3 uid="uid://3bktwps6pw33"]
+[gd_scene load_steps=12 format=3 uid="uid://bfac6r4tb0m06"]
 
-[ext_resource type="Texture2D" uid="uid://caopkrdhyl6nt" path="res://assets/globali/Necromancer_creativekind-Sheet.png" id="1_5s5al"]
+[ext_resource type="Texture2D" uid="uid://caopkrdhyl6nt" path="res://assets/globali/Necromancer_creativekind-Sheet.png" id="1_lbsrm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5ve38"]
-atlas = ExtResource("1_5s5al")
+atlas = ExtResource("1_lbsrm")
 region = Rect2(0, 0, 160, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_mo6kv"]
-atlas = ExtResource("1_5s5al")
+atlas = ExtResource("1_lbsrm")
 region = Rect2(160, 0, 160, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_hass1"]
-atlas = ExtResource("1_5s5al")
+atlas = ExtResource("1_lbsrm")
 region = Rect2(320, 0, 160, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_g0hth"]
-atlas = ExtResource("1_5s5al")
+atlas = ExtResource("1_lbsrm")
 region = Rect2(480, 0, 160, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_24rk2"]
-atlas = ExtResource("1_5s5al")
+atlas = ExtResource("1_lbsrm")
 region = Rect2(640, 0, 160, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_w807b"]
-atlas = ExtResource("1_5s5al")
+atlas = ExtResource("1_lbsrm")
 region = Rect2(800, 0, 160, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p43ir"]
-atlas = ExtResource("1_5s5al")
+atlas = ExtResource("1_lbsrm")
 region = Rect2(960, 0, 160, 128)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p6d3b"]
-atlas = ExtResource("1_5s5al")
+atlas = ExtResource("1_lbsrm")
 region = Rect2(1120, 0, 160, 128)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_edtdv"]
@@ -63,7 +63,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"idle",
-"speed": 10.0
+"speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3b5d"]
@@ -76,10 +76,7 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_edtdv")
 animation = &"idle"
 autoplay = "idle"
-<<<<<<< HEAD
-=======
-frame_progress = 0.390441
->>>>>>> a8b7253cf03600f693cce5b3e06d8d9630dd4deb
+frame_progress = 0.797166
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
