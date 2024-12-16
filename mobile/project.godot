@@ -21,4 +21,4 @@ project/assembly_name="Game Development"
 
 [rendering]
 
-renderer/rendering_method="mobile"
+textures/canvas_textures/default_texture_filter=3
