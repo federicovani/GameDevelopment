@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://27eqjx2h7pcj"
-path="res://.godot/imported/delete.png-0c06275b1735d58e8faf48c6ae74eefa.ctex"
+uid="uid://cmwg5xjqm5tkx"
+path="res://.godot/imported/dagger08.png-a3dd13159349849b61a7dd85c521b942.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/livello_elisa/delete.png"
-dest_files=["res://.godot/imported/delete.png-0c06275b1735d58e8faf48c6ae74eefa.ctex"]
+source_file="res://assets/livello_elisa/Collectible/dagger08.png"
+dest_files=["res://.godot/imported/dagger08.png-a3dd13159349849b61a7dd85c521b942.ctex"]
 
 [params]
 
