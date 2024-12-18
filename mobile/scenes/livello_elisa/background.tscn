@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://b4pk5onr2eqof"]
+
+[ext_resource type="Texture2D" uid="uid://cdphcteoxxqsv" path="res://assets/livello_elisa/02. Crystal World/background01.png" id="1_u1vh8"]
+[ext_resource type="Texture2D" uid="uid://b2bvhmgntl426" path="res://assets/livello_elisa/02. Crystal World/background02.png" id="2_3k3aa"]
+[ext_resource type="Texture2D" uid="uid://bon4mfu3jgyth" path="res://assets/livello_elisa/02. Crystal World/background03.png" id="3_l1ea4"]
+
+[node name="background" type="Node"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 1)
+motion_mirroring = Vector2(960, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+position = Vector2(241.5, 143.5)
+scale = Vector2(2.00625, 2.06296)
+texture = ExtResource("1_u1vh8")
+
+[node name="ParallaxLayer2" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.1, 1)
+motion_mirroring = Vector2(960, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer2"]
+position = Vector2(239.5, 144)
+scale = Vector2(1.99792, 2.06667)
+texture = ExtResource("2_3k3aa")
+
+[node name="ParallaxLayer3" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.2, 1)
+motion_mirroring = Vector2(960, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer3"]
+position = Vector2(240, 144)
+scale = Vector2(2, 2.06667)
+texture = ExtResource("3_l1ea4")
