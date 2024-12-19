@@ -224,11 +224,6 @@ animations = [{
 "name": &"jump",
 "speed": 10.0
 }, {
-"frames": [],
-"loop": true,
-"name": &"new_animation",
-"speed": 5.0
-}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_8nf4x")
@@ -277,7 +272,6 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qsxmv")
 animation = &"death"
 autoplay = "idle"
-frame_progress = 0.390668
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
