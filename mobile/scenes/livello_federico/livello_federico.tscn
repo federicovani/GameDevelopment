@@ -600,13 +600,16 @@ tile_set = SubResource("TileSet_yrvqa")
 format = 2
 layer_0/name = "background"
 layer_1/name = "level"
-layer_1/tile_data = PackedInt32Array(65536, 65538, 15)
+layer_1/tile_data = PackedInt32Array(131070, 917506, 23, 65538, 1245186, 23, 65539, 917506, 23, 65536, 1572866, 23, 65541, 524290, 10, 131079, 327682, 10, 131068, 1572866, 23, -458756, 1245186, 6, -458754, 1245186, 6, -524288, 1441794, 6, -524287, 1245186, 6, -524285, 2555906, 5, -393211, 2359298, 6, -393209, 1572866, 6, -458747, 1310722, 4, -393208, 1245186, 6, 196616, 1048578, 11)
 
 [node name="background" parent="." instance=ExtResource("2_pd4yd")]
 
 [node name="knight" parent="." instance=ExtResource("2_28qoe")]
-position = Vector2(22, -31)
+position = Vector2(26, -41)
 
 [node name="Camera2D" type="Camera2D" parent="knight"]
-position = Vector2(-2, 18)
+position = Vector2(0, 17)
 zoom = Vector2(2, 2)
+limit_left = -64
+limit_top = -240
+limit_bottom = 240
