@@ -598,7 +598,9 @@ pattern_0 = SubResource("TileMapPattern_uv3x8")
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_yrvqa")
 format = 2
-layer_0/tile_data = PackedInt32Array(196610, 131074, 10, 196606, 917506, 23, 131072, 1048578, 11, 131074, 1048578, 11, 131076, 1048578, 11, 131078, 1048578, 11, 131080, 1048578, 11, 131082, 1048578, 11, 131084, 1048578, 11, 131086, 1048578, 11, 131088, 1048578, 11, 131090, 1048578, 11, 131092, 1048578, 11, 131094, 1048578, 11, 131096, 1048578, 11, 131097, 1048578, 11, 131098, 1048578, 11, 131099, 1048578, 11, 131100, 1048578, 11, 131101, 1048578, 11, 131102, 1048578, 11, 131103, 1048578, 11)
+layer_0/name = "background"
+layer_1/name = "level"
+layer_1/tile_data = PackedInt32Array(65536, 65538, 15)
 
 [node name="background" parent="." instance=ExtResource("2_pd4yd")]
 
