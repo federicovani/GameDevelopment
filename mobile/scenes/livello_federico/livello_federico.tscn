@@ -603,6 +603,7 @@ size = Vector2(20, 18.9991)
 [node name="livello_federico" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
+visible = false
 tile_set = SubResource("TileSet_yrvqa")
 format = 2
 layer_0/name = "background"
