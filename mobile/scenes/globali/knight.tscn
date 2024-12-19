@@ -1,56 +1,50 @@
-[gd_scene load_steps=28 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=39 format=3 uid="uid://cmvr0blmdbg8h"]
 
+[ext_resource type="Texture2D" uid="uid://4xlvavktbmt1" path="res://assets/globali/knight/120x80_PNGSheets/_DeathNoMovement.png" id="1_5u0o6"]
+[ext_resource type="Script" path="res://scripts/globali/knight.gd" id="1_awd5s"]
 [ext_resource type="Texture2D" uid="uid://c4kfopaq80tkc" path="res://assets/globali/knight/120x80_PNGSheets/_Idle.png" id="1_gs2d1"]
 [ext_resource type="Texture2D" uid="uid://b8h8cdnllo5ik" path="res://assets/globali/knight/120x80_PNGSheets/_JumpFallInbetween.png" id="2_dq10b"]
 [ext_resource type="Texture2D" uid="uid://bjb8ydl55mfqm" path="res://assets/globali/knight/120x80_PNGSheets/_Run.png" id="3_fgvvt"]
 
-[sub_resource type="GDScript" id="GDScript_tcvqg"]
-script/source = "extends CharacterBody2D
+[sub_resource type="AtlasTexture" id="AtlasTexture_cihrn"]
+atlas = ExtResource("1_5u0o6")
+region = Rect2(0, 0, 120, 80)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_kdmvt"]
+atlas = ExtResource("1_5u0o6")
+region = Rect2(120, 0, 120, 80)
 
-const SPEED = 130.0
-const JUMP_VELOCITY = -300.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_ci41r"]
+atlas = ExtResource("1_5u0o6")
+region = Rect2(240, 0, 120, 80)
 
-@onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
+[sub_resource type="AtlasTexture" id="AtlasTexture_38ici"]
+atlas = ExtResource("1_5u0o6")
+region = Rect2(360, 0, 120, 80)
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_8hp7n"]
+atlas = ExtResource("1_5u0o6")
+region = Rect2(480, 0, 120, 80)
 
-func _physics_process(delta: float) -> void:
-	# Add the gravity.
-	if not is_on_floor():
-		velocity += get_gravity() * delta
+[sub_resource type="AtlasTexture" id="AtlasTexture_xam8a"]
+atlas = ExtResource("1_5u0o6")
+region = Rect2(600, 0, 120, 80)
 
-	# Handle jump.
-	if Input.is_action_just_pressed(\"jump\") and is_on_floor():
-		velocity.y = JUMP_VELOCITY
+[sub_resource type="AtlasTexture" id="AtlasTexture_jwg7y"]
+atlas = ExtResource("1_5u0o6")
+region = Rect2(720, 0, 120, 80)
 
-	# Get the input direction: -1, 0, 1
-	var direction := Input.get_axis(\"move_left\", \"move_right\")
-	
-	#Flip the sprite
-	if direction > 0:
-		animated_sprite.flip_h = false
-	elif direction < 0:
-		animated_sprite.flip_h = true
-		
-	#Play animations
-	if is_on_floor():
-		if direction == 0:
-			animated_sprite.play(\"idle\")
-		else:
-			animated_sprite.play(\"run\")
-	else:
-		animated_sprite.play(\"jump\")
-	
-	
-	
-	#Apply movement
-	if direction:
-		velocity.x = direction * SPEED
-	else:
-		velocity.x = move_toward(velocity.x, 0, SPEED)
+[sub_resource type="AtlasTexture" id="AtlasTexture_nylhu"]
+atlas = ExtResource("1_5u0o6")
+region = Rect2(840, 0, 120, 80)
 
-	move_and_slide()
-"
+[sub_resource type="AtlasTexture" id="AtlasTexture_gwt4y"]
+atlas = ExtResource("1_5u0o6")
+region = Rect2(960, 0, 120, 80)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x0sq3"]
+atlas = ExtResource("1_5u0o6")
+region = Rect2(1080, 0, 120, 80)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_irhb1"]
 atlas = ExtResource("1_gs2d1")
@@ -140,6 +134,41 @@ region = Rect2(1080, 0, 120, 80)
 animations = [{
 "frames": [{
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_cihrn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_kdmvt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ci41r")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_38ici")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8hp7n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xam8a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_jwg7y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nylhu")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gwt4y")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_x0sq3")
+}],
+"loop": true,
+"name": &"death",
+"speed": 10.0
+}, {
+"frames": [{
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_irhb1")
 }, {
 "duration": 1.0,
@@ -221,14 +250,15 @@ animations = [{
 size = Vector2(20, 37)
 
 [node name="knight" type="CharacterBody2D"]
-script = SubResource("GDScript_tcvqg")
+collision_layer = 2
+script = ExtResource("1_awd5s")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qsxmv")
-animation = &"jump"
+animation = &"death"
 autoplay = "idle"
-frame_progress = 0.393248
+frame_progress = 0.0981704
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

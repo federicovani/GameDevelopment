@@ -6,6 +6,9 @@ const JUMP_VELOCITY = -300.0
 
 @onready var animated_sprite: AnimatedSprite2D = $AnimatedSprite2D
 
+func die():
+	animated_sprite.play("death")
+
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():

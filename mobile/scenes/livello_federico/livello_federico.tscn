@@ -1,8 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://d3k38htbk1vgs"]
+[gd_scene load_steps=10 format=3 uid="uid://d3k38htbk1vgs"]
 
 [ext_resource type="Texture2D" uid="uid://qhh04ncp81cr" path="res://assets/livello_federico/PixelFantasy_Caves_1/mainlev_build.png" id="1_4vle5"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight.tscn" id="2_28qoe"]
 [ext_resource type="PackedScene" uid="uid://dgjlol08ivpk2" path="res://scenes/livello_federico/background.tscn" id="2_pd4yd"]
+[ext_resource type="PackedScene" uid="uid://cl1m4y7imy100" path="res://scenes/globali/killzone.tscn" id="4_4yu1q"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uv3x8"]
 tile_data = PackedInt32Array(65536, 786434, 11, 1, 786434, 11, 65537, 786434, 11, 131073, 786434, 11, 65538, 786434, 11, 131074, 786434, 11, 65539, 786434, 11)
@@ -593,6 +594,12 @@ physics_layer_0/collision_layer = 1
 sources/2 = SubResource("TileSetAtlasSource_wkwwl")
 pattern_0 = SubResource("TileMapPattern_uv3x8")
 
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e3s2w"]
+distance = -181.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_hrywm"]
+size = Vector2(20, 18.9991)
+
 [node name="livello_federico" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -613,3 +620,17 @@ zoom = Vector2(2, 2)
 limit_left = -64
 limit_top = -240
 limit_bottom = 240
+limit_smoothed = true
+
+[node name="killzone" parent="." instance=ExtResource("4_4yu1q")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
+position = Vector2(0, 59)
+shape = SubResource("WorldBoundaryShape2D_e3s2w")
+
+[node name="killzone2" parent="." instance=ExtResource("4_4yu1q")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="killzone2"]
+position = Vector2(148, 30)
+rotation = 1.58475
+shape = SubResource("RectangleShape2D_hrywm")
