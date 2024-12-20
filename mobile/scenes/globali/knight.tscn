@@ -272,7 +272,6 @@ texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_qsxmv")
 animation = &"jump"
 autoplay = "idle"
-frame_progress = 0.719297
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
