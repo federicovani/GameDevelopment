@@ -307,6 +307,7 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_yv07t"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_qm6h5"]
+advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dy010"]
 states/End/position = Vector2(894, 134)
@@ -364,7 +365,6 @@ script = ExtResource("10_pm1ea")
 idle_state = NodePath("../Idle")
 
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
-visible = false
 offset_left = -44.0
 offset_top = -20.0
 offset_right = 31.0
