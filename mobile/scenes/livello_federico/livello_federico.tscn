@@ -633,7 +633,7 @@ shape = SubResource("WorldBoundaryShape2D_e3s2w")
 [node name="killzone2" parent="." instance=ExtResource("4_4yu1q")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone2"]
-position = Vector2(148, 30)
+position = Vector2(193, -67)
 rotation = 1.58475
 shape = SubResource("RectangleShape2D_hrywm")
 
