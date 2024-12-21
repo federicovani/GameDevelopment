@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d3k38htbk1vgs"]
+[gd_scene load_steps=13 format=3 uid="uid://d3k38htbk1vgs"]
 
 [ext_resource type="Texture2D" uid="uid://qhh04ncp81cr" path="res://assets/livello_federico/PixelFantasy_Caves_1/mainlev_build.png" id="1_4vle5"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight.tscn" id="2_28qoe"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cl1m4y7imy100" path="res://scenes/globali/killzone.tscn" id="4_4yu1q"]
 [ext_resource type="PackedScene" uid="uid://c6buhchiamsw4" path="res://scenes/globali/diamond.tscn" id="5_yhc70"]
 [ext_resource type="PackedScene" uid="uid://c7o7nfqltvki5" path="res://scenes/globali/coin.tscn" id="6_hc816"]
+[ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/skeleton.tscn" id="7_saqal"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uv3x8"]
 tile_data = PackedInt32Array(65536, 786434, 11, 1, 786434, 11, 65537, 786434, 11, 131073, 786434, 11, 65538, 786434, 11, 131074, 786434, 11, 65539, 786434, 11)
@@ -642,3 +643,6 @@ position = Vector2(86, -19)
 
 [node name="Coin" parent="." instance=ExtResource("6_hc816")]
 position = Vector2(111, -19)
+
+[node name="Skeleton" parent="." instance=ExtResource("7_saqal")]
+position = Vector2(-53, -2)
