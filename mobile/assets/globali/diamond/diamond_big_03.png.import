@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://durnuulm3eub0"
-path="res://.godot/imported/diamond_big_03.png-44260846f66a5199715f4d723534bc94.ctex"
+path="res://.godot/imported/diamond_big_03.png-2668fd0e80b9581dedc8984f98f5741c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/livello_elisa/Collectible/diamond_big_03.png"
-dest_files=["res://.godot/imported/diamond_big_03.png-44260846f66a5199715f4d723534bc94.ctex"]
+source_file="res://assets/globali/diamond/diamond_big_03.png"
+dest_files=["res://.godot/imported/diamond_big_03.png-2668fd0e80b9581dedc8984f98f5741c.ctex"]
 
 [params]
 

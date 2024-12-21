@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://drk5ck1r7eusc"
-path="res://.godot/imported/diamond_big_06.png-48a9460c729f77ade50f87f22c1ea1b8.ctex"
+uid="uid://bt0ao766hsrpo"
+path="res://.godot/imported/diamond_big_05.png-b3618c1490836e1de16b50400c7d091b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/livello_elisa/Collectible/diamond_big_06.png"
-dest_files=["res://.godot/imported/diamond_big_06.png-48a9460c729f77ade50f87f22c1ea1b8.ctex"]
+source_file="res://assets/globali/diamond/diamond_big_05.png"
+dest_files=["res://.godot/imported/diamond_big_05.png-b3618c1490836e1de16b50400c7d091b.ctex"]
 
 [params]
 
