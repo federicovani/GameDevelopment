@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=53 format=3 uid="uid://cmvr0blmdbg8h"]
 
 [ext_resource type="Script" path="res://scripts/globali/Knight/knight.gd" id="1_awd5s"]
 [ext_resource type="Texture2D" uid="uid://c4kfopaq80tkc" path="res://assets/globali/knight/120x80_PNGSheets/_Idle.png" id="1_gs2d1"]
@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/idle.gd" id="7_anix3"]
 [ext_resource type="Texture2D" uid="uid://pijrpksd0b1b" path="res://assets/globali/knight/120x80_PNGSheets/_Death.png" id="7_u5ujy"]
 [ext_resource type="Texture2D" uid="uid://c5b28he0wtqpv" path="res://assets/globali/knight/120x80_PNGSheets/_Attack2.png" id="8_otgl1"]
-[ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/running.gd" id="8_xh00b"]
 [ext_resource type="Texture2D" uid="uid://d6hauh3t6x4g" path="res://assets/globali/knight/120x80_PNGSheets/_Attack.png" id="9_15p1j"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/jumping.gd" id="9_sw8ig"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/falling.gd" id="10_pm1ea"]
@@ -636,9 +635,6 @@ wait_time = 0.05
 one_shot = true
 autostart = true
 
-[node name="Running" type="Node" parent="CharacterStateMachine"]
-script = ExtResource("8_xh00b")
-
 [node name="Jumping" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("falling_state")]
 script = ExtResource("9_sw8ig")
 falling_state = NodePath("../Falling")
@@ -676,7 +672,6 @@ facing_left_position = Vector2(-33, 0)
 facing_right_position = Vector2(44, 0)
 
 [node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
-visible = false
 offset_left = -44.0
 offset_top = -51.0
 offset_right = 31.0

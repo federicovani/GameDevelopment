@@ -1,11 +1,15 @@
 class_name attacking extends State
 
 @export var idle_state: State
+
 @export var idle_animation : String = "move"
 @export var attack1_animation : String = "attack1"
 @export var attack2_animation : String = "attack2"
 
 @onready var timer: Timer = $Timer
+
+func on_enter():
+	playback.travel(attack1_animation)
 
 func state_input(event : InputEvent):
 	if(event.is_action_pressed("attack")):
