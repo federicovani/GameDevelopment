@@ -1,10 +1,10 @@
-[gd_scene load_steps=52 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=53 format=3 uid="uid://cmvr0blmdbg8h"]
 
 [ext_resource type="Script" path="res://scripts/globali/Knight/knight.gd" id="1_awd5s"]
 [ext_resource type="Texture2D" uid="uid://c4kfopaq80tkc" path="res://assets/globali/knight/120x80_PNGSheets/_Idle.png" id="1_gs2d1"]
 [ext_resource type="Texture2D" uid="uid://bjb8ydl55mfqm" path="res://assets/globali/knight/120x80_PNGSheets/_Run.png" id="3_fgvvt"]
 [ext_resource type="Texture2D" uid="uid://c7rw8v3sxsnwb" path="res://assets/globali/knight/120x80_PNGSheets/_Fall.png" id="4_gt5cw"]
-[ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/KnightState.gd" id="6_dtwwp"]
+[ext_resource type="Script" path="res://scripts/globali/State Machine/CharacterStateMachine.gd" id="6_dtwwp"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/idle.gd" id="7_anix3"]
 [ext_resource type="Texture2D" uid="uid://pijrpksd0b1b" path="res://assets/globali/knight/120x80_PNGSheets/_Death.png" id="7_u5ujy"]
 [ext_resource type="Texture2D" uid="uid://c5b28he0wtqpv" path="res://assets/globali/knight/120x80_PNGSheets/_Attack2.png" id="8_otgl1"]
@@ -18,9 +18,10 @@
 [ext_resource type="Texture2D" uid="uid://b8h8cdnllo5ik" path="res://assets/globali/knight/120x80_PNGSheets/_JumpFallInbetween.png" id="13_bxolk"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/attacking.gd" id="16_lollu"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/sword.gd" id="18_elokr"]
+[ext_resource type="Script" path="res://scripts/globali/Knight/facing_collision_shape2d.gd" id="19_28x3f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86jqi"]
-size = Vector2(20, 37)
+size = Vector2(21, 38)
 
 [sub_resource type="Animation" id="Animation_538or"]
 length = 0.001
@@ -594,9 +595,11 @@ collision_layer = 2
 script = ExtResource("1_awd5s")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -24)
+offset = Vector2(5.5, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-5, 20.5)
+position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_86jqi")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -609,57 +612,71 @@ tree_root = SubResource("AnimationNodeStateMachine_dy010")
 anim_player = NodePath("../AnimationPlayer")
 parameters/move/blend_position = 0
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "current_state", "animation_tree")]
+[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "current_state", "animation_tree")]
 script = ExtResource("6_dtwwp")
 character = NodePath("..")
 current_state = NodePath("Idle")
 animation_tree = NodePath("../AnimationTree")
 
-[node name="Idle" type="Node" parent="StateMachine" node_paths=PackedStringArray("jumping_state", "falling_state", "attack_state", "death_state")]
+[node name="Idle" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("jumping_state", "falling_state", "attack_state", "death_state")]
 script = ExtResource("7_anix3")
 jumping_state = NodePath("../Jumping")
 falling_state = NodePath("../Falling")
 attack_state = NodePath("../Attacking")
 death_state = NodePath("../Death")
 
-[node name="Running" type="Node" parent="StateMachine"]
+[node name="BufferTimer" type="Timer" parent="CharacterStateMachine/Idle"]
+wait_time = 0.05
+one_shot = true
+autostart = true
+
+[node name="Running" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("8_xh00b")
 
-[node name="Jumping" type="Node" parent="StateMachine" node_paths=PackedStringArray("falling_state")]
+[node name="Jumping" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("falling_state")]
 script = ExtResource("9_sw8ig")
 falling_state = NodePath("../Falling")
 
-[node name="Falling" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="Falling" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("10_pm1ea")
 idle_state = NodePath("../Idle")
 
-[node name="Death" type="Node" parent="StateMachine"]
+[node name="Death" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("12_yo1hr")
+can_move = false
 
-[node name="Attacking" type="Node" parent="StateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="Attacking" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("idle_state")]
 script = ExtResource("16_lollu")
 idle_state = NodePath("../Idle")
 can_move = false
 
-[node name="Timer" type="Timer" parent="StateMachine/Attacking"]
+[node name="Timer" type="Timer" parent="CharacterStateMachine/Attacking"]
 wait_time = 0.4
 one_shot = true
 
-[node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
-offset_left = -44.0
-offset_top = -20.0
-offset_right = 31.0
-offset_bottom = 3.0
-text = "State: "
-script = ExtResource("11_m4iv7")
-state_machine = NodePath("../StateMachine")
-
-[node name="Sword" type="Area2D" parent="."]
+[node name="Sword" type="Area2D" parent="." node_paths=PackedStringArray("player", "facing_collision_shape")]
+position = Vector2(13, 0)
+collision_layer = 0
+collision_mask = 4
 script = ExtResource("18_elokr")
+player = NodePath("..")
+facing_collision_shape = NodePath("CollisionShape2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword"]
-position = Vector2(21, 24)
+position = Vector2(31, 0)
 shape = SubResource("CircleShape2D_uu1xm")
+script = ExtResource("19_28x3f")
+facing_left_position = Vector2(-31, 0)
+facing_right_position = Vector2(31, 0)
 
-[connection signal="animation_finished" from="AnimationTree" to="StateMachine/Attacking" method="_on_animation_tree_animation_finished"]
+[node name="StateDebugLabel" type="Label" parent="." node_paths=PackedStringArray("state_machine")]
+offset_left = -44.0
+offset_top = -51.0
+offset_right = 31.0
+offset_bottom = -28.0
+text = "State: "
+script = ExtResource("11_m4iv7")
+state_machine = NodePath("../CharacterStateMachine")
+
+[connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attacking" method="_on_animation_tree_animation_finished"]
 [connection signal="body_entered" from="Sword" to="Sword" method="_on_body_entered"]

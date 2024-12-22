@@ -1,6 +1,6 @@
 extends Node
 
-class_name KnightStateMachine
+class_name CharacterStateMachine
 
 @export var character : CharacterBody2D
 @export var current_state : State
@@ -16,6 +16,8 @@ func _ready():
 			#Set the state up with what they need to function
 			child.character = character
 			child.playback = animation_tree["parameters/playback"]
+			#Connect to the interrupt signal
+			child.connect("interrupt_state", on_state_interrupt_state)
 		else:
 			push_warning(("Child " + child.name + "is not a State for KnightStateMachine"))
 
@@ -36,3 +38,6 @@ func switch_states(new_state : State):
 	
 func _input(event : InputEvent):
 	current_state.state_input(event)
+	
+func on_state_interrupt_state(new_state : State):
+	switch_states(new_state)

@@ -1,6 +1,6 @@
 class_name idle extends State
 
-@export var jump_velocity: float = -300.0
+@onready var buffer_timer: Timer = $BufferTimer
 
 @export var jumping_state: State
 @export var falling_state : State
@@ -12,8 +12,10 @@ class_name idle extends State
 @export var attack_animation: String = "attack1"
 @export var death_animation: String = "death"
 
+@export var jump_velocity: float = -300.0
+
 func state_process(delta):
-	if(!character.is_on_floor()):
+	if(!character.is_on_floor() && buffer_timer.is_stopped()):
 		next_state = falling_state
 		
 func on_exit():

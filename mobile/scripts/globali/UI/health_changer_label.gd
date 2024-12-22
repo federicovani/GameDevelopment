@@ -5,6 +5,5 @@ extends Label
 func _process(delta: float) -> void:
 	position += float_speed * delta
 
-
 func _on_timer_timeout() -> void:
 	queue_free()
