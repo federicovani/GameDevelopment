@@ -8,8 +8,6 @@ class_name idle extends State
 @export var death_state : State
 
 @export var idle_animation: String = "move"
-@export var jump_animation: String = "jump_start"
-@export var falling_animation: String = "jump_end"
 
 @export var jump_velocity: float = -300.0
 
@@ -29,7 +27,6 @@ func state_input(event: InputEvent):
 func jump():
 	character.velocity.y = jump_velocity
 	next_state = jumping_state
-	playback.travel(jump_animation)
 
 func attack():
 	next_state = attack_state
