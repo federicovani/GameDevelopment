@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dtmska2qijlsv"]
+[gd_scene load_steps=8 format=3 uid="uid://dtmska2qijlsv"]
 
 [ext_resource type="Texture2D" uid="uid://ransniyhrad0" path="res://assets/globali/Skeleton/Sprite Sheets/Skeleton Walk.png" id="1_th7eu"]
 [ext_resource type="Script" path="res://scripts/globali/skeleton.gd" id="2_xy6y3"]
+[ext_resource type="PackedScene" uid="uid://pvh2htdx7lh1" path="res://scenes/globali/UI/health_changed_label.tscn" id="3_niase"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0xd1"]
 size = Vector2(12, 26)
@@ -109,3 +110,18 @@ autoplay = "walk"
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("2_xy6y3")
+
+[node name="HealthChangedLabel" parent="." instance=ExtResource("3_niase")]
+anchors_preset = 0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -510.0
+offset_top = -353.0
+offset_right = -473.0
+offset_bottom = -330.0
+grow_horizontal = 1
+grow_vertical = 1
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0

@@ -10,6 +10,7 @@ func _ready() -> void:
 func on_signal_health_changed(node : Node, amount_changed : int):
 	var label_instance : Label = health_changed_label.instantiate()
 	node.add_child(label_instance)
+	print_debug(str(node.get_children()))
 	label_instance.text = str(amount_changed)
 	print_debug(label_instance.text)
 	
