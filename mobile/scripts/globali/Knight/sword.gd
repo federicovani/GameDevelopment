@@ -2,7 +2,7 @@ extends Area2D
 
 @export var damage : int = 20
 @export var player : Knight
-@export var facing_collision_shape : FacingCollisionShape
+@export var facing_collision_shape : FacingCollisionShapeSword
 
 func _ready():
 	monitoring = false

@@ -5,6 +5,7 @@ class_name Knight extends CharacterBody2D
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var state_machine: CharacterStateMachine = $CharacterStateMachine
+@export var facing_collision_shape : FacingCollisionShapeKnight
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -14,6 +15,7 @@ signal facing_direction_changed(facing_right : bool)
 
 func _ready():
 	animation_tree.active = true
+	self.connect("facing_direction_changed", _on_player_facing_direction_changed)
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -43,3 +45,9 @@ func update_facing_direction():
 		sprite.flip_h = true
 		
 	emit_signal("facing_direction_changed", !sprite.flip_h)
+
+func _on_player_facing_direction_changed(facing_right : bool):
+	if(facing_right):
+		facing_collision_shape.position = facing_collision_shape.facing_right_position
+	else:
+		facing_collision_shape.position = facing_collision_shape.facing_left_position
