@@ -22,8 +22,6 @@ func _physics_process(delta):
 	if not is_on_floor():
 		velocity.y += gravity * delta
 
-	# Get the input direction and handle the movement/deceleration.
-	# As good practice, you should replace UI actions with custom gameplay actions.
 	direction = Input.get_vector("move_left", "move_right", "jump", "ui_down")
 	
 	if direction && state_machine.check_if_can_move():
