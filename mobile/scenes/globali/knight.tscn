@@ -602,35 +602,28 @@ character = NodePath("..")
 current_state = NodePath("Idle")
 animation_tree = NodePath("../AnimationTree")
 
-[node name="Idle" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("sprite", "facing_collision_shape", "jumping_state", "falling_state", "attack_state", "death_state")]
+[node name="Idle" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("sprite", "facing_collision_shape")]
 script = ExtResource("7_anix3")
 sprite = NodePath("../../Sprite2D")
 facing_collision_shape = NodePath("../../CollisionShapeKnight")
-jumping_state = NodePath("../Jumping")
-falling_state = NodePath("../Falling")
-attack_state = NodePath("../Attacking")
-death_state = NodePath("../Death")
 
 [node name="BufferTimer" type="Timer" parent="CharacterStateMachine/Idle"]
 wait_time = 0.05
 one_shot = true
 autostart = true
 
-[node name="Jumping" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("falling_state")]
+[node name="Jumping" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_sw8ig")
-falling_state = NodePath("../Falling")
 
-[node name="Falling" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="Falling" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("10_pm1ea")
-idle_state = NodePath("../Idle")
 
 [node name="Death" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("12_yo1hr")
 can_move = false
 
-[node name="Attacking" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("idle_state")]
+[node name="Attacking" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("16_lollu")
-idle_state = NodePath("../Idle")
 can_move = false
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Attacking"]

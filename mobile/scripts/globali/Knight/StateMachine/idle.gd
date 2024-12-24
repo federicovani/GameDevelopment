@@ -5,24 +5,16 @@ class_name idle extends State
 @export var sprite: Sprite2D
 @export var facing_collision_shape : FacingCollisionShapeKnight
 
-@export var jumping_state: State
-@export var falling_state : State
-@export var attack_state : State
-@export var death_state : State
-
-@export var idle_animation : String = "move"
-@export var turn_around_left_animation : String = "turn_around_to_left"
-
 @export var jump_velocity: float = -300.0
 	
 func on_enter():
-	playback.travel(idle_animation)
+	playback.travel(character.idle_animation)
 	if !character.is_connected("facing_direction_changed", _on_player_facing_direction_changed):
 		character.connect("facing_direction_changed", _on_player_facing_direction_changed)
 
 func state_process(delta):
 	if(!character.is_on_floor() && buffer_timer.is_stopped()):
-		next_state = falling_state
+		next_state = character.falling_state
 
 func state_input(event: InputEvent):
 	if(event.is_action_pressed("jump")):
@@ -32,10 +24,10 @@ func state_input(event: InputEvent):
 
 func jump():
 	character.velocity.y = jump_velocity
-	next_state = jumping_state
+	next_state = character.jumping_state
 
 func attack():
-	next_state = attack_state
+	next_state = character.attack_state
 
 func _physics_process(delta):
 	# Add the gravity.

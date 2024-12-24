@@ -262,10 +262,9 @@ states/walk/node = SubResource("AnimationNodeAnimation_n5iyg")
 states/walk/position = Vector2(380, 112)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_he5xt"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_xw1e2"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_gf2c2"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_2kd7s")]
 
-[node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
+[node name="Skeleton" type="CharacterBody2D"]
 collision_layer = 4
 script = ExtResource("2_xy6y3")
-hit_state = NodePath("CharacterStateMachine/Hit")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -309,11 +308,9 @@ facing_ray_cast_right = NodePath("../../RayCastRight")
 script = ExtResource("6_sn4x6")
 can_move = false
 
-[node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable", "death_state", "return_state")]
+[node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable")]
 script = ExtResource("7_t1fka")
 damageable = NodePath("../../Damageable")
-death_state = NodePath("../Death")
-return_state = NodePath("../Walk")
 can_move = false
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
