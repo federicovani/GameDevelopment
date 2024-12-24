@@ -19,7 +19,7 @@
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/attacking.gd" id="16_lollu"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/sword.gd" id="18_elokr"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/facing_collision_shape_sword.gd" id="19_28x3f"]
-[ext_resource type="PackedScene" uid="uid://c5cvstt813ph0" path="res://scenes/globali/UI/state_debug_label.tscn" id="20_6cfn0"]
+[ext_resource type="PackedScene" path="res://scenes/globali/UI/state_debug_label.tscn" id="20_6cfn0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86jqi"]
 size = Vector2(21, 38)
