@@ -14,12 +14,11 @@ class_name idle extends State
 @export var turn_around_left_animation : String = "turn_around_to_left"
 
 @export var jump_velocity: float = -300.0
-
-signal facing_direction_changed(facing_right : bool)
-
+	
 func on_enter():
 	playback.travel(idle_animation)
-	self.connect("facing_direction_changed", _on_player_facing_direction_changed)
+	if !character.is_connected("facing_direction_changed", _on_player_facing_direction_changed):
+		character.connect("facing_direction_changed", _on_player_facing_direction_changed)
 
 func state_process(delta):
 	if(!character.is_on_floor() && buffer_timer.is_stopped()):
@@ -53,16 +52,16 @@ func _physics_process(delta):
 	character.move_and_slide()
 	update_facing_direction()
 
+#Change sprite orientation
 func update_facing_direction():
 	if character.direction.x > 0:
 		sprite.flip_h = false
 	elif character.direction.x < 0:
-		#playback.travel(turn_around_left_animation)
 		sprite.flip_h = true
 		
-	emit_signal("facing_direction_changed", !sprite.flip_h)
+	character.emit_signal("facing_direction_changed", !sprite.flip_h)
 
-#Change sprite orientation 
+#Change collision shape orientation 
 func _on_player_facing_direction_changed(facing_right : bool):
 	if(facing_right):
 		facing_collision_shape.position = facing_collision_shape.facing_right_position

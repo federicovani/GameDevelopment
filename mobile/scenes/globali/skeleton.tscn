@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://dtmska2qijlsv"]
+[gd_scene load_steps=30 format=3 uid="uid://dtmska2qijlsv"]
 
 [ext_resource type="Texture2D" uid="uid://ransniyhrad0" path="res://assets/globali/Skeleton/Sprite Sheets/Skeleton Walk.png" id="1_th7eu"]
 [ext_resource type="Texture2D" uid="uid://dpcloqtc4w22l" path="res://assets/globali/Skeleton/Sprite Sheets/Skeleton Idle.png" id="2_11sgy"]
@@ -10,8 +10,10 @@
 [ext_resource type="Texture2D" uid="uid://4s7c8j1k0ac3" path="res://assets/globali/Skeleton/Sprite Sheets/Skeleton Hit.png" id="6_dw6ga"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/State.gd" id="6_sn4x6"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/hit_state.gd" id="7_t1fka"]
+[ext_resource type="Script" path="res://scripts/globali/skeleton/StateMachine/walk_state.gd" id="10_bwpsj"]
 [ext_resource type="Script" path="res://scripts/globali/skeleton/facing_ray_cast_right.gd" id="10_rmisx"]
 [ext_resource type="Script" path="res://scripts/globali/skeleton/facing_ray_cast_left.gd" id="11_n2mb5"]
+[ext_resource type="PackedScene" uid="uid://c5cvstt813ph0" path="res://scenes/globali/UI/state_debug_label.tscn" id="14_8itak"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0xd1"]
 size = Vector2(12, 23)
@@ -260,13 +262,10 @@ states/walk/node = SubResource("AnimationNodeAnimation_n5iyg")
 states/walk/position = Vector2(380, 112)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_he5xt"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_xw1e2"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_gf2c2"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_2kd7s")]
 
-[node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("hit_state", "facing_collision_shape", "facing_ray_cast_left", "facing_ray_cast_right")]
+[node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("hit_state")]
 collision_layer = 4
 script = ExtResource("2_xy6y3")
 hit_state = NodePath("CharacterStateMachine/Hit")
-facing_collision_shape = NodePath("CollisionShape2D")
-facing_ray_cast_left = NodePath("RayCastLeft")
-facing_ray_cast_right = NodePath("RayCastRight")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -298,8 +297,13 @@ animation_tree = NodePath("../AnimationTree")
 [node name="Idle" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("6_sn4x6")
 
-[node name="Walk" type="Node" parent="CharacterStateMachine"]
-script = ExtResource("6_sn4x6")
+[node name="Walk" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ray_cast_right", "ray_cast_left", "facing_collision_shape", "facing_ray_cast_left", "facing_ray_cast_right")]
+script = ExtResource("10_bwpsj")
+ray_cast_right = NodePath("../../RayCastRight")
+ray_cast_left = NodePath("../../RayCastLeft")
+facing_collision_shape = NodePath("../../CollisionShape2D")
+facing_ray_cast_left = NodePath("../../RayCastLeft")
+facing_ray_cast_right = NodePath("../../RayCastRight")
 
 [node name="Death" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("6_sn4x6")
@@ -329,6 +333,13 @@ target_position = Vector2(-11, 0)
 script = ExtResource("11_n2mb5")
 facing_left_position = Vector2(4, 8)
 facing_right_position = Vector2(-3, 8)
+
+[node name="StateDebugLabel" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("14_8itak")]
+offset_left = -49.0
+offset_top = -30.0
+offset_right = 26.0
+offset_bottom = -7.0
+state_machine = NodePath("../CharacterStateMachine")
 
 [connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]

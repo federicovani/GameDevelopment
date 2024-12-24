@@ -9,6 +9,8 @@ class_name Knight extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var direction : Vector2 = Vector2.ZERO
 
+signal facing_direction_changed(facing_right : bool)
+
 func _ready():
 	animation_tree.active = true
 	
