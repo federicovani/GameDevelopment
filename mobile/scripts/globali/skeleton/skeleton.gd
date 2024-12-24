@@ -27,8 +27,9 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
-
+	
 	if direction && state_machine.check_if_can_move():
+		#Change direction if the enemy collide with a wall
 		if ray_cast_right.is_colliding():
 			direction = Vector2.LEFT
 			sprite.flip_h = true
