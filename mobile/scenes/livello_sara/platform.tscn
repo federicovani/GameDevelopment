@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0heqbf6230t8"]
+
+[ext_resource type="Texture2D" uid="uid://bh7587nuibn3k" path="res://assets/livello_sara/PixelPlatformerSet1v/main_lev_build.png" id="1_gal7q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bfdij"]
+size = Vector2(48, 32)
+
+[node name="Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_gal7q")
+region_enabled = true
+region_rect = Rect2(272.183, 1070.55, 47.9278, 35.3859)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bfdij")
