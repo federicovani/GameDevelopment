@@ -319,6 +319,7 @@ states/hit/position = Vector2(270, 237)
 states/walk/node = SubResource("AnimationNodeAnimation_n5iyg")
 states/walk/position = Vector2(380, 112)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_he5xt"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_xw1e2"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_gf2c2"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_2kd7s"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_6sr6d"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_y2y38")]
+graph_offset = Vector2(9, 58)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_5i8bg"]
 size = Vector2(15, 23)
@@ -367,8 +368,9 @@ script = ExtResource("9_h828b")
 [node name="Walk" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("10_bwpsj")
 
-[node name="Attack" type="Node" parent="CharacterStateMachine"]
+[node name="Attack" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("attack_zone")]
 script = ExtResource("12_ec3qy")
+attack_zone = NodePath("../../AttackZone")
 can_move = false
 
 [node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable")]

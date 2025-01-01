@@ -10,6 +10,7 @@ extends CharacterBody2D
 @onready var attack_state : State = $CharacterStateMachine/Attack
 @onready var death_state : State = $CharacterStateMachine/Death
 
+@export var walk_animation : String = "walk"
 @export var death_animation : String = "death"
 @export var hit_animation : String = "hit"
 @export var attack_animation : String = "attack"
