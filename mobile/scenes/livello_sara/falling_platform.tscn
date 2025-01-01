@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bphljlmkqanfi"]
+[gd_scene load_steps=4 format=3 uid="uid://bphljlmkqanfi"]
 
 [ext_resource type="Script" path="res://scripts/livello_sara/falling_platform.gd" id="1_ra8ew"]
 [ext_resource type="Texture2D" uid="uid://bh7587nuibn3k" path="res://assets/livello_sara/PixelPlatformerSet1v/main_lev_build.png" id="1_v2wch"]
@@ -6,10 +6,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_covlt"]
 size = Vector2(31, 31)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_haqfg"]
-size = Vector2(13.5, 12.5)
-
-[node name="FallingPlatform" type="StaticBody2D"]
+[node name="FallingPlatform" type="RigidBody2D"]
+gravity_scale = 0.0
 script = ExtResource("1_ra8ew")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,8 +19,8 @@ region_rect = Rect2(812.767, 428.593, 39.1448, 39.269)
 position = Vector2(-0.5, -0.5)
 shape = SubResource("RectangleShape2D_covlt")
 
-[node name="Area2D" type="Area2D" parent="."]
+[node name="FallTimer" type="Timer" parent="."]
+one_shot = true
 
-[node name="CollisionShapeKnight" type="CollisionShape2D" parent="Area2D"]
-position = Vector2(0, -24)
-shape = SubResource("RectangleShape2D_haqfg")
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]
