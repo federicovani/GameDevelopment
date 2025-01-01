@@ -1,41 +1,26 @@
-extends StaticBody2D
+extends RigidBody2D
 
-@export var delay_before_fall: float = 1.0  # Tempo in secondi prima che la piattaforma cada
-@export var fall_speed: float = 200.0       # Velocità di caduta della piattaforma
-@export var reset_time: float = 5.0         # Tempo dopo il quale la piattaforma si resetta
+# Variabili configurabili
+@export var fall_delay: float = 1.0  # Ritardo prima della caduta (in secondi)
 
-var is_falling: bool = false
-var original_position: Vector2
+# Variabili interne
+var has_fallen: bool = false  # Stato della piattaforma
 
-func _ready():
-	original_position = position
-	# Connetti i segnali dell'Area2D
-	$Area2D.connect("body_entered", Callable(self, "_on_body_entered"))
-	$Area2D.connect("body_exited", Callable(self, "_on_body_exited"))
+# Nodi nella scena
+@onready var fall_timer: Timer = $FallTimer
+@onready var collision_shape: CollisionShape2D = $CollisionShape2D
 
-func _on_body_entered(body):
-	print("entrato")
-	fall_after_delay()
+func _ready() -> void:
+	# Configura la piattaforma inizialmente in modalità statica
+	self.gravity_scale = 0  # Disabilita gravità inizialmente
+	self.linear_velocity = Vector2.ZERO  # Nessun movimento iniziale
 
-func _on_body_exited(body):
-	print("uscito")
-	if is_falling:
-		reset_platform_after_delay()
+# Quando il corpo entra in contatto con la piattaforma
+func _on_body_entered(body: Node) -> void:
+	if body.name == "Knight" and not has_fallen:
+		fall_timer.start(fall_delay)
 
-func fall_after_delay() -> void:
-	is_falling = true
-	await get_tree().create_timer(delay_before_fall).timeout
-	set_process(true)  # Attiva il calcolo fisico per far cadere la piattaforma
-
-func _physics_process(delta):
-	if is_falling:
-		position.y += fall_speed * delta
-
-func reset_platform_after_delay() -> void:
-	await get_tree().create_timer(reset_time).timeout
-	_reset_platform()
-
-func _reset_platform():
-	is_falling = false
-	position = original_position
-	set_process(false)
+# Quando il timer scade, fai cadere la piattaforma
+func _on_fall_timer_timeout() -> void:
+	has_fallen = true
+	self.gravity_scale = 1  # Abilita la gravità per la piattaforma
