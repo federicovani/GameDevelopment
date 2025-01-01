@@ -1,5 +1,7 @@
 class_name chase extends State
 
+@onready var timer: Timer = $Timer
+
 @export var player : CharacterBody2D
 
 func _physics_process(delta: float) -> void:
@@ -11,3 +13,6 @@ func _physics_process(delta: float) -> void:
 			character.direction = character.position.direction_to(player.position) * character.movement_speed * delta
 			character.velocity.x = character.direction.x
 		character.move_and_slide()
+
+func _on_timer_timeout() -> void:
+	next_state = character.walk_state
