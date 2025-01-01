@@ -1,5 +1,6 @@
 class_name walk extends State
 	
+var rng = RandomNumberGenerator.new()
 
 func _physics_process(delta: float) -> void:
 	if (get_parent().current_state == self):
@@ -20,3 +21,8 @@ func _physics_process(delta: float) -> void:
 			character.velocity.x = move_toward(character.velocity.x, 0, character.movement_speed)
 
 		character.move_and_slide()
+
+#Every 3 to 10 seconds (random number) the character changes direction
+func _on_direction_timer_timeout() -> void:
+	$DirectionTimer.wait_time = rng.randi_range(3, 10)
+	character.direction.x = -character.direction.x
