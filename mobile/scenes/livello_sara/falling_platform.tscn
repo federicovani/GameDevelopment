@@ -1,26 +1,88 @@
-[gd_scene load_steps=4 format=3 uid="uid://bphljlmkqanfi"]
+[gd_scene load_steps=6 format=3 uid="uid://bpp516ligy4ll"]
 
-[ext_resource type="Script" path="res://scripts/livello_sara/falling_platform.gd" id="1_ra8ew"]
 [ext_resource type="Texture2D" uid="uid://bh7587nuibn3k" path="res://assets/livello_sara/PixelPlatformerSet1v/main_lev_build.png" id="1_v2wch"]
+
+[sub_resource type="GDScript" id="GDScript_g0fma"]
+script/source = "extends RigidBody2D
+
+@export var fall_delay: float = 1.0
+var has_fallen: bool = false
+
+@onready var fall_timer: Timer = $FallTimer
+
+func _ready():
+	# Imposta la piattaforma per iniziare a cadere con la gravità disabilitata
+	self.gravity_scale = 0
+	self.linear_velocity = Vector2.ZERO
+
+# Quando un corpo entra nell'Area2D
+func _on_body_entered(body: Node) -> void:
+	if not has_fallen:
+		fall_timer.start(fall_delay)
+
+# Quando il timer scade, fai cadere la piattaforma
+func _on_fall_timer_timeout():
+	has_fallen = true
+	self.gravity_scale = 1  # Attiva la gravità per la piattaforma
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if not has_fallen:
+		fall_timer.start(fall_delay)
+"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_covlt"]
 size = Vector2(31, 31)
 
-[node name="FallingPlatform" type="RigidBody2D"]
-gravity_scale = 0.0
-script = ExtResource("1_ra8ew")
+[sub_resource type="GDScript" id="GDScript_pb5x5"]
+script/source = "extends Area2D
+
+@export var fall_delay: float = 1.0  # Ritardo prima della caduta
+var has_fallen: bool = false  # Stato della piattaforma
+
+@onready var fall_timer: Timer = $FallTimer
+@onready var rigid_body_2d: RigidBody2D = $RigidBody2D
+
+func _ready():
+	# Imposta la piattaforma per iniziare a cadere con la gravità disabilitata
+	RigidBody2D.gravity_scale = 0
+	RigidBody2D.linear_velocity = Vector2.ZERO
+
+# Quando un corpo entra nell'Area2D
+func _on_body_entered(body: Node) -> void:
+	if not has_fallen:
+		fall_timer.start(fall_delay)
+
+# Quando il timer scade, fai cadere la piattaforma
+func _on_fall_timer_timeout():
+	has_fallen = true
+	self.gravity_scale = 1  # Attiva la gravità per la piattaforma
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ihgdt"]
+size = Vector2(30, 33)
+
+[node name="RigidBody2D" type="RigidBody2D"]
+collision_mask = 2
+script = SubResource("GDScript_g0fma")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_v2wch")
 region_enabled = true
 region_rect = Rect2(812.767, 428.593, 39.1448, 39.269)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-0.5, -0.5)
+[node name="CollisionShapePlatform" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_covlt")
 
 [node name="FallTimer" type="Timer" parent="."]
 one_shot = true
 
-[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[node name="Area2D" type="Area2D" parent="."]
+script = SubResource("GDScript_pb5x5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -32.5)
+shape = SubResource("RectangleShape2D_ihgdt")
+
 [connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://qcdfeswxpdnn"]
+[gd_scene load_steps=19 format=3 uid="uid://qcdfeswxpdnn"]
 
 [ext_resource type="Texture2D" uid="uid://bh7587nuibn3k" path="res://assets/livello_sara/PixelPlatformerSet1v/main_lev_build.png" id="1_f67bj"]
 [ext_resource type="PackedScene" uid="uid://csy7q6utr00gx" path="res://scenes/livello_sara/background.tscn" id="2_a7s8q"]
@@ -9,7 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c84q7rgy8bd2b" path="res://scenes/globali/witch.tscn" id="7_w7lk3"]
 [ext_resource type="PackedScene" uid="uid://d0heqbf6230t8" path="res://scenes/livello_sara/platform.tscn" id="8_t5111"]
 [ext_resource type="PackedScene" uid="uid://3bktwps6pw33" path="res://scenes/globali/necromancer.tscn" id="9_5vfbd"]
-[ext_resource type="PackedScene" uid="uid://bphljlmkqanfi" path="res://scenes/livello_sara/falling_platform.tscn" id="10_atwm6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnyg4"]
 texture = ExtResource("1_f67bj")
@@ -1085,6 +1084,3 @@ position = Vector2(2802, 54)
 
 [node name="Necromancer" parent="." instance=ExtResource("9_5vfbd")]
 position = Vector2(2564, 220)
-
-[node name="FallingPlatform" parent="." instance=ExtResource("10_atwm6")]
-position = Vector2(289, 48)
