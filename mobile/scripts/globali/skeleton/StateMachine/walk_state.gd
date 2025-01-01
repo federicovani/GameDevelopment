@@ -15,12 +15,10 @@ func _physics_process(delta: float) -> void:
 		#Change direction if the enemy collide with a wall
 		if character.ray_cast_right.is_colliding():
 			direction = Vector2.LEFT
-			character.sprite.flip_h = true
-			character.emit_signal("facing_direction_changed", !character.sprite.flip_h)
+			character.flip_orientation(true)
 		if character.ray_cast_left.is_colliding():
 			direction = Vector2.RIGHT
-			character.sprite.flip_h = false
-			character.emit_signal("facing_direction_changed", !character.sprite.flip_h)
+			character.flip_orientation(false)
 		character.velocity.x = direction.x * character.movement_speed * delta
 	elif get_parent().current_state != character.hit_state:
 		character.velocity.x = move_toward(character.velocity.x, 0, character.movement_speed)

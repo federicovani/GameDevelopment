@@ -27,6 +27,10 @@ func _ready() -> void:
 	animation_tree.active = true
 	self.connect("facing_direction_changed", _on_skeleton_facing_direction_changed)
 
+func flip_orientation(to_flip : bool):
+	sprite.flip_h = to_flip
+	emit_signal("facing_direction_changed", !sprite.flip_h)
+	
 #Handling CollisionShape and RayCast when character changes direction
 func _on_skeleton_facing_direction_changed(facing_right : bool):
 	if(facing_right):
