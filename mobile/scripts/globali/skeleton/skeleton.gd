@@ -19,20 +19,25 @@ extends CharacterBody2D
 @export var facing_ray_cast_left : FacingRayCastLeft
 @export var facing_ray_cast_right : FacingRayCastRight
 
+@export var direction : Vector2 = Vector2.RIGHT
 @export var movement_speed : float = 1250.0
-
-signal facing_direction_changed(facing_right : bool)
 
 func _ready() -> void:
 	animation_tree.active = true
-	self.connect("facing_direction_changed", _on_skeleton_facing_direction_changed)
 
-func flip_orientation(to_flip : bool):
-	sprite.flip_h = to_flip
-	emit_signal("facing_direction_changed", !sprite.flip_h)
+func _process(delta: float) -> void:
+	handle_orientation()
+
+#Handling Character's Sprite orientation
+func handle_orientation():
+	if(direction.x > 0):
+		sprite.flip_h = false
+	elif(direction.x < 0):
+		sprite.flip_h = true
+	on_skeleton_facing_direction_changed(!sprite.flip_h)
 	
 #Handling CollisionShape and RayCast when character changes direction
-func _on_skeleton_facing_direction_changed(facing_right : bool):
+func on_skeleton_facing_direction_changed(facing_right : bool):
 	if(facing_right):
 		facing_collision_shape.position = facing_collision_shape.facing_right_position
 		facing_ray_cast_left.position = facing_ray_cast_left.facing_right_position
