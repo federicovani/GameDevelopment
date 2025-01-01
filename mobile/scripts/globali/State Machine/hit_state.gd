@@ -15,7 +15,7 @@ func _ready() -> void:
 func on_enter():
 	timer.start()
 
-func on_damageable_hit(node : Node, damage_taken : int, knockback_direction : Vector2):
+func on_damageable_hit(_node : Node, _damage_taken : int, knockback_direction : Vector2):
 	if (damageable.health > 0):
 		character.velocity = knockback_speed * knockback_direction
 		playback.travel(character.hit_animation)
@@ -24,8 +24,11 @@ func on_damageable_hit(node : Node, damage_taken : int, knockback_direction : Ve
 		emit_signal("interrupt_state", character.death_state)
 		playback.travel(character.death_animation)
 
+func _on_timer_timeout() -> void:
+	if(character == Global.playerBody):
+		next_state = character.idle_state
+	else: 
+		next_state = character.chase_state
+
 func on_exit():
 	character.velocity = Vector2.ZERO
-
-func _on_timer_timeout() -> void:
-	next_state = character.chase_state

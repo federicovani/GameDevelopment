@@ -12,7 +12,7 @@ func on_enter():
 	if !character.is_connected("facing_direction_changed", _on_player_facing_direction_changed):
 		character.connect("facing_direction_changed", _on_player_facing_direction_changed)
 
-func state_process(delta):
+func state_process(_delta):
 	if(!character.is_on_floor() && buffer_timer.is_stopped()):
 		next_state = character.falling_state
 

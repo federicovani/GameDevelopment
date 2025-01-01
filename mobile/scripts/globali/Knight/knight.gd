@@ -1,6 +1,7 @@
 class_name Knight extends CharacterBody2D
 
 @export var speed : float = 130.0
+@export var health : float = 100
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var state_machine: CharacterStateMachine = $CharacterStateMachine
@@ -9,6 +10,7 @@ class_name Knight extends CharacterBody2D
 @onready var jumping_state: State = $CharacterStateMachine/Jumping
 @onready var falling_state : State = $CharacterStateMachine/Falling
 @onready var attack_state : State = $CharacterStateMachine/Attacking
+@onready var hit_state : State = $CharacterStateMachine/Hit
 @onready var death_state : State = $CharacterStateMachine/Death
 
 @export var idle_animation : String = "move"
@@ -17,6 +19,8 @@ class_name Knight extends CharacterBody2D
 @export var jump_start_animation : String = "jump_start"
 @export var jump_between_animation : String = "jump_in_between"
 @export var turn_around_left_animation : String = "turn_around_to_left"
+@export var hit_animation : String = "hit"
+@export var death_animation : String = "death"
 
 # Get the gravity from the project settings to be synced with RigidBody nodes.
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
@@ -26,9 +30,9 @@ signal facing_direction_changed(facing_right : bool)
 
 func _ready():
 	animation_tree.active = true
-	SignalBus.playerBody = self
+	Global.playerBody = self
 	
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_animation_parameters()
 
 func update_animation_parameters():
