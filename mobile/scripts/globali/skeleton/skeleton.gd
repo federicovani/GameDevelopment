@@ -17,11 +17,13 @@ extends CharacterBody2D
 
 @export var ray_cast_right: RayCast2D
 @export var ray_cast_left: RayCast2D
+@export var ray_cast_down: RayCast2D
 
 @export var facing_collision_shape : FacingCollisionShapeSkeleton
 @export var facing_collision_shape_attack_zone : FacingCollisionShapeAttackZone
 @export var facing_ray_cast_left : FacingRayCastLeft
 @export var facing_ray_cast_right : FacingRayCastRight
+@export var facing_ray_cast_down : FacingRayCastDown
 
 @export var direction : Vector2 = Vector2.RIGHT
 @export var movement_speed : float = 1250.0
@@ -48,8 +50,10 @@ func on_skeleton_facing_direction_changed(facing_right : bool):
 		facing_collision_shape_attack_zone.position = facing_collision_shape_attack_zone.facing_right_position
 		facing_ray_cast_left.position = facing_ray_cast_left.facing_right_position
 		facing_ray_cast_right.position = facing_ray_cast_right.facing_right_position
+		facing_ray_cast_down.position = facing_ray_cast_down.facing_right_position
 	else:
 		facing_collision_shape.position = facing_collision_shape.facing_left_position
 		facing_collision_shape_attack_zone.position = facing_collision_shape_attack_zone.facing_left_position
 		facing_ray_cast_left.position = facing_ray_cast_left.facing_left_position
 		facing_ray_cast_right.position = facing_ray_cast_right.facing_left_position
+		facing_ray_cast_down.position = facing_ray_cast_down.facing_left_position

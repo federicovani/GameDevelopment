@@ -12,6 +12,8 @@ func _physics_process(delta: float) -> void:
 				character.direction = Vector2.LEFT
 			if character.ray_cast_left.is_colliding():
 				character.direction = Vector2.RIGHT
+			if !character.ray_cast_down.is_colliding():
+				character.direction = -character.direction
 			character.velocity.x = character.direction.x * character.movement_speed * delta
 		elif get_parent().current_state != character.hit_state:
 			character.velocity.x = move_toward(character.velocity.x, 0, character.movement_speed)
