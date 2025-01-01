@@ -423,7 +423,6 @@ facing_right_position = Vector2(-3, 8)
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
 position = Vector2(6, 0)
-scale = Vector2(1, 1)
 target_position = Vector2(7.53403e-05, 24.4304)
 script = ExtResource("19_ba5jk")
 facing_left_position = Vector2(-6, 0)
