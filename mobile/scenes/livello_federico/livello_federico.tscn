@@ -3,9 +3,9 @@
 [ext_resource type="Texture2D" uid="uid://qhh04ncp81cr" path="res://assets/livello_federico/PixelFantasy_Caves_1/mainlev_build.png" id="1_4vle5"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight.tscn" id="2_28qoe"]
 [ext_resource type="PackedScene" uid="uid://dgjlol08ivpk2" path="res://scenes/livello_federico/background.tscn" id="2_pd4yd"]
-[ext_resource type="PackedScene" path="res://scenes/globali/killzone.tscn" id="4_4yu1q"]
-[ext_resource type="PackedScene" path="res://scenes/globali/diamond.tscn" id="5_yhc70"]
-[ext_resource type="PackedScene" path="res://scenes/globali/coin.tscn" id="6_hc816"]
+[ext_resource type="PackedScene" uid="uid://cl1m4y7imy100" path="res://scenes/globali/killzone.tscn" id="4_4yu1q"]
+[ext_resource type="PackedScene" uid="uid://c6buhchiamsw4" path="res://scenes/globali/diamond.tscn" id="5_yhc70"]
+[ext_resource type="PackedScene" uid="uid://c7o7nfqltvki5" path="res://scenes/globali/coin.tscn" id="6_hc816"]
 [ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/skeleton.tscn" id="7_saqal"]
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="8_72k1w"]
 

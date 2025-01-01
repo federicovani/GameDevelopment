@@ -26,6 +26,7 @@ signal facing_direction_changed(facing_right : bool)
 
 func _ready():
 	animation_tree.active = true
+	SignalBus.playerBody = self
 	
 func _process(delta: float) -> void:
 	update_animation_parameters()

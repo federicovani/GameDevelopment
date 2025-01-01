@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dtmska2qijlsv"]
+[gd_scene load_steps=31 format=3 uid="uid://dtmska2qijlsv"]
 
 [ext_resource type="Texture2D" uid="uid://ransniyhrad0" path="res://assets/globali/Skeleton/Sprite Sheets/Skeleton Walk.png" id="1_th7eu"]
 [ext_resource type="Texture2D" uid="uid://dpcloqtc4w22l" path="res://assets/globali/Skeleton/Sprite Sheets/Skeleton Idle.png" id="2_11sgy"]
@@ -10,6 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://4s7c8j1k0ac3" path="res://assets/globali/Skeleton/Sprite Sheets/Skeleton Hit.png" id="6_dw6ga"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/State.gd" id="6_sn4x6"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/hit_state.gd" id="7_t1fka"]
+[ext_resource type="Script" path="res://scripts/globali/skeleton/StateMachine/chase_state.gd" id="9_h828b"]
 [ext_resource type="Script" path="res://scripts/globali/skeleton/StateMachine/walk_state.gd" id="10_bwpsj"]
 [ext_resource type="Script" path="res://scripts/globali/skeleton/facing_ray_cast_right.gd" id="10_rmisx"]
 [ext_resource type="Script" path="res://scripts/globali/skeleton/facing_ray_cast_left.gd" id="11_n2mb5"]
@@ -262,9 +263,14 @@ states/walk/node = SubResource("AnimationNodeAnimation_n5iyg")
 states/walk/position = Vector2(380, 112)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_he5xt"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_xw1e2"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_gf2c2"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_2kd7s")]
 
-[node name="Skeleton" type="CharacterBody2D"]
+[node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast_right", "ray_cast_left", "facing_collision_shape", "facing_ray_cast_left", "facing_ray_cast_right")]
 collision_layer = 4
 script = ExtResource("2_xy6y3")
+ray_cast_right = NodePath("RayCastRight")
+ray_cast_left = NodePath("RayCastLeft")
+facing_collision_shape = NodePath("CollisionShape2D")
+facing_ray_cast_left = NodePath("RayCastLeft")
+facing_ray_cast_right = NodePath("RayCastRight")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -293,16 +299,11 @@ character = NodePath("..")
 current_state = NodePath("Walk")
 animation_tree = NodePath("../AnimationTree")
 
-[node name="Idle" type="Node" parent="CharacterStateMachine"]
-script = ExtResource("6_sn4x6")
+[node name="Chase" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("9_h828b")
 
-[node name="Walk" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ray_cast_right", "ray_cast_left", "facing_collision_shape", "facing_ray_cast_left", "facing_ray_cast_right")]
+[node name="Walk" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("10_bwpsj")
-ray_cast_right = NodePath("../../RayCastRight")
-ray_cast_left = NodePath("../../RayCastLeft")
-facing_collision_shape = NodePath("../../CollisionShape2D")
-facing_ray_cast_left = NodePath("../../RayCastLeft")
-facing_ray_cast_right = NodePath("../../RayCastRight")
 
 [node name="Death" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("6_sn4x6")
