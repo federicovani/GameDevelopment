@@ -28,4 +28,4 @@ func on_exit():
 	character.velocity = Vector2.ZERO
 
 func _on_timer_timeout() -> void:
-	next_state = character.walk_state
+	next_state = character.chase_state
