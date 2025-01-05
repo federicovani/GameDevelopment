@@ -26,6 +26,7 @@ extends CharacterBody2D
 @export var facing_ray_cast_down : FacingRayCast
 
 @export var direction : Vector2 = Vector2.RIGHT
+@export var facing_right : bool
 @export var movement_speed : float = 1250.0
 @export var health : float = 50
 
@@ -45,6 +46,7 @@ func handle_orientation():
 	
 #Handling CollisionShape and RayCast when character changes direction
 func on_skeleton_facing_direction_changed(facing_right : bool):
+	self.facing_right = facing_right
 	if(facing_right):
 		facing_collision_shape.position = facing_collision_shape.facing_right_position
 		facing_collision_shape_attack_zone.position = facing_collision_shape_attack_zone.facing_right_position

@@ -1,7 +1,8 @@
-[gd_scene load_steps=38 format=3 uid="uid://c84q7rgy8bd2b"]
+[gd_scene load_steps=39 format=3 uid="uid://c84q7rgy8bd2b"]
 
 [ext_resource type="Script" path="res://scripts/globali/Witch/witch.gd" id="1_6nj63"]
 [ext_resource type="Texture2D" uid="uid://ttdieflig7fd" path="res://assets/globali/Blue_witch/B_witch_idle.png" id="1_u4alw"]
+[ext_resource type="Script" path="res://scripts/globali/sprite_attack_offset.gd" id="2_7y8r4"]
 [ext_resource type="Texture2D" uid="uid://dk6jnh75urrek" path="res://assets/globali/Blue_witch/B_witch_take_damage.png" id="2_ihdnj"]
 [ext_resource type="Script" path="res://scripts/globali/facing_collision_shape.gd" id="2_we04n"]
 [ext_resource type="Texture2D" uid="uid://cqf8yvcj1bens" path="res://assets/globali/Blue_witch/B_witch_death.png" id="3_he65w"]
@@ -59,18 +60,6 @@ tracks/2/keys = {
 "update": 1,
 "values": [5]
 }
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
-}
 
 [sub_resource type="Animation" id="Animation_1pgfg"]
 resource_name = "attack"
@@ -111,18 +100,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(32, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_8ibvy"]
@@ -360,6 +337,9 @@ facing_ray_cast_down = NodePath("RayCastDown")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 vframes = 6
 frame = 5
+script = ExtResource("2_7y8r4")
+facing_left_offset = Vector2(-32, 0)
+facing_right_offset = Vector2(32, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -409,9 +389,10 @@ can_move = false
 wait_time = 0.3
 one_shot = true
 
-[node name="Attack" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("attack_zone")]
+[node name="Attack" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("attack_zone", "sprite")]
 script = ExtResource("10_h2rkg")
 attack_zone = NodePath("../../AttackZone")
+sprite = NodePath("../../Sprite2D")
 can_move = false
 
 [node name="Death" type="Node" parent="CharacterStateMachine"]
@@ -450,8 +431,15 @@ facing_right_position = Vector2(44.5, -0.5)
 wait_time = 0.8
 
 [node name="StateDebugLabel" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("13_xkfr7")]
+offset_left = -25.0
+offset_top = -34.0
+offset_right = 50.0
+offset_bottom = -11.0
+scale = Vector2(0.405599, 0.405599)
 state_machine = NodePath("../CharacterStateMachine")
 
+[connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
+[connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="CharacterStateMachine/Walk/DirectionTimer" to="CharacterStateMachine/Walk" method="_on_direction_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Chase/Timer" to="CharacterStateMachine/Chase" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]

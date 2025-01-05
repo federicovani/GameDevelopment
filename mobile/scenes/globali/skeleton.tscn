@@ -1,7 +1,8 @@
-[gd_scene load_steps=38 format=3 uid="uid://dtmska2qijlsv"]
+[gd_scene load_steps=39 format=3 uid="uid://dtmska2qijlsv"]
 
 [ext_resource type="Texture2D" uid="uid://ransniyhrad0" path="res://assets/globali/Skeleton/Sprite Sheets/Skeleton Walk.png" id="1_th7eu"]
 [ext_resource type="Texture2D" uid="uid://dpcloqtc4w22l" path="res://assets/globali/Skeleton/Sprite Sheets/Skeleton Idle.png" id="2_11sgy"]
+[ext_resource type="Script" path="res://scripts/globali/sprite_attack_offset.gd" id="2_m5nfa"]
 [ext_resource type="Script" path="res://scripts/globali/facing_collision_shape.gd" id="2_u2ad5"]
 [ext_resource type="Script" path="res://scripts/globali/skeleton/skeleton.gd" id="2_xy6y3"]
 [ext_resource type="Texture2D" uid="uid://d0prxgrfs6cny" path="res://assets/globali/Skeleton/Sprite Sheets/Skeleton Dead.png" id="3_7hqys"]
@@ -336,6 +337,9 @@ facing_ray_cast_right = NodePath("RayCastRight")
 facing_ray_cast_down = NodePath("RayCastDown")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+script = ExtResource("2_m5nfa")
+facing_left_offset = Vector2(-8, -2)
+facing_right_offset = Vector2(8, -2)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-3, 4.5)
@@ -385,9 +389,10 @@ can_move = false
 wait_time = 0.3
 one_shot = true
 
-[node name="Attack" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("attack_zone")]
+[node name="Attack" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("attack_zone", "sprite")]
 script = ExtResource("12_ec3qy")
 attack_zone = NodePath("../../AttackZone")
+sprite = NodePath("../../Sprite2D")
 can_move = false
 
 [node name="Death" type="Node" parent="CharacterStateMachine"]
