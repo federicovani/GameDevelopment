@@ -17,7 +17,7 @@
 [ext_resource type="Script" path="res://scripts/globali/facing_ray_cast.gd" id="10_rmisx"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/attack_state.gd" id="12_ec3qy"]
 [ext_resource type="PackedScene" uid="uid://c5cvstt813ph0" path="res://scenes/globali/UI/state_debug_label.tscn" id="14_8itak"]
-[ext_resource type="Script" path="res://scripts/globali/skeleton/attack_zone.gd" id="14_bw7i3"]
+[ext_resource type="Script" path="res://scripts/globali/attack_zone.gd" id="14_bw7i3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0xd1"]
 size = Vector2(12, 23)
@@ -100,6 +100,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AttackZone")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.7),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hit"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_srq1r"]
@@ -395,13 +409,18 @@ attack_zone = NodePath("../../AttackZone")
 sprite = NodePath("../../Sprite2D")
 can_move = false
 
+[node name="BufferTimer" type="Timer" parent="CharacterStateMachine/Attack"]
+wait_time = 0.001
+one_shot = true
+
 [node name="Death" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("6_sn4x6")
 
-[node name="AttackZone" type="Area2D" parent="." node_paths=PackedStringArray("state_machine")]
+[node name="AttackZone" type="Area2D" parent="." node_paths=PackedStringArray("character", "state_machine")]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("14_bw7i3")
+character = NodePath("..")
 state_machine = NodePath("../CharacterStateMachine")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone"]
@@ -411,7 +430,7 @@ script = ExtResource("2_u2ad5")
 facing_left_position = Vector2(-10, 4.5)
 facing_right_position = Vector2(10.5, 4.5)
 
-[node name="BufferTimer" type="Timer" parent="AttackZone/CollisionShape2D"]
+[node name="AnimationTimer" type="Timer" parent="AttackZone/CollisionShape2D"]
 wait_time = 0.8
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
@@ -448,5 +467,5 @@ state_machine = NodePath("../CharacterStateMachine")
 [connection signal="timeout" from="CharacterStateMachine/Walk/DirectionTimer" to="CharacterStateMachine/Walk" method="_on_direction_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Chase/Timer" to="CharacterStateMachine/Chase" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
+[connection signal="timeout" from="CharacterStateMachine/Attack/BufferTimer" to="CharacterStateMachine/Attack" method="_on_buffer_timer_timeout"]
 [connection signal="body_entered" from="AttackZone" to="AttackZone" method="_on_body_entered"]
-[connection signal="body_exited" from="AttackZone" to="AttackZone" method="_on_body_exited"]
