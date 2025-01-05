@@ -20,10 +20,10 @@ extends CharacterBody2D
 @export var ray_cast_down: RayCast2D
 
 @export var facing_collision_shape : FacingCollisionShape
-@export var facing_collision_shape_attack_zone : FacingCollisionShapeAttackZone
-@export var facing_ray_cast_left : FacingRayCastLeft
-@export var facing_ray_cast_right : FacingRayCastRight
-@export var facing_ray_cast_down : FacingRayCastDown
+@export var facing_collision_shape_attack_zone : FacingCollisionShape
+@export var facing_ray_cast_left : FacingRayCast
+@export var facing_ray_cast_right : FacingRayCast
+@export var facing_ray_cast_down : FacingRayCast
 
 @export var direction : Vector2 = Vector2.RIGHT
 @export var movement_speed : float = 1250.0

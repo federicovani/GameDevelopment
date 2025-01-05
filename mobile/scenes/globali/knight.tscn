@@ -1,8 +1,8 @@
-[gd_scene load_steps=62 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=61 format=3 uid="uid://cmvr0blmdbg8h"]
 
 [ext_resource type="Script" path="res://scripts/globali/Knight/knight.gd" id="1_awd5s"]
 [ext_resource type="Texture2D" uid="uid://c4kfopaq80tkc" path="res://assets/globali/knight/120x80_PNGSheets/_Idle.png" id="1_gs2d1"]
-[ext_resource type="Script" path="res://scripts/globali/Knight/facing_collision_shape_knight.gd" id="2_fji0i"]
+[ext_resource type="Script" path="res://scripts/globali/facing_collision_shape.gd" id="2_d56oc"]
 [ext_resource type="Texture2D" uid="uid://bjb8ydl55mfqm" path="res://assets/globali/knight/120x80_PNGSheets/_Run.png" id="3_fgvvt"]
 [ext_resource type="Texture2D" uid="uid://c7rw8v3sxsnwb" path="res://assets/globali/knight/120x80_PNGSheets/_Fall.png" id="4_gt5cw"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/CharacterStateMachine.gd" id="6_dtwwp"]
@@ -20,7 +20,6 @@
 [ext_resource type="Texture2D" uid="uid://b8h8cdnllo5ik" path="res://assets/globali/knight/120x80_PNGSheets/_JumpFallInbetween.png" id="13_bxolk"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/attacking.gd" id="16_lollu"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/sword.gd" id="18_elokr"]
-[ext_resource type="Script" path="res://scripts/globali/Knight/facing_collision_shape_sword.gd" id="19_28x3f"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/hit_state.gd" id="19_gdgpw"]
 [ext_resource type="PackedScene" uid="uid://c5cvstt813ph0" path="res://scenes/globali/UI/state_debug_label.tscn" id="20_6cfn0"]
 
@@ -628,7 +627,7 @@ offset = Vector2(5.5, 0)
 [node name="CollisionShapeKnight" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
 shape = SubResource("RectangleShape2D_86jqi")
-script = ExtResource("2_fji0i")
+script = ExtResource("2_d56oc")
 facing_left_position = Vector2(11, -3)
 facing_right_position = Vector2(0, -3)
 
@@ -703,7 +702,7 @@ facing_collision_shape = NodePath("CollisionShapeSword")
 [node name="CollisionShapeSword" type="CollisionShape2D" parent="Sword"]
 position = Vector2(44, 0)
 shape = SubResource("CircleShape2D_uu1xm")
-script = ExtResource("19_28x3f")
+script = ExtResource("2_d56oc")
 facing_left_position = Vector2(-33, 0)
 facing_right_position = Vector2(44, 0)
 

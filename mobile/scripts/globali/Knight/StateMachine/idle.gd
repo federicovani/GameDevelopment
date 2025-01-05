@@ -3,7 +3,7 @@ class_name idle extends State
 @onready var buffer_timer: Timer = $BufferTimer
 
 @export var sprite: Sprite2D
-@export var facing_collision_shape : FacingCollisionShapeKnight
+@export var facing_collision_shape : FacingCollisionShape
 
 @export var jump_velocity: float = -300.0
 	
