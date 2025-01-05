@@ -1,10 +1,22 @@
-[gd_scene load_steps=23 format=3 uid="uid://c84q7rgy8bd2b"]
+[gd_scene load_steps=38 format=3 uid="uid://c84q7rgy8bd2b"]
 
+[ext_resource type="Script" path="res://scripts/globali/Witch/witch.gd" id="1_6nj63"]
 [ext_resource type="Texture2D" uid="uid://ttdieflig7fd" path="res://assets/globali/Blue_witch/B_witch_idle.png" id="1_u4alw"]
 [ext_resource type="Texture2D" uid="uid://dk6jnh75urrek" path="res://assets/globali/Blue_witch/B_witch_take_damage.png" id="2_ihdnj"]
+[ext_resource type="Script" path="res://scripts/globali/skeleton/facing_collision_shape_skeleton.gd" id="2_we04n"]
 [ext_resource type="Texture2D" uid="uid://cqf8yvcj1bens" path="res://assets/globali/Blue_witch/B_witch_death.png" id="3_he65w"]
 [ext_resource type="Texture2D" uid="uid://bd84s678gkq4h" path="res://assets/globali/Blue_witch/B_witch_attack.png" id="4_6d4ej"]
 [ext_resource type="Texture2D" uid="uid://hsxhdl6xs8jn" path="res://assets/globali/Blue_witch/B_witch_run.png" id="5_sxhbq"]
+[ext_resource type="Script" path="res://scripts/globali/damageable.gd" id="6_tn8nk"]
+[ext_resource type="Script" path="res://scripts/globali/State Machine/CharacterStateMachine.gd" id="7_d3onf"]
+[ext_resource type="Script" path="res://scripts/globali/State Machine/hit_state.gd" id="8_22e0e"]
+[ext_resource type="Script" path="res://scripts/globali/State Machine/chase_state.gd" id="9_drtgi"]
+[ext_resource type="Script" path="res://scripts/globali/State Machine/State.gd" id="9_i8jhg"]
+[ext_resource type="Script" path="res://scripts/globali/State Machine/attack_state.gd" id="10_h2rkg"]
+[ext_resource type="Script" path="res://scripts/globali/State Machine/walk_state.gd" id="12_1xjyw"]
+[ext_resource type="Script" path="res://scripts/globali/skeleton/facing_ray_cast_right.gd" id="13_bk2op"]
+[ext_resource type="PackedScene" uid="uid://c5cvstt813ph0" path="res://scenes/globali/UI/state_debug_label.tscn" id="13_xkfr7"]
+[ext_resource type="Script" path="res://scripts/globali/Witch/attack_zone.gd" id="16_wb6d5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3lfu"]
 size = Vector2(10, 28)
@@ -87,6 +99,18 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [5]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_mxd4u"]
@@ -211,6 +235,18 @@ tracks/2/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sprite2D:offset")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(32, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_b23qd"]
 resource_name = "walk"
@@ -267,6 +303,9 @@ _data = {
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_cb4q8"]
 animation = &"attack"
 
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2dksa"]
+animation = &"death"
+
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_lbcmw"]
 animation = &"hit"
 
@@ -279,26 +318,44 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ti51h"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lxkiq"]
+switch_mode = 2
 advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_g8qde"]
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7aqsi"]
+switch_mode = 2
 advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_8s8w7"]
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_pf7ml"]
 states/Start/position = Vector2(170, 100)
 states/attack/node = SubResource("AnimationNodeAnimation_cb4q8")
 states/attack/position = Vector2(267, 217)
+states/death/node = SubResource("AnimationNodeAnimation_2dksa")
+states/death/position = Vector2(326, 4)
 states/hit/node = SubResource("AnimationNodeAnimation_lbcmw")
 states/hit/position = Vector2(453, 217)
 states/walk/node = SubResource("AnimationNodeAnimation_8kp6q")
 states/walk/position = Vector2(326, 109)
-transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_053ck"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_ti51h"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_lxkiq"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_g8qde"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_7aqsi")]
+transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_053ck"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_ti51h"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_lxkiq"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_g8qde"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_7aqsi"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_8s8w7")]
 graph_offset = Vector2(-90, -45)
 
-[node name="Witch" type="CharacterBody2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dxs7h"]
+size = Vector2(79, 29)
+
+[node name="Witch" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast_right", "ray_cast_left", "ray_cast_down", "facing_collision_shape", "facing_collision_shape_attack_zone", "facing_ray_cast_right", "facing_ray_cast_left", "facing_ray_cast_down")]
 collision_layer = 4
+script = ExtResource("1_6nj63")
+ray_cast_right = NodePath("RayCastRight")
+ray_cast_left = NodePath("RayCastLeft")
+ray_cast_down = NodePath("RayCastDown")
+facing_collision_shape = NodePath("CollisionShape2D")
+facing_collision_shape_attack_zone = NodePath("AttackZone/CollisionShape2D")
+facing_ray_cast_right = NodePath("RayCastRight")
+facing_ray_cast_left = NodePath("RayCastLeft")
+facing_ray_cast_down = NodePath("RayCastDown")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 vframes = 6
@@ -307,6 +364,9 @@ frame = 5
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
 shape = SubResource("RectangleShape2D_c3lfu")
+script = ExtResource("2_we04n")
+facing_left_position = Vector2(0, -1)
+facing_right_position = Vector2(0, -1)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -316,3 +376,84 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_pf7ml")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="Damageable" type="Node" parent="."]
+script = ExtResource("6_tn8nk")
+
+[node name="CharacterStateMachine" type="Node" parent="." node_paths=PackedStringArray("character", "current_state", "animation_tree")]
+script = ExtResource("7_d3onf")
+character = NodePath("..")
+current_state = NodePath("Walk")
+animation_tree = NodePath("../AnimationTree")
+
+[node name="Walk" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("12_1xjyw")
+
+[node name="DirectionTimer" type="Timer" parent="CharacterStateMachine/Walk"]
+wait_time = 3.0
+autostart = true
+
+[node name="Chase" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("9_drtgi")
+
+[node name="Timer" type="Timer" parent="CharacterStateMachine/Chase"]
+wait_time = 15.0
+autostart = true
+
+[node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable")]
+script = ExtResource("8_22e0e")
+damageable = NodePath("../../Damageable")
+can_move = false
+
+[node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
+wait_time = 0.3
+one_shot = true
+
+[node name="Attack" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("attack_zone")]
+script = ExtResource("10_h2rkg")
+attack_zone = NodePath("../../AttackZone")
+can_move = false
+
+[node name="Death" type="Node" parent="CharacterStateMachine"]
+script = ExtResource("9_i8jhg")
+can_move = false
+
+[node name="RayCastRight" type="RayCast2D" parent="."]
+target_position = Vector2(8, 0)
+script = ExtResource("13_bk2op")
+
+[node name="RayCastLeft" type="RayCast2D" parent="."]
+target_position = Vector2(-9, 0)
+script = ExtResource("13_bk2op")
+
+[node name="RayCastDown" type="RayCast2D" parent="."]
+position = Vector2(9, 0)
+target_position = Vector2(0, 20)
+script = ExtResource("13_bk2op")
+facing_left_position = Vector2(-9, 0)
+facing_right_position = Vector2(9, 0)
+
+[node name="AttackZone" type="Area2D" parent="." node_paths=PackedStringArray("state_machine")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("16_wb6d5")
+state_machine = NodePath("../CharacterStateMachine")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone"]
+position = Vector2(44.5, -0.5)
+shape = SubResource("RectangleShape2D_dxs7h")
+script = ExtResource("2_we04n")
+facing_left_position = Vector2(-44.5, -0.5)
+facing_right_position = Vector2(44.5, -0.5)
+
+[node name="BufferTimer" type="Timer" parent="AttackZone/CollisionShape2D"]
+wait_time = 0.8
+
+[node name="StateDebugLabel" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("13_xkfr7")]
+state_machine = NodePath("../CharacterStateMachine")
+
+[connection signal="timeout" from="CharacterStateMachine/Walk/DirectionTimer" to="CharacterStateMachine/Walk" method="_on_direction_timer_timeout"]
+[connection signal="timeout" from="CharacterStateMachine/Chase/Timer" to="CharacterStateMachine/Chase" method="_on_timer_timeout"]
+[connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
+[connection signal="body_entered" from="AttackZone" to="AttackZone" method="_on_body_entered"]
+[connection signal="body_exited" from="AttackZone" to="AttackZone" method="_on_body_exited"]
