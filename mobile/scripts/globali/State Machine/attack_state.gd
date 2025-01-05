@@ -16,6 +16,7 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		if(!attack_zone.has_overlapping_bodies()):
 			next_state = character.chase_state
 		else:
+			reset_offset()
 			buffer.start()
 
 func _on_buffer_timer_timeout() -> void:
