@@ -24,5 +24,6 @@ func _physics_process(delta: float) -> void:
 
 #Every 3 to 10 seconds (random number) the character changes direction
 func _on_direction_timer_timeout() -> void:
-	$DirectionTimer.wait_time = rng.randi_range(3, 10)
-	character.direction.x = -character.direction.x
+	if (get_parent().current_state == self):
+		$DirectionTimer.wait_time = rng.randi_range(3, 10)
+		character.direction.x = -character.direction.x
