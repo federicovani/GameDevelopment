@@ -1,12 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://c5cvstt813ph0"]
+[gd_scene load_steps=3 format=3 uid="uid://c5cvstt813ph0"]
 
+[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/fonts/ThaleahFat.ttf" id="1_cucn5"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/state_debug_label.gd" id="1_h110q"]
 
-[node name="StateDebugLabel" type="Label" node_paths=PackedStringArray("state_machine")]
+[node name="StateDebugLabel" type="Label"]
 offset_left = -44.0
 offset_top = -51.0
-offset_right = 31.0
-offset_bottom = -28.0
+offset_right = 32.0
+offset_bottom = -36.0
+theme_override_fonts/font = ExtResource("1_cucn5")
 text = "State: "
 script = ExtResource("1_h110q")
-state_machine = NodePath("")

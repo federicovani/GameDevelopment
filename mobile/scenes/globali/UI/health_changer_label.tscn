@@ -6,8 +6,8 @@
 [node name="HealthChangerLabel" type="Label"]
 offset_left = -12.0
 offset_top = -9.0
-offset_right = 35.0
-offset_bottom = 14.0
+offset_right = 28.0
+offset_bottom = 6.0
 scale = Vector2(0.649537, 0.649537)
 size_flags_horizontal = 4
 theme_override_constants/outline_size = 2
