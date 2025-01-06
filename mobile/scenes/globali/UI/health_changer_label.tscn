@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dqxwdsbcpblkr"]
 
 [ext_resource type="Script" path="res://scripts/globali/UI/health_changer_label.gd" id="1_730rt"]
-[ext_resource type="FontFile" uid="uid://dhdkcdcao6b2j" path="res://assets/globali/fonts/firlest.regular.otf" id="1_tjm7s"]
+[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/fonts/ThaleahFat.ttf" id="1_sj17n"]
 
 [node name="HealthChangerLabel" type="Label"]
 offset_left = -12.0
@@ -10,7 +10,8 @@ offset_right = 35.0
 offset_bottom = 14.0
 scale = Vector2(0.649537, 0.649537)
 size_flags_horizontal = 4
-theme_override_fonts/font = ExtResource("1_tjm7s")
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("1_sj17n")
 text = "10000"
 script = ExtResource("1_730rt")
 
