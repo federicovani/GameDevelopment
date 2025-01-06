@@ -7,7 +7,7 @@ class_name attack extends State
 @export var sprite : SpriteAttackOffset
 
 func on_enter():
-	set_attack_offset()
+	#set_attack_offset()
 	playback.travel(character.attack_animation)
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
@@ -16,7 +16,7 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		if(!attack_zone.has_overlapping_bodies()):
 			next_state = character.chase_state
 		else:
-			reset_offset()
+			#reset_offset()
 			buffer.start()
 
 func _on_buffer_timer_timeout() -> void:
@@ -35,5 +35,5 @@ func set_attack_offset():
 func reset_offset():
 	sprite.offset = sprite.default_offset
 
-func on_exit():
-	reset_offset()
+#func on_exit():
+	#reset_offset()
