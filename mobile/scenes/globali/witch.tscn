@@ -490,7 +490,7 @@ offset_left = -25.0
 offset_top = -34.0
 offset_right = 50.0
 offset_bottom = -11.0
-scale = Vector2(0.405599, 0.405599)
+scale = Vector2(0.493772, 0.493772)
 state_machine = NodePath("../CharacterStateMachine")
 
 [connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
