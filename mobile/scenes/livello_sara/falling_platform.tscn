@@ -1,0 +1,80 @@
+[gd_scene load_steps=5 format=3 uid="uid://2rss8ew0cvi8"]
+
+[ext_resource type="Texture2D" uid="uid://bh7587nuibn3k" path="res://assets/livello_sara/PixelPlatformerSet1v/main_lev_build.png" id="1_v2wch"]
+
+[sub_resource type="GDScript" id="GDScript_mb67p"]
+script/source = "extends StaticBody2D
+
+@export var delay_before_fall: float = 1.0  # Tempo in secondi prima che la piattaforma cada
+@export var fall_speed: float = 200.0       # Velocità di caduta della piattaforma
+@export var reset_time: float = 5.0         # Tempo dopo il quale la piattaforma si resetta
+
+var is_falling: bool = false
+var original_position: Vector2
+
+func _ready():
+	# Salva la posizione iniziale della piattaforma
+	original_position = position
+
+func _on_body_entered(body):
+	fall_after_delay()
+
+func _on_body_exited(body):
+	if is_falling:
+		reset_platform_after_delay()
+
+func fall_after_delay() -> void:
+	is_falling = true
+	await get_tree().create_timer(delay_before_fall).timeout
+	set_process(true)  # Abilita il calcolo fisico per far cadere la piattaforma
+
+func _physics_process(delta):
+	if is_falling:
+		position.y += fall_speed * delta
+
+func reset_platform_after_delay() -> void:
+	await get_tree().create_timer(reset_time).timeout
+	_reset_platform()
+
+func _reset_platform():
+	is_falling = false
+	position = original_position
+	set_process(false)
+
+
+
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	fall_after_delay()
+
+
+func _on_area_2d_body_exited(body: Node2D) -> void:
+	if is_falling:
+		reset_platform_after_delay()
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4kp2e"]
+size = Vector2(30, 30)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_hwd6j"]
+radius = 14.0357
+
+[node name="FallingPlatform" type="StaticBody2D"]
+script = SubResource("GDScript_mb67p")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_v2wch")
+region_enabled = true
+region_rect = Rect2(814.452, 429.589, 37.0465, 39.3147)
+
+[node name="CollisionShapePlatform" type="CollisionShape2D" parent="."]
+position = Vector2(-1, -1)
+shape = SubResource("RectangleShape2D_4kp2e")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -31)
+shape = SubResource("CircleShape2D_hwd6j")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
