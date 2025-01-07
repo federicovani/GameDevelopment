@@ -1,16 +1,25 @@
-extends CharacterBody2D
+extends StaticBody2D
 
-@onready var animation_player = $AnimationPlayer
-@onready var timer = $ResetTimer
+@onready var timer: Timer = $Timer
+@onready var respawn_timer: Timer = $RespawnTimer
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
 
-var velocity = Vector2()
-
-func _physics_process(delta: float) -> void:
-	velocity.y += Globals.gravity * delta
-
-func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	pass # Replace with function body.
+func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.name == "knight":
+		timer.start()
+		animation_player.play("shake")
 
 
-func _on_reset_timer_timeout() -> void:
-	pass # Replace with function body.
+func _on_timer_timeout() -> void:
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 0, 0.4)
+	collision_shape_2d.disabled = true
+	respawn_timer.start()
+
+
+func _on_respawn_timer_timeout() -> void:
+	animation_player.play("RESET")
+	var tween = create_tween()
+	tween.tween_property(self, "modulate:a", 1, 0.4)
+	collision_shape_2d.disabled = false
