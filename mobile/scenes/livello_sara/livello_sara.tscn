@@ -1135,10 +1135,10 @@ position = Vector2(3061, -308)
 [node name="Witches" type="Node" parent="."]
 
 [node name="Witch" parent="Witches" instance=ExtResource("7_w7lk3")]
-position = Vector2(-42, -104)
+position = Vector2(-51, -125)
 
 [node name="Witch2" parent="Witches" instance=ExtResource("7_w7lk3")]
-position = Vector2(1381, -361)
+position = Vector2(1310, -365)
 
 [node name="Diamonds" type="Node" parent="."]
 
