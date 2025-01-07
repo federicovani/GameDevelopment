@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://dgjlol08ivpk2" path="res://scenes/livello_federico/background.tscn" id="2_pd4yd"]
 [ext_resource type="PackedScene" uid="uid://cl1m4y7imy100" path="res://scenes/globali/killzone.tscn" id="4_4yu1q"]
 [ext_resource type="PackedScene" uid="uid://c6buhchiamsw4" path="res://scenes/globali/diamond.tscn" id="5_yhc70"]
-[ext_resource type="PackedScene" uid="uid://c7o7nfqltvki5" path="res://scenes/globali/coin.tscn" id="6_hc816"]
+[ext_resource type="PackedScene" uid="uid://d4aij5g6rvxa4" path="res://scenes/globali/coin.tscn" id="6_hc816"]
 [ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/skeleton.tscn" id="7_saqal"]
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="8_72k1w"]
 [ext_resource type="PackedScene" uid="uid://c84q7rgy8bd2b" path="res://scenes/globali/witch.tscn" id="9_55snb"]
