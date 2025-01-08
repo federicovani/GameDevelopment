@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d4aij5g6rvxa4" path="res://scenes/globali/coin.tscn" id="6_hc816"]
 [ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/skeleton.tscn" id="7_saqal"]
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="8_72k1w"]
-[ext_resource type="PackedScene" uid="uid://c84q7rgy8bd2b" path="res://scenes/globali/witch.tscn" id="9_55snb"]
+[ext_resource type="PackedScene" uid="uid://3bktwps6pw33" path="res://scenes/globali/necromancer.tscn" id="9_gmvtk"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uv3x8"]
 tile_data = PackedInt32Array(65536, 786434, 11, 1, 786434, 11, 65537, 786434, 11, 131073, 786434, 11, 65538, 786434, 11, 131074, 786434, 11, 65539, 786434, 11)
@@ -612,7 +612,7 @@ tile_set = SubResource("TileSet_yrvqa")
 format = 2
 layer_0/name = "background"
 layer_1/name = "level"
-layer_1/tile_data = PackedInt32Array(131070, 917506, 23, 65538, 1245186, 23, 65539, 917506, 23, 65536, 1572866, 23, 65541, 524290, 10, 131079, 327682, 10, 131068, 1572866, 23, -458756, 1245186, 6, -458754, 1245186, 6, -524288, 1441794, 6, -524287, 1245186, 6, -524285, 2555906, 5, -393211, 2359298, 6, -393209, 1572866, 6, -458747, 1310722, 4, -393208, 1245186, 6, 196616, 1048578, 11, 65534, 1703938, 14, 5, 1703938, 14, 196618, 917506, 23, 196620, 917506, 23, 196624, 917506, 23, 196626, 917506, 23, 196628, 917506, 23)
+layer_1/tile_data = PackedInt32Array(131070, 917506, 23, 65538, 1245186, 23, 65539, 917506, 23, 65536, 1572866, 23, 65541, 524290, 10, 131079, 327682, 10, 131068, 1572866, 23, -458756, 1245186, 6, -458754, 1245186, 6, -524288, 1441794, 6, -524287, 1245186, 6, -524285, 2555906, 5, -393211, 2359298, 6, -393209, 1572866, 6, -458747, 1310722, 4, -393208, 1245186, 6, 196616, 1048578, 11, 65534, 1703938, 14, 5, 1703938, 14, 196618, 917506, 23, 196620, 917506, 23, 196624, 917506, 23, 196628, 917506, 23, 196626, 917506, 23)
 
 [node name="background" parent="." instance=ExtResource("2_pd4yd")]
 
@@ -649,11 +649,11 @@ position = Vector2(111, -19)
 [node name="Skeleton" parent="." instance=ExtResource("7_saqal")]
 position = Vector2(-3, -1)
 
-[node name="Witch" parent="." instance=ExtResource("9_55snb")]
-position = Vector2(293, 33)
-
 [node name="HealthChangedManager" parent="." instance=ExtResource("8_72k1w")]
 offset_left = 24.0
 offset_top = -60.0
 offset_right = 64.0
 offset_bottom = -20.0
+
+[node name="Necromancer" parent="." instance=ExtResource("9_gmvtk")]
+position = Vector2(269, 34)

@@ -384,7 +384,7 @@ animation_tree = NodePath("../AnimationTree")
 script = ExtResource("10_bwpsj")
 
 [node name="DirectionTimer" type="Timer" parent="CharacterStateMachine/Walk"]
-wait_time = 3.0
+wait_time = 5.0
 autostart = true
 
 [node name="Chase" type="Node" parent="CharacterStateMachine"]
@@ -429,9 +429,6 @@ shape = SubResource("RectangleShape2D_5i8bg")
 script = ExtResource("2_u2ad5")
 facing_left_position = Vector2(-10, 4.5)
 facing_right_position = Vector2(10.5, 4.5)
-
-[node name="AnimationTimer" type="Timer" parent="AttackZone/CollisionShape2D"]
-wait_time = 0.8
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(-3, 8)

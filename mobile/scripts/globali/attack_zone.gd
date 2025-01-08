@@ -1,7 +1,5 @@
 extends Area2D
 
-@onready var timer: Timer = $CollisionShape2D/AnimationTimer
-
 @export var character : CharacterBody2D
 @export var player : Node2D
 @export var to_damage : damageable
