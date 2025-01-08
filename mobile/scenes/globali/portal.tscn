@@ -193,12 +193,13 @@ radius = 5.0
 height = 34.0
 
 [node name="Portal" type="Area2D"]
+collision_mask = 2
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_ueh44")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.263851
+frame_progress = 0.351258
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

@@ -9,7 +9,6 @@ class_name HitState
 @warning_ignore("shadowed_global_identifier")
 @export var damageable : damageable
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	damageable.connect("on_hit", on_damageable_hit)
 
