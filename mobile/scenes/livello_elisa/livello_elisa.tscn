@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://bq11ojl7t5xeg"]
+[gd_scene load_steps=19 format=3 uid="uid://bq11ojl7t5xeg"]
 
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight.tscn" id="1_xhdup"]
 [ext_resource type="Texture2D" uid="uid://bcaylh0cg4ri8" path="res://assets/livello_elisa/02. Crystal World/main_lev_build_1.png" id="2_a87va"]
@@ -678,6 +678,44 @@ sources/0 = SubResource("TileSetAtlasSource_aj3fg")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_ibqvc"]
 distance = -133.0
 
+[sub_resource type="Animation" id="Animation_m6f55"]
+resource_name = "move"
+length = 2.0
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.0333333, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(941, -269), Vector2(1048, -269)]
+}
+
+[sub_resource type="Animation" id="Animation_8fkf7"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(941, -269)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_biywx"]
+_data = {
+"RESET": SubResource("Animation_8fkf7"),
+"move": SubResource("Animation_m6f55")
+}
+
 [node name="livello_elisa" type="Node2D"]
 
 [node name="TileMap" type="TileMap" parent="."]
@@ -736,3 +774,12 @@ shape = SubResource("WorldBoundaryShape2D_ibqvc")
 
 [node name="Platform" parent="." instance=ExtResource("11_4d7wc")]
 position = Vector2(175, -224)
+
+[node name="Platform2" parent="." instance=ExtResource("11_4d7wc")]
+position = Vector2(941, -269)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Platform2"]
+libraries = {
+"": SubResource("AnimationLibrary_biywx")
+}
+autoplay = "move"
