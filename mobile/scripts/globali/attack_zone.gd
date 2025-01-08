@@ -5,7 +5,7 @@ extends Area2D
 @export var to_damage : damageable
 @export var state_machine: CharacterStateMachine
 
-@export var damage : float
+@export var damage : int
 
 func _ready() -> void:
 	damage = character.damage
@@ -26,12 +26,9 @@ func hit():
 		var direction_to_damageable = (player.global_position - character.global_position)
 		var direction_sign = sign(direction_to_damageable.x)
 		if(direction_sign > 0):
-			@warning_ignore("narrowing_conversion")
 			to_damage.hit(damage, Vector2.RIGHT)
 		elif(direction_sign < 0):
-			@warning_ignore("narrowing_conversion")
 			to_damage.hit(damage, Vector2.LEFT)
 		else:
-			@warning_ignore("narrowing_conversion")
 			to_damage.hit(damage, Vector2.ZERO)
 	
