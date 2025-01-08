@@ -1135,7 +1135,7 @@ position = Vector2(3061, -308)
 position = Vector2(-51, -125)
 
 [node name="Witch2" parent="Witches" instance=ExtResource("7_w7lk3")]
-position = Vector2(1310, -365)
+position = Vector2(1245, -364)
 
 [node name="Diamonds" type="Node" parent="."]
 
@@ -1149,6 +1149,27 @@ position = Vector2(3441, -439)
 
 [node name="Coin" parent="Coins" instance=ExtResource("10_goq6m")]
 position = Vector2(3116, -907)
+
+[node name="Coin2" parent="Coins" instance=ExtResource("10_goq6m")]
+position = Vector2(-405, 152)
+
+[node name="Coin3" parent="Coins" instance=ExtResource("10_goq6m")]
+position = Vector2(358, -216)
+
+[node name="Coin4" parent="Coins" instance=ExtResource("10_goq6m")]
+position = Vector2(280, -216)
+
+[node name="Coin5" parent="Coins" instance=ExtResource("10_goq6m")]
+position = Vector2(186, -215)
+
+[node name="Coin6" parent="Coins" instance=ExtResource("10_goq6m")]
+position = Vector2(921, -328)
+
+[node name="Coin7" parent="Coins" instance=ExtResource("10_goq6m")]
+position = Vector2(1645, -45)
+
+[node name="Coin8" parent="Coins" instance=ExtResource("10_goq6m")]
+position = Vector2(1382, -376)
 
 [node name="Necromancer" parent="." instance=ExtResource("9_5vfbd")]
 position = Vector2(2564, 255)
