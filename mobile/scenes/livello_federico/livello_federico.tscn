@@ -8,7 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://d4aij5g6rvxa4" path="res://scenes/globali/coin.tscn" id="6_hc816"]
 [ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/skeleton.tscn" id="7_saqal"]
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="8_72k1w"]
-[ext_resource type="PackedScene" uid="uid://3bktwps6pw33" path="res://scenes/globali/necromancer.tscn" id="9_gmvtk"]
+[ext_resource type="PackedScene" uid="uid://c84q7rgy8bd2b" path="res://scenes/globali/witch.tscn" id="9_c0t8n"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uv3x8"]
 tile_data = PackedInt32Array(65536, 786434, 11, 1, 786434, 11, 65537, 786434, 11, 131073, 786434, 11, 65538, 786434, 11, 131074, 786434, 11, 65539, 786434, 11)
@@ -655,5 +655,5 @@ offset_top = -60.0
 offset_right = 64.0
 offset_bottom = -20.0
 
-[node name="Necromancer" parent="." instance=ExtResource("9_gmvtk")]
-position = Vector2(269, 34)
+[node name="Witch" parent="." instance=ExtResource("9_c0t8n")]
+position = Vector2(270, 37)

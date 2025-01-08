@@ -20,7 +20,7 @@
 [ext_resource type="Script" path="res://scripts/globali/attack_zone.gd" id="17_wxyhm"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c3lfu"]
-size = Vector2(10, 28)
+size = Vector2(10, 29)
 
 [sub_resource type="Animation" id="Animation_q7web"]
 length = 0.001
@@ -59,18 +59,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [5]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, 0)]
 }
 
 [sub_resource type="Animation" id="Animation_1pgfg"]
@@ -127,17 +115,22 @@ tracks/3/keys = {
 "method": &"hit"
 }]
 }
-tracks/4/type = "value"
+tracks/4/type = "method"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("Sprite2D:offset")
+tracks/4/path = NodePath("CharacterStateMachine/Attack")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(32, 0)]
+"times": PackedFloat32Array(0, 0.9),
+"transitions": PackedFloat32Array(1, 1),
+"values": [{
+"args": [],
+"method": &"set_attack_offset"
+}, {
+"args": [],
+"method": &"reset_offset"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_8ibvy"]
@@ -179,18 +172,6 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
-}
-tracks/3/type = "value"
-tracks/3/imported = false
-tracks/3/enabled = true
-tracks/3/path = NodePath("Sprite2D:offset")
-tracks/3/interp = 1
-tracks/3/loop_wrap = true
-tracks/3/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(0, -5)]
 }
 
 [sub_resource type="Animation" id="Animation_mxd4u"]
@@ -367,7 +348,7 @@ states/hit/position = Vector2(453, 217)
 states/walk/node = SubResource("AnimationNodeAnimation_8kp6q")
 states/walk/position = Vector2(326, 109)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_053ck"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_ti51h"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_lxkiq"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_g8qde"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_7aqsi"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_8s8w7")]
-graph_offset = Vector2(-1826, -45)
+graph_offset = Vector2(-362.372, -36)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dxs7h"]
 size = Vector2(79, 29)
@@ -385,6 +366,7 @@ facing_ray_cast_left = NodePath("RayCastLeft")
 facing_ray_cast_down = NodePath("RayCastDown")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+offset = Vector2(0, -5)
 vframes = 6
 frame = 5
 script = ExtResource("2_7y8r4")
@@ -392,11 +374,11 @@ facing_left_offset = Vector2(-32, 0)
 facing_right_offset = Vector2(32, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -1)
+position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_c3lfu")
 script = ExtResource("2_we04n")
-facing_left_position = Vector2(0, -1)
-facing_right_position = Vector2(0, -1)
+facing_left_position = Vector2(0, -0.5)
+facing_right_position = Vector2(0, -0.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -453,6 +435,20 @@ one_shot = true
 script = ExtResource("9_i8jhg")
 can_move = false
 
+[node name="AttackZone" type="Area2D" parent="." node_paths=PackedStringArray("character", "state_machine")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("17_wxyhm")
+character = NodePath("..")
+state_machine = NodePath("../CharacterStateMachine")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone"]
+position = Vector2(44.5, -0.5)
+shape = SubResource("RectangleShape2D_dxs7h")
+script = ExtResource("2_we04n")
+facing_left_position = Vector2(-44.5, -0.5)
+facing_right_position = Vector2(44.5, -0.5)
+
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(8, 0)
 script = ExtResource("13_bk2op")
@@ -468,20 +464,6 @@ script = ExtResource("13_bk2op")
 facing_left_position = Vector2(-9, 0)
 facing_right_position = Vector2(9, 0)
 
-[node name="AttackZone" type="Area2D" parent="." node_paths=PackedStringArray("character", "state_machine")]
-collision_layer = 0
-collision_mask = 2
-script = ExtResource("17_wxyhm")
-character = NodePath("..")
-state_machine = NodePath("../CharacterStateMachine")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone"]
-position = Vector2(44.5, -0.5)
-shape = SubResource("RectangleShape2D_dxs7h")
-script = ExtResource("2_we04n")
-facing_left_position = Vector2(-44.5, -0.5)
-facing_right_position = Vector2(44.5, -0.5)
-
 [node name="StateDebugLabel" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("13_xkfr7")]
 offset_left = -25.0
 offset_top = -34.0
@@ -492,6 +474,7 @@ state_machine = NodePath("../CharacterStateMachine")
 
 [connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
+[connection signal="animation_started" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_started"]
 [connection signal="timeout" from="CharacterStateMachine/Walk/DirectionTimer" to="CharacterStateMachine/Walk" method="_on_direction_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Chase/Timer" to="CharacterStateMachine/Chase" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
