@@ -6,6 +6,7 @@ class_name HitState
 
 @export var knockback_speed : float = 20.0
 
+@warning_ignore("shadowed_global_identifier")
 @export var damageable : damageable
 
 # Called when the node enters the scene tree for the first time.

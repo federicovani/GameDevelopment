@@ -1,5 +1,6 @@
 class_name damageable extends Node
 
+@warning_ignore("unused_signal")
 signal on_hit(node : Node, damage_taken : int, knockback_direction : Vector2)
 
 @export var health : float :

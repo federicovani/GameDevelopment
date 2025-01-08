@@ -26,6 +26,7 @@ class_name Knight extends CharacterBody2D
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 @export var direction : Vector2 = Vector2.ZERO
 
+@warning_ignore("unused_signal")
 signal facing_direction_changed(facing_right : bool)
 
 func _ready():
