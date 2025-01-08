@@ -617,6 +617,7 @@ graph_offset = Vector2(-4, -58)
 size = Vector2(48.5, 32)
 
 [node name="knight" type="CharacterBody2D"]
+z_index = 5
 collision_layer = 2
 script = ExtResource("1_awd5s")
 

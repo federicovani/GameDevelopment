@@ -1,0 +1,18 @@
+[gd_scene load_steps=3 format=3 uid="uid://c41nqrqu2i12q"]
+
+[ext_resource type="Texture2D" uid="uid://bcaylh0cg4ri8" path="res://assets/livello_elisa/02. Crystal World/main_lev_build_1.png" id="1_w2t86"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_red4c"]
+size = Vector2(48, 6)
+
+[node name="Platform" type="AnimatableBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_w2t86")
+region_enabled = true
+region_rect = Rect2(828.911, 61.7385, 55.1414, 8.34282)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_red4c")
+one_way_collision = true
