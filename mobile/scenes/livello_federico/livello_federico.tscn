@@ -629,11 +629,11 @@ limit_bottom = 240
 limit_smoothed = true
 
 [node name="PauseMenu" parent="knight/Camera2D" instance=ExtResource("11_l0tji")]
-offset_left = -69.0
-offset_top = -64.0
-offset_right = -69.0
-offset_bottom = -64.0
-scale = Vector2(2.48056, 2.48056)
+offset_left = -54.0
+offset_top = -68.0
+offset_right = -54.0
+offset_bottom = -68.0
+scale = Vector2(1.75338, 1.75338)
 size_flags_horizontal = 4
 size_flags_vertical = 4
 

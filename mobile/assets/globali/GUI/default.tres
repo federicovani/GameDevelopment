@@ -1293,33 +1293,17 @@ expand_margin_top = 2.0
 expand_margin_right = 2.0
 expand_margin_bottom = 2.0
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0e6bc"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.225, 0.225, 0.225, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_eaeae"]
+texture = ExtResource("1_p676n")
+region_rect = Rect2(113, 113, 30, 14)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tq2y4"]
 texture = ExtResource("1_p676n")
 region_rect = Rect2(113, 81, 30, 14)
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0jhwh"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0, 0, 0, 0.6)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68101"]
+texture = ExtResource("1_p676n")
+region_rect = Rect2(113, 98, 30, 13)
 
 [resource]
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
@@ -1343,6 +1327,6 @@ Button/font_sizes/font_size = 16
 Button/fonts/font = SubResource("FontFile_8h8c1")
 Button/styles/disabled = SubResource("StyleBoxFlat_2f71d")
 Button/styles/focus = SubResource("StyleBoxFlat_6qj8v")
-Button/styles/hover = SubResource("StyleBoxFlat_0e6bc")
+Button/styles/hover = SubResource("StyleBoxTexture_eaeae")
 Button/styles/normal = SubResource("StyleBoxTexture_tq2y4")
-Button/styles/pressed = SubResource("StyleBoxFlat_0jhwh")
+Button/styles/pressed = SubResource("StyleBoxTexture_68101")
