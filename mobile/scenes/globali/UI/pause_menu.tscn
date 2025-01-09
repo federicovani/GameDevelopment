@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://c3jjxg1ikomnh"]
+[gd_scene load_steps=6 format=3 uid="uid://c3jjxg1ikomnh"]
 
 [ext_resource type="Script" path="res://scripts/globali/UI/pause_menu.gd" id="1_fkyik"]
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/fonts/ThaleahFat.ttf" id="1_gsj33"]
 [ext_resource type="Shader" path="res://scenes/globali/UI/pause_menu.gdshader" id="2_ij8lt"]
+[ext_resource type="Theme" uid="uid://cnk304tv4ytv5" path="res://assets/globali/GUI/default.tres" id="3_5vbtk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_utjsd"]
 shader = ExtResource("2_ij8lt")
@@ -22,27 +23,30 @@ script = ExtResource("1_fkyik")
 [node name="ColorRect" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_utjsd")
 layout_mode = 0
-offset_left = -1151.0
-offset_top = -470.0
-offset_right = -1111.0
-offset_bottom = -430.0
+offset_left = -1155.0
+offset_top = -476.0
+offset_right = -1115.0
+offset_bottom = -436.0
 scale = Vector2(57.4025, 27.9457)
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_right = 61.0
+offset_bottom = 36.0
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+alignment = 1
 
 [node name="Resume" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_5vbtk")
 theme_override_fonts/font = ExtResource("1_gsj33")
 text = "Resume"
 
 [node name="Quit" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("3_5vbtk")
 theme_override_fonts/font = ExtResource("1_gsj33")
 text = "Quit"
 
