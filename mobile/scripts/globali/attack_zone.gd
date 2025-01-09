@@ -24,11 +24,6 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if(state_machine.current_state!=character.death_state && timer.is_stopped()):
 		player = body
-		for child in player.get_children():
-			if is_instance_valid(child) && child is damageable:
-				to_damage = child
-				state_machine.switch_states(character.attack_state)
-				timer.start()
 
 #Handled by the AnimationPlayer, called when the animation actually hit the player
 func hit():
