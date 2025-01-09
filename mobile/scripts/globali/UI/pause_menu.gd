@@ -1,4 +1,4 @@
-extends Control
+class_name PauseMenu extends Control
 
 var paused : bool = false
 
