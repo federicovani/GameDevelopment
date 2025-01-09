@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3k38htbk1vgs"]
+[gd_scene load_steps=17 format=3 uid="uid://d3k38htbk1vgs"]
 
 [ext_resource type="Texture2D" uid="uid://qhh04ncp81cr" path="res://assets/livello_federico/PixelFantasy_Caves_1/mainlev_build.png" id="1_4vle5"]
 [ext_resource type="Script" path="res://scripts/livello_federico/livello_federico.gd" id="1_xox4y"]
@@ -11,6 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="8_72k1w"]
 [ext_resource type="PackedScene" uid="uid://c84q7rgy8bd2b" path="res://scenes/globali/witch.tscn" id="9_c0t8n"]
 [ext_resource type="PackedScene" uid="uid://glyif1t8h0h7" path="res://scenes/globali/portal.tscn" id="11_1aovj"]
+[ext_resource type="PackedScene" uid="uid://c3jjxg1ikomnh" path="res://scenes/globali/UI/pause_menu.tscn" id="11_l0tji"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uv3x8"]
 tile_data = PackedInt32Array(65536, 786434, 11, 1, 786434, 11, 65537, 786434, 11, 131073, 786434, 11, 65538, 786434, 11, 131074, 786434, 11, 65539, 786434, 11)
@@ -627,6 +628,15 @@ limit_top = -240
 limit_bottom = 240
 limit_smoothed = true
 
+[node name="PauseMenu" parent="knight/Camera2D" instance=ExtResource("11_l0tji")]
+offset_left = -69.0
+offset_top = -64.0
+offset_right = -69.0
+offset_bottom = -64.0
+scale = Vector2(2.48056, 2.48056)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
 [node name="killzone" parent="." instance=ExtResource("4_4yu1q")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="killzone"]
@@ -648,7 +658,9 @@ position = Vector2(270, 37)
 [node name="Portal" parent="." instance=ExtResource("11_1aovj")]
 position = Vector2(-130, -16)
 
-[node name="HealthChangedManager" parent="." instance=ExtResource("8_72k1w")]
+[node name="UI" type="Node" parent="."]
+
+[node name="HealthChangedManager" parent="UI" instance=ExtResource("8_72k1w")]
 offset_left = 24.0
 offset_top = -60.0
 offset_right = 64.0
