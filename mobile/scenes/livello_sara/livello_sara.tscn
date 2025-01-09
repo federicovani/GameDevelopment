@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://qcdfeswxpdnn"]
+[gd_scene load_steps=26 format=3 uid="uid://qcdfeswxpdnn"]
 
 [ext_resource type="Texture2D" uid="uid://bh7587nuibn3k" path="res://assets/livello_sara/PixelPlatformerSet1v/main_lev_build.png" id="1_f67bj"]
 [ext_resource type="PackedScene" uid="uid://csy7q6utr00gx" path="res://scenes/livello_sara/background.tscn" id="2_a7s8q"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://3bktwps6pw33" path="res://scenes/globali/necromancer.tscn" id="9_5vfbd"]
 [ext_resource type="PackedScene" uid="uid://d4aij5g6rvxa4" path="res://scenes/globali/coin.tscn" id="10_goq6m"]
 [ext_resource type="PackedScene" uid="uid://ydahcfu4escg" path="res://scenes/livello_sara/falling_platform.tscn" id="12_istsp"]
+[ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="13_ekqrr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnyg4"]
 texture = ExtResource("1_f67bj")
@@ -1196,3 +1197,5 @@ position = Vector2(3375, -65)
 
 [node name="FallingPlatform7" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
 position = Vector2(3407, -65)
+
+[node name="HealthChangedManager" parent="." instance=ExtResource("13_ekqrr")]
