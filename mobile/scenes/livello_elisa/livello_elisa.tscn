@@ -8,8 +8,8 @@
 [ext_resource type="PackedScene" uid="uid://c84q7rgy8bd2b" path="res://scenes/globali/witch.tscn" id="6_mghbv"]
 [ext_resource type="PackedScene" uid="uid://d4aij5g6rvxa4" path="res://scenes/globali/coin.tscn" id="7_gklec"]
 [ext_resource type="PackedScene" uid="uid://3bktwps6pw33" path="res://scenes/globali/necromancer.tscn" id="7_m6x8k"]
-[ext_resource type="PackedScene" uid="uid://c6buhchiamsw4" path="res://scenes/globali/diamond.tscn" id="9_ern55"]
-[ext_resource type="PackedScene" uid="uid://cl1m4y7imy100" path="res://scenes/globali/killzone.tscn" id="10_xk7u8"]
+[ext_resource type="PackedScene" path="res://scenes/globali/diamond.tscn" id="9_ern55"]
+[ext_resource type="PackedScene" path="res://scenes/globali/killzone.tscn" id="10_xk7u8"]
 [ext_resource type="PackedScene" uid="uid://c41nqrqu2i12q" path="res://scenes/livello_elisa/platform.tscn" id="11_4d7wc"]
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="12_vm5gf"]
 

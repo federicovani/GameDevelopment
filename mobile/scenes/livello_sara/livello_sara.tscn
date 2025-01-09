@@ -4,9 +4,9 @@
 [ext_resource type="PackedScene" uid="uid://csy7q6utr00gx" path="res://scenes/livello_sara/background.tscn" id="2_a7s8q"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight.tscn" id="3_n5yw1"]
 [ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/skeleton.tscn" id="4_5ffku"]
-[ext_resource type="PackedScene" uid="uid://cl1m4y7imy100" path="res://scenes/globali/killzone.tscn" id="5_bdxp3"]
+[ext_resource type="PackedScene" path="res://scenes/globali/killzone.tscn" id="5_bdxp3"]
 [ext_resource type="PackedScene" uid="uid://cvyhy2ba3ohsf" path="res://scenes/livello_sara/platform2.tscn" id="6_j7mps"]
-[ext_resource type="PackedScene" uid="uid://c6buhchiamsw4" path="res://scenes/globali/diamond.tscn" id="6_mpbfg"]
+[ext_resource type="PackedScene" path="res://scenes/globali/diamond.tscn" id="6_mpbfg"]
 [ext_resource type="PackedScene" uid="uid://c84q7rgy8bd2b" path="res://scenes/globali/witch.tscn" id="7_w7lk3"]
 [ext_resource type="PackedScene" uid="uid://d0heqbf6230t8" path="res://scenes/livello_sara/platform.tscn" id="8_t5111"]
 [ext_resource type="PackedScene" uid="uid://3bktwps6pw33" path="res://scenes/globali/necromancer.tscn" id="9_5vfbd"]
@@ -1062,6 +1062,7 @@ _data = {
 }
 
 [node name="livello_sara" type="Node2D"]
+position = Vector2(0, 299)
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = SubResource("TileSet_jy7so")
@@ -1119,58 +1120,58 @@ autoplay = "move"
 [node name="Skeletons" type="Node" parent="."]
 
 [node name="Skeleton" parent="Skeletons" instance=ExtResource("4_5ffku")]
-position = Vector2(-444, 143)
+position = Vector2(-444, 442)
 
 [node name="Skeleton2" parent="Skeletons" instance=ExtResource("4_5ffku")]
-position = Vector2(572, -241)
+position = Vector2(572, 58)
 
 [node name="Skeleton3" parent="Skeletons" instance=ExtResource("4_5ffku")]
-position = Vector2(1139, 48)
+position = Vector2(1139, 347)
 
 [node name="Skeleton4" parent="Skeletons" instance=ExtResource("4_5ffku")]
-position = Vector2(3061, -308)
+position = Vector2(3061, -9)
 
 [node name="Witches" type="Node" parent="."]
 
 [node name="Witch" parent="Witches" instance=ExtResource("7_w7lk3")]
-position = Vector2(-51, -125)
+position = Vector2(-51, 174)
 
 [node name="Witch2" parent="Witches" instance=ExtResource("7_w7lk3")]
-position = Vector2(1245, -364)
+position = Vector2(1245, -65)
 
 [node name="Diamonds" type="Node" parent="."]
 
 [node name="Diamond" parent="Diamonds" instance=ExtResource("6_mpbfg")]
-position = Vector2(2802, 54)
+position = Vector2(2802, 353)
 
 [node name="Diamond2" parent="Diamonds" instance=ExtResource("6_mpbfg")]
-position = Vector2(3441, -439)
+position = Vector2(3441, -140)
 
 [node name="Coins" type="Node" parent="."]
 
 [node name="Coin" parent="Coins" instance=ExtResource("10_goq6m")]
-position = Vector2(3116, -907)
+position = Vector2(3116, -608)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("10_goq6m")]
-position = Vector2(-405, 152)
+position = Vector2(-405, 451)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("10_goq6m")]
-position = Vector2(358, -216)
+position = Vector2(358, 83)
 
 [node name="Coin4" parent="Coins" instance=ExtResource("10_goq6m")]
-position = Vector2(280, -216)
+position = Vector2(280, 83)
 
 [node name="Coin5" parent="Coins" instance=ExtResource("10_goq6m")]
-position = Vector2(186, -215)
+position = Vector2(186, 84)
 
 [node name="Coin6" parent="Coins" instance=ExtResource("10_goq6m")]
-position = Vector2(921, -328)
+position = Vector2(921, -29)
 
 [node name="Coin7" parent="Coins" instance=ExtResource("10_goq6m")]
-position = Vector2(1645, -45)
+position = Vector2(1645, 254)
 
 [node name="Coin8" parent="Coins" instance=ExtResource("10_goq6m")]
-position = Vector2(1382, -376)
+position = Vector2(1382, -77)
 
 [node name="Necromancer" parent="." instance=ExtResource("9_5vfbd")]
 position = Vector2(2564, 255)
@@ -1178,24 +1179,25 @@ position = Vector2(2564, 255)
 [node name="FallingPlatforms" type="Node" parent="."]
 
 [node name="FallingPlatform" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
-position = Vector2(3215, -65)
+position = Vector2(3215, 234)
 
 [node name="FallingPlatform2" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
-position = Vector2(3247, -65)
+position = Vector2(3247, 234)
 
 [node name="FallingPlatform3" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
-position = Vector2(3279, -65)
+position = Vector2(3279, 234)
 
 [node name="FallingPlatform4" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
-position = Vector2(3311, -65)
+position = Vector2(3311, 234)
 
 [node name="FallingPlatform5" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
-position = Vector2(3343, -65)
+position = Vector2(3343, 234)
 
 [node name="FallingPlatform6" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
-position = Vector2(3375, -65)
+position = Vector2(3375, 234)
 
 [node name="FallingPlatform7" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
-position = Vector2(3407, -65)
+position = Vector2(3407, 234)
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("13_ekqrr")]
+metadata/_edit_use_anchors_ = true
