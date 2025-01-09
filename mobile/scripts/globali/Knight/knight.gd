@@ -38,3 +38,6 @@ func _process(_delta: float) -> void:
 
 func update_animation_parameters():
 	animation_tree.set("parameters/move/blend_position", direction.x)
+
+func cannot_move():
+	state_machine.current_state.can_move = false
