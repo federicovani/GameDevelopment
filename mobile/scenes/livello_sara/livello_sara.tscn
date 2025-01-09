@@ -948,7 +948,8 @@ sources/0 = SubResource("TileSetAtlasSource_fnyg4")
 distance = -314.0
 
 [sub_resource type="Animation" id="Animation_f71gv"]
-length = 0.001
+length = 2.0
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -956,10 +957,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1799, 80)]
+"values": [Vector2(2039, 379), Vector2(1786, 379)]
 }
 
 [sub_resource type="Animation" id="Animation_dtda5"]
@@ -986,7 +987,8 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_tesu2"]
-length = 0.001
+length = 2.0
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -994,10 +996,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0.001, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(1581, 81)]
+"values": [Vector2(1586, 224), Vector2(1586, 435)]
 }
 
 [sub_resource type="Animation" id="Animation_drtlk"]
@@ -1024,7 +1026,8 @@ _data = {
 }
 
 [sub_resource type="Animation" id="Animation_qbrca"]
-length = 0.001
+length = 2.0
+loop_mode = 2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -1032,10 +1035,10 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.5),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(3497, 15)]
+"values": [Vector2(3496, 312), Vector2(3496, -44)]
 }
 
 [sub_resource type="Animation" id="Animation_wm6gq"]
@@ -1091,31 +1094,31 @@ shape = SubResource("WorldBoundaryShape2D_l0axt")
 [node name="Platforms" type="Node" parent="."]
 
 [node name="Platform" parent="Platforms" instance=ExtResource("8_t5111")]
-position = Vector2(1799, 80)
+position = Vector2(2039, 379)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform"]
 libraries = {
 "": SubResource("AnimationLibrary_okre5")
 }
-autoplay = "move"
+autoplay = "RESET"
 
 [node name="Platform2" parent="Platforms" instance=ExtResource("8_t5111")]
-position = Vector2(1581, 81)
+position = Vector2(1586, 224)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform2"]
 libraries = {
 "": SubResource("AnimationLibrary_loo0x")
 }
-autoplay = "move"
+autoplay = "RESET"
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("6_j7mps")]
-position = Vector2(3497, 15)
+position = Vector2(3496, 312)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform3"]
 libraries = {
 "": SubResource("AnimationLibrary_tstdx")
 }
-autoplay = "move"
+autoplay = "RESET"
 
 [node name="Skeletons" type="Node" parent="."]
 
