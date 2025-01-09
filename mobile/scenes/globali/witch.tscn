@@ -366,12 +366,11 @@ facing_ray_cast_left = NodePath("RayCastLeft")
 facing_ray_cast_down = NodePath("RayCastDown")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-offset = Vector2(0, -5)
 vframes = 6
 frame = 5
 script = ExtResource("2_7y8r4")
-facing_left_offset = Vector2(-32, 0)
-facing_right_offset = Vector2(32, 0)
+facing_left_offset = Vector2(-32, -1)
+facing_right_offset = Vector2(32, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
@@ -427,10 +426,6 @@ attack_zone = NodePath("../../AttackZone")
 sprite = NodePath("../../Sprite2D")
 can_move = false
 
-[node name="BufferTimer" type="Timer" parent="CharacterStateMachine/Attack"]
-wait_time = 3.0
-one_shot = true
-
 [node name="Death" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_i8jhg")
 can_move = false
@@ -448,6 +443,10 @@ shape = SubResource("RectangleShape2D_dxs7h")
 script = ExtResource("2_we04n")
 facing_left_position = Vector2(-44.5, -0.5)
 facing_right_position = Vector2(44.5, -0.5)
+
+[node name="BufferTimer" type="Timer" parent="AttackZone"]
+wait_time = 4.0
+one_shot = true
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(8, 0)
@@ -478,5 +477,4 @@ state_machine = NodePath("../CharacterStateMachine")
 [connection signal="timeout" from="CharacterStateMachine/Walk/DirectionTimer" to="CharacterStateMachine/Walk" method="_on_direction_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Chase/Timer" to="CharacterStateMachine/Chase" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
-[connection signal="timeout" from="CharacterStateMachine/Attack/BufferTimer" to="CharacterStateMachine/Attack" method="_on_buffer_timer_timeout"]
 [connection signal="body_entered" from="AttackZone" to="AttackZone" method="_on_body_entered"]

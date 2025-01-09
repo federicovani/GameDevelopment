@@ -474,10 +474,6 @@ attack_zone = NodePath("../../AttackZone")
 sprite = NodePath("../../Sprite2D")
 can_move = false
 
-[node name="BufferTimer" type="Timer" parent="CharacterStateMachine/Attack"]
-wait_time = 3.0
-one_shot = true
-
 [node name="Death" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("11_hdyqt")
 
@@ -510,6 +506,10 @@ script = ExtResource("2_dn64w")
 facing_left_position = Vector2(-45.5, -6.5)
 facing_right_position = Vector2(44.5, -6.5)
 
+[node name="BufferTimer" type="Timer" parent="AttackZone"]
+wait_time = 4.0
+one_shot = true
+
 [node name="StateDebugLabel" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("9_qjrf5")]
 offset_left = -45.0
 offset_top = -49.0
@@ -523,5 +523,4 @@ state_machine = NodePath("../CharacterStateMachine")
 [connection signal="timeout" from="CharacterStateMachine/Walk/DirectionTimer" to="CharacterStateMachine/Walk" method="_on_direction_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Chase/Timer" to="CharacterStateMachine/Chase" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
-[connection signal="timeout" from="CharacterStateMachine/Attack/BufferTimer" to="CharacterStateMachine/Attack" method="_on_buffer_timer_timeout"]
 [connection signal="body_entered" from="AttackZone" to="AttackZone" method="_on_body_entered"]

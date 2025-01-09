@@ -426,10 +426,6 @@ attack_zone = NodePath("../../AttackZone")
 sprite = NodePath("../../Sprite2D")
 can_move = false
 
-[node name="BufferTimer" type="Timer" parent="CharacterStateMachine/Attack"]
-wait_time = 0.001
-one_shot = true
-
 [node name="Death" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("6_sn4x6")
 
@@ -446,6 +442,10 @@ shape = SubResource("RectangleShape2D_5i8bg")
 script = ExtResource("2_u2ad5")
 facing_left_position = Vector2(-10, 4.5)
 facing_right_position = Vector2(10.5, 4.5)
+
+[node name="BufferTimer" type="Timer" parent="AttackZone"]
+wait_time = 2.5
+one_shot = true
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 position = Vector2(-3, 8)
@@ -481,5 +481,4 @@ state_machine = NodePath("../CharacterStateMachine")
 [connection signal="timeout" from="CharacterStateMachine/Walk/DirectionTimer" to="CharacterStateMachine/Walk" method="_on_direction_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Chase/Timer" to="CharacterStateMachine/Chase" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
-[connection signal="timeout" from="CharacterStateMachine/Attack/BufferTimer" to="CharacterStateMachine/Attack" method="_on_buffer_timer_timeout"]
 [connection signal="body_entered" from="AttackZone" to="AttackZone" method="_on_body_entered"]

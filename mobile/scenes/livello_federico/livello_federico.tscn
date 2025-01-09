@@ -612,7 +612,7 @@ tile_set = SubResource("TileSet_yrvqa")
 format = 2
 layer_0/name = "background"
 layer_1/name = "level"
-layer_1/tile_data = PackedInt32Array(131070, 917506, 23, 65538, 1245186, 23, 65539, 917506, 23, 65536, 1572866, 23, 65541, 524290, 10, 131079, 327682, 10, 131068, 1572866, 23, -458756, 1245186, 6, -458754, 1245186, 6, -524288, 1441794, 6, -524287, 1245186, 6, -524285, 2555906, 5, -393211, 2359298, 6, -393209, 1572866, 6, -458747, 1310722, 4, -393208, 1245186, 6, 196616, 1048578, 11, 65534, 1703938, 14, 5, 1703938, 14, 196618, 917506, 23, 196620, 917506, 23, 196624, 917506, 23, 196628, 917506, 23, 196626, 917506, 23)
+layer_1/tile_data = PackedInt32Array(131070, 917506, 23, 65538, 1245186, 23, 65539, 917506, 23, 65536, 1572866, 23, 65541, 524290, 10, 131079, 327682, 10, -458756, 1245186, 6, -458754, 1245186, 6, -524288, 1441794, 6, -524287, 1245186, 6, -524285, 2555906, 5, -393211, 2359298, 6, -393209, 1572866, 6, -458747, 1310722, 4, -393208, 1245186, 6, 196616, 1048578, 11, 65534, 1703938, 14, 5, 1703938, 14, 196618, 917506, 23, 196620, 917506, 23, 196624, 917506, 23, 196628, 917506, 23, 196626, 917506, 23, 131068, 1572866, 23, 131066, 1376258, 23, 131064, 1376258, 23, 131062, 1376258, 23, 131060, 1376258, 23)
 
 [node name="background" parent="." instance=ExtResource("2_pd4yd")]
 
@@ -622,7 +622,7 @@ position = Vector2(-49, 0)
 [node name="Camera2D" type="Camera2D" parent="knight"]
 position = Vector2(0, 17)
 zoom = Vector2(3, 3)
-limit_left = -64
+limit_left = -256
 limit_top = -240
 limit_bottom = 240
 limit_smoothed = true
@@ -642,14 +642,14 @@ position = Vector2(111, -19)
 [node name="Skeleton" parent="." instance=ExtResource("7_saqal")]
 position = Vector2(-3, -1)
 
+[node name="Witch" parent="." instance=ExtResource("9_c0t8n")]
+position = Vector2(270, 37)
+
+[node name="Portal" parent="." instance=ExtResource("11_1aovj")]
+position = Vector2(-130, -16)
+
 [node name="HealthChangedManager" parent="." instance=ExtResource("8_72k1w")]
 offset_left = 24.0
 offset_top = -60.0
 offset_right = 64.0
 offset_bottom = -20.0
-
-[node name="Witch" parent="." instance=ExtResource("9_c0t8n")]
-position = Vector2(270, 37)
-
-[node name="Portal" parent="." instance=ExtResource("11_1aovj")]
-position = Vector2(194, 20)
