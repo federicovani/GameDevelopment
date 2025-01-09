@@ -26,4 +26,4 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 		timer.start()
 
 func _on_timer_timeout() -> void:
-	get_tree().change_scene_to_file("res://scenes/livello_sara/livello_sara.tscn")
+	SignalBus.emit_signal("portal_crossed")
