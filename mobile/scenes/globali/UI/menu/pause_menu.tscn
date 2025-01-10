@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://c3jjxg1ikomnh"]
 
-[ext_resource type="Script" path="res://scripts/globali/UI/pause_menu.gd" id="1_fkyik"]
+[ext_resource type="Script" path="res://scripts/globali/UI/menu/pause_menu.gd" id="1_fkyik"]
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/fonts/ThaleahFat.ttf" id="1_gsj33"]
 [ext_resource type="Shader" path="res://scenes/globali/UI/pause_menu.gdshader" id="2_ij8lt"]
 [ext_resource type="Theme" uid="uid://cnk304tv4ytv5" path="res://assets/globali/GUI/default.tres" id="3_5vbtk"]

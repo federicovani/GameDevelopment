@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://b03ggtovvlac2"]
+[gd_scene load_steps=5 format=3 uid="uid://b03ggtovvlac2"]
 
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/fonts/ThaleahFat.ttf" id="1_0hsca"]
+[ext_resource type="PackedScene" uid="uid://drljavbuoa6aj" path="res://scenes/globali/UI/menu/options_menu/hotkey_rebind_button.tscn" id="2_dbqi0"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0ltba"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xcwx"]
 
 [node name="SettingsTabContainer" type="Control"]
 layout_mode = 3
@@ -22,9 +27,10 @@ offset_bottom = -100.0
 grow_horizontal = 2
 grow_vertical = 2
 tab_alignment = 1
-current_tab = 0
+current_tab = 2
 
 [node name="Sound" type="TabBar" parent="TabContainer"]
+visible = false
 layout_mode = 2
 metadata/_tab_index = 0
 
@@ -128,7 +134,6 @@ theme_override_font_sizes/font_size = 16
 text = "Test"
 
 [node name="Controls" type="TabBar" parent="TabContainer"]
-visible = false
 layout_mode = 2
 metadata/_tab_index = 2
 
@@ -144,40 +149,37 @@ theme_override_constants/margin_top = 24
 theme_override_constants/margin_right = 24
 theme_override_constants/margin_bottom = 24
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="TabContainer/Controls/MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TabContainer/Controls/MarginContainer/ScrollContainer"]
 layout_mode = 2
 theme_override_constants/separation = 64
-alignment = 1
 
-[node name="Label" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_0hsca")
-theme_override_font_sizes/font_size = 16
-text = "Test"
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_0ltba")
 
-[node name="Label2" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+[node name="HotkeyRebindButton" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_dbqi0")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_0hsca")
-theme_override_font_sizes/font_size = 16
-text = "Test"
 
-[node name="Label3" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+[node name="HotkeyRebindButton2" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_dbqi0")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_0hsca")
-theme_override_font_sizes/font_size = 16
-text = "Test"
+action_name = "move_right"
 
-[node name="Label4" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+[node name="HotkeyRebindButton3" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_dbqi0")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_0hsca")
-theme_override_font_sizes/font_size = 16
-text = "Test"
+action_name = "jump"
 
-[node name="Label5" type="Label" parent="TabContainer/Controls/MarginContainer/VBoxContainer"]
+[node name="HotkeyRebindButton4" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_dbqi0")]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("1_0hsca")
-theme_override_font_sizes/font_size = 16
-text = "Test"
+action_name = "attack"
+
+[node name="HSeparator2" type="HSeparator" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 12
+theme_override_styles/separator = SubResource("StyleBoxEmpty_5xcwx")
 
 [node name="Accessibility" type="TabBar" parent="TabContainer"]
 visible = false
