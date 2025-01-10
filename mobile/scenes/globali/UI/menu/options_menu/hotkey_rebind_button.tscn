@@ -5,7 +5,7 @@
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2byi"]
 
-[node name="HotkeyRebindButton" type="Control"]
+[node name="HotkeyRebindButton" type="Control" groups=["hotkey_button"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -40,7 +40,9 @@ theme_override_constants/separation = 200
 theme_override_styles/separator = SubResource("StyleBoxEmpty_y2byi")
 
 [node name="Button" type="Button" parent="HBoxContainer"]
-custom_minimum_size = Vector2(200, 0)
+custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 toggle_mode = true
 text = "ACTION_KEY"
+
+[connection signal="toggled" from="HBoxContainer/Button" to="." method="_on_button_toggled"]
