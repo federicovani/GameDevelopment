@@ -69,11 +69,3 @@ func rebind_action_key(event):
 		set_process_unhandled_key_input(false)
 		set_text_for_key()
 		set_action_name()
-
-#func rebind_action_key(event: InputEvent):
-	#InputMap.action_erase_events(action_name)
-	#InputMap.action_add_event(action_name, event)
-	#
-	#set_process_unhandled_key_input(false)
-	#set_text_for_key()
-	#set_action_name()
