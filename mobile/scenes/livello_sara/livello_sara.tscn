@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://qcdfeswxpdnn"]
+[gd_scene load_steps=30 format=3 uid="uid://qcdfeswxpdnn"]
 
 [ext_resource type="Texture2D" uid="uid://bh7587nuibn3k" path="res://assets/livello_sara/PixelPlatformerSet1v/main_lev_build.png" id="1_f67bj"]
 [ext_resource type="PackedScene" uid="uid://csy7q6utr00gx" path="res://scenes/livello_sara/background.tscn" id="2_a7s8q"]
@@ -13,6 +13,10 @@
 [ext_resource type="PackedScene" uid="uid://d4aij5g6rvxa4" path="res://scenes/globali/coin.tscn" id="10_goq6m"]
 [ext_resource type="PackedScene" uid="uid://ydahcfu4escg" path="res://scenes/livello_sara/falling_platform.tscn" id="12_istsp"]
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="13_ekqrr"]
+[ext_resource type="PackedScene" uid="uid://mjkc8ywujg0t" path="res://scenes/livello_sara/light.tscn" id="14_vrdyu"]
+[ext_resource type="PackedScene" uid="uid://b2l5wetgjsypj" path="res://scenes/livello_sara/torch_c.tscn" id="15_o67j1"]
+[ext_resource type="PackedScene" uid="uid://bbcthl2t0bfjq" path="res://scenes/livello_sara/torch_a.tscn" id="16_0pwj6"]
+[ext_resource type="PackedScene" uid="uid://cyyuehxd5jplb" path="res://scenes/livello_sara/torch_b.tscn" id="17_8h8nb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnyg4"]
 texture = ExtResource("1_f67bj")
@@ -1176,6 +1180,12 @@ position = Vector2(1645, 254)
 [node name="Coin8" parent="Coins" instance=ExtResource("10_goq6m")]
 position = Vector2(1382, -77)
 
+[node name="Coin9" parent="Coins" instance=ExtResource("10_goq6m")]
+position = Vector2(3545, -236)
+
+[node name="Coin10" parent="Coins" instance=ExtResource("10_goq6m")]
+position = Vector2(3917, -237)
+
 [node name="Necromancer" parent="." instance=ExtResource("9_5vfbd")]
 position = Vector2(2564, 255)
 
@@ -1204,3 +1214,88 @@ position = Vector2(3407, 234)
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("13_ekqrr")]
 metadata/_edit_use_anchors_ = true
+
+[node name="lights" type="Node" parent="."]
+
+[node name="light" parent="lights" instance=ExtResource("14_vrdyu")]
+position = Vector2(-359, 317)
+
+[node name="light2" parent="lights" instance=ExtResource("14_vrdyu")]
+position = Vector2(-42, 254)
+
+[node name="light3" parent="lights" instance=ExtResource("14_vrdyu")]
+position = Vector2(43, 253)
+
+[node name="light4" parent="lights" instance=ExtResource("14_vrdyu")]
+position = Vector2(41, 95)
+
+[node name="light5" parent="lights" instance=ExtResource("14_vrdyu")]
+position = Vector2(1251, -179)
+
+[node name="light6" parent="lights" instance=ExtResource("14_vrdyu")]
+position = Vector2(1252, 270)
+
+[node name="light7" parent="lights" instance=ExtResource("14_vrdyu")]
+position = Vector2(1365, 270)
+
+[node name="light8" parent="lights" instance=ExtResource("14_vrdyu")]
+position = Vector2(3403, -306)
+
+[node name="torches" type="Node" parent="."]
+
+[node name="torch-C" parent="torches" instance=ExtResource("15_o67j1")]
+position = Vector2(152, 26)
+
+[node name="torch-C2" parent="torches" instance=ExtResource("15_o67j1")]
+position = Vector2(249, 26)
+
+[node name="torch-C3" parent="torches" instance=ExtResource("15_o67j1")]
+position = Vector2(344, 26)
+
+[node name="torch-C4" parent="torches" instance=ExtResource("15_o67j1")]
+position = Vector2(441, 26)
+
+[node name="torch-C5" parent="torches" instance=ExtResource("15_o67j1")]
+position = Vector2(2849, 149)
+
+[node name="torch-C6" parent="torches" instance=ExtResource("15_o67j1")]
+position = Vector2(3009, 134)
+
+[node name="torch-C7" parent="torches" instance=ExtResource("15_o67j1")]
+position = Vector2(3153, 134)
+
+[node name="torch-C8" parent="torches" instance=ExtResource("15_o67j1")]
+position = Vector2(3296, 134)
+
+[node name="torch-C9" parent="torches" instance=ExtResource("15_o67j1")]
+position = Vector2(3457, 134)
+
+[node name="torch-C10" parent="torches" instance=ExtResource("15_o67j1")]
+position = Vector2(2921, -43)
+
+[node name="torch-C11" parent="torches" instance=ExtResource("15_o67j1")]
+position = Vector2(3033, -44)
+
+[node name="torch-C12" parent="torches" instance=ExtResource("15_o67j1")]
+position = Vector2(2290, 499)
+
+[node name="torch-C13" parent="torches" instance=ExtResource("15_o67j1")]
+position = Vector2(2546, 500)
+
+[node name="torch-A" parent="torches" instance=ExtResource("16_0pwj6")]
+position = Vector2(552, 211)
+
+[node name="torch-A2" parent="torches" instance=ExtResource("16_0pwj6")]
+position = Vector2(1048, 94)
+
+[node name="torch-A3" parent="torches" instance=ExtResource("16_0pwj6")]
+position = Vector2(2840, 304)
+
+[node name="torch-A4" parent="torches" instance=ExtResource("16_0pwj6")]
+position = Vector2(3288, -89)
+
+[node name="torch-B" parent="torches" instance=ExtResource("17_8h8nb")]
+position = Vector2(600, 211)
+
+[node name="torch-B2" parent="torches" instance=ExtResource("17_8h8nb")]
+position = Vector2(3334, -89)
