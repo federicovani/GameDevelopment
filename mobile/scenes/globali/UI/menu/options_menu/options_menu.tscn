@@ -53,4 +53,4 @@ theme_override_fonts/font = ExtResource("1_qbq1m")
 theme_override_font_sizes/font_size = 32
 text = "Exit"
 
-[connection signal="button_down" from="MarginContainer/VBoxContainer/Exit" to="." method="_on_exit_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/Exit" to="." method="on_exit_button_down"]

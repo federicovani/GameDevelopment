@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://b03ggtovvlac2"]
+[gd_scene load_steps=9 format=3 uid="uid://b03ggtovvlac2"]
 
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/fonts/ThaleahFat.ttf" id="1_0hsca"]
 [ext_resource type="PackedScene" uid="uid://cbf0vxt0sorvk" path="res://scenes/globali/UI/menu/options_menu/audio_slider_settings.tscn" id="1_8vsk2"]
+[ext_resource type="Script" path="res://scripts/globali/UI/menu/options_menu/settings_tab_container.gd" id="1_g8wcf"]
 [ext_resource type="PackedScene" uid="uid://thb203ifi7nq" path="res://scenes/globali/UI/menu/options_menu/window_mode_button.tscn" id="2_6q4a5"]
 [ext_resource type="PackedScene" uid="uid://drljavbuoa6aj" path="res://scenes/globali/UI/menu/options_menu/hotkey_rebind_button.tscn" id="2_dbqi0"]
 [ext_resource type="PackedScene" uid="uid://oketusljfawx" path="res://scenes/globali/UI/menu/options_menu/resolution_mode_button.tscn" id="3_mdjd0"]
@@ -17,6 +18,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_g8wcf")
 
 [node name="TabContainer" type="TabContainer" parent="."]
 layout_mode = 1
