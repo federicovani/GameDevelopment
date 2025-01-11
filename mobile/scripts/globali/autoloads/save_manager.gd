@@ -27,4 +27,6 @@ func load_settings_data():
 		var _parsed_result = json.parse(json_string)
 		
 		loaded_data = json.get_data()
+		
 	SettingsSignalBus.emit_load_settings_data(loaded_data)
+	loaded_data = {}

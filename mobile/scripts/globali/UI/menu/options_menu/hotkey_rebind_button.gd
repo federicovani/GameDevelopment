@@ -9,6 +9,10 @@ func _ready() -> void:
 	set_process_unhandled_key_input(false)
 	set_action_name()
 	set_text_for_key()
+	load_keybinds()
+
+func load_keybinds():
+	rebind_action_key(SettingsDataContainer.get_keybind(action_name))
 
 func set_action_name():
 	label.text = "Unassigned"
@@ -51,21 +55,30 @@ func _unhandled_key_input(event: InputEvent) -> void:
 	button.button_pressed = false
 
 func rebind_action_key(event):
-	var is_duplicate=false
-	var action_event=event
-	var action_keycode=OS.get_keycode_string(action_event.physical_keycode)
-	for i in get_tree().get_nodes_in_group("hotkey_button"):
-			if i.action_name!=self.action_name:
-				if i.button.text=="%s" %action_keycode:
-					is_duplicate=true
-					self.button.text = "Already Bound"
-					await get_tree().create_timer(2.0).timeout
-					set_process_unhandled_key_input(false)
-					set_text_for_key()
-					break
-	if not is_duplicate:
-		InputMap.action_erase_events(action_name)
-		InputMap.action_add_event(action_name,event)
-		set_process_unhandled_key_input(false)
-		set_text_for_key()
-		set_action_name()
+	InputMap.action_erase_events(action_name)
+	InputMap.action_add_event(action_name,event)
+	SettingsDataContainer.set_keybind(action_name, event)
+	
+	set_process_unhandled_key_input(false)
+	set_text_for_key()
+	set_action_name()
+	#var is_duplicate=false
+	#var action_event=event
+	#var action_keycode=OS.get_keycode_string(action_event.physical_keycode)
+	#for i in get_tree().get_nodes_in_group("hotkey_button"):
+			#if i.action_name!=self.action_name:
+				#if i.button.text=="%s" %action_keycode:
+					#is_duplicate=true
+					#self.button.text = "Already Bound"
+					#await get_tree().create_timer(2.0).timeout
+					#set_process_unhandled_key_input(false)
+					#set_text_for_key()
+					#break
+	#if not is_duplicate:
+		#InputMap.action_erase_events(action_name)
+		#InputMap.action_add_event(action_name,event)
+		#SettingsDataContainer.set_keybind(action_name, event)
+		#
+		#set_process_unhandled_key_input(false)
+		#set_text_for_key()
+		#set_action_name()
