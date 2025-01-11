@@ -50,4 +50,4 @@ theme_override_font_sizes/font_size = 32
 text = "99
 "
 
-[connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="value_changed" from="HBoxContainer/HSlider" to="." method="on_value_changed"]

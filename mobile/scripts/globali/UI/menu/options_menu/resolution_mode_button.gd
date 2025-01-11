@@ -13,17 +13,15 @@ var DISPLAY_RESOLUTION_KEYS : Array = RESOLUTION_DICTIONARY.keys()
 func _ready() -> void:
 	option_button.item_selected.connect(on_resolution_selected)
 	add_resolution_items()
-	select_current_display_resolution()
+	load_data()
+
+func load_data():
+	on_resolution_selected(SettingsDataContainer.get_resolution_index())
+	option_button.select(SettingsDataContainer.get_resolution_index())
 
 func add_resolution_items():
 	for resolution_size_text in RESOLUTION_DICTIONARY:
 		option_button.add_item(resolution_size_text)
-
-func select_current_display_resolution():
-	var current_resolution = DisplayServer.window_get_size()
-	var current_resolution_string = str(current_resolution.x) + " x " + str(current_resolution.y)
-	var index = DISPLAY_RESOLUTION_KEYS.find(current_resolution_string)
-	option_button.select(index)
 
 func on_resolution_selected(index : int):
 	SettingsSignalBus.emit_on_resolution_selected(index)

@@ -10,8 +10,18 @@ var bus_index : int = 0
 
 func _ready() -> void:
 	get_bus_name_by_index()
+	load_data()
 	set_name_label_text()
 	set_slider_value()
+
+func load_data():
+	match bus_name:
+		"Master":
+			on_value_changed(SettingsDataContainer.get_master_volume())
+		"Music":
+			on_value_changed(SettingsDataContainer.get_music_volume())
+		"SFX":
+			on_value_changed(SettingsDataContainer.get_sfx_volume())
 
 func set_name_label_text():
 	audio_name_lbl.text = str(bus_name) + " Volume"
@@ -26,7 +36,7 @@ func set_slider_value():
 	slider.value = db_to_linear(AudioServer.get_bus_volume_db(bus_index))
 	set_audio_value_label_text()
 
-func _on_h_slider_value_changed(value: float) -> void:
+func on_value_changed(value: float) -> void:
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(value))
 	set_audio_value_label_text()
 	
