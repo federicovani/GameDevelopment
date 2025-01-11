@@ -36,6 +36,8 @@ func select_current_window_mode() -> void:
 			pass
 
 func on_window_mode_selected(index: int) -> void:
+	SettingsSignalBus.emit_on_window_mode_selected(index)
+	
 	match index:
 		0: #Fullscreen
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_FULLSCREEN)

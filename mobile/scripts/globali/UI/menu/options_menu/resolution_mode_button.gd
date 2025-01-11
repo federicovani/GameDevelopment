@@ -26,6 +26,8 @@ func select_current_display_resolution():
 	option_button.select(index)
 
 func on_resolution_selected(index : int):
+	SettingsSignalBus.emit_on_resolution_selected(index)
+	
 	DisplayServer.window_set_size(RESOLUTION_DICTIONARY.values()[index])
 	centre_window()
 
