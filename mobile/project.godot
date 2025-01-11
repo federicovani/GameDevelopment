@@ -17,8 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-SignalBus="*res://scripts/globali/auto_load/signal_bus.gd"
-Global="*res://scripts/globali/auto_load/global.gd"
+SignalBus="*res://scripts/globali/autoloads/signal_bus.gd"
+Global="*res://scripts/globali/autoloads/global.gd"
+SettingsSignalBus="*res://scripts/globali/autoloads/settings_signal_bus.gd"
 
 [dotnet]
 
