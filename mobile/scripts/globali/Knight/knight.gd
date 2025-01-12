@@ -14,6 +14,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") #Get the
 
 @onready var idle_state: State = $CharacterStateMachine/Idle
 @onready var crouch_state: State = $CharacterStateMachine/Crouching
+@onready var dash_state: State = $CharacterStateMachine/Dash
 @onready var jumping_state: State = $CharacterStateMachine/Jumping
 @onready var falling_state : State = $CharacterStateMachine/Falling
 @onready var attack_state : State = $CharacterStateMachine/Attacking

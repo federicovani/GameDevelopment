@@ -19,6 +19,8 @@ func state_input(event: InputEvent):
 		jump()
 	if(event.is_action_pressed("crouch")):
 		crouch()
+	if(event.is_action_pressed("dash")):
+		dash()
 	if(event.is_action_pressed("attack")):
 		attack()
 
@@ -28,6 +30,9 @@ func jump():
 func crouch():
 	playback.travel(character.crouch_transition_animation)
 	next_state = character.crouch_state
+
+func dash():
+	next_state = character.dash_state
 
 func attack():
 	next_state = character.attack_state
