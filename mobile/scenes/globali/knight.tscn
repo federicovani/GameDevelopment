@@ -860,10 +860,11 @@ wait_time = 0.05
 one_shot = true
 autostart = true
 
-[node name="Crouching" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("sprite", "knight_facing_collision_shape")]
+[node name="Crouching" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("sprite", "knight_facing_collision_shape", "sword_facing_collision_shape")]
 script = ExtResource("18_g5qyp")
 sprite = NodePath("../../Sprite2D")
 knight_facing_collision_shape = NodePath("../../CollisionShapeKnight")
+sword_facing_collision_shape = NodePath("../../Sword/CollisionShapeSword")
 
 [node name="Jumping" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_sw8ig")
@@ -912,6 +913,9 @@ facing_collision_shape = NodePath("CollisionShapeSword")
 position = Vector2(35, 0)
 shape = SubResource("RectangleShape2D_sh7pf")
 script = ExtResource("2_wc3q5")
+crouch_facing_left_position = Vector2(-16, 4)
+crouch_facing_right_position = Vector2(27, 4)
+crouch_size = Vector2(32, 24)
 standard_size = Vector2(48.5, 32)
 facing_left_position = Vector2(-24, 0)
 facing_right_position = Vector2(35, 0)

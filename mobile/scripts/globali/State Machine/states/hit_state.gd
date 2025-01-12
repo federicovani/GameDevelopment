@@ -26,7 +26,11 @@ func on_damageable_hit(_node : Node, _damage_taken : int, knockback_direction : 
 
 func _on_timer_timeout() -> void:
 	if(character == Global.playerBody):
-		next_state = character.idle_state
+		if character.is_crouching:
+			playback.travel(character.crouch_transition_animation)
+			next_state = character.crouch_state
+		else:
+			next_state = character.idle_state
 	else: 
 		next_state = character.chase_state
 

@@ -1,8 +1,8 @@
 class_name idle extends State
 
 @export var sprite: Sprite2D
-@export var knight_facing_collision_shape : FacingCollisionShape
-@export var sword_facing_collision_shape : FacingCollisionShape
+@export var knight_facing_collision_shape : FacingCollisionShapeKnight
+@export var sword_facing_collision_shape : FacingCollisionShapeKnight
 
 #Prevent entering the falling state when the game is starting
 @onready var buffer_timer: Timer = $BufferTimer
@@ -43,7 +43,7 @@ func _physics_process(delta):
 				character.velocity.x = move_toward(character.velocity.x, 0, character.speed)
 				
 			character.move_and_slide()
-	update_facing_direction()
+			update_facing_direction()
 
 #Change sprite orientation
 func update_facing_direction():
@@ -56,6 +56,8 @@ func update_facing_direction():
 
 #Change collision shape orientation 
 func on_player_facing_direction_changed(facing_right : bool):
+	knight_facing_collision_shape.shape.set_size(knight_facing_collision_shape.standard_size)
+	sword_facing_collision_shape.shape.set_size(sword_facing_collision_shape.standard_size)
 	if(facing_right):
 		knight_facing_collision_shape.position = knight_facing_collision_shape.facing_right_position
 		sword_facing_collision_shape.position = sword_facing_collision_shape.facing_right_position
