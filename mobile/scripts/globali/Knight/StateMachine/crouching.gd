@@ -1,13 +1,13 @@
 class_name crouching extends State
 
-@export var sprite: Sprite2D
+@export var sprite : FacingSpriteOffset
 @export var crouch_area : Area2D
 @export var knight_facing_collision_shape : FacingCollisionShapeKnight
 @export var sword_facing_collision_shape : FacingCollisionShapeKnight
-@export var crouch_area_facing_collision_shape : FacingCollisionShape
 
 func on_enter():
 	playback.travel(character.crouch_animation)
+	set_collision_shapes()
 
 func state_process(delta):
 	if(!character.is_on_floor()):
@@ -46,6 +46,12 @@ func attack():
 func can_standup() -> bool:
 	return !crouch_area.has_overlapping_bodies()
 
+func set_collision_shapes():
+	knight_facing_collision_shape.shape.set_size(knight_facing_collision_shape.crouch_size)
+	sword_facing_collision_shape.shape.set_size(sword_facing_collision_shape.crouch_size)
+	knight_facing_collision_shape.position = knight_facing_collision_shape.crouch_facing_right_position
+	knight_facing_collision_shape.position = knight_facing_collision_shape.crouch_facing_left_position
+	
 #Change sprite orientation
 func update_facing_direction():
 	if character.direction.x > 0:
@@ -57,13 +63,10 @@ func update_facing_direction():
 
 #Change collision shape orientation 
 func on_player_facing_direction_changed(facing_right : bool):
-	knight_facing_collision_shape.shape.set_size(knight_facing_collision_shape.crouch_size)
-	sword_facing_collision_shape.shape.set_size(sword_facing_collision_shape.crouch_size)
+	
 	if(facing_right):
-		knight_facing_collision_shape.position = knight_facing_collision_shape.crouch_facing_right_position
+		sprite.offset = sprite.facing_right_offset
 		sword_facing_collision_shape.position = sword_facing_collision_shape.crouch_facing_right_position
-		crouch_area_facing_collision_shape.position = crouch_area_facing_collision_shape.facing_right_position
 	else:
-		knight_facing_collision_shape.position = knight_facing_collision_shape.crouch_facing_left_position
+		sprite.offset = sprite.facing_left_offset
 		sword_facing_collision_shape.position = sword_facing_collision_shape.crouch_facing_left_position
-		crouch_area_facing_collision_shape.position = crouch_area_facing_collision_shape.facing_left_position

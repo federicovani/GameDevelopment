@@ -1,6 +1,6 @@
 class_name idle extends State
 
-@export var sprite: Sprite2D
+@export var sprite: FacingSpriteOffset
 @export var knight_facing_collision_shape : FacingCollisionShapeKnight
 @export var sword_facing_collision_shape : FacingCollisionShapeKnight
 
@@ -9,6 +9,7 @@ class_name idle extends State
 	
 func on_enter():
 	playback.travel(character.idle_animation)
+	set_collision_shapes()
 
 func state_process(_delta):
 	if(!character.is_on_floor() && buffer_timer.is_stopped()):
@@ -50,6 +51,12 @@ func _physics_process(delta):
 			character.move_and_slide()
 			update_facing_direction()
 
+func set_collision_shapes():
+	knight_facing_collision_shape.shape.set_size(knight_facing_collision_shape.standard_size)
+	sword_facing_collision_shape.shape.set_size(sword_facing_collision_shape.standard_size)
+	knight_facing_collision_shape.position = knight_facing_collision_shape.facing_right_position
+	knight_facing_collision_shape.position = knight_facing_collision_shape.facing_left_position
+	
 #Change sprite orientation
 func update_facing_direction():
 	if character.direction.x > 0:
@@ -61,11 +68,9 @@ func update_facing_direction():
 
 #Change collision shape orientation 
 func on_player_facing_direction_changed(facing_right : bool):
-	knight_facing_collision_shape.shape.set_size(knight_facing_collision_shape.standard_size)
-	sword_facing_collision_shape.shape.set_size(sword_facing_collision_shape.standard_size)
 	if(facing_right):
-		knight_facing_collision_shape.position = knight_facing_collision_shape.facing_right_position
+		sprite.offset = sprite.facing_right_offset
 		sword_facing_collision_shape.position = sword_facing_collision_shape.facing_right_position
 	else:
-		knight_facing_collision_shape.position = knight_facing_collision_shape.facing_left_position
+		sprite.offset = sprite.facing_left_offset
 		sword_facing_collision_shape.position = sword_facing_collision_shape.facing_left_position
