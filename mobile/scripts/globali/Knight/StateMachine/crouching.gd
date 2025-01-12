@@ -17,7 +17,7 @@ func state_process(delta):
 	if get_parent().check_if_can_move():
 			character.direction = Input.get_vector("move_left", "move_right", "jump", "ui_down")
 			
-			if character.direction && get_parent().check_if_can_move():
+			if character.direction:
 				character.velocity.x = character.direction.x * character.crouching_speed * delta
 			else:
 				character.velocity.x = move_toward(character.velocity.x, 0, character.crouching_speed)

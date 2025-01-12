@@ -1,12 +1,13 @@
 class_name falling extends State
 
-@onready var grab_hand_raycast: RayCast2D = $"../../GrabHandRaycast"
-@onready var grab_check_raycast: RayCast2D = $"../../GrabCheckRaycast"
-@onready var wall_check: ShapeCast2D = $"../../WallCheck"
-@onready var floor_check: RayCast2D = $"../../FloorCheck"
+@export var ledge_grab: CollisionShape2D 
+@export var wall_check: ShapeCast2D 
+@export var floor_check: RayCast2D 
+@export var raycast_wall_check: RayCast2D
 
 func on_enter():
 	playback.travel(character.jump_between_animation)
+	ledge_grab.disabled = false
 
 func state_process(_delta):
 	check_ledge_grab()
@@ -23,5 +24,12 @@ func _physics_process(delta: float) -> void:
 		character.velocity.y += character.gravity * delta
 
 func check_ledge_grab():
-	if wall_check.is_colliding() && !floor_check.is_colliding() && character.velocity.y == 0:
+	if raycast_wall_check.is_colliding():
+		ledge_grab.disabled = true
+	else:
+		ledge_grab.disabled = false
+	if wall_check.is_colliding() && !floor_check.is_colliding() && !raycast_wall_check.is_colliding() && character.velocity.y == 0:
 		next_state = character.wall_hang_state
+
+func on_exit():
+	ledge_grab.disabled = true

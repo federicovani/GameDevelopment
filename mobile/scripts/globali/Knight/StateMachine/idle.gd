@@ -3,6 +3,7 @@ class_name idle extends State
 @export var sprite: FacingSpriteOffset
 @export var knight_facing_collision_shape : FacingCollisionShapeKnight
 @export var sword_facing_collision_shape : FacingCollisionShapeKnight
+@export var raycast_wall_check : RayCast2D
 
 #Prevent entering the falling state when the game is starting
 @onready var buffer_timer: Timer = $BufferTimer
@@ -39,17 +40,16 @@ func attack():
 	next_state = character.attack_state
 
 func _physics_process(delta):
-	if(!get_parent().current_state == character.crouch_state):
-		if get_parent().check_if_can_move():
-			character.direction = Input.get_vector("move_left", "move_right", "jump", "ui_down")
+	if(get_parent().check_if_can_move() && !get_parent().current_state == character.crouch_state):
+		character.direction = Input.get_vector("move_left", "move_right", "jump", "ui_down")
+		
+		if character.direction:
+			character.velocity.x = character.direction.x * character.speed * delta
+		else:
+			character.velocity.x = move_toward(character.velocity.x, 0, character.speed)
 			
-			if character.direction && get_parent().check_if_can_move():
-				character.velocity.x = character.direction.x * character.speed * delta
-			else:
-				character.velocity.x = move_toward(character.velocity.x, 0, character.speed)
-				
-			character.move_and_slide()
-			update_facing_direction()
+		character.move_and_slide()
+		update_facing_direction()
 
 func set_collision_shapes():
 	knight_facing_collision_shape.shape.set_size(knight_facing_collision_shape.standard_size)
@@ -71,6 +71,8 @@ func on_player_facing_direction_changed(facing_right : bool):
 	if(facing_right):
 		sprite.offset = sprite.facing_right_offset
 		sword_facing_collision_shape.position = sword_facing_collision_shape.facing_right_position
+		raycast_wall_check.scale.x = 1
 	else:
 		sprite.offset = sprite.facing_left_offset
 		sword_facing_collision_shape.position = sword_facing_collision_shape.facing_left_position
+		raycast_wall_check.scale.x = -1
