@@ -7,3 +7,7 @@ func on_enter():
 func state_process(_delta):
 	if(character.velocity.y > 0):
 		next_state = character.falling_state
+
+
+	
+	
