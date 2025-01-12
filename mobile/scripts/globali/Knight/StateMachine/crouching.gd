@@ -8,7 +8,6 @@ class_name crouching extends State
 
 func on_enter():
 	playback.travel(character.crouch_animation)
-	crouch_area.monitoring = true
 
 func state_process(delta):
 	if(!character.is_on_floor()):
@@ -68,6 +67,3 @@ func on_player_facing_direction_changed(facing_right : bool):
 		knight_facing_collision_shape.position = knight_facing_collision_shape.crouch_facing_left_position
 		sword_facing_collision_shape.position = sword_facing_collision_shape.crouch_facing_left_position
 		crouch_area_facing_collision_shape.position = crouch_area_facing_collision_shape.facing_left_position
-
-func on_exit():
-	crouch_area.monitoring = false

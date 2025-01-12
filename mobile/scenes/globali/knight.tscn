@@ -933,7 +933,6 @@ facing_right_position = Vector2(35, 0)
 [node name="CrouchArea" type="Area2D" parent="."]
 visible = false
 collision_layer = 0
-monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CrouchArea"]
 position = Vector2(0, -16)
