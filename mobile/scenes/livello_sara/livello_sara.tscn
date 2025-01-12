@@ -1303,6 +1303,29 @@ shape = SubResource("WorldBoundaryShape2D_l0axt")
 
 [node name="Platforms" type="Node" parent="."]
 
+[node name="FallingPlatforms" type="Node" parent="Platforms"]
+
+[node name="FallingPlatform" parent="Platforms/FallingPlatforms" instance=ExtResource("12_istsp")]
+position = Vector2(3217, 227)
+
+[node name="FallingPlatform2" parent="Platforms/FallingPlatforms" instance=ExtResource("12_istsp")]
+position = Vector2(3249, 227)
+
+[node name="FallingPlatform3" parent="Platforms/FallingPlatforms" instance=ExtResource("12_istsp")]
+position = Vector2(3281, 227)
+
+[node name="FallingPlatform4" parent="Platforms/FallingPlatforms" instance=ExtResource("12_istsp")]
+position = Vector2(3313, 227)
+
+[node name="FallingPlatform5" parent="Platforms/FallingPlatforms" instance=ExtResource("12_istsp")]
+position = Vector2(3345, 227)
+
+[node name="FallingPlatform6" parent="Platforms/FallingPlatforms" instance=ExtResource("12_istsp")]
+position = Vector2(3377, 227)
+
+[node name="FallingPlatform7" parent="Platforms/FallingPlatforms" instance=ExtResource("12_istsp")]
+position = Vector2(3409, 227)
+
 [node name="Platform" parent="Platforms" instance=ExtResource("8_t5111")]
 position = Vector2(2042, 372)
 
@@ -1397,29 +1420,6 @@ position = Vector2(3917, -243)
 
 [node name="Necromancer" parent="." instance=ExtResource("9_5vfbd")]
 position = Vector2(2563, 251)
-
-[node name="FallingPlatforms" type="Node" parent="."]
-
-[node name="FallingPlatform" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
-position = Vector2(3217, 227)
-
-[node name="FallingPlatform2" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
-position = Vector2(3249, 227)
-
-[node name="FallingPlatform3" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
-position = Vector2(3281, 227)
-
-[node name="FallingPlatform4" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
-position = Vector2(3313, 227)
-
-[node name="FallingPlatform5" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
-position = Vector2(3345, 227)
-
-[node name="FallingPlatform6" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
-position = Vector2(3377, 227)
-
-[node name="FallingPlatform7" parent="FallingPlatforms" instance=ExtResource("12_istsp")]
-position = Vector2(3409, 227)
 
 [node name="HealthChangedManager" parent="." instance=ExtResource("13_ekqrr")]
 metadata/_edit_use_anchors_ = true
