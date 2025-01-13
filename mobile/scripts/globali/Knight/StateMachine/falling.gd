@@ -21,7 +21,7 @@ func state_process(_delta):
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if !character.is_on_floor() && get_parent().current_state != character.wall_hang_state:
-		character.velocity.y += character.gravity * delta
+		character.velocity.y += get_gravity() * delta
 
 func check_ledge_grab():
 	if raycast_wall_check.is_colliding():
@@ -30,6 +30,11 @@ func check_ledge_grab():
 		ledge_grab.disabled = false
 	if wall_check.is_colliding() && !floor_check.is_colliding() && !raycast_wall_check.is_colliding() && character.velocity.y == 0:
 		next_state = character.wall_hang_state
+
+func get_gravity():
+	if(character.velocity.y) < 0:
+		return character.gravity
+	return character.falling_gravity
 
 func on_exit():
 	ledge_grab.disabled = true
