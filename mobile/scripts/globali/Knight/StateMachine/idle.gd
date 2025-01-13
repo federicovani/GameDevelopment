@@ -14,7 +14,7 @@ func on_enter():
 	set_collision_shapes()
 
 func state_process(_delta):
-	if(!floor_check.is_colliding() && buffer_timer.is_stopped()):
+	if(!floor_check.is_colliding() && !character.is_on_floor() && buffer_timer.is_stopped()):
 		next_state = character.falling_state
 
 func state_input(event: InputEvent):
