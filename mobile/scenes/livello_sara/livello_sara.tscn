@@ -1,14 +1,14 @@
-[gd_scene load_steps=33 format=3 uid="uid://qcdfeswxpdnn"]
+[gd_scene load_steps=34 format=3 uid="uid://qcdfeswxpdnn"]
 
 [ext_resource type="Texture2D" uid="uid://bh7587nuibn3k" path="res://assets/livello_sara/PixelPlatformerSet1v/main_lev_build.png" id="1_f67bj"]
 [ext_resource type="PackedScene" uid="uid://csy7q6utr00gx" path="res://scenes/livello_sara/background.tscn" id="2_a7s8q"]
 [ext_resource type="Texture2D" uid="uid://crr82kwtpm0fy" path="res://assets/livello_sara/PixelPlatformerSet1v/other_and_decorative.png" id="2_lxllj"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight.tscn" id="3_n5yw1"]
 [ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/skeleton.tscn" id="4_5ffku"]
-[ext_resource type="PackedScene" uid="uid://cl1m4y7imy100" path="res://scenes/globali/killzone.tscn" id="5_bdxp3"]
+[ext_resource type="PackedScene" path="res://scenes/globali/killzone.tscn" id="5_bdxp3"]
 [ext_resource type="PackedScene" uid="uid://c3jjxg1ikomnh" path="res://scenes/globali/UI/menu/pause_menu.tscn" id="5_lllbn"]
 [ext_resource type="PackedScene" uid="uid://cvyhy2ba3ohsf" path="res://scenes/livello_sara/platform2.tscn" id="6_j7mps"]
-[ext_resource type="PackedScene" uid="uid://c6buhchiamsw4" path="res://scenes/globali/diamond.tscn" id="6_mpbfg"]
+[ext_resource type="PackedScene" path="res://scenes/globali/diamond.tscn" id="6_mpbfg"]
 [ext_resource type="PackedScene" uid="uid://c84q7rgy8bd2b" path="res://scenes/globali/witch.tscn" id="7_w7lk3"]
 [ext_resource type="PackedScene" uid="uid://d0heqbf6230t8" path="res://scenes/livello_sara/platform.tscn" id="8_t5111"]
 [ext_resource type="PackedScene" uid="uid://3bktwps6pw33" path="res://scenes/globali/necromancer.tscn" id="9_5vfbd"]
@@ -19,6 +19,7 @@
 [ext_resource type="PackedScene" uid="uid://b2l5wetgjsypj" path="res://scenes/livello_sara/torch_c.tscn" id="15_o67j1"]
 [ext_resource type="PackedScene" uid="uid://bbcthl2t0bfjq" path="res://scenes/livello_sara/torch_a.tscn" id="16_0pwj6"]
 [ext_resource type="PackedScene" uid="uid://cyyuehxd5jplb" path="res://scenes/livello_sara/torch_b.tscn" id="17_8h8nb"]
+[ext_resource type="PackedScene" uid="uid://b2uj1ljrtr3oa" path="res://scenes/livello_sara/damage_object.tscn" id="20_f3hhp"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnyg4"]
 texture = ExtResource("1_f67bj")
@@ -1424,87 +1425,125 @@ position = Vector2(2563, 251)
 [node name="HealthChangedManager" parent="." instance=ExtResource("13_ekqrr")]
 metadata/_edit_use_anchors_ = true
 
-[node name="lights" type="Node" parent="."]
+[node name="Lights" type="Node" parent="."]
 
-[node name="light" parent="lights" instance=ExtResource("14_vrdyu")]
+[node name="light" parent="Lights" instance=ExtResource("14_vrdyu")]
 position = Vector2(-360, 310)
 
-[node name="light2" parent="lights" instance=ExtResource("14_vrdyu")]
+[node name="light2" parent="Lights" instance=ExtResource("14_vrdyu")]
 position = Vector2(-43, 246)
 
-[node name="light3" parent="lights" instance=ExtResource("14_vrdyu")]
+[node name="light3" parent="Lights" instance=ExtResource("14_vrdyu")]
 position = Vector2(45, 246)
 
-[node name="light4" parent="lights" instance=ExtResource("14_vrdyu")]
+[node name="light4" parent="Lights" instance=ExtResource("14_vrdyu")]
 position = Vector2(42, 86)
 
-[node name="light5" parent="lights" instance=ExtResource("14_vrdyu")]
+[node name="light5" parent="Lights" instance=ExtResource("14_vrdyu")]
 position = Vector2(1251, -186)
 
-[node name="light6" parent="lights" instance=ExtResource("14_vrdyu")]
+[node name="light6" parent="Lights" instance=ExtResource("14_vrdyu")]
 position = Vector2(1252, 262)
 
-[node name="light7" parent="lights" instance=ExtResource("14_vrdyu")]
+[node name="light7" parent="Lights" instance=ExtResource("14_vrdyu")]
 position = Vector2(1365, 262)
 
-[node name="light8" parent="lights" instance=ExtResource("14_vrdyu")]
+[node name="light8" parent="Lights" instance=ExtResource("14_vrdyu")]
 position = Vector2(3403, -314)
 
-[node name="torches" type="Node" parent="."]
+[node name="Torches" type="Node" parent="."]
 
-[node name="torch-C" parent="torches" instance=ExtResource("15_o67j1")]
+[node name="torch-C" parent="Torches" instance=ExtResource("15_o67j1")]
 position = Vector2(155, 19)
 
-[node name="torch-C2" parent="torches" instance=ExtResource("15_o67j1")]
+[node name="torch-C2" parent="Torches" instance=ExtResource("15_o67j1")]
 position = Vector2(251, 19)
 
-[node name="torch-C3" parent="torches" instance=ExtResource("15_o67j1")]
+[node name="torch-C3" parent="Torches" instance=ExtResource("15_o67j1")]
 position = Vector2(347, 19)
 
-[node name="torch-C4" parent="torches" instance=ExtResource("15_o67j1")]
+[node name="torch-C4" parent="Torches" instance=ExtResource("15_o67j1")]
 position = Vector2(443, 19)
 
-[node name="torch-C5" parent="torches" instance=ExtResource("15_o67j1")]
+[node name="torch-C5" parent="Torches" instance=ExtResource("15_o67j1")]
 position = Vector2(2851, 142)
 
-[node name="torch-C6" parent="torches" instance=ExtResource("15_o67j1")]
+[node name="torch-C6" parent="Torches" instance=ExtResource("15_o67j1")]
 position = Vector2(3011, 127)
 
-[node name="torch-C7" parent="torches" instance=ExtResource("15_o67j1")]
+[node name="torch-C7" parent="Torches" instance=ExtResource("15_o67j1")]
 position = Vector2(3155, 127)
 
-[node name="torch-C8" parent="torches" instance=ExtResource("15_o67j1")]
+[node name="torch-C8" parent="Torches" instance=ExtResource("15_o67j1")]
 position = Vector2(3298, 126)
 
-[node name="torch-C9" parent="torches" instance=ExtResource("15_o67j1")]
+[node name="torch-C9" parent="Torches" instance=ExtResource("15_o67j1")]
 position = Vector2(3459, 126)
 
-[node name="torch-C10" parent="torches" instance=ExtResource("15_o67j1")]
+[node name="torch-C10" parent="Torches" instance=ExtResource("15_o67j1")]
 position = Vector2(2923, -51)
 
-[node name="torch-C11" parent="torches" instance=ExtResource("15_o67j1")]
+[node name="torch-C11" parent="Torches" instance=ExtResource("15_o67j1")]
 position = Vector2(3035, -50)
 
-[node name="torch-C12" parent="torches" instance=ExtResource("15_o67j1")]
+[node name="torch-C12" parent="Torches" instance=ExtResource("15_o67j1")]
 position = Vector2(2290, 492)
 
-[node name="torch-C13" parent="torches" instance=ExtResource("15_o67j1")]
+[node name="torch-C13" parent="Torches" instance=ExtResource("15_o67j1")]
 position = Vector2(2546, 492)
 
-[node name="torch-A" parent="torches" instance=ExtResource("16_0pwj6")]
+[node name="torch-A" parent="Torches" instance=ExtResource("16_0pwj6")]
 position = Vector2(554, 203)
 
-[node name="torch-A2" parent="torches" instance=ExtResource("16_0pwj6")]
+[node name="torch-A2" parent="Torches" instance=ExtResource("16_0pwj6")]
 position = Vector2(1049, 88)
 
-[node name="torch-A3" parent="torches" instance=ExtResource("16_0pwj6")]
+[node name="torch-A3" parent="Torches" instance=ExtResource("16_0pwj6")]
 position = Vector2(2841, 300)
 
-[node name="torch-A4" parent="torches" instance=ExtResource("16_0pwj6")]
+[node name="torch-A4" parent="Torches" instance=ExtResource("16_0pwj6")]
 position = Vector2(3290, -89)
 
-[node name="torch-B" parent="torches" instance=ExtResource("17_8h8nb")]
+[node name="torch-B" parent="Torches" instance=ExtResource("17_8h8nb")]
 position = Vector2(602, 203)
 
-[node name="torch-B2" parent="torches" instance=ExtResource("17_8h8nb")]
+[node name="torch-B2" parent="Torches" instance=ExtResource("17_8h8nb")]
 position = Vector2(3338, -89)
+
+[node name="DamageObjects" type="Node" parent="."]
+
+[node name="Damage Object" parent="DamageObjects" instance=ExtResource("20_f3hhp")]
+position = Vector2(442, 63)
+
+[node name="Damage Object2" parent="DamageObjects" instance=ExtResource("20_f3hhp")]
+position = Vector2(427, 63)
+
+[node name="Damage Object3" parent="DamageObjects" instance=ExtResource("20_f3hhp")]
+position = Vector2(-293, 446)
+
+[node name="Damage Object4" parent="DamageObjects" instance=ExtResource("20_f3hhp")]
+position = Vector2(1335, 350)
+
+[node name="Damage Object5" parent="DamageObjects" instance=ExtResource("20_f3hhp")]
+position = Vector2(1350, 350)
+
+[node name="Damage Object6" parent="DamageObjects" instance=ExtResource("20_f3hhp")]
+position = Vector2(2360, 351)
+
+[node name="Damage Object7" parent="DamageObjects" instance=ExtResource("20_f3hhp")]
+position = Vector2(2347, 351)
+
+[node name="Damage Object8" parent="DamageObjects" instance=ExtResource("20_f3hhp")]
+position = Vector2(2337, 351)
+
+[node name="Damage Object9" parent="DamageObjects" instance=ExtResource("20_f3hhp")]
+position = Vector2(2522, 351)
+
+[node name="Damage Object10" parent="DamageObjects" instance=ExtResource("20_f3hhp")]
+position = Vector2(3258, -2)
+
+[node name="Damage Object11" parent="DamageObjects" instance=ExtResource("20_f3hhp")]
+position = Vector2(3243, -2)
+
+[node name="Damage Object12" parent="DamageObjects" instance=ExtResource("20_f3hhp")]
+position = Vector2(3228, -2)
