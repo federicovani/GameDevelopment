@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://m8bulnuilfbe"]
+
+[ext_resource type="Texture2D" uid="uid://23vlpsuu2hgj" path="res://assets/globali/GUI/GUI.png" id="1_wqn6x"]
+
+[resource]
+content_margin_left = 80.0
+content_margin_top = 95.0
+content_margin_right = 80.0
+content_margin_bottom = 20.0
+texture = ExtResource("1_wqn6x")
+expand_margin_left = 50.0
+expand_margin_right = 50.0
+expand_margin_bottom = 70.0
+region_rect = Rect2(0, 96, 48, 32)
