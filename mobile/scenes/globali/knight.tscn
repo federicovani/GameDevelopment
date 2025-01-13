@@ -1068,6 +1068,7 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_euu0d")
 
 [node name="LedgeGrab" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_tfc4m")
 disabled = true
@@ -1079,9 +1080,11 @@ shape = SubResource("RectangleShape2D_idkqb")
 target_position = Vector2(0, 13)
 
 [node name="FloorCheck" type="RayCast2D" parent="."]
+visible = false
 target_position = Vector2(0, 37)
 
 [node name="RaycastWallCheck" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(0, -20)
 target_position = Vector2(14, 0)
 
