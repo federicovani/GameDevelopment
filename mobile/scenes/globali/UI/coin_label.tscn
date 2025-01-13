@@ -1,0 +1,23 @@
+[gd_scene load_steps=3 format=3 uid="uid://b4yncap1kwrah"]
+
+[ext_resource type="Texture2D" uid="uid://dkexa8cbi56q1" path="res://assets/globali/coin1.png" id="1_ndqgd"]
+[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/fonts/ThaleahFat.ttf" id="2_7bfox"]
+
+[node name="Coin_Label" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 6
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_ndqgd")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_7bfox")
+theme_override_font_sizes/font_size = 48
+text = "99"
+horizontal_alignment = 1
+vertical_alignment = 2

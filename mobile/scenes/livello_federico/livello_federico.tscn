@@ -1,10 +1,12 @@
-[gd_scene load_steps=16 format=3 uid="uid://d3k38htbk1vgs"]
+[gd_scene load_steps=18 format=3 uid="uid://d3k38htbk1vgs"]
 
 [ext_resource type="Texture2D" uid="uid://qhh04ncp81cr" path="res://assets/livello_federico/PixelFantasy_Caves_1/mainlev_build.png" id="1_4vle5"]
 [ext_resource type="Script" path="res://scripts/livello_federico/livello_federico.gd" id="1_xox4y"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight.tscn" id="2_28qoe"]
 [ext_resource type="PackedScene" uid="uid://dgjlol08ivpk2" path="res://scenes/livello_federico/background.tscn" id="2_pd4yd"]
 [ext_resource type="PackedScene" uid="uid://cl1m4y7imy100" path="res://scenes/globali/killzone.tscn" id="4_4yu1q"]
+[ext_resource type="PackedScene" uid="uid://bhel8jmvawyaf" path="res://scenes/globali/UI/ui_control.tscn" id="4_h22q4"]
+[ext_resource type="PackedScene" uid="uid://3udef37ixd0g" path="res://scenes/globali/managers/player_stats_manager.tscn" id="5_y17mb"]
 [ext_resource type="PackedScene" uid="uid://c6buhchiamsw4" path="res://scenes/globali/diamond.tscn" id="5_yhc70"]
 [ext_resource type="PackedScene" uid="uid://d4aij5g6rvxa4" path="res://scenes/globali/coin.tscn" id="6_hc816"]
 [ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/skeleton.tscn" id="7_saqal"]
@@ -612,9 +614,17 @@ tile_set = SubResource("TileSet_yrvqa")
 format = 2
 layer_0/name = "background"
 layer_1/name = "level"
-layer_1/tile_data = PackedInt32Array(131070, 917506, 23, 65538, 1245186, 23, 65539, 917506, 23, 65536, 1572866, 23, 65541, 524290, 10, 131079, 327682, 10, -458756, 1245186, 6, -458754, 1245186, 6, -524288, 1441794, 6, -524287, 1245186, 6, -524285, 2555906, 5, -393211, 2359298, 6, -393209, 1572866, 6, -458747, 1310722, 4, -393208, 1245186, 6, 196616, 1048578, 11, 65534, 1703938, 14, 5, 1703938, 14, 196618, 917506, 23, 196620, 917506, 23, 196624, 917506, 23, 196628, 917506, 23, 196626, 917506, 23, 131068, 1572866, 23, 131066, 1376258, 23, 131064, 1376258, 23, 131062, 1376258, 23, 131060, 1376258, 23, 196622, 1376258, 23, 196630, 1376258, 23, 196632, 1376258, 23, -65522, 1376258, 23, -196594, 1376258, 23, -327666, 1376258, 23, -65516, 1376258, 23)
+layer_1/tile_data = PackedInt32Array(131070, 917506, 23, 65538, 1245186, 23, 65539, 917506, 23, 65536, 1572866, 23, 65541, 524290, 10, 131079, 327682, 10, -458756, 1245186, 6, -458754, 1245186, 6, -524288, 1441794, 6, -524287, 1245186, 6, -524285, 2555906, 5, -393211, 2359298, 6, -393209, 1572866, 6, -458747, 1310722, 4, -393208, 1245186, 6, 196616, 1048578, 11, 65534, 1703938, 14, 5, 1703938, 14, 196624, 917506, 23, 196628, 917506, 23, 196626, 917506, 23, 131068, 1572866, 23, 131066, 1376258, 23, 131064, 1376258, 23, 131062, 1376258, 23, 131060, 1376258, 23, 196622, 1376258, 23, 196630, 1376258, 23, 196632, 1376258, 23, -65522, 1376258, 23, -196594, 1376258, 23, -327666, 1376258, 23, -65516, 1376258, 23, 196620, 917506, 23)
 
 [node name="background" parent="." instance=ExtResource("2_pd4yd")]
+
+[node name="UIContainer" type="CanvasLayer" parent="."]
+
+[node name="UI_Control" parent="UIContainer" instance=ExtResource("4_h22q4")]
+
+[node name="ManagerContainer" type="Node" parent="."]
+
+[node name="PlayerStatsManager" parent="ManagerContainer" instance=ExtResource("5_y17mb")]
 
 [node name="knight" parent="." instance=ExtResource("2_28qoe")]
 position = Vector2(-49, 0)
