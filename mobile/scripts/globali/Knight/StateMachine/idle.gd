@@ -4,6 +4,7 @@ class_name idle extends State
 @export var knight_facing_collision_shape : FacingCollisionShapeKnight
 @export var sword_facing_collision_shape : FacingCollisionShapeKnight
 @export var raycast_wall_check : RayCast2D
+@export var floor_check: RayCast2D
 
 #Prevent entering the falling state when the game is starting
 @onready var buffer_timer: Timer = $BufferTimer
@@ -13,7 +14,7 @@ func on_enter():
 	set_collision_shapes()
 
 func state_process(_delta):
-	if(!character.is_on_floor() && buffer_timer.is_stopped()):
+	if(!floor_check.is_colliding() && buffer_timer.is_stopped()):
 		next_state = character.falling_state
 
 func state_input(event: InputEvent):

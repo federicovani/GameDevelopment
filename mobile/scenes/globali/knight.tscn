@@ -972,12 +972,13 @@ character = NodePath("..")
 current_state = NodePath("Idle")
 animation_tree = NodePath("../AnimationTree")
 
-[node name="Idle" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("sprite", "knight_facing_collision_shape", "sword_facing_collision_shape", "raycast_wall_check")]
+[node name="Idle" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("sprite", "knight_facing_collision_shape", "sword_facing_collision_shape", "raycast_wall_check", "floor_check")]
 script = ExtResource("7_anix3")
 sprite = NodePath("../../Sprite2D")
 knight_facing_collision_shape = NodePath("../../CollisionShapeKnight")
 sword_facing_collision_shape = NodePath("../../Sword/CollisionShapeSword")
 raycast_wall_check = NodePath("../../RaycastWallCheck")
+floor_check = NodePath("../../FloorCheck")
 
 [node name="BufferTimer" type="Timer" parent="CharacterStateMachine/Idle"]
 wait_time = 0.05
@@ -1078,8 +1079,7 @@ shape = SubResource("RectangleShape2D_idkqb")
 target_position = Vector2(0, 13)
 
 [node name="FloorCheck" type="RayCast2D" parent="."]
-visible = false
-target_position = Vector2(0, 18)
+target_position = Vector2(0, 37)
 
 [node name="RaycastWallCheck" type="RayCast2D" parent="."]
 position = Vector2(0, -20)
