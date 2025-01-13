@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://kq8leg8dwau0"]
 
-[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/fonts/ThaleahFat.ttf" id="1_jjpqi"]
+[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_jjpqi"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_v05nw"]
 

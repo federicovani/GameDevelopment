@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b2uj1ljrtr3oa"]
 
 [ext_resource type="Texture2D" uid="uid://crr82kwtpm0fy" path="res://assets/livello_sara/PixelPlatformerSet1v/other_and_decorative.png" id="1_kamgy"]
-[ext_resource type="PackedScene" uid="uid://ych06fgxx5bn" path="res://scenes/globali/damage_zone.tscn" id="2_yqk2q"]
+[ext_resource type="PackedScene" uid="uid://ych06fgxx5bn" path="res://scenes/globali/enemies/damage_zone.tscn" id="2_yqk2q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wohvt"]
 size = Vector2(15, 10)

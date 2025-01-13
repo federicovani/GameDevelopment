@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://co3jkipk63syf"]
 
-[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/fonts/ThaleahFat.ttf" id="1_3msrs"]
+[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_3msrs"]
 [ext_resource type="Script" path="res://scripts/globali/UI/menu/main_menu.gd" id="1_ssv1y"]
 [ext_resource type="Theme" uid="uid://cnk304tv4ytv5" path="res://assets/globali/GUI/default.tres" id="2_f4hm5"]
 [ext_resource type="PackedScene" uid="uid://docl2niryulbx" path="res://scenes/globali/UI/menu/options_menu/options_menu.tscn" id="4_y17k1"]

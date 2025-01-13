@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://cbf0vxt0sorvk"]
 
-[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/fonts/ThaleahFat.ttf" id="1_emqv0"]
+[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_emqv0"]
 [ext_resource type="Script" path="res://scripts/globali/UI/menu/options_menu/audio_slider_settings.gd" id="1_otoeb"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_emxkn"]
