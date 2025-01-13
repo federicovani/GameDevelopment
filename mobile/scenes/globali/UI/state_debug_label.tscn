@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c5cvstt813ph0"]
 
-[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/fonts/ThaleahFat.ttf" id="1_cucn5"]
+[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_cucn5"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/states/state_debug_label.gd" id="1_h110q"]
 
 [node name="StateDebugLabel" type="Label"]
