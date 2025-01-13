@@ -12,7 +12,7 @@ extends Area2D
 func _ready() -> void:
 	damage = character.damage
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if has_overlapping_bodies() && timer.is_stopped():
 		if(state_machine.current_state!=character.death_state && timer.is_stopped()):
 			for child in player.get_children():
