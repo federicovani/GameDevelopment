@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://d3k38htbk1vgs"]
+[gd_scene load_steps=19 format=3 uid="uid://d3k38htbk1vgs"]
 
 [ext_resource type="Texture2D" uid="uid://qhh04ncp81cr" path="res://assets/livello_federico/PixelFantasy_Caves_1/mainlev_build.png" id="1_4vle5"]
 [ext_resource type="Script" path="res://scripts/livello_federico/livello_federico.gd" id="1_xox4y"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://3udef37ixd0g" path="res://scenes/globali/managers/player_stats_manager.tscn" id="5_y17mb"]
 [ext_resource type="PackedScene" uid="uid://c6buhchiamsw4" path="res://scenes/globali/collectables/diamond.tscn" id="5_yhc70"]
 [ext_resource type="PackedScene" uid="uid://d4aij5g6rvxa4" path="res://scenes/globali/collectables/coin.tscn" id="6_hc816"]
+[ext_resource type="PackedScene" uid="uid://ckpfcduas684i" path="res://scenes/globali/managers/collectables_manager.tscn" id="6_k4nmf"]
 [ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/enemies/skeleton.tscn" id="7_saqal"]
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="8_72k1w"]
 [ext_resource type="PackedScene" uid="uid://glyif1t8h0h7" path="res://scenes/globali/portal.tscn" id="11_1aovj"]
@@ -625,6 +626,8 @@ layer_1/tile_data = PackedInt32Array(131070, 917506, 23, 65538, 1245186, 23, 655
 [node name="ManagerContainer" type="Node" parent="."]
 
 [node name="PlayerStatsManager" parent="ManagerContainer" instance=ExtResource("5_y17mb")]
+
+[node name="CollectablesManager" parent="ManagerContainer" instance=ExtResource("6_k4nmf")]
 
 [node name="knight" parent="." instance=ExtResource("2_28qoe")]
 position = Vector2(-49, 0)
