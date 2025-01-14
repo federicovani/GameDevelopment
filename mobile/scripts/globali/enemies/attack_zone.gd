@@ -5,7 +5,6 @@ extends Area2D
 @export var character : CharacterBody2D
 @export var player : Node2D = Global.playerBody
 @export var to_damage : damageable
-@export var state_machine: CharacterStateMachine
 
 @export var damage : int
 
@@ -14,15 +13,15 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	if has_overlapping_bodies() && timer.is_stopped():
-		if(state_machine.current_state!=character.death_state && timer.is_stopped()):
+		if(character.state_machine.current_state!=character.death_state && timer.is_stopped()):
 			for child in player.get_children():
 				if is_instance_valid(child) && child is damageable:
 					to_damage = child
-					state_machine.switch_states(character.attack_state)
+					character.state_machine.switch_states(character.attack_state)
 					timer.start()
 
 func _on_body_entered(body: Node2D) -> void:
-	if(state_machine.current_state!=character.death_state && timer.is_stopped()):
+	if(character.state_machine.current_state!=character.death_state && timer.is_stopped()):
 		player = body
 
 #Handled by the AnimationPlayer, called when the animation actually hit the player

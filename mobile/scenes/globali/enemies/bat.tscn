@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://orkv4h8m75vj"]
+[gd_scene load_steps=42 format=3 uid="uid://orkv4h8m75vj"]
 
 [ext_resource type="Script" path="res://scripts/globali/enemies/bat/bat.gd" id="1_1v58a"]
 [ext_resource type="Texture2D" uid="uid://cjd72awmwjr0u" path="res://assets/globali/Enemies/Bat/Standard/BatStandard_Flying.png" id="1_be7ej"]
@@ -10,10 +10,13 @@
 [ext_resource type="Script" path="res://scripts/globali/State Machine/CharacterStateMachine.gd" id="7_82twu"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/states/hit_state.gd" id="8_g5186"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/states/attack_state.gd" id="9_53snx"]
+[ext_resource type="Script" path="res://scripts/globali/enemies/bat/bat_sleep_state.gd" id="9_hq02c"]
 [ext_resource type="Script" path="res://scripts/globali/enemies/bat/bat_flying_state.gd" id="9_n27ep"]
-[ext_resource type="Script" path="res://scripts/globali/State Machine/states/State.gd" id="10_7sbtu"]
 [ext_resource type="Script" path="res://scripts/globali/enemies/bat/bat_chase_state.gd" id="10_vyjsc"]
+[ext_resource type="Script" path="res://scripts/globali/enemies/bat/bat_death_state.gd" id="13_dxp82"]
 [ext_resource type="PackedScene" uid="uid://c5cvstt813ph0" path="res://scenes/globali/UI/state_debug_label.tscn" id="13_s0edu"]
+[ext_resource type="Script" path="res://scripts/globali/enemies/attack_zone.gd" id="14_dgeu5"]
+[ext_resource type="Script" path="res://scripts/globali/facing_nodes/facing_collision_shape.gd" id="16_84o5p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fpaf"]
 size = Vector2(12, 9)
@@ -96,6 +99,20 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5]
+}
+tracks/3/type = "method"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AttackZone")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0.3),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"hit"
+}]
 }
 
 [sub_resource type="Animation" id="Animation_4dv3h"]
@@ -324,13 +341,20 @@ states/sleep/position = Vector2(278, 185)
 transitions = ["sleep", "fly", SubResource("AnimationNodeStateMachineTransition_fhbdb"), "fly", "sleep", SubResource("AnimationNodeStateMachineTransition_hsyub"), "fly", "attack", SubResource("AnimationNodeStateMachineTransition_equde"), "attack", "fly", SubResource("AnimationNodeStateMachineTransition_71b8c"), "fly", "hit", SubResource("AnimationNodeStateMachineTransition_movnt"), "hit", "fly", SubResource("AnimationNodeStateMachineTransition_blw8g"), "fly", "death", SubResource("AnimationNodeStateMachineTransition_8qmba"), "Start", "fly", SubResource("AnimationNodeStateMachineTransition_1bu8k")]
 graph_offset = Vector2(-103, -12)
 
-[node name="Bat" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast_right", "ray_cast_left", "ray_cast_up", "ray_cast_down")]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ix6rf"]
+size = Vector2(40, 40)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2f8t3"]
+size = Vector2(8.5, 7)
+
+[node name="Bat" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast_right", "ray_cast_left", "ray_cast_up", "ray_cast_down", "facing_collision_shape_attack_zone")]
 collision_layer = 4
 script = ExtResource("1_1v58a")
 ray_cast_right = NodePath("RayCastRight")
 ray_cast_left = NodePath("RayCastLeft")
 ray_cast_up = NodePath("RayCastUp")
 ray_cast_down = NodePath("RayCastDown")
+facing_collision_shape_attack_zone = NodePath("AttackZone/CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 
@@ -356,6 +380,11 @@ character = NodePath("..")
 current_state = NodePath("Flying")
 animation_tree = NodePath("../AnimationTree")
 
+[node name="Sleep" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ray_cast_sleep")]
+script = ExtResource("9_hq02c")
+ray_cast_sleep = NodePath("../../RayCastSleep")
+can_move = false
+
 [node name="Flying" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_n27ep")
 
@@ -365,21 +394,51 @@ autostart = true
 [node name="Chase" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("10_vyjsc")
 
+[node name="Timer" type="Timer" parent="CharacterStateMachine/Chase"]
+wait_time = 5.0
+autostart = true
+
 [node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable")]
 script = ExtResource("8_g5186")
 damageable = NodePath("../../Damageable")
+can_move = false
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
 
 [node name="Attack" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_53snx")
-
-[node name="Death" type="Node" parent="CharacterStateMachine"]
-script = ExtResource("10_7sbtu")
 can_move = false
 
-[node name="StateDebugLabel" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("13_s0edu")]
-state_machine = NodePath("../CharacterStateMachine")
+[node name="Death" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ray_cast_death")]
+script = ExtResource("13_dxp82")
+ray_cast_death = NodePath("../../RayCastDeath")
+can_move = false
+
+[node name="ChaseArea" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChaseArea"]
+shape = SubResource("RectangleShape2D_ix6rf")
+
+[node name="AttackZone" type="Area2D" parent="." node_paths=PackedStringArray("character", "to_damage")]
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("14_dgeu5")
+character = NodePath("..")
+to_damage = NodePath("../Damageable")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone"]
+position = Vector2(4.25, 2.5)
+shape = SubResource("RectangleShape2D_2f8t3")
+script = ExtResource("16_84o5p")
+facing_left_position = Vector2(-4.25, 2.5)
+facing_right_position = Vector2(4.25, 2.5)
+
+[node name="BufferTimer" type="Timer" parent="AttackZone"]
+wait_time = 2.0
+one_shot = true
 
 [node name="RayCastUp" type="RayCast2D" parent="."]
 target_position = Vector2(0, -20)
@@ -393,4 +452,23 @@ target_position = Vector2(20, 0)
 [node name="RayCastLeft" type="RayCast2D" parent="."]
 target_position = Vector2(-20, 0)
 
+[node name="RayCastSleep" type="RayCast2D" parent="."]
+target_position = Vector2(0, 114)
+collision_mask = 2
+
+[node name="RayCastDeath" type="RayCast2D" parent="."]
+target_position = Vector2(0, 9)
+
+[node name="StateDebugLabel" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("13_s0edu")]
+offset_left = -25.0
+offset_top = -29.0
+offset_right = 51.0
+offset_bottom = -14.0
+scale = Vector2(0.47622, 0.47622)
+state_machine = NodePath("../CharacterStateMachine")
+
+[connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="CharacterStateMachine/Flying/DirectionTimer" to="CharacterStateMachine/Flying" method="_on_direction_timer_timeout"]
+[connection signal="timeout" from="CharacterStateMachine/Chase/Timer" to="CharacterStateMachine/Chase" method="_on_timer_timeout"]
+[connection signal="body_entered" from="ChaseArea" to="CharacterStateMachine/Flying" method="_on_chase_area_body_entered"]
+[connection signal="body_entered" from="AttackZone" to="AttackZone" method="_on_body_entered"]

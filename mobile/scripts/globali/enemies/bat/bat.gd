@@ -4,12 +4,14 @@ extends CharacterBody2D
 @onready var state_machine: CharacterStateMachine = $CharacterStateMachine
 @onready var sprite: Sprite2D = $Sprite2D
 
+@onready var sleep_state : State = $CharacterStateMachine/Sleep
 @onready var walk_state : State = $CharacterStateMachine/Flying
 @onready var chase_state : State = $CharacterStateMachine/Chase
 @onready var hit_state : State = $CharacterStateMachine/Hit
 @onready var attack_state : State = $CharacterStateMachine/Attack
 @onready var death_state : State = $CharacterStateMachine/Death
 
+@export var sleep_animation : String = "sleep"
 @export var walk_animation : String = "fly"
 @export var death_animation : String = "death"
 @export var hit_animation : String = "hit"
@@ -26,8 +28,8 @@ extends CharacterBody2D
 @export var facing_right : bool
 @export var movement_speed : float = 50.0
 
-@export var health : float = 50
-@export var damage : float = 20
+@export var health : float = 20
+@export var damage : float = 10
 
 func _ready() -> void:
 	animation_tree.active = true
@@ -41,7 +43,7 @@ func handle_orientation():
 		sprite.flip_h = false
 	elif(direction.x < 0):
 		sprite.flip_h = true
-	#on_facing_direction_changed(!sprite.flip_h)
+	on_facing_direction_changed(!sprite.flip_h)
 	
 #Handling CollisionShape and RayCast when character changes direction
 @warning_ignore("shadowed_variable")
