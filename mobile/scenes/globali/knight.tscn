@@ -1007,8 +1007,8 @@ raycast_wall_check = NodePath("../../RaycastWallCheck")
 
 [node name="Wall_Hang" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("wall_check")]
 script = ExtResource("24_y1hcd")
-wall_check = NodePath("../../WallCheck")
 can_move = false
+wall_check = NodePath("../../WallCheck")
 
 [node name="Attacking" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("16_lollu")
