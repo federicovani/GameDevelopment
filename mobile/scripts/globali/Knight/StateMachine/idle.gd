@@ -8,18 +8,18 @@ class_name idle extends State
 
 #Prevent entering the falling state when the game is starting
 @onready var buffer_timer: Timer = $BufferTimer
+@export var dash_timer : Timer
 	
 func on_enter():
 	playback.travel(character.idle_animation)
 	set_collision_shapes()
 
 func state_process(_delta):
-	print_debug(!floor_check.is_colliding() && !character.is_on_floor() && buffer_timer.is_stopped())
 	if(!floor_check.is_colliding() && !character.is_on_floor() && buffer_timer.is_stopped()):
 		next_state = character.falling_state
 
 func _physics_process(delta):
-	if(get_parent().check_if_can_move() && !get_parent().current_state == character.crouch_state):
+	if(get_parent().check_if_can_move() && !get_parent().current_state == character.crouch_state && !get_parent().current_state == character.dash_state):
 		character.direction = Input.get_vector("move_left", "move_right", "jump", "ui_down")
 		
 		if character.direction:
@@ -48,7 +48,9 @@ func crouch():
 	next_state = character.crouch_state
 
 func dash():
-	next_state = character.dash_state
+	if dash_timer.is_stopped():
+		next_state = character.dash_state
+		dash_timer.start()
 
 func attack():
 	next_state = character.attack_state
@@ -70,6 +72,7 @@ func update_facing_direction():
 
 #Change collision shape orientation 
 func on_player_facing_direction_changed(facing_right : bool):
+	character.facing_right = facing_right
 	if(facing_right):
 		sprite.offset = sprite.facing_right_offset
 		sword_facing_collision_shape.position = sword_facing_collision_shape.facing_right_position

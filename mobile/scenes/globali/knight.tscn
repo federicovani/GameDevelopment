@@ -1,4 +1,4 @@
-[gd_scene load_steps=98 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=102 format=3 uid="uid://cmvr0blmdbg8h"]
 
 [ext_resource type="Script" path="res://scripts/globali/Knight/knight.gd" id="1_awd5s"]
 [ext_resource type="Texture2D" uid="uid://c4kfopaq80tkc" path="res://assets/globali/knight/120x80_PNGSheets/_Idle.png" id="1_gs2d1"]
@@ -29,9 +29,28 @@
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/crouching.gd" id="18_g5qyp"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/states/hit_state.gd" id="19_gdgpw"]
 [ext_resource type="PackedScene" uid="uid://c5cvstt813ph0" path="res://scenes/globali/UI/state_debug_label.tscn" id="20_6cfn0"]
-[ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/rolling.gd" id="21_b4hfe"]
+[ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/dash.gd" id="21_b4hfe"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/crouch_attack.gd" id="23_kgm7a"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/wall_hang.gd" id="24_y1hcd"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d5sfo"]
+particles_animation = true
+particles_anim_h_frames = 10
+particles_anim_v_frames = 1
+particles_anim_loop = true
+
+[sub_resource type="Curve" id="Curve_q6snj"]
+_data = [Vector2(0, 0.505494), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_onqxx"]
+curve = SubResource("Curve_q6snj")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_870jw"]
+gravity = Vector3(0, 0, 0)
+alpha_curve = SubResource("CurveTexture_onqxx")
+anim_speed_min = 1.25
+anim_speed_max = 1.25
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86jqi"]
 size = Vector2(20, 38.5)
@@ -936,6 +955,14 @@ z_index = 5
 collision_layer = 2
 script = ExtResource("1_awd5s")
 
+[node name="DashParticles" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_d5sfo")
+position = Vector2(5, -25)
+emitting = false
+amount = 16
+process_material = SubResource("ParticleProcessMaterial_870jw")
+texture = ExtResource("3_fgvvt")
+
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(0, -24)
 offset = Vector2(5.5, 0)
@@ -975,13 +1002,14 @@ character = NodePath("..")
 current_state = NodePath("Idle")
 animation_tree = NodePath("../AnimationTree")
 
-[node name="Idle" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("sprite", "knight_facing_collision_shape", "sword_facing_collision_shape", "raycast_wall_check", "floor_check")]
+[node name="Idle" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("sprite", "knight_facing_collision_shape", "sword_facing_collision_shape", "raycast_wall_check", "floor_check", "dash_timer")]
 script = ExtResource("7_anix3")
 sprite = NodePath("../../Sprite2D")
 knight_facing_collision_shape = NodePath("../../CollisionShapeKnight")
 sword_facing_collision_shape = NodePath("../../Sword/CollisionShapeSword")
 raycast_wall_check = NodePath("../../RaycastWallCheck")
 floor_check = NodePath("../../FloorCheck")
+dash_timer = NodePath("../Dash/CooldownTimer")
 
 [node name="BufferTimer" type="Timer" parent="CharacterStateMachine/Idle"]
 wait_time = 0.05
@@ -995,8 +1023,17 @@ crouch_area = NodePath("../../CrouchArea")
 knight_facing_collision_shape = NodePath("../../CollisionShapeKnight")
 sword_facing_collision_shape = NodePath("../../Sword/CollisionShapeSword")
 
-[node name="Dash" type="Node" parent="CharacterStateMachine"]
+[node name="Dash" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("dash_particles")]
 script = ExtResource("21_b4hfe")
+dash_particles = NodePath("../../DashParticles")
+
+[node name="DurationTimer" type="Timer" parent="CharacterStateMachine/Dash"]
+wait_time = 0.3
+one_shot = true
+
+[node name="CooldownTimer" type="Timer" parent="CharacterStateMachine/Dash"]
+wait_time = 10.0
+one_shot = true
 
 [node name="Jumping" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_sw8ig")
@@ -1071,21 +1108,25 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_euu0d")
 
 [node name="LedgeGrab" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_tfc4m")
 disabled = true
 
 [node name="WallCheck" type="ShapeCast2D" parent="."]
+visible = false
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_idkqb")
 target_position = Vector2(0, 13)
 
 [node name="FloorCheck" type="ShapeCast2D" parent="."]
+visible = false
 position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_ssobb")
 target_position = Vector2(0, 6)
 
 [node name="RaycastWallCheck" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(0, -20)
 target_position = Vector2(14, 0)
 
@@ -1101,6 +1142,7 @@ state_machine = NodePath("../CharacterStateMachine")
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attacking" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Crouch_Attack" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Death" method="_on_animation_tree_animation_finished"]
+[connection signal="timeout" from="CharacterStateMachine/Dash/DurationTimer" to="CharacterStateMachine/Dash" method="_on_duration_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Death/Timer" to="CharacterStateMachine/Death" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Sword" to="Sword" method="_on_body_entered"]
