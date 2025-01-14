@@ -1,4 +1,4 @@
-[gd_scene load_steps=97 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=98 format=3 uid="uid://cmvr0blmdbg8h"]
 
 [ext_resource type="Script" path="res://scripts/globali/Knight/knight.gd" id="1_awd5s"]
 [ext_resource type="Texture2D" uid="uid://c4kfopaq80tkc" path="res://assets/globali/knight/120x80_PNGSheets/_Idle.png" id="1_gs2d1"]
@@ -928,6 +928,9 @@ size = Vector2(23, 0)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_idkqb"]
 size = Vector2(23, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssobb"]
+size = Vector2(18, 20)
+
 [node name="knight" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
@@ -1068,23 +1071,21 @@ position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_euu0d")
 
 [node name="LedgeGrab" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_tfc4m")
 disabled = true
 
 [node name="WallCheck" type="ShapeCast2D" parent="."]
-visible = false
 position = Vector2(0, -10)
 shape = SubResource("RectangleShape2D_idkqb")
 target_position = Vector2(0, 13)
 
-[node name="FloorCheck" type="RayCast2D" parent="."]
-visible = false
-target_position = Vector2(0, 37)
+[node name="FloorCheck" type="ShapeCast2D" parent="."]
+position = Vector2(0, 20)
+shape = SubResource("RectangleShape2D_ssobb")
+target_position = Vector2(0, 6)
 
 [node name="RaycastWallCheck" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(0, -20)
 target_position = Vector2(14, 0)
 

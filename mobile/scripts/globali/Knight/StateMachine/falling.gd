@@ -2,7 +2,7 @@ class_name falling extends State
 
 @export var ledge_grab: CollisionShape2D 
 @export var wall_check: ShapeCast2D 
-@export var floor_check: RayCast2D 
+@export var floor_check: ShapeCast2D 
 @export var raycast_wall_check: RayCast2D
 
 func on_enter():
