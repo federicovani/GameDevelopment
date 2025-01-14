@@ -19,7 +19,7 @@ func _ready():
 			#Connect to the interrupt signal
 			child.connect("interrupt_state", on_state_interrupt_state)
 		else:
-			push_warning(("Child " + child.name + "is not a State for KnightStateMachine"))
+			push_warning(("Child " + child.name + "is not a State for StateMachine"))
 
 func _physics_process(delta : float) -> void:
 	if(current_state.next_state != null):

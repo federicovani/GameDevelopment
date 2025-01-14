@@ -1,0 +1,25 @@
+class_name bat_flying extends State
+
+var rng = RandomNumberGenerator.new()
+var directions : Array = [Vector2.RIGHT, Vector2.LEFT, Vector2.UP, Vector2.DOWN]
+
+func _physics_process(delta: float) -> void:
+	if(get_parent().current_state == self):
+		if(get_parent().check_if_can_move()):
+			if character.ray_cast_down.is_colliding():
+				character.direction.y = Vector2.UP.y
+			if character.ray_cast_up.is_colliding():
+				character.direction.y = Vector2.DOWN.y
+			if character.ray_cast_left.is_colliding():
+				character.direction.x = Vector2.RIGHT.x
+			if character.ray_cast_right.is_colliding():
+				character.direction.x = Vector2.LEFT.x
+			character.velocity += character.direction * character.movement_speed * delta
+		character.move_and_slide()
+
+#Every 3 to 10 seconds (random number) the character changes direction
+func _on_direction_timer_timeout() -> void:
+	if (get_parent().current_state == self):
+		$DirectionTimer.wait_time = rng.randf_range(0.1, 1)
+		character.direction = directions.pick_random()
+	
