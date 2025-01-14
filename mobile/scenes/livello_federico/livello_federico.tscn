@@ -673,4 +673,4 @@ offset_bottom = -20.0
 position = Vector2(22, -4)
 
 [node name="Bat" parent="." instance=ExtResource("14_hw4py")]
-position = Vector2(-24, -73)
+position = Vector2(-43, -87)
