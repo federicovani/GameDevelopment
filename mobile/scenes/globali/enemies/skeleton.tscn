@@ -9,7 +9,6 @@
 [ext_resource type="Script" path="res://scripts/globali/State Machine/CharacterStateMachine.gd" id="5_24t3s"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/damageable.gd" id="5_85720"]
 [ext_resource type="Texture2D" uid="uid://4s7c8j1k0ac3" path="res://assets/globali/Enemies/Skeleton/Sprite Sheets/Skeleton Hit.png" id="6_dw6ga"]
-[ext_resource type="Script" path="res://scripts/globali/State Machine/states/State.gd" id="6_sn4x6"]
 [ext_resource type="Texture2D" uid="uid://d3i0c2y6rjjhn" path="res://assets/globali/Enemies/Skeleton/Sprite Sheets/Skeleton Attack.png" id="7_rnhvb"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/states/hit_state.gd" id="7_t1fka"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/states/chase_state.gd" id="9_h828b"]
@@ -18,6 +17,7 @@
 [ext_resource type="Script" path="res://scripts/globali/State Machine/states/attack_state.gd" id="12_ec3qy"]
 [ext_resource type="PackedScene" uid="uid://c5cvstt813ph0" path="res://scenes/globali/UI/state_debug_label.tscn" id="14_8itak"]
 [ext_resource type="Script" path="res://scripts/globali/enemies/attack_zone.gd" id="14_bw7i3"]
+[ext_resource type="Script" path="res://scripts/globali/State Machine/states/death_state.gd" id="15_i0fpl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r0xd1"]
 size = Vector2(12, 23)
@@ -426,7 +426,7 @@ sprite = NodePath("../../Sprite2D")
 can_move = false
 
 [node name="Death" type="Node" parent="CharacterStateMachine"]
-script = ExtResource("6_sn4x6")
+script = ExtResource("15_i0fpl")
 can_move = false
 
 [node name="AttackZone" type="Area2D" parent="." node_paths=PackedStringArray("character")]
@@ -475,8 +475,8 @@ offset_bottom = 2.93221
 scale = Vector2(0.509371, 0.509371)
 state_machine = NodePath("../CharacterStateMachine")
 
-[connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
+[connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Death" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="CharacterStateMachine/Walk/DirectionTimer" to="CharacterStateMachine/Walk" method="_on_direction_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Chase/Timer" to="CharacterStateMachine/Chase" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]

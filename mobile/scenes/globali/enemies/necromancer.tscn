@@ -12,7 +12,7 @@
 [ext_resource type="Script" path="res://scripts/globali/State Machine/states/attack_state.gd" id="7_bcv5l"]
 [ext_resource type="PackedScene" uid="uid://c5cvstt813ph0" path="res://scenes/globali/UI/state_debug_label.tscn" id="9_qjrf5"]
 [ext_resource type="Script" path="res://scripts/globali/facing_nodes/facing_ray_cast.gd" id="11_dv08v"]
-[ext_resource type="Script" path="res://scripts/globali/State Machine/states/State.gd" id="11_hdyqt"]
+[ext_resource type="Script" path="res://scripts/globali/State Machine/states/death_state.gd" id="11_fc2e6"]
 [ext_resource type="Script" path="res://scripts/globali/enemies/attack_zone.gd" id="12_iaaq5"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3b5d"]
@@ -468,14 +468,13 @@ can_move = false
 wait_time = 0.1
 one_shot = true
 
-[node name="Attack" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("attack_zone", "sprite")]
+[node name="Attack" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("sprite")]
 script = ExtResource("7_bcv5l")
-attack_zone = NodePath("../../AttackZone")
 sprite = NodePath("../../Sprite2D")
 can_move = false
 
 [node name="Death" type="Node" parent="CharacterStateMachine"]
-script = ExtResource("11_hdyqt")
+script = ExtResource("11_fc2e6")
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(14, 0)
@@ -492,12 +491,11 @@ script = ExtResource("11_dv08v")
 facing_left_position = Vector2(-17, 0)
 facing_right_position = Vector2(17, 0)
 
-[node name="AttackZone" type="Area2D" parent="." node_paths=PackedStringArray("character", "state_machine")]
+[node name="AttackZone" type="Area2D" parent="." node_paths=PackedStringArray("character")]
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("12_iaaq5")
 character = NodePath("..")
-state_machine = NodePath("../CharacterStateMachine")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZone"]
 position = Vector2(44.5, -6.5)
@@ -518,8 +516,8 @@ offset_bottom = -34.0
 scale = Vector2(0.835461, 0.835461)
 state_machine = NodePath("../CharacterStateMachine")
 
-[connection signal="animation_finished" from="AnimationTree" to="Damageable" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
+[connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Death" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="CharacterStateMachine/Walk/DirectionTimer" to="CharacterStateMachine/Walk" method="_on_direction_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Chase/Timer" to="CharacterStateMachine/Chase" method="_on_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]

@@ -27,5 +27,5 @@ func _on_direction_timer_timeout() -> void:
 		$DirectionTimer.wait_time = rng.randf_range(0.1, 1)
 		character.direction = directions.pick_random()
 
-func _on_chase_area_body_entered(body: Node2D) -> void:
+func _on_chase_area_body_entered(_body: Node2D) -> void:
 	next_state = character.chase_state

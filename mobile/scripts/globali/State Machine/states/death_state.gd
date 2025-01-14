@@ -1,13 +1,10 @@
-extends State
-
-@onready var timer: Timer = $Timer
+class_name death extends State
 
 func on_enter():
 	playback.travel(character.death_animation)
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if(anim_name == character.death_animation):
-		timer.start()
-
-func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene()
+		await get_tree().create_timer(0.5).timeout
+		#Character is finished dying, remove from the game
+		character.queue_free()

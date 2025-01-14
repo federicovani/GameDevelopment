@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3k38htbk1vgs"]
+[gd_scene load_steps=21 format=3 uid="uid://d3k38htbk1vgs"]
 
 [ext_resource type="Texture2D" uid="uid://qhh04ncp81cr" path="res://assets/livello_federico/PixelFantasy_Caves_1/mainlev_build.png" id="1_4vle5"]
 [ext_resource type="Script" path="res://scripts/livello_federico/livello_federico.gd" id="1_xox4y"]
@@ -14,6 +14,8 @@
 [ext_resource type="PackedScene" uid="uid://glyif1t8h0h7" path="res://scenes/globali/portal.tscn" id="11_1aovj"]
 [ext_resource type="PackedScene" uid="uid://c3jjxg1ikomnh" path="res://scenes/globali/UI/menu/pause_menu.tscn" id="11_l0tji"]
 [ext_resource type="PackedScene" uid="uid://orkv4h8m75vj" path="res://scenes/globali/enemies/bat.tscn" id="14_hw4py"]
+[ext_resource type="PackedScene" uid="uid://3bktwps6pw33" path="res://scenes/globali/enemies/necromancer.tscn" id="15_1hfjy"]
+[ext_resource type="PackedScene" uid="uid://c84q7rgy8bd2b" path="res://scenes/globali/enemies/witch.tscn" id="16_u1ohi"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uv3x8"]
 tile_data = PackedInt32Array(65536, 786434, 11, 1, 786434, 11, 65537, 786434, 11, 131073, 786434, 11, 65538, 786434, 11, 131074, 786434, 11, 65539, 786434, 11)
@@ -674,3 +676,9 @@ position = Vector2(22, -4)
 
 [node name="Bat" parent="." instance=ExtResource("14_hw4py")]
 position = Vector2(-24, -73)
+
+[node name="Necromancer" parent="." instance=ExtResource("15_1hfjy")]
+position = Vector2(203, 30)
+
+[node name="Witch" parent="." instance=ExtResource("16_u1ohi")]
+position = Vector2(298, 29)

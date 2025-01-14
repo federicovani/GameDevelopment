@@ -16,8 +16,3 @@ func _ready() -> void:
 func hit(damage : int, knockback_direction : Vector2):
 	health -= damage
 	emit_signal("on_hit", get_parent(), damage, knockback_direction)
-
-func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
-	if(anim_name == get_parent().death_animation):
-		#character is finished dying, remove from the game
-		get_parent().queue_free()

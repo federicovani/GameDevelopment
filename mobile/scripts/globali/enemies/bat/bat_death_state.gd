@@ -5,8 +5,8 @@ class_name bat_death extends State
 
 var is_on_floor : bool = false
 
-#func on_enter():
-	#playback.travel(character.death_animation)
+func on_enter():
+	playback.travel(character.death_animation)
 
 func state_process(delta):
 	if(!ray_cast_death.is_colliding()):
