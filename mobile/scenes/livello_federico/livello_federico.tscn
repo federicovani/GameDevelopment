@@ -630,7 +630,7 @@ layer_1/tile_data = PackedInt32Array(131070, 917506, 23, 65538, 1245186, 23, 655
 [node name="PlayerStatsManager" parent="ManagerContainer" instance=ExtResource("5_y17mb")]
 
 [node name="knight" parent="." instance=ExtResource("2_28qoe")]
-position = Vector2(-49, 0)
+position = Vector2(-69, -7)
 
 [node name="Camera2D" type="Camera2D" parent="knight"]
 position = Vector2(0, 17)
