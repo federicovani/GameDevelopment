@@ -32,6 +32,8 @@ func create_keybinds_dictionary() -> Dictionary:
 		keybind_resource.MOVE_LEFT : keybind_resource.move_left_key,
 		keybind_resource.MOVE_RIGHT : keybind_resource.move_right_key,
 		keybind_resource.JUMP : keybind_resource.jump_key,
+		keybind_resource.CROUCH : keybind_resource.crouch_key,
+		keybind_resource.DASH : keybind_resource.dash_key,
 		keybind_resource.ATTACK : keybind_resource.attack_key
 	}
 	
@@ -71,6 +73,10 @@ func get_keybind(action : String):
 				return keybind_resource.DEFAULT_MOVE_RIGHT_KEY
 			keybind_resource.JUMP:
 				return keybind_resource.DEFAULT_JUMP_KEY
+			keybind_resource.CROUCH:
+				return keybind_resource.DEFAULT_CROUCH_KEY
+			keybind_resource.DASH:
+				return keybind_resource.DEFAULT_DASH_KEY
 			keybind_resource.ATTACK:
 				return keybind_resource.DEFAULT_ATTACK_KEY
 	else:
@@ -81,6 +87,10 @@ func get_keybind(action : String):
 				return keybind_resource.move_right_key
 			keybind_resource.JUMP:
 				return keybind_resource.jump_key
+			keybind_resource.CROUCH:
+				return keybind_resource.crouch_key
+			keybind_resource.DASH:
+				return keybind_resource.dash_key
 			keybind_resource.ATTACK:
 				return keybind_resource.attack_key
 
@@ -107,6 +117,10 @@ func set_keybind(action : String, event):
 			keybind_resource.move_right_key = event
 		keybind_resource.JUMP:
 			keybind_resource.jump_key = event
+		keybind_resource.CROUCH:
+			keybind_resource.crouch_key = event
+		keybind_resource.DASH:
+			keybind_resource.dash_key = event
 		keybind_resource.ATTACK:
 			keybind_resource.attack_key = event
 
@@ -114,16 +128,22 @@ func on_keybinds_loaded(data : Dictionary):
 	var loaded_move_left = InputEventKey.new()
 	var loaded_move_right = InputEventKey.new()
 	var loaded_jump = InputEventKey.new()
+	var loaded_crouch = InputEventKey.new()
+	var loaded_dash = InputEventKey.new()
 	var loaded_attack = InputEventKey.new()
 	
 	loaded_move_left.set_physical_keycode(int(data.move_left))
 	loaded_move_right.set_physical_keycode(int(data.move_right))
 	loaded_jump.set_physical_keycode(int(data.jump))
+	loaded_crouch.set_physical_keycode(int(data.crouch))
+	loaded_dash.set_physical_keycode(int(data.dash))
 	loaded_attack.set_physical_keycode(int(data.attack))
 	
 	keybind_resource.move_left_key = loaded_move_left
 	keybind_resource.move_right_key = loaded_move_right
 	keybind_resource.jump_key = loaded_jump
+	keybind_resource.crouch_key = loaded_crouch
+	keybind_resource.dash_key = loaded_dash
 	keybind_resource.attack_key = loaded_attack
 
 func on_settings_data_loaded(data : Dictionary):

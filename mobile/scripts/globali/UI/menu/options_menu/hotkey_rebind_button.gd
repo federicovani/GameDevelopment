@@ -23,6 +23,10 @@ func set_action_name():
 			label.text = "Move Right"
 		"jump":
 			label.text = "Jump"
+		"crouch":
+			label.text = "Crouch"
+		"dash":
+			label.text = "Dash"
 		"attack":
 			label.text = "Attack"
 

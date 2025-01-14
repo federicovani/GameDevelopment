@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="KeybindResource" load_steps=6 format=3 uid="uid://drga2xlct78bx"]
+[gd_resource type="Resource" script_class="KeybindResource" load_steps=8 format=3 uid="uid://drga2xlct78bx"]
 
 [ext_resource type="Script" path="res://scripts/resources/settings/keybind_resource.gd" id="1_xiw2m"]
 
@@ -6,6 +6,15 @@
 device = -1
 physical_keycode = 69
 unicode = 101
+
+[sub_resource type="InputEventKey" id="InputEventKey_fow5n"]
+device = -1
+physical_keycode = 83
+unicode = 115
+
+[sub_resource type="InputEventKey" id="InputEventKey_6x43j"]
+device = -1
+physical_keycode = 4194325
 
 [sub_resource type="InputEventKey" id="InputEventKey_w6p0c"]
 device = -1
@@ -27,4 +36,6 @@ script = ExtResource("1_xiw2m")
 DEFAULT_MOVE_LEFT_KEY = SubResource("InputEventKey_l5j3u")
 DEFAULT_MOVE_RIGHT_KEY = SubResource("InputEventKey_s5rc7")
 DEFAULT_JUMP_KEY = SubResource("InputEventKey_w6p0c")
+DEFAULT_CROUCH_KEY = SubResource("InputEventKey_fow5n")
+DEFAULT_DASH_KEY = SubResource("InputEventKey_6x43j")
 DEFAULT_ATTACK_KEY = SubResource("InputEventKey_kvq2o")

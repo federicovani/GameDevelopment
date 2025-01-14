@@ -141,6 +141,14 @@ action_name = "move_right"
 layout_mode = 2
 action_name = "jump"
 
+[node name="HotkeyRebindButton5" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_dbqi0")]
+layout_mode = 2
+action_name = "dash"
+
+[node name="HotkeyRebindButton6" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_dbqi0")]
+layout_mode = 2
+action_name = "crouch"
+
 [node name="HotkeyRebindButton4" parent="TabContainer/Controls/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("2_dbqi0")]
 layout_mode = 2
 action_name = "attack"
