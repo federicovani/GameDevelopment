@@ -1,9 +1,12 @@
 class_name falling extends State
 
-@export var ledge_grab: CollisionShape2D 
-@export var wall_check: ShapeCast2D 
-@export var floor_check: ShapeCast2D 
-@export var raycast_wall_check: RayCast2D
+@onready var dust = preload("res://scenes/globali/knight/dust.tscn")
+
+@export var ledge_grab : CollisionShape2D 
+@export var wall_check : ShapeCast2D 
+@export var floor_check : ShapeCast2D 
+@export var raycast_wall_check : RayCast2D
+@export var marker : Marker2D
 
 func on_enter():
 	playback.travel(character.jump_between_animation)
@@ -17,6 +20,10 @@ func state_process(_delta):
 			next_state = character.crouch_state
 		else:
 			next_state = character.idle_state
+		#Add the dust effect when landing
+		var instance = dust.instantiate()
+		instance.position = marker.position
+		character.add_child(instance)
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
