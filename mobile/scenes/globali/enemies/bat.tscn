@@ -1,7 +1,8 @@
-[gd_scene load_steps=44 format=3 uid="uid://orkv4h8m75vj"]
+[gd_scene load_steps=49 format=3 uid="uid://orkv4h8m75vj"]
 
 [ext_resource type="Script" path="res://scripts/globali/enemies/bat/bat.gd" id="1_1v58a"]
 [ext_resource type="Texture2D" uid="uid://cjd72awmwjr0u" path="res://assets/globali/Enemies/Bat/Standard/BatStandard_Flying.png" id="1_be7ej"]
+[ext_resource type="Shader" uid="uid://cr6q0xqv0sfdk" path="res://scripts/resources/shaders/hit_flash.tres" id="2_ikmt6"]
 [ext_resource type="Texture2D" uid="uid://j4b4ekji77j7" path="res://assets/globali/Enemies/Bat/Standard/BatStandard_Attack.png" id="2_uxrbt"]
 [ext_resource type="Texture2D" uid="uid://b4y3gt7vw4cvm" path="res://assets/globali/Enemies/Bat/Standard/BatStandard_Hurt.png" id="3_ip0s3"]
 [ext_resource type="Texture2D" uid="uid://b5a1upvyx8oyo" path="res://assets/globali/Enemies/Bat/Standard/BatStandard_Death.png" id="4_5i1wp"]
@@ -17,6 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://c5cvstt813ph0" path="res://scenes/globali/UI/state_debug_label.tscn" id="13_s0edu"]
 [ext_resource type="Script" path="res://scripts/globali/enemies/attack_zone.gd" id="14_dgeu5"]
 [ext_resource type="Script" path="res://scripts/globali/facing_nodes/facing_collision_shape.gd" id="16_84o5p"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rmfp3"]
+resource_local_to_scene = true
+shader = ExtResource("2_ikmt6")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1fpaf"]
 size = Vector2(12, 9)
@@ -345,6 +352,44 @@ states/sleep/position = Vector2(409, 14)
 transitions = ["sleep", "fly", SubResource("AnimationNodeStateMachineTransition_fhbdb"), "fly", "sleep", SubResource("AnimationNodeStateMachineTransition_hsyub"), "fly", "attack", SubResource("AnimationNodeStateMachineTransition_equde"), "attack", "fly", SubResource("AnimationNodeStateMachineTransition_71b8c"), "fly", "hit", SubResource("AnimationNodeStateMachineTransition_movnt"), "hit", "fly", SubResource("AnimationNodeStateMachineTransition_blw8g"), "fly", "death", SubResource("AnimationNodeStateMachineTransition_8qmba"), "Start", "fly", SubResource("AnimationNodeStateMachineTransition_1bu8k"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_ncrnc"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_usq08")]
 graph_offset = Vector2(-101, -5)
 
+[sub_resource type="Animation" id="Animation_e32ti"]
+resource_name = "hit_flash"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_d4fb8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_wupn5"]
+_data = {
+"RESET": SubResource("Animation_d4fb8"),
+"hit_flash": SubResource("Animation_e32ti")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix6rf"]
 size = Vector2(40, 40)
 
@@ -361,6 +406,7 @@ ray_cast_down = NodePath("RayCastDown")
 facing_collision_shape_attack_zone = NodePath("AttackZone/CollisionShape2D")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_rmfp3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -1)
@@ -374,6 +420,11 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_28jwf")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_wupn5")
+}
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("6_v5ltw")

@@ -18,7 +18,8 @@ func set_attack_offset():
 
 #Handled by the AnimationPlayer, reset the offset after the attack animation
 func reset_offset():
-	sprite.offset = sprite.default_offset
+	if(sprite != null):
+		sprite.offset = sprite.default_offset
 
 func on_exit():
 	reset_offset()

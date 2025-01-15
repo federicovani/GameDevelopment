@@ -1,8 +1,9 @@
-[gd_scene load_steps=37 format=3 uid="uid://3bktwps6pw33"]
+[gd_scene load_steps=42 format=3 uid="uid://3bktwps6pw33"]
 
 [ext_resource type="Texture2D" uid="uid://caopkrdhyl6nt" path="res://assets/globali/Enemies/Necromancer_creativekind-Sheet.png" id="1_5s5al"]
 [ext_resource type="Script" path="res://scripts/globali/enemies/necromancer/necromancer.gd" id="1_eqp6n"]
 [ext_resource type="Script" path="res://scripts/globali/facing_nodes/facing_collision_shape.gd" id="2_dn64w"]
+[ext_resource type="Shader" uid="uid://cr6q0xqv0sfdk" path="res://scripts/resources/shaders/hit_flash.tres" id="2_ivtlo"]
 [ext_resource type="Script" path="res://scripts/globali/facing_nodes/sprite_attack_offset.gd" id="2_lue7s"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/damageable.gd" id="2_tavfn"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/CharacterStateMachine.gd" id="3_wofko"]
@@ -14,6 +15,12 @@
 [ext_resource type="Script" path="res://scripts/globali/facing_nodes/facing_ray_cast.gd" id="11_dv08v"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/states/death_state.gd" id="11_fc2e6"]
 [ext_resource type="Script" path="res://scripts/globali/enemies/attack_zone.gd" id="12_iaaq5"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_hy0no"]
+resource_local_to_scene = true
+shader = ExtResource("2_ivtlo")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_x3b5d"]
 size = Vector2(23, 41)
@@ -405,6 +412,44 @@ states/walk/position = Vector2(376, 100)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_ujkpt"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_72ath"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_xvfrj"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_q8cfo"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_1aer7"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_6pgep"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_1grr0"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_2qwkg")]
 graph_offset = Vector2(-45, 21)
 
+[sub_resource type="Animation" id="Animation_pi610"]
+resource_name = "hit_flash"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_jjv20"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_l1x5e"]
+_data = {
+"RESET": SubResource("Animation_jjv20"),
+"hit_flash": SubResource("Animation_pi610")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y436"]
 size = Vector2(67, 41)
 
@@ -421,6 +466,7 @@ facing_ray_cast_left = NodePath("RayCastLeft")
 facing_ray_cast_down = NodePath("RayCastDown")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_hy0no")
 position = Vector2(0, -41)
 script = ExtResource("2_lue7s")
 
@@ -439,6 +485,11 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_nsr61")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_l1x5e")
+}
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("2_tavfn")
