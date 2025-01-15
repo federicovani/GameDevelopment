@@ -1,4 +1,4 @@
-[gd_scene load_steps=42 format=3 uid="uid://orkv4h8m75vj"]
+[gd_scene load_steps=44 format=3 uid="uid://orkv4h8m75vj"]
 
 [ext_resource type="Script" path="res://scripts/globali/enemies/bat/bat.gd" id="1_1v58a"]
 [ext_resource type="Texture2D" uid="uid://cjd72awmwjr0u" path="res://assets/globali/Enemies/Bat/Standard/BatStandard_Flying.png" id="1_be7ej"]
@@ -327,19 +327,23 @@ advance_mode = 2
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1bu8k"]
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ncrnc"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_usq08"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_28jwf"]
 states/attack/node = SubResource("AnimationNodeAnimation_2sacs")
-states/attack/position = Vector2(409, 4)
+states/attack/position = Vector2(525, 196)
 states/death/node = SubResource("AnimationNodeAnimation_bxyi4")
 states/death/position = Vector2(586, 100)
 states/fly/node = SubResource("AnimationNodeAnimation_klxtn")
 states/fly/position = Vector2(409, 100)
 states/hit/node = SubResource("AnimationNodeAnimation_l611y")
-states/hit/position = Vector2(409, 196)
+states/hit/position = Vector2(303, 196)
 states/sleep/node = SubResource("AnimationNodeAnimation_rthat")
-states/sleep/position = Vector2(278, 185)
-transitions = ["sleep", "fly", SubResource("AnimationNodeStateMachineTransition_fhbdb"), "fly", "sleep", SubResource("AnimationNodeStateMachineTransition_hsyub"), "fly", "attack", SubResource("AnimationNodeStateMachineTransition_equde"), "attack", "fly", SubResource("AnimationNodeStateMachineTransition_71b8c"), "fly", "hit", SubResource("AnimationNodeStateMachineTransition_movnt"), "hit", "fly", SubResource("AnimationNodeStateMachineTransition_blw8g"), "fly", "death", SubResource("AnimationNodeStateMachineTransition_8qmba"), "Start", "fly", SubResource("AnimationNodeStateMachineTransition_1bu8k")]
-graph_offset = Vector2(-103, -12)
+states/sleep/position = Vector2(409, 14)
+transitions = ["sleep", "fly", SubResource("AnimationNodeStateMachineTransition_fhbdb"), "fly", "sleep", SubResource("AnimationNodeStateMachineTransition_hsyub"), "fly", "attack", SubResource("AnimationNodeStateMachineTransition_equde"), "attack", "fly", SubResource("AnimationNodeStateMachineTransition_71b8c"), "fly", "hit", SubResource("AnimationNodeStateMachineTransition_movnt"), "hit", "fly", SubResource("AnimationNodeStateMachineTransition_blw8g"), "fly", "death", SubResource("AnimationNodeStateMachineTransition_8qmba"), "Start", "fly", SubResource("AnimationNodeStateMachineTransition_1bu8k"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_ncrnc"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_usq08")]
+graph_offset = Vector2(-101, -5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ix6rf"]
 size = Vector2(40, 40)

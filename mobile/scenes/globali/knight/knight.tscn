@@ -1,7 +1,8 @@
-[gd_scene load_steps=102 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=107 format=3 uid="uid://cmvr0blmdbg8h"]
 
 [ext_resource type="Script" path="res://scripts/globali/Knight/knight.gd" id="1_kihmv"]
 [ext_resource type="Texture2D" uid="uid://bjb8ydl55mfqm" path="res://assets/globali/knight/120x80_PNGSheets/_Run.png" id="2_wd57y"]
+[ext_resource type="Shader" uid="uid://cr6q0xqv0sfdk" path="res://scripts/resources/shaders/hit_flash.tres" id="3_b5rw8"]
 [ext_resource type="Script" path="res://scripts/globali/facing_nodes/facing_sprite_offset.gd" id="3_jkrn1"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/facing_collision_shape_knight.gd" id="4_gxm5g"]
 [ext_resource type="Texture2D" uid="uid://d6hauh3t6x4g" path="res://assets/globali/knight/120x80_PNGSheets/_Attack.png" id="5_akvh2"]
@@ -51,6 +52,12 @@ gravity = Vector3(0, 0, 0)
 alpha_curve = SubResource("CurveTexture_onqxx")
 anim_speed_min = 1.25
 anim_speed_max = 1.25
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_v2xdp"]
+resource_local_to_scene = true
+shader = ExtResource("3_b5rw8")
+shader_parameter/enabled = false
+shader_parameter/tint = Color(1, 1, 1, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_86jqi"]
 size = Vector2(20, 38.5)
@@ -933,7 +940,45 @@ states/wall_climb/position = Vector2(1059, 20)
 states/wall_hang/node = SubResource("AnimationNodeAnimation_dfbd8")
 states/wall_hang/position = Vector2(894, 6)
 transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_kryjm"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_3fbca"), "jump_end", "move", SubResource("AnimationNodeStateMachineTransition_x34cd"), "jump_start", "jump_in_between", SubResource("AnimationNodeStateMachineTransition_yv07t"), "jump_in_between", "jump_end", SubResource("AnimationNodeStateMachineTransition_qm6h5"), "move", "death", SubResource("AnimationNodeStateMachineTransition_7j6l7"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_6uuak"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_iqmbq"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_sl5lb"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_8hoys"), "move", "hit", SubResource("AnimationNodeStateMachineTransition_k0ser"), "hit", "move", SubResource("AnimationNodeStateMachineTransition_p4e4b"), "move", "crouch_transition", SubResource("AnimationNodeStateMachineTransition_47puo"), "crouch_transition", "move", SubResource("AnimationNodeStateMachineTransition_mm8iu"), "crouch_transition", "crouch_move", SubResource("AnimationNodeStateMachineTransition_065vq"), "crouch_move", "crouch_transition", SubResource("AnimationNodeStateMachineTransition_w4vrf"), "crouch_move", "crouch_attack", SubResource("AnimationNodeStateMachineTransition_to3ov"), "crouch_attack", "crouch_move", SubResource("AnimationNodeStateMachineTransition_msa1a"), "jump_start", "wall_hang", SubResource("AnimationNodeStateMachineTransition_dcuyi"), "wall_hang", "wall_climb", SubResource("AnimationNodeStateMachineTransition_3r5ao"), "wall_hang", "jump_end", SubResource("AnimationNodeStateMachineTransition_l8xry"), "wall_climb", "jump_end", SubResource("AnimationNodeStateMachineTransition_bytpl")]
-graph_offset = Vector2(-114, -26)
+graph_offset = Vector2(-121, -138)
+
+[sub_resource type="Animation" id="Animation_wxqtj"]
+resource_name = "hit_flash"
+length = 0.2
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_r7xok"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_apu6d"]
+_data = {
+"RESET": SubResource("Animation_r7xok"),
+"hit_flash": SubResource("Animation_wxqtj")
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh7pf"]
 size = Vector2(48.5, 32)
@@ -964,6 +1009,7 @@ process_material = SubResource("ParticleProcessMaterial_870jw")
 texture = ExtResource("2_wd57y")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_v2xdp")
 position = Vector2(0, -24)
 offset = Vector2(5.5, 0)
 script = ExtResource("3_jkrn1")
@@ -992,6 +1038,11 @@ tree_root = SubResource("AnimationNodeStateMachine_dy010")
 anim_player = NodePath("../AnimationPlayer")
 parameters/crouch_move/blend_position = 0.167579
 parameters/move/blend_position = -0.0558598
+
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_apu6d")
+}
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("19_14xun")

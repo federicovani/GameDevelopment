@@ -7,6 +7,7 @@ func on_enter():
 
 func state_input(event : InputEvent):
 	if(event.is_action_pressed("attack")):
+		#Timer for the attack combo
 		timer.start()
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:

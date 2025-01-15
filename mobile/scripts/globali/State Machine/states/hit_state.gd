@@ -3,6 +3,7 @@ extends State
 class_name HitState
 
 @onready var timer: Timer = $Timer
+@onready var hit_flash_animation_player: AnimationPlayer = $"../../HitFlashAnimationPlayer"
 
 @export var knockback_speed : float = 15.0
 
@@ -19,12 +20,16 @@ func state_process(delta):
 	character.move_and_slide()
 
 func on_damageable_hit(_node : Node, _damage_taken : int, knockback_direction : Vector2):
+	if(hit_flash_animation_player != null):
+		hit_flash_animation_player.play("hit_flash")
 	if (damageable.health > 0):
 		character.velocity = knockback_speed * knockback_direction
 		playback.travel(character.hit_animation)
 		emit_signal("interrupt_state", self)
 	else:
 		emit_signal("interrupt_state", character.death_state)
+		
+	
 
 func _on_timer_timeout() -> void:
 	if(character == Global.playerBody):

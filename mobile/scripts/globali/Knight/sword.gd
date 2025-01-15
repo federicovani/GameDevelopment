@@ -1,6 +1,5 @@
 extends Area2D
 
-@export var damage : int = 20
 @export var player : Knight
 @export var facing_collision_shape : FacingCollisionShape
 
@@ -14,8 +13,8 @@ func _on_body_entered(body: Node2D) -> void:
 			var direction_to_damageable = (body.global_position - get_parent().global_position)
 			var direction_sign = sign(direction_to_damageable.x)
 			if(direction_sign > 0):
-				child.hit(damage, Vector2.RIGHT)
+				child.hit(get_parent().damage, Vector2.RIGHT)
 			elif(direction_sign < 0):
-				child.hit(damage, Vector2.LEFT)
+				child.hit(get_parent().damage, Vector2.LEFT)
 			else:
-				child.hit(damage, Vector2.ZERO)
+				child.hit(get_parent().damage, Vector2.ZERO)

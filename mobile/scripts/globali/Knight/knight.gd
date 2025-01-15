@@ -8,6 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") #Get the
 var falling_gravity = gravity * 1.5
 
 @export var health : float = 100
+@export var damage : float = 20
 
 @export var is_crouching : bool = false
 @export var facing_right: bool = true
