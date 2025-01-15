@@ -361,6 +361,21 @@ states/walk/position = Vector2(326, 109)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_053ck"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_ti51h"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_lxkiq"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_g8qde"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_7aqsi"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_8s8w7"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_khha0"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_rdcq2")]
 graph_offset = Vector2(-362.372, 57)
 
+[sub_resource type="Animation" id="Animation_rcfwn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_ajlcm"]
 resource_name = "hit_flash"
 length = 0.3
@@ -376,21 +391,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_rcfwn"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_seb2o"]
@@ -464,7 +464,6 @@ script = ExtResource("9_drtgi")
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Chase"]
 wait_time = 15.0
-autostart = true
 
 [node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable")]
 script = ExtResource("8_22e0e")

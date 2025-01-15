@@ -4,6 +4,9 @@ class_name chase extends State
 
 @export var player : CharacterBody2D
 
+func on_enter():
+	timer.start()
+
 func state_process(delta):
 	player = Global.playerBody
 	if not character.is_on_floor():
@@ -19,3 +22,6 @@ func state_process(delta):
 
 func _on_timer_timeout() -> void:
 	next_state = character.walk_state
+
+func on_exit():
+	timer.stop()

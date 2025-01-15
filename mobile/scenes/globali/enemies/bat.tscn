@@ -352,6 +352,21 @@ states/sleep/position = Vector2(409, 14)
 transitions = ["sleep", "fly", SubResource("AnimationNodeStateMachineTransition_fhbdb"), "fly", "sleep", SubResource("AnimationNodeStateMachineTransition_hsyub"), "fly", "attack", SubResource("AnimationNodeStateMachineTransition_equde"), "attack", "fly", SubResource("AnimationNodeStateMachineTransition_71b8c"), "fly", "hit", SubResource("AnimationNodeStateMachineTransition_movnt"), "hit", "fly", SubResource("AnimationNodeStateMachineTransition_blw8g"), "fly", "death", SubResource("AnimationNodeStateMachineTransition_8qmba"), "Start", "fly", SubResource("AnimationNodeStateMachineTransition_1bu8k"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_ncrnc"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_usq08")]
 graph_offset = Vector2(-101, -5)
 
+[sub_resource type="Animation" id="Animation_d4fb8"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_e32ti"]
 resource_name = "hit_flash"
 length = 0.3
@@ -367,21 +382,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_d4fb8"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_wupn5"]
@@ -451,7 +451,6 @@ script = ExtResource("10_vyjsc")
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Chase"]
 wait_time = 5.0
-autostart = true
 
 [node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable")]
 script = ExtResource("8_g5186")
