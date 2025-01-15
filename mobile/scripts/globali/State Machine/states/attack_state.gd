@@ -8,6 +8,7 @@ func on_enter():
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if(anim_name == character.attack_animation):
 		next_state = character.chase_state
+		print_debug("ce sto")
 
 #Handled by the AnimationPlayer, fix the offset if the sprite is not centered during the attack animation
 func set_attack_offset():

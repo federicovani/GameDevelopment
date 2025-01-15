@@ -14,5 +14,6 @@ func _ready() -> void:
 	health = get_parent().health
 
 func hit(damage : int, knockback_direction : Vector2):
-	health -= damage
-	emit_signal("on_hit", get_parent(), damage, knockback_direction)
+	if(get_parent().state_machine.current_state != get_parent().death_state):
+		health -= damage
+		emit_signal("on_hit", get_parent(), damage, knockback_direction)

@@ -4,7 +4,7 @@ class_name HitState
 
 @onready var timer: Timer = $Timer
 
-@export var knockback_speed : float = 20.0
+@export var knockback_speed : float = 15.0
 
 @warning_ignore("shadowed_global_identifier")
 @export var damageable : damageable
@@ -14,6 +14,9 @@ func _ready() -> void:
 
 func on_enter():
 	timer.start()
+
+func state_process(delta):
+	character.move_and_slide()
 
 func on_damageable_hit(_node : Node, _damage_taken : int, knockback_direction : Vector2):
 	if (damageable.health > 0):
