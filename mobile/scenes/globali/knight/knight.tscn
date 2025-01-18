@@ -1,7 +1,6 @@
-[gd_scene load_steps=115 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=114 format=3 uid="uid://cmvr0blmdbg8h"]
 
 [ext_resource type="Script" path="res://scripts/globali/Knight/knight.gd" id="1_kihmv"]
-[ext_resource type="Texture2D" uid="uid://bjb8ydl55mfqm" path="res://assets/globali/knight/120x80_PNGSheets/_Run.png" id="2_wd57y"]
 [ext_resource type="Shader" uid="uid://cr6q0xqv0sfdk" path="res://scripts/resources/shaders/hit_flash.tres" id="3_b5rw8"]
 [ext_resource type="Script" path="res://scripts/globali/facing_nodes/facing_sprite_offset.gd" id="3_jkrn1"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/facing_collision_shape_knight.gd" id="4_gxm5g"]
@@ -1043,9 +1042,9 @@ script = ExtResource("1_kihmv")
 material = SubResource("CanvasItemMaterial_d5sfo")
 position = Vector2(5, -25)
 emitting = false
-amount = 16
+amount = 30
 process_material = SubResource("ParticleProcessMaterial_870jw")
-texture = ExtResource("2_wd57y")
+texture = ExtResource("18_hynxv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_v2xdp")
@@ -1171,6 +1170,7 @@ wait_time = 1.5
 one_shot = true
 
 [node name="Sword" type="Area2D" parent="." node_paths=PackedStringArray("player", "facing_collision_shape")]
+visible = false
 collision_layer = 0
 collision_mask = 4
 monitoring = false
