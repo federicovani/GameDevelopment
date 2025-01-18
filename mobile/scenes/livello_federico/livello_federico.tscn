@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://d3k38htbk1vgs"]
+[gd_scene load_steps=22 format=3 uid="uid://d3k38htbk1vgs"]
 
 [ext_resource type="Texture2D" uid="uid://qhh04ncp81cr" path="res://assets/livello_federico/PixelFantasy_Caves_1/mainlev_build.png" id="1_4vle5"]
 [ext_resource type="Script" path="res://scripts/livello_federico/livello_federico.gd" id="1_xox4y"]
@@ -607,6 +607,28 @@ pattern_0 = SubResource("TileMapPattern_uv3x8")
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e3s2w"]
 distance = -181.0
 
+[sub_resource type="Gradient" id="Gradient_ju766"]
+offsets = PackedFloat32Array(0, 0.28, 0.745, 1)
+colors = PackedColorArray(0, 0, 0, 0, 0.215686, 0.262745, 0.309804, 1, 0.0784314, 0.117647, 0.12549, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_6inhr"]
+gradient = SubResource("Gradient_ju766")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vltxy"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(500, 200, 1)
+direction = Vector3(1, -1, 0)
+spread = 25.0
+initial_velocity_min = 10.0
+initial_velocity_max = 50.0
+angular_velocity_min = -1.60933e-05
+angular_velocity_max = 50.0
+gravity = Vector3(0, -10, 0)
+scale_min = 0.1
+color = Color(0.141176, 0.211765, 0.219608, 1)
+color_ramp = SubResource("GradientTexture1D_6inhr")
+
 [node name="livello_federico" type="Node2D"]
 script = ExtResource("1_xox4y")
 
@@ -676,3 +698,10 @@ position = Vector2(22, -4)
 
 [node name="Skeleton2" parent="." instance=ExtResource("7_saqal")]
 position = Vector2(404, 27)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+visible = false
+amount = 300
+process_material = SubResource("ParticleProcessMaterial_vltxy")
+lifetime = 5.0
+visibility_rect = Rect2(-500, -250, 1000, 500)

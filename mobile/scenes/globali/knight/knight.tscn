@@ -1,4 +1,4 @@
-[gd_scene load_steps=114 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=117 format=3 uid="uid://cmvr0blmdbg8h"]
 
 [ext_resource type="Script" path="res://scripts/globali/Knight/knight.gd" id="1_kihmv"]
 [ext_resource type="Shader" uid="uid://cr6q0xqv0sfdk" path="res://scripts/resources/shaders/hit_flash.tres" id="3_b5rw8"]
@@ -1033,6 +1033,25 @@ Vector2i(-1, -1): {
 }
 }
 
+[sub_resource type="Curve" id="Curve_308ov"]
+_data = [Vector2(0, 0.923077), 0.0, 0.0, 0, 0, Vector2(1, 0), -4.17582, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_ip8sk"]
+curve = SubResource("Curve_308ov")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_gap1i"]
+particle_flag_disable_z = true
+emission_shape = 3
+emission_box_extents = Vector3(8, 1, 1)
+direction = Vector3(-1, -1, 0)
+initial_velocity_max = 5.0
+angular_velocity_min = -80.0
+angular_velocity_max = -80.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.3
+scale_curve = SubResource("CurveTexture_ip8sk")
+
 [node name="knight" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
@@ -1239,6 +1258,13 @@ offset_right = 37.0
 offset_bottom = -15.0
 scale = Vector2(0.613476, 0.613476)
 state_machine = NodePath("../CharacterStateMachine")
+
+[node name="WalkingParticles" type="GPUParticles2D" parent="."]
+position = Vector2(0, 16)
+amount = 20
+process_material = SubResource("ParticleProcessMaterial_gap1i")
+lifetime = 0.4
+randomness = 0.5
 
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Wall_Hang" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attacking" method="_on_animation_tree_animation_finished"]

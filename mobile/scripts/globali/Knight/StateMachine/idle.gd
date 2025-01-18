@@ -6,6 +6,8 @@ class_name idle extends State
 @export var raycast_wall_check : RayCast2D
 @export var floor_check: ShapeCast2D
 
+@onready var walking_particles: GPUParticles2D = $"../../WalkingParticles"
+
 #Prevent entering the falling state when the game is starting
 @onready var buffer_timer: Timer = $BufferTimer
 @export var dash_timer : Timer
@@ -18,6 +20,10 @@ func on_enter():
 func state_process(_delta):
 	if(!floor_check.is_colliding() && !character.is_on_floor() && buffer_timer.is_stopped()):
 		next_state = character.falling_state
+	if character.direction:
+		walking_particles.emitting = true
+	else:
+		walking_particles.emitting = false
 
 func _physics_process(delta):
 	if(get_parent().check_if_can_move() && !get_parent().current_state == character.crouch_state && !get_parent().current_state == character.dash_state):
@@ -82,3 +88,6 @@ func on_player_facing_direction_changed(facing_right : bool):
 		sprite.offset = sprite.facing_left_offset
 		sword_facing_collision_shape.position = sword_facing_collision_shape.facing_left_position
 		raycast_wall_check.scale.x = -1
+
+func on_exit():
+	walking_particles.emitting = false
