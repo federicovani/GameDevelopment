@@ -33,7 +33,6 @@
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/death.gd" id="30_oi6f5"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/sword.gd" id="31_d5cij"]
 [ext_resource type="PackedScene" uid="uid://c5cvstt813ph0" path="res://scenes/globali/UI/state_debug_label.tscn" id="32_n8wl2"]
-[ext_resource type="AudioStream" uid="uid://b6t7aktqh6q1e" path="res://assets/globali/Audio/sfx/knight/06_step_stone_1.wav" id="33_2bweu"]
 [ext_resource type="AudioStream" uid="uid://cciwy26qc1upa" path="res://assets/globali/Audio/sfx/knight/12_human_jump_1.wav" id="34_o48ks"]
 [ext_resource type="AudioStream" uid="uid://ceu7u0cshd0we" path="res://assets/globali/Audio/sfx/knight/13_human_jump_land_1.wav" id="35_yt2do"]
 [ext_resource type="AudioStream" uid="uid://bmo4k54m4q0xi" path="res://assets/globali/Audio/sfx/knight/07_human_atk_sword_1.wav" id="36_3jxrd"]
@@ -1001,10 +1000,14 @@ size = Vector2(23, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssobb"]
 size = Vector2(18, 20)
 
-[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_4070b"]
+[sub_resource type="AudioStreamWAV" id="AudioStreamWAV_tndiq"]
+format = 1
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_axh03"]
+initial_clip = 1
 clip_count = 6
-clip_0/name = &"running"
-clip_0/stream = ExtResource("33_2bweu")
+clip_0/name = &"reset"
+clip_0/stream = SubResource("AudioStreamWAV_tndiq")
 clip_0/auto_advance = 0
 clip_1/name = &"jumping"
 clip_1/stream = ExtResource("34_o48ks")
@@ -1024,7 +1027,7 @@ clip_5/auto_advance = 0
 _transitions = {
 Vector2i(-1, -1): {
 "fade_beats": 1,
-"fade_mode": 4,
+"fade_mode": 0,
 "from_time": 0,
 "to_time": 1
 }
@@ -1222,7 +1225,8 @@ visible = false
 position = Vector2(0, 9)
 
 [node name="PlayerAudioStream" type="AudioStreamPlayer2D" parent="."]
-stream = SubResource("AudioStreamInteractive_4070b")
+stream = SubResource("AudioStreamInteractive_axh03")
+volume_db = -8.0
 bus = &"SFX"
 
 [node name="PlayerAudioListener" type="AudioListener2D" parent="."]

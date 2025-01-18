@@ -7,6 +7,7 @@ class_name crouching extends State
 
 func on_enter():
 	playback.travel(character.crouch_animation)
+	character.update_player_audio(character.reset_sfx)
 	set_collision_shapes()
 
 func state_process(delta):

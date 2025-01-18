@@ -44,5 +44,4 @@ func get_gravity():
 	return character.falling_gravity
 
 func on_exit():
-	character.update_player_audio(character.land_sfx)
 	ledge_grab.disabled = true

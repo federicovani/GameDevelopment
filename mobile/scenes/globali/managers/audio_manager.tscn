@@ -47,6 +47,6 @@ bg_music_player = NodePath("BackgroundMusicPlayer")
 
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamInteractive_1gvrg")
-volume_db = -20.0
+volume_db = -25.0
 autoplay = true
 bus = &"Music"

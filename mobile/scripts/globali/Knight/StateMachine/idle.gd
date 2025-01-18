@@ -12,6 +12,7 @@ class_name idle extends State
 	
 func on_enter():
 	playback.travel(character.idle_animation)
+	character.update_player_audio(character.reset_sfx)
 	set_collision_shapes()
 
 func state_process(_delta):

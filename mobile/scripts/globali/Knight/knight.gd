@@ -41,7 +41,7 @@ var falling_gravity = gravity * 1.5
 @export var hit_animation : String = "hit"
 @export var death_animation : String = "death"
 
-@export var reset_sfx : String = "none"
+@export var reset_sfx : String = "reset"
 @export var run_sfx : String = "running"
 @export var jump_sfx : String = "jumping"
 @export var land_sfx : String = "landing"

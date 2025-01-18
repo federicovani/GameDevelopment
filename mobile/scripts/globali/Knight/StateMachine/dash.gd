@@ -9,8 +9,6 @@ func on_enter():
 	duration_timer.start()
 
 func state_process(delta):
-	if(!character.is_on_floor()):
-		next_state = character.falling_state
 	if character.facing_right:
 		character.direction.x = 1
 	else:
