@@ -4,6 +4,7 @@ class_name rolling extends State
 @onready var duration_timer: Timer = $DurationTimer
 
 func on_enter():
+	character.update_player_audio(character.dash_sfx)
 	dash_particles.emitting = true
 	duration_timer.start()
 
@@ -32,3 +33,4 @@ func _on_duration_timer_timeout() -> void:
 
 func on_exit():
 	dash_particles.emitting = false
+	

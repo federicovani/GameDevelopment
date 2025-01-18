@@ -6,6 +6,7 @@ func on_enter():
 	character.velocity.y = character.jump_velocity
 	released = false
 	playback.travel(character.jump_start_animation)
+	character.update_player_audio(character.jump_sfx)
 
 func state_process(_delta):
 	if(character.velocity.y > 0):

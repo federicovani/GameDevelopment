@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=114 format=3 uid="uid://cmvr0blmdbg8h"]
 
 [ext_resource type="Script" path="res://scripts/globali/Knight/knight.gd" id="1_kihmv"]
 [ext_resource type="Texture2D" uid="uid://bjb8ydl55mfqm" path="res://assets/globali/knight/120x80_PNGSheets/_Run.png" id="2_wd57y"]
@@ -33,6 +33,12 @@
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/death.gd" id="30_oi6f5"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/sword.gd" id="31_d5cij"]
 [ext_resource type="PackedScene" uid="uid://c5cvstt813ph0" path="res://scenes/globali/UI/state_debug_label.tscn" id="32_n8wl2"]
+[ext_resource type="AudioStream" uid="uid://b6t7aktqh6q1e" path="res://assets/globali/Audio/sfx/knight/06_step_stone_1.wav" id="33_2bweu"]
+[ext_resource type="AudioStream" uid="uid://cciwy26qc1upa" path="res://assets/globali/Audio/sfx/knight/12_human_jump_1.wav" id="34_o48ks"]
+[ext_resource type="AudioStream" uid="uid://ceu7u0cshd0we" path="res://assets/globali/Audio/sfx/knight/13_human_jump_land_1.wav" id="35_yt2do"]
+[ext_resource type="AudioStream" uid="uid://bmo4k54m4q0xi" path="res://assets/globali/Audio/sfx/knight/07_human_atk_sword_1.wav" id="36_3jxrd"]
+[ext_resource type="AudioStream" uid="uid://d3nwchqxss52l" path="res://assets/globali/Audio/sfx/knight/07_human_atk_sword_2.wav" id="37_jwp3f"]
+[ext_resource type="AudioStream" uid="uid://4dbtfkr4qhhv" path="res://assets/globali/Audio/sfx/knight/15_human_dash_1.wav" id="38_m1eu1"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_d5sfo"]
 particles_animation = true
@@ -942,6 +948,21 @@ states/wall_hang/position = Vector2(894, 6)
 transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_kryjm"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_3fbca"), "jump_end", "move", SubResource("AnimationNodeStateMachineTransition_x34cd"), "jump_start", "jump_in_between", SubResource("AnimationNodeStateMachineTransition_yv07t"), "jump_in_between", "jump_end", SubResource("AnimationNodeStateMachineTransition_qm6h5"), "move", "death", SubResource("AnimationNodeStateMachineTransition_7j6l7"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_6uuak"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_iqmbq"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_sl5lb"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_8hoys"), "move", "hit", SubResource("AnimationNodeStateMachineTransition_k0ser"), "hit", "move", SubResource("AnimationNodeStateMachineTransition_p4e4b"), "move", "crouch_transition", SubResource("AnimationNodeStateMachineTransition_47puo"), "crouch_transition", "move", SubResource("AnimationNodeStateMachineTransition_mm8iu"), "crouch_transition", "crouch_move", SubResource("AnimationNodeStateMachineTransition_065vq"), "crouch_move", "crouch_transition", SubResource("AnimationNodeStateMachineTransition_w4vrf"), "crouch_move", "crouch_attack", SubResource("AnimationNodeStateMachineTransition_to3ov"), "crouch_attack", "crouch_move", SubResource("AnimationNodeStateMachineTransition_msa1a"), "jump_start", "wall_hang", SubResource("AnimationNodeStateMachineTransition_dcuyi"), "wall_hang", "wall_climb", SubResource("AnimationNodeStateMachineTransition_3r5ao"), "wall_hang", "jump_end", SubResource("AnimationNodeStateMachineTransition_l8xry"), "wall_climb", "jump_end", SubResource("AnimationNodeStateMachineTransition_bytpl")]
 graph_offset = Vector2(-121, -138)
 
+[sub_resource type="Animation" id="Animation_r7xok"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
 [sub_resource type="Animation" id="Animation_wxqtj"]
 resource_name = "hit_flash"
 length = 0.2
@@ -957,21 +978,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
-}
-
-[sub_resource type="Animation" id="Animation_r7xok"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_apu6d"]
@@ -994,6 +1000,35 @@ size = Vector2(23, 20)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ssobb"]
 size = Vector2(18, 20)
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_4070b"]
+clip_count = 6
+clip_0/name = &"running"
+clip_0/stream = ExtResource("33_2bweu")
+clip_0/auto_advance = 0
+clip_1/name = &"jumping"
+clip_1/stream = ExtResource("34_o48ks")
+clip_1/auto_advance = 0
+clip_2/name = &"landing"
+clip_2/stream = ExtResource("35_yt2do")
+clip_2/auto_advance = 0
+clip_3/name = &"dashing"
+clip_3/stream = ExtResource("38_m1eu1")
+clip_3/auto_advance = 0
+clip_4/name = &"attacking1"
+clip_4/stream = ExtResource("36_3jxrd")
+clip_4/auto_advance = 0
+clip_5/name = &"attacking2"
+clip_5/stream = ExtResource("37_jwp3f")
+clip_5/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+}
+}
 
 [node name="knight" type="CharacterBody2D"]
 z_index = 5
@@ -1182,6 +1217,17 @@ visible = false
 position = Vector2(0, -20)
 target_position = Vector2(14, 0)
 
+[node name="DustMarker" type="Marker2D" parent="."]
+visible = false
+position = Vector2(0, 9)
+
+[node name="PlayerAudioStream" type="AudioStreamPlayer2D" parent="."]
+stream = SubResource("AudioStreamInteractive_4070b")
+bus = &"SFX"
+
+[node name="PlayerAudioListener" type="AudioListener2D" parent="."]
+current = true
+
 [node name="StateDebugLabel" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("32_n8wl2")]
 offset_left = -38.0
 offset_top = -38.0
@@ -1189,9 +1235,6 @@ offset_right = 37.0
 offset_bottom = -15.0
 scale = Vector2(0.613476, 0.613476)
 state_machine = NodePath("../CharacterStateMachine")
-
-[node name="DustMarker" type="Marker2D" parent="."]
-position = Vector2(0, 9)
 
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Wall_Hang" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attacking" method="_on_animation_tree_animation_finished"]

@@ -1,0 +1,52 @@
+[gd_scene load_steps=9 format=3 uid="uid://dyh8xnb16x7i3"]
+
+[ext_resource type="Script" path="res://scripts/globali/managers/audio_manager.gd" id="1_rm2hr"]
+[ext_resource type="AudioStream" uid="uid://b4rh83svqg0w8" path="res://assets/globali/Audio/music/Floating Dream.wav" id="2_ftbb6"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_4vxr7"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_f4trc"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_4bksf"]
+stream_count = 1
+stream_0 = ExtResource("2_ftbb6")
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_0hj42"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_kjcso"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_1gvrg"]
+clip_count = 5
+clip_0/name = &"main_menu_music"
+clip_0/stream = SubResource("AudioStreamPlaylist_4vxr7")
+clip_0/auto_advance = 0
+clip_1/name = &"tutorial_music"
+clip_1/stream = SubResource("AudioStreamPlaylist_f4trc")
+clip_1/auto_advance = 0
+clip_2/name = &"livello_federico_music"
+clip_2/stream = SubResource("AudioStreamPlaylist_4bksf")
+clip_2/auto_advance = 0
+clip_3/name = &"livello_sara_music"
+clip_3/stream = SubResource("AudioStreamPlaylist_0hj42")
+clip_3/auto_advance = 0
+clip_4/name = &"livello_elisa_music"
+clip_4/stream = SubResource("AudioStreamPlaylist_kjcso")
+clip_4/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 1
+}
+}
+
+[node name="AudioManager" type="Node" node_paths=PackedStringArray("bg_music_player")]
+script = ExtResource("1_rm2hr")
+bg_music_player = NodePath("BackgroundMusicPlayer")
+
+[node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_1gvrg")
+volume_db = -20.0
+autoplay = true
+bus = &"Music"

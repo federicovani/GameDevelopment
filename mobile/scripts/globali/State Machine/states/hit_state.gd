@@ -16,7 +16,8 @@ func _ready() -> void:
 func on_enter():
 	timer.start()
 
-func state_process(delta):
+func state_process(_delta):
+	#For enabling the knockback
 	character.move_and_slide()
 
 func on_damageable_hit(_node : Node, _damage_taken : int, knockback_direction : Vector2):

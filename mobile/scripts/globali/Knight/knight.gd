@@ -15,6 +15,7 @@ var falling_gravity = gravity * 1.5
 
 @onready var animation_tree: AnimationTree = $AnimationTree
 @onready var state_machine: CharacterStateMachine = $CharacterStateMachine
+@onready var player_audio_stream: AudioStreamPlayer2D = $PlayerAudioStream
 
 @onready var idle_state: State = $CharacterStateMachine/Idle
 @onready var crouch_state: State = $CharacterStateMachine/Crouching
@@ -40,6 +41,14 @@ var falling_gravity = gravity * 1.5
 @export var hit_animation : String = "hit"
 @export var death_animation : String = "death"
 
+@export var reset_sfx : String = "none"
+@export var run_sfx : String = "running"
+@export var jump_sfx : String = "jumping"
+@export var land_sfx : String = "landing"
+@export var dash_sfx : String = "dashing"
+@export var attack1_sfx : String = "attacking1"
+@export var attack2_sfx : String = "attacking2"
+
 @export var direction : Vector2 = Vector2.ZERO
 
 @warning_ignore("unused_signal")
@@ -55,6 +64,13 @@ func _process(_delta: float) -> void:
 func update_animation_parameters():
 	animation_tree.set("parameters/move/blend_position", direction.x)
 	animation_tree.set("parameters/crouch_move/blend_position", direction.x)
+
+func update_player_audio(audio_name : String):
+	if(audio_name == "none"):
+		player_audio_stream.stop()
+	if(audio_name != player_audio_stream["parameters/switch_to_clip"]):
+		player_audio_stream.play()
+		player_audio_stream["parameters/switch_to_clip"] = audio_name
 
 func cannot_move():
 	state_machine.current_state.can_move = false
