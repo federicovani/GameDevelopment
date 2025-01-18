@@ -1,26 +1,27 @@
-[gd_scene load_steps=114 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=115 format=3 uid="uid://cmvr0blmdbg8h"]
 
 [ext_resource type="Script" path="res://scripts/globali/Knight/knight.gd" id="1_kihmv"]
 [ext_resource type="Texture2D" uid="uid://bjb8ydl55mfqm" path="res://assets/globali/knight/120x80_PNGSheets/_Run.png" id="2_wd57y"]
 [ext_resource type="Shader" uid="uid://cr6q0xqv0sfdk" path="res://scripts/resources/shaders/hit_flash.tres" id="3_b5rw8"]
 [ext_resource type="Script" path="res://scripts/globali/facing_nodes/facing_sprite_offset.gd" id="3_jkrn1"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/facing_collision_shape_knight.gd" id="4_gxm5g"]
-[ext_resource type="Texture2D" uid="uid://d6hauh3t6x4g" path="res://assets/globali/knight/120x80_PNGSheets/_Attack.png" id="5_akvh2"]
-[ext_resource type="Texture2D" uid="uid://c5b28he0wtqpv" path="res://assets/globali/knight/120x80_PNGSheets/_Attack2.png" id="6_lkiho"]
-[ext_resource type="Texture2D" uid="uid://dpqot8j10ipq" path="res://assets/globali/knight/120x80_PNGSheets/_CrouchAttack.png" id="7_xmkrk"]
-[ext_resource type="Texture2D" uid="uid://bpsl0kel8khpu" path="res://assets/globali/knight/120x80_PNGSheets/_Crouch.png" id="8_f3qin"]
-[ext_resource type="Texture2D" uid="uid://b2mu8uhu1341u" path="res://assets/globali/knight/120x80_PNGSheets/_CrouchTransition.png" id="9_rt6yb"]
-[ext_resource type="Texture2D" uid="uid://ypoviraon8jq" path="res://assets/globali/knight/120x80_PNGSheets/_CrouchWalk.png" id="10_qdktl"]
-[ext_resource type="Texture2D" uid="uid://pijrpksd0b1b" path="res://assets/globali/knight/120x80_PNGSheets/_Death.png" id="11_0neun"]
-[ext_resource type="Texture2D" uid="uid://fhhd38hvqnxf" path="res://assets/globali/knight/120x80_PNGSheets/_Hit.png" id="12_blm4q"]
-[ext_resource type="Texture2D" uid="uid://c4kfopaq80tkc" path="res://assets/globali/knight/120x80_PNGSheets/_Idle.png" id="13_yf16q"]
-[ext_resource type="Texture2D" uid="uid://c7rw8v3sxsnwb" path="res://assets/globali/knight/120x80_PNGSheets/_Fall.png" id="14_7fd7n"]
-[ext_resource type="Texture2D" uid="uid://b8h8cdnllo5ik" path="res://assets/globali/knight/120x80_PNGSheets/_JumpFallInbetween.png" id="15_fps3v"]
-[ext_resource type="Texture2D" uid="uid://bpdul0nvpmu23" path="res://assets/globali/knight/120x80_PNGSheets/_Jump.png" id="16_td3mj"]
-[ext_resource type="Texture2D" uid="uid://mo7indw4576c" path="res://assets/globali/knight/120x80_PNGSheets/_WallClimbNoMovement.png" id="17_rtk1p"]
-[ext_resource type="Texture2D" uid="uid://bcf2d3an70vyo" path="res://assets/globali/knight/120x80_PNGSheets/_WallHang.png" id="18_6oypc"]
+[ext_resource type="Texture2D" uid="uid://dws8cr5fjwhhb" path="res://assets/globali/knight/120x80_PNGSheets1/_Attack.png" id="6_g7gwc"]
+[ext_resource type="Texture2D" uid="uid://bxcxke7rng3af" path="res://assets/globali/knight/120x80_PNGSheets1/_Attack2.png" id="7_sm6by"]
+[ext_resource type="Texture2D" uid="uid://be06djo4rkh3" path="res://assets/globali/knight/120x80_PNGSheets1/_CrouchAttack.png" id="8_ms167"]
+[ext_resource type="Texture2D" uid="uid://c62glnoqgynci" path="res://assets/globali/knight/120x80_PNGSheets1/_Crouch.png" id="9_73wdk"]
+[ext_resource type="Texture2D" uid="uid://d0sd004cbogu8" path="res://assets/globali/knight/120x80_PNGSheets1/_CrouchTransition.png" id="10_spjrs"]
+[ext_resource type="Texture2D" uid="uid://dx07lvk8ga0vp" path="res://assets/globali/knight/120x80_PNGSheets1/_CrouchWalk.png" id="11_ebm25"]
+[ext_resource type="Texture2D" uid="uid://c1ujgxi0ddvdb" path="res://assets/globali/knight/120x80_PNGSheets1/_Death.png" id="12_lf0c7"]
+[ext_resource type="Texture2D" uid="uid://ckugnv25et513" path="res://assets/globali/knight/120x80_PNGSheets1/_Hit.png" id="13_y6q5c"]
+[ext_resource type="Texture2D" uid="uid://dblt7kegcoxxn" path="res://assets/globali/knight/120x80_PNGSheets1/_Idle.png" id="14_y5l56"]
+[ext_resource type="Texture2D" uid="uid://dgojep2jcbria" path="res://assets/globali/knight/120x80_PNGSheets1/_Fall.png" id="15_v8fef"]
+[ext_resource type="Texture2D" uid="uid://bhb47vr6c8jeq" path="res://assets/globali/knight/120x80_PNGSheets1/_JumpFallInbetween.png" id="16_gt478"]
+[ext_resource type="Texture2D" uid="uid://c53i05exg138h" path="res://assets/globali/knight/120x80_PNGSheets1/_Jump.png" id="17_7lddj"]
+[ext_resource type="Texture2D" uid="uid://3ddbkq7l2lu1" path="res://assets/globali/knight/120x80_PNGSheets1/_Run.png" id="18_hynxv"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/damageable.gd" id="19_14xun"]
+[ext_resource type="Texture2D" uid="uid://bjlgqxax7eylv" path="res://assets/globali/knight/120x80_PNGSheets1/_WallClimbNoMovement.png" id="19_crt3o"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/CharacterStateMachine.gd" id="20_chs1w"]
+[ext_resource type="Texture2D" uid="uid://grslb2m43ake" path="res://assets/globali/knight/120x80_PNGSheets1/_WallHang.png" id="20_duxvm"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/idle.gd" id="21_lucib"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/crouching.gd" id="22_rk884"]
 [ext_resource type="Script" path="res://scripts/globali/Knight/StateMachine/dash.gd" id="23_mhwf4"]
@@ -132,7 +133,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("5_akvh2")]
+"values": [ExtResource("6_g7gwc")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -185,7 +186,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("6_lkiho")]
+"values": [ExtResource("7_sm6by")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -238,7 +239,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("7_xmkrk")]
+"values": [ExtResource("8_ms167")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -292,7 +293,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("8_f3qin")]
+"values": [ExtResource("9_73wdk")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -333,7 +334,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("9_rt6yb")]
+"values": [ExtResource("10_spjrs")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -375,7 +376,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("10_qdktl")]
+"values": [ExtResource("11_ebm25")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -415,7 +416,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("11_0neun")]
+"values": [ExtResource("12_lf0c7")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -456,7 +457,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("12_blm4q")]
+"values": [ExtResource("13_y6q5c")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -497,7 +498,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("13_yf16q")]
+"values": [ExtResource("14_y5l56")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -539,7 +540,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("14_7fd7n")]
+"values": [ExtResource("15_v8fef")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -580,7 +581,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("15_fps3v")]
+"values": [ExtResource("16_gt478")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -621,7 +622,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("16_td3mj")]
+"values": [ExtResource("17_7lddj")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -662,7 +663,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("2_wd57y")]
+"values": [ExtResource("18_hynxv")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -703,7 +704,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("17_rtk1p")]
+"values": [ExtResource("19_crt3o")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -745,7 +746,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [ExtResource("18_6oypc")]
+"values": [ExtResource("20_duxvm")]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -1170,7 +1171,6 @@ wait_time = 1.5
 one_shot = true
 
 [node name="Sword" type="Area2D" parent="." node_paths=PackedStringArray("player", "facing_collision_shape")]
-visible = false
 collision_layer = 0
 collision_mask = 4
 monitoring = false
