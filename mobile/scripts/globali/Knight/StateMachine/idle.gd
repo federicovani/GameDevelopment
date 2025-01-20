@@ -13,7 +13,7 @@ class_name idle extends State
 @export var dash_timer : Timer
 
 var acceleration : float = 15
-var deceleration : float = 22.5
+var deceleration : float = 25
 
 #Timer for the coyote jump
 var coyote_time : float = 0.1
