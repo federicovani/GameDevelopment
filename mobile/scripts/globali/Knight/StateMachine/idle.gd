@@ -11,6 +11,10 @@ class_name idle extends State
 #Prevent entering the falling state when the game is starting
 @onready var buffer_timer: Timer = $BufferTimer
 @export var dash_timer : Timer
+
+#Timer for the coyote jump
+var coyote_time : float = 0.1
+
 	
 func on_enter():
 	playback.travel(character.idle_animation)
@@ -19,7 +23,8 @@ func on_enter():
 
 func state_process(_delta):
 	if(!floor_check.is_colliding() && !character.is_on_floor() && buffer_timer.is_stopped()):
-		next_state = character.falling_state
+		get_tree().create_timer(coyote_time).timeout.connect(_on_coyote_timeout)
+			
 	if character.direction:
 		walking_particles.emitting = true
 	else:
@@ -61,6 +66,9 @@ func dash():
 
 func attack():
 	next_state = character.attack_state
+
+func _on_coyote_timeout():
+	next_state = character.falling_state
 
 func set_collision_shapes():
 	knight_facing_collision_shape.shape.set_size(knight_facing_collision_shape.standard_size)

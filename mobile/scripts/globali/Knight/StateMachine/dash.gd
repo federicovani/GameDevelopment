@@ -1,7 +1,6 @@
 class_name rolling extends State
 
 @export var dash_particles : GPUParticles2D
-@onready var duration_timer: Timer = $DurationTimer
 
 @export var dash_max_distance = 115
 @export var dash_curve : Curve

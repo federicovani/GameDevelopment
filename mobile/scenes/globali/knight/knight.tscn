@@ -1231,7 +1231,6 @@ shape = SubResource("RectangleShape2D_idkqb")
 target_position = Vector2(0, 13)
 
 [node name="FloorCheck" type="ShapeCast2D" parent="."]
-visible = false
 position = Vector2(0, 20)
 shape = SubResource("RectangleShape2D_ssobb")
 target_position = Vector2(0, 6)
