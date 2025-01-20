@@ -26,6 +26,7 @@ Global="*res://scripts/globali/autoloads/global.gd"
 SettingsSignalBus="*res://scripts/globali/autoloads/settings_signal_bus.gd"
 SettingsDataContainer="*res://scripts/globali/autoloads/settings_data_container.gd"
 SaveManager="*res://scripts/globali/autoloads/save_manager.gd"
+AudioManager="*res://scenes/globali/managers/audio_manager.tscn"
 
 [dotnet]
 
