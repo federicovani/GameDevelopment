@@ -5,6 +5,9 @@ class_name crouching extends State
 @export var knight_facing_collision_shape : FacingCollisionShapeKnight
 @export var sword_facing_collision_shape : FacingCollisionShapeKnight
 
+var acceleration : float = 5
+var deceleration : float = 5
+
 func on_enter():
 	playback.travel(character.crouch_animation)
 	character.update_player_audio(character.reset_sfx)
@@ -19,9 +22,9 @@ func state_process(delta):
 			character.direction = Input.get_vector("move_left", "move_right", "jump", "ui_down")
 			
 			if character.direction:
-				character.velocity.x = character.direction.x * character.crouching_speed * delta
+				character.velocity.x =  move_toward(character.velocity.x, character.direction.x * character.crouching_speed * delta, acceleration)
 			else:
-				character.velocity.x = move_toward(character.velocity.x, 0, character.crouching_speed)
+				character.velocity.x = move_toward(character.velocity.x, 0, deceleration)
 				
 			character.move_and_slide()
 			update_facing_direction()

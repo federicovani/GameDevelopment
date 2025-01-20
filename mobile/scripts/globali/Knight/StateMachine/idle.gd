@@ -12,6 +12,9 @@ class_name idle extends State
 @onready var buffer_timer: Timer = $BufferTimer
 @export var dash_timer : Timer
 
+var acceleration : float = 15
+var deceleration : float = 22.5
+
 #Timer for the coyote jump
 var coyote_time : float = 0.1
 
@@ -35,10 +38,10 @@ func _physics_process(delta):
 		character.direction = Input.get_vector("move_left", "move_right", "jump", "ui_down")
 		
 		if character.direction:
-			character.velocity.x = character.direction.x * character.speed * delta
+			character.velocity.x = move_toward(character.velocity.x, character.direction.x * character.speed * delta, acceleration)
 		else:
-			character.velocity.x = move_toward(character.velocity.x, 0, character.speed)
-			
+			character.velocity.x = move_toward(character.velocity.x, 0, deceleration)
+
 		character.move_and_slide()
 		update_facing_direction()
 
