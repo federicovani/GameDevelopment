@@ -12,8 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://d4aij5g6rvxa4" path="res://scenes/globali/collectables/coin.tscn" id="6_hc816"]
 [ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/enemies/skeleton.tscn" id="7_saqal"]
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="8_72k1w"]
+[ext_resource type="PackedScene" uid="uid://cge0406htmiti" path="res://scenes/globali/knight/camera.tscn" id="8_dyj66"]
 [ext_resource type="PackedScene" uid="uid://glyif1t8h0h7" path="res://scenes/globali/portal.tscn" id="11_1aovj"]
-[ext_resource type="PackedScene" uid="uid://c3jjxg1ikomnh" path="res://scenes/globali/UI/menu/pause_menu.tscn" id="11_l0tji"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uv3x8"]
 tile_data = PackedInt32Array(65536, 786434, 11, 1, 786434, 11, 65537, 786434, 11, 131073, 786434, 11, 65538, 786434, 11, 131074, 786434, 11, 65539, 786434, 11)
@@ -654,21 +654,7 @@ layer_1/tile_data = PackedInt32Array(131070, 917506, 23, 65538, 1245186, 23, 655
 [node name="knight" parent="." instance=ExtResource("2_28qoe")]
 position = Vector2(-69, -7)
 
-[node name="Camera2D" type="Camera2D" parent="knight"]
-position = Vector2(0, -14)
-zoom = Vector2(3, 3)
-limit_left = -256
-limit_top = -240
-limit_bottom = 240
-limit_smoothed = true
-
-[node name="PauseMenu" parent="knight/Camera2D" instance=ExtResource("11_l0tji")]
-visible = false
-offset_left = -54.0
-offset_top = -68.0
-offset_right = -54.0
-offset_bottom = -68.0
-scale = Vector2(1.75338, 1.75338)
+[node name="Camera2D" parent="knight" instance=ExtResource("8_dyj66")]
 
 [node name="killzone" parent="." instance=ExtResource("4_4yu1q")]
 
