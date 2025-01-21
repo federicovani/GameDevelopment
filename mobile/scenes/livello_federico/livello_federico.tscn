@@ -675,10 +675,10 @@ offset_right = 64.0
 offset_bottom = -20.0
 
 [node name="Skeleton2" parent="." instance=ExtResource("7_saqal")]
-position = Vector2(404, 27)
+position = Vector2(35, -5)
 
 [node name="slime" parent="." instance=ExtResource("13_ssabc")]
-position = Vector2(1, -1)
+position = Vector2(347, 30)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 visible = false
