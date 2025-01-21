@@ -15,5 +15,7 @@ func _on_update_hearth_label(current_hearth_amount : int):
 	for i in 3:
 		if(i < current_hearth_amount):
 			hearths[i].show()
+			hearths[i+3].hide()
 		else:
 			hearths[i].hide()
+			hearths[i+3].show()

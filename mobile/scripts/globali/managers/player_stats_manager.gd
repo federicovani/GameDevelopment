@@ -14,12 +14,18 @@ func _process(_delta: float) -> void:
 	SignalBus.emit_update_coin_label(current_coin_amount)
 
 func _on_health_decreased():
-	current_hearth_amount -= 1
-	if current_hearth_amount == 0:
-		pass #Da decidere
+	if current_coin_amount <= current_coin_max:
+		current_hearth_amount -= 1
+		if current_hearth_amount == 0:
+			pass #Da decidere
+	else:
+		current_coin_amount -= 100
+		
 
 func _on_coin_collected(value : int):
 	current_coin_amount += value
 	if current_coin_amount > current_coin_max:
-		current_coin_amount = 0
-		#To-Do Add one life when you collect 100 coins
+		if current_hearth_amount < max_hearth_amount:
+			current_coin_amount = 0
+			current_hearth_amount += 1
+			

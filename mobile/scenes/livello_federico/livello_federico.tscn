@@ -659,6 +659,39 @@ shape = SubResource("WorldBoundaryShape2D_e3s2w")
 [node name="Diamond" parent="." instance=ExtResource("5_yhc70")]
 position = Vector2(86, -19)
 
+[node name="Diamond2" parent="." instance=ExtResource("5_yhc70")]
+position = Vector2(86, -19)
+
+[node name="Diamond3" parent="." instance=ExtResource("5_yhc70")]
+position = Vector2(86, -19)
+
+[node name="Diamond4" parent="." instance=ExtResource("5_yhc70")]
+position = Vector2(86, -19)
+
+[node name="Diamond5" parent="." instance=ExtResource("5_yhc70")]
+position = Vector2(86, -19)
+
+[node name="Diamond6" parent="." instance=ExtResource("5_yhc70")]
+position = Vector2(86, -19)
+
+[node name="Diamond7" parent="." instance=ExtResource("5_yhc70")]
+position = Vector2(86, -19)
+
+[node name="Diamond8" parent="." instance=ExtResource("5_yhc70")]
+position = Vector2(86, -19)
+
+[node name="Diamond9" parent="." instance=ExtResource("5_yhc70")]
+position = Vector2(86, -19)
+
+[node name="Diamond10" parent="." instance=ExtResource("5_yhc70")]
+position = Vector2(86, -19)
+
+[node name="Diamond11" parent="." instance=ExtResource("5_yhc70")]
+position = Vector2(86, -19)
+
+[node name="Diamond12" parent="." instance=ExtResource("5_yhc70")]
+position = Vector2(86, -19)
+
 [node name="Coin" parent="." instance=ExtResource("6_hc816")]
 position = Vector2(111, -19)
 

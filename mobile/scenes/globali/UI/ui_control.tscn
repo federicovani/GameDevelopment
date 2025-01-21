@@ -12,7 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l4u1q")
-hearths = [NodePath("MarginContainer/VBoxContainer/hearth_label/hearth1"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth2"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth3")]
+hearths = [NodePath("MarginContainer/VBoxContainer/hearth_label/hearth1"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth2"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth3"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth4"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth5"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth6")]
 coin_label = NodePath("MarginContainer/VBoxContainer/Coin_Label/Label")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]

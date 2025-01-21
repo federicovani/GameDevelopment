@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://cvqxijrsqtxll"]
+[gd_scene load_steps=4 format=3 uid="uid://cvqxijrsqtxll"]
 
 [ext_resource type="Texture2D" uid="uid://c3ltcrgtnxfdv" path="res://assets/globali/knight/red_hearth.png" id="1_kgwmk"]
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="2_8h6ui"]
+[ext_resource type="Texture2D" uid="uid://d0outlni2s3uy" path="res://assets/globali/knight/empty_hearth.png" id="2_vuoyq"]
 
 [node name="hearth_label" type="HBoxContainer"]
 offset_right = 40.0
@@ -23,6 +24,27 @@ stretch_mode = 4
 [node name="hearth3" type="TextureRect" parent="."]
 layout_mode = 2
 texture = ExtResource("1_kgwmk")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="hearth4" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_vuoyq")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="hearth5" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_vuoyq")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="hearth6" type="TextureRect" parent="."]
+visible = false
+layout_mode = 2
+texture = ExtResource("2_vuoyq")
 expand_mode = 3
 stretch_mode = 4
 
