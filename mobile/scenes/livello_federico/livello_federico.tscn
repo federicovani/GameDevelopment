@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://d3k38htbk1vgs"]
+[gd_scene load_steps=21 format=3 uid="uid://d3k38htbk1vgs"]
 
 [ext_resource type="Texture2D" uid="uid://qhh04ncp81cr" path="res://assets/livello_federico/PixelFantasy_Caves_1/mainlev_build.png" id="1_4vle5"]
 [ext_resource type="Script" path="res://scripts/livello_federico/livello_federico.gd" id="1_xox4y"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="8_72k1w"]
 [ext_resource type="PackedScene" uid="uid://cge0406htmiti" path="res://scenes/globali/knight/camera.tscn" id="8_dyj66"]
 [ext_resource type="PackedScene" uid="uid://glyif1t8h0h7" path="res://scenes/globali/portal.tscn" id="11_1aovj"]
+[ext_resource type="PackedScene" uid="uid://k4hw66jkf8dk" path="res://scenes/globali/enemies/slime.tscn" id="13_ssabc"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uv3x8"]
 tile_data = PackedInt32Array(65536, 786434, 11, 1, 786434, 11, 65537, 786434, 11, 131073, 786434, 11, 65538, 786434, 11, 131074, 786434, 11, 65539, 786434, 11)
@@ -659,39 +660,6 @@ shape = SubResource("WorldBoundaryShape2D_e3s2w")
 [node name="Diamond" parent="." instance=ExtResource("5_yhc70")]
 position = Vector2(86, -19)
 
-[node name="Diamond2" parent="." instance=ExtResource("5_yhc70")]
-position = Vector2(86, -19)
-
-[node name="Diamond3" parent="." instance=ExtResource("5_yhc70")]
-position = Vector2(86, -19)
-
-[node name="Diamond4" parent="." instance=ExtResource("5_yhc70")]
-position = Vector2(86, -19)
-
-[node name="Diamond5" parent="." instance=ExtResource("5_yhc70")]
-position = Vector2(86, -19)
-
-[node name="Diamond6" parent="." instance=ExtResource("5_yhc70")]
-position = Vector2(86, -19)
-
-[node name="Diamond7" parent="." instance=ExtResource("5_yhc70")]
-position = Vector2(86, -19)
-
-[node name="Diamond8" parent="." instance=ExtResource("5_yhc70")]
-position = Vector2(86, -19)
-
-[node name="Diamond9" parent="." instance=ExtResource("5_yhc70")]
-position = Vector2(86, -19)
-
-[node name="Diamond10" parent="." instance=ExtResource("5_yhc70")]
-position = Vector2(86, -19)
-
-[node name="Diamond11" parent="." instance=ExtResource("5_yhc70")]
-position = Vector2(86, -19)
-
-[node name="Diamond12" parent="." instance=ExtResource("5_yhc70")]
-position = Vector2(86, -19)
-
 [node name="Coin" parent="." instance=ExtResource("6_hc816")]
 position = Vector2(111, -19)
 
@@ -706,11 +674,11 @@ offset_top = -60.0
 offset_right = 64.0
 offset_bottom = -20.0
 
-[node name="Skeleton" parent="." instance=ExtResource("7_saqal")]
-position = Vector2(22, -4)
-
 [node name="Skeleton2" parent="." instance=ExtResource("7_saqal")]
 position = Vector2(404, 27)
+
+[node name="slime" parent="." instance=ExtResource("13_ssabc")]
+position = Vector2(1, -1)
 
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 visible = false
