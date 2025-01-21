@@ -1,9 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bhel8jmvawyaf"]
+[gd_scene load_steps=4 format=3 uid="uid://bhel8jmvawyaf"]
 
 [ext_resource type="Script" path="res://scripts/globali/UI/ui_control.gd" id="1_l4u1q"]
 [ext_resource type="PackedScene" uid="uid://b4yncap1kwrah" path="res://scenes/globali/UI/coin_label.tscn" id="1_wfrxc"]
+[ext_resource type="PackedScene" uid="uid://cvqxijrsqtxll" path="res://scenes/globali/UI/hearth_label.tscn" id="2_13lar"]
 
-[node name="UI_Control" type="Control" node_paths=PackedStringArray("coin_label")]
+[node name="UI_Control" type="Control" node_paths=PackedStringArray("hearths", "coin_label")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -11,6 +12,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_l4u1q")
+hearths = [NodePath("MarginContainer/VBoxContainer/hearth_label/hearth1"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth2"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth3")]
 coin_label = NodePath("MarginContainer/VBoxContainer/Coin_Label/Label")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
@@ -27,9 +29,15 @@ theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="hearth_label" parent="MarginContainer/VBoxContainer" instance=ExtResource("2_13lar")]
+layout_mode = 2
+size_flags_horizontal = 0
 
 [node name="Coin_Label" parent="MarginContainer/VBoxContainer" instance=ExtResource("1_wfrxc")]
 layout_mode = 2
 size_flags_horizontal = 0
 
+[editable path="MarginContainer/VBoxContainer/hearth_label"]
 [editable path="MarginContainer/VBoxContainer/Coin_Label"]

@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvqxijrsqtxll"]
+
+[ext_resource type="Texture2D" uid="uid://c3ltcrgtnxfdv" path="res://assets/globali/knight/red_hearth.png" id="1_kgwmk"]
+[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="2_8h6ui"]
+
+[node name="hearth_label" type="HBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+theme_override_constants/separation = 1
+
+[node name="hearth1" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_kgwmk")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="hearth2" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_kgwmk")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="hearth3" type="TextureRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_kgwmk")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_8h6ui")
+theme_override_font_sizes/font_size = 48
