@@ -20,15 +20,18 @@ extends CharacterBody2D
 @export var ray_cast_left: RayCast2D
 @export var ray_cast_down: RayCast2D
 
-@export var facing_collision_shape_attack_zone : FacingCollisionShape
+@export var facing_collision_shape_attack_zone_near : FacingCollisionShape
+@export var facing_collision_shape_attack_zone_far : FacingCollisionShape
 @export var facing_ray_cast_down : FacingRayCast
+
+@export var attack_type : int = 0
 
 @export var direction : Vector2 = Vector2.RIGHT
 @export var facing_right : bool
 @export var movement_speed : float = 750.0
 
-@export var health : float = 50
-@export var damage : float = 20
+@export var health : float = 40
+@export var damage : float = 15
 
 func _ready() -> void:
 	animation_tree.active = true
@@ -49,8 +52,10 @@ func handle_orientation():
 func on_facing_direction_changed(facing_right : bool):
 	self.facing_right = facing_right
 	if(facing_right):
-		#facing_collision_shape_attack_zone.position = facing_collision_shape_attack_zone.facing_right_position
+		facing_collision_shape_attack_zone_near.position = facing_collision_shape_attack_zone_near.facing_right_position
+		facing_collision_shape_attack_zone_far.position = facing_collision_shape_attack_zone_far.facing_right_position
 		facing_ray_cast_down.position = facing_ray_cast_down.facing_right_position
 	else:
-		#facing_collision_shape_attack_zone.position = facing_collision_shape_attack_zone.facing_left_position
+		facing_collision_shape_attack_zone_near.position = facing_collision_shape_attack_zone_near.facing_left_position
+		facing_collision_shape_attack_zone_far.position = facing_collision_shape_attack_zone_far.facing_left_position
 		facing_ray_cast_down.position = facing_ray_cast_down.facing_left_position
