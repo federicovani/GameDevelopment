@@ -43,13 +43,8 @@ size_flags_horizontal = 0
 [node name="GameOverScreen" parent="." instance=ExtResource("4_npmhv")]
 layout_mode = 1
 
-[node name="Label" parent="GameOverScreen" index="2"]
-offset_top = 213.0
-offset_bottom = 331.0
-
 [node name="VBoxContainer" parent="GameOverScreen" index="3"]
-offset_top = -40.0
-offset_bottom = 98.0
+offset_top = 2.0
 
 [editable path="MarginContainer/VBoxContainer/hearth_label"]
 [editable path="MarginContainer/VBoxContainer/Coin_Label"]

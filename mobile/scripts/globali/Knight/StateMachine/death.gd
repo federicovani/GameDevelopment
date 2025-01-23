@@ -1,7 +1,5 @@
 extends State
 
-@onready var timer: Timer = $Timer
-
 func on_enter():
 	playback.travel(character.death_animation)
 	SignalBus.emit_camera_shook(2)
