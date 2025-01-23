@@ -4,6 +4,7 @@ extends State
 
 func on_enter():
 	playback.travel(character.death_animation)
+	SignalBus.emit_camera_shook(2)
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 	if(anim_name == character.death_animation):

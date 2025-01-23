@@ -1,10 +1,11 @@
-[gd_scene load_steps=17 format=3 uid="uid://bq11ojl7t5xeg"]
+[gd_scene load_steps=18 format=3 uid="uid://bq11ojl7t5xeg"]
 
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight/knight.tscn" id="1_xhdup"]
 [ext_resource type="Texture2D" uid="uid://bcaylh0cg4ri8" path="res://assets/livello_elisa/02. Crystal World/main_lev_build_1.png" id="2_a87va"]
 [ext_resource type="Texture2D" uid="uid://vtmk14b4ih7d" path="res://assets/livello_elisa/02. Crystal World/main_lev_build_2.png" id="2_ecoe0"]
 [ext_resource type="PackedScene" uid="uid://cr1swblm078p4" path="res://scenes/livello_elisa/background.tscn" id="3_5aj5i"]
 [ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/enemies/skeleton.tscn" id="5_6ddlv"]
+[ext_resource type="PackedScene" uid="uid://cge0406htmiti" path="res://scenes/globali/knight/camera.tscn" id="5_wqamw"]
 [ext_resource type="PackedScene" uid="uid://c84q7rgy8bd2b" path="res://scenes/globali/enemies/witch.tscn" id="6_mghbv"]
 [ext_resource type="PackedScene" uid="uid://d4aij5g6rvxa4" path="res://scenes/globali/collectables/coin.tscn" id="7_gklec"]
 [ext_resource type="PackedScene" uid="uid://3bktwps6pw33" path="res://scenes/globali/enemies/necromancer.tscn" id="7_m6x8k"]
@@ -691,10 +692,8 @@ layer_0/tile_data = PackedInt32Array(-34, 917504, 17, -32, 917504, 17, -30, 9175
 [node name="knight" parent="." instance=ExtResource("1_xhdup")]
 position = Vector2(-357, -22)
 
-[node name="Camera2D" type="Camera2D" parent="knight"]
-position = Vector2(0, 1)
-zoom = Vector2(2, 2)
-position_smoothing_enabled = true
+[node name="PlayerCamera" parent="knight" instance=ExtResource("5_wqamw")]
+drag_vertical_enabled = false
 
 [node name="Skeleton" parent="." instance=ExtResource("5_6ddlv")]
 position = Vector2(360, 14)

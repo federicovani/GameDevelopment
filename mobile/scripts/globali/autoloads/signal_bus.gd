@@ -6,11 +6,18 @@ signal on_health_changed(node : Node, amount_changed : int)
 @warning_ignore("unused_signal")
 signal portal_crossed()
 
+signal camera_shook(trauma : float)
+
 signal on_health_decreased()
 signal update_hearth_label(value : int)
 
 signal on_coin_collected(value : int)
 signal update_coin_label(value : int)
+
+
+func emit_camera_shook(trauma : float = 1):
+	camera_shook.emit(trauma)
+
 
 func emit_on_health_decreased():
 	on_health_decreased.emit()

@@ -1,12 +1,11 @@
-[gd_scene format=3 uid="uid://cge0406htmiti"]
+[gd_scene load_steps=2 format=3 uid="uid://cge0406htmiti"]
 
-[node name="Camera2D" type="Camera2D"]
+[ext_resource type="Script" path="res://scripts/globali/Knight/camera.gd" id="1_m3h84"]
+
+[node name="PlayerCamera" type="Camera2D"]
 position = Vector2(0, -14)
 zoom = Vector2(3, 3)
 process_callback = 0
-limit_left = -256
-limit_top = -240
-limit_bottom = 240
 limit_smoothed = true
 position_smoothing_enabled = true
 position_smoothing_speed = 20.0
@@ -15,3 +14,4 @@ drag_vertical_enabled = true
 drag_left_margin = 0.3
 drag_top_margin = 0.35
 drag_bottom_margin = 0.0
+script = ExtResource("1_m3h84")

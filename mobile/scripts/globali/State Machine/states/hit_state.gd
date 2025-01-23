@@ -15,6 +15,7 @@ func _ready() -> void:
 
 func on_enter():
 	timer.start()
+	SignalBus.emit_camera_shook()
 
 func state_process(_delta):
 	#For enabling the knockback
