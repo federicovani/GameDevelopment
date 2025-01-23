@@ -14,6 +14,7 @@ signal update_hearth_label(value : int)
 signal on_coin_collected(value : int)
 signal update_coin_label(value : int)
 
+signal show_game_over_screen()
 
 func emit_camera_shook(trauma : float = 1):
 	camera_shook.emit(trauma)
@@ -31,3 +32,7 @@ func emit_on_coin_collected(value : int):
 
 func emit_update_coin_label(value : int):
 	update_coin_label.emit(value)
+
+
+func emit_show_game_over_screen():
+	show_game_over_screen.emit()

@@ -4,7 +4,7 @@ class_name SettingTabContainer extends Control
 
 signal exit_options_menu
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	option_menu_inputs()
 
 func change_tab(tab : int):

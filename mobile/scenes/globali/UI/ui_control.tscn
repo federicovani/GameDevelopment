@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bhel8jmvawyaf"]
+[gd_scene load_steps=5 format=3 uid="uid://bhel8jmvawyaf"]
 
 [ext_resource type="Script" path="res://scripts/globali/UI/ui_control.gd" id="1_l4u1q"]
 [ext_resource type="PackedScene" uid="uid://b4yncap1kwrah" path="res://scenes/globali/UI/coin_label.tscn" id="1_wfrxc"]
 [ext_resource type="PackedScene" uid="uid://cvqxijrsqtxll" path="res://scenes/globali/UI/hearth_label.tscn" id="2_13lar"]
+[ext_resource type="PackedScene" uid="uid://pniqxi08j4b0" path="res://scenes/globali/UI/game_over_screen.tscn" id="4_npmhv"]
 
 [node name="UI_Control" type="Control" node_paths=PackedStringArray("hearths", "coin_label")]
 layout_mode = 3
@@ -39,5 +40,17 @@ size_flags_horizontal = 0
 layout_mode = 2
 size_flags_horizontal = 0
 
+[node name="GameOverScreen" parent="." instance=ExtResource("4_npmhv")]
+layout_mode = 1
+
+[node name="Label" parent="GameOverScreen" index="2"]
+offset_top = 213.0
+offset_bottom = 331.0
+
+[node name="VBoxContainer" parent="GameOverScreen" index="3"]
+offset_top = -40.0
+offset_bottom = 98.0
+
 [editable path="MarginContainer/VBoxContainer/hearth_label"]
 [editable path="MarginContainer/VBoxContainer/Coin_Label"]
+[editable path="GameOverScreen"]

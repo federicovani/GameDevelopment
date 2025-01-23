@@ -650,7 +650,6 @@ layer_1/tile_data = PackedInt32Array(131070, 917506, 23, 65538, 1245186, 23, 655
 position = Vector2(-69, -7)
 
 [node name="Camera2D" parent="knight" instance=ExtResource("8_dyj66")]
-zoom = Vector2(2, 2)
 
 [node name="killzone" parent="." instance=ExtResource("4_4yu1q")]
 

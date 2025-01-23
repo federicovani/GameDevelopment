@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://bq11ojl7t5xeg"]
+[gd_scene load_steps=19 format=3 uid="uid://bq11ojl7t5xeg"]
 
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight/knight.tscn" id="1_xhdup"]
 [ext_resource type="Texture2D" uid="uid://bcaylh0cg4ri8" path="res://assets/livello_elisa/02. Crystal World/main_lev_build_1.png" id="2_a87va"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://cl1m4y7imy100" path="res://scenes/globali/enemies/killzone.tscn" id="10_xk7u8"]
 [ext_resource type="PackedScene" uid="uid://c41nqrqu2i12q" path="res://scenes/livello_elisa/platform.tscn" id="11_4d7wc"]
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="12_vm5gf"]
+[ext_resource type="PackedScene" uid="uid://bhel8jmvawyaf" path="res://scenes/globali/UI/ui_control.tscn" id="14_su55x"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aj3fg"]
 texture = ExtResource("2_a87va")
@@ -767,3 +768,7 @@ position = Vector2(362, -143)
 
 [node name="Diamond2" parent="." instance=ExtResource("9_ern55")]
 position = Vector2(1053, 224)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI_Control" parent="CanvasLayer" instance=ExtResource("14_su55x")]

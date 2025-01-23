@@ -1186,10 +1186,6 @@ one_shot = true
 script = ExtResource("30_oi6f5")
 can_move = false
 
-[node name="Timer" type="Timer" parent="CharacterStateMachine/Death"]
-wait_time = 1.5
-one_shot = true
-
 [node name="Sword" type="Area2D" parent="." node_paths=PackedStringArray("player", "facing_collision_shape")]
 visible = false
 collision_layer = 0
@@ -1271,7 +1267,5 @@ randomness = 0.5
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Wall_Hang" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attacking" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Crouch_Attack" method="_on_animation_tree_animation_finished"]
-[connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Death" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
-[connection signal="timeout" from="CharacterStateMachine/Death/Timer" to="CharacterStateMachine/Death" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Sword" to="Sword" method="_on_body_entered"]

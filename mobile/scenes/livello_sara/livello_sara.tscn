@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://qcdfeswxpdnn"]
+[gd_scene load_steps=35 format=3 uid="uid://qcdfeswxpdnn"]
 
 [ext_resource type="Texture2D" uid="uid://bh7587nuibn3k" path="res://assets/livello_sara/PixelPlatformerSet1v/main_lev_build.png" id="1_f67bj"]
 [ext_resource type="PackedScene" uid="uid://csy7q6utr00gx" path="res://scenes/livello_sara/background.tscn" id="2_a7s8q"]
@@ -20,6 +20,7 @@
 [ext_resource type="PackedScene" uid="uid://bbcthl2t0bfjq" path="res://scenes/livello_sara/torch_a.tscn" id="16_0pwj6"]
 [ext_resource type="PackedScene" uid="uid://cyyuehxd5jplb" path="res://scenes/livello_sara/torch_b.tscn" id="17_8h8nb"]
 [ext_resource type="PackedScene" uid="uid://b2uj1ljrtr3oa" path="res://scenes/livello_sara/damage_object.tscn" id="20_f3hhp"]
+[ext_resource type="PackedScene" uid="uid://bhel8jmvawyaf" path="res://scenes/globali/UI/ui_control.tscn" id="21_408eq"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnyg4"]
 texture = ExtResource("1_f67bj")
@@ -1545,3 +1546,7 @@ position = Vector2(3243, -2)
 
 [node name="Damage Object12" parent="DamageObjects" instance=ExtResource("20_f3hhp")]
 position = Vector2(3228, -2)
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI_Control" parent="CanvasLayer" instance=ExtResource("21_408eq")]
