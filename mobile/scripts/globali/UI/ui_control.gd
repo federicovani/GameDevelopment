@@ -3,7 +3,7 @@ class_name UIControl extends Control
 @onready var game_over: Control = $GameOverScreen
 @onready var retry_button : Button = $GameOverScreen/VBoxContainer/Retry
 @onready var title_button: Button = $GameOverScreen/VBoxContainer/BackToTitle
-@onready var animation_player: AnimationPlayer = $GameOverScreen/AnimationPlayer
+@onready var game_over_animation_player: AnimationPlayer = $GameOverScreen/AnimationPlayer
 
 @export var hearths : Array[Node]
 @export var coin_label : Label
@@ -33,22 +33,22 @@ func _on_show_game_over_screen():
 	game_over.visible = true
 	game_over.mouse_filter = Control.MOUSE_FILTER_STOP
 	
-	animation_player.play("show_game_over")
-	await animation_player.animation_finished
+	game_over_animation_player.play("show_game_over")
+	await game_over_animation_player.animation_finished
 	
 	retry_button.grab_focus()
 
 func retry_game():
-	await fade_to_black()
+	await game_over_fade_to_black()
 	get_tree().reload_current_scene()
 
 func title_screen():
-	await fade_to_black()
+	await game_over_fade_to_black()
 	get_tree().change_scene_to_file("res://scenes/globali/UI/menu/main_menu.tscn")
 
-func fade_to_black() -> bool:
-	animation_player.play("fade_to_black")
-	await animation_player.animation_finished
+func game_over_fade_to_black() -> bool:
+	game_over_animation_player.play("fade_to_black")
+	await game_over_animation_player.animation_finished
 	return true
 
 func hide_game_over_screen():

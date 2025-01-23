@@ -1,0 +1,474 @@
+[gd_scene load_steps=7 format=3 uid="uid://bdwxcis2a31mn"]
+
+[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_0bw1f"]
+[ext_resource type="Texture2D" uid="uid://cc0jcas3ljctq" path="res://assets/globali/Collectables/diamond/diamond_big.png" id="2_mh3th"]
+
+[sub_resource type="Animation" id="Animation_jl4cm"]
+resource_name = "show_level_completed"
+length = 3.5
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/Time:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/Coin:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 2.5),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/Death:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 3),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/VBoxContainer/Buttons:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 3.5),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond3:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 1.5),
+"transitions": PackedFloat32Array(0, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FadeToBlack:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_5ber5"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/Time:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/Coin:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/Death:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/VBoxContainer/Buttons:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond3:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FadeToBlack:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(0, 0, 0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_1fjck"]
+resource_name = "fade_to_black"
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:modulate")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("MarginContainer/VBoxContainer/Time:modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("MarginContainer/VBoxContainer/Coin:modulate")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("MarginContainer/VBoxContainer/Death:modulate")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("MarginContainer/VBoxContainer/Buttons:modulate")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond:modulate")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond2:modulate")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond3:modulate")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 1)]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("FadeToBlack:color")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(0, 0, 0, 0), Color(0, 0, 0, 1)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xbpti"]
+_data = {
+"RESET": SubResource("Animation_5ber5"),
+"fade_to_black": SubResource("Animation_1fjck"),
+"show_level_completed": SubResource("Animation_jl4cm")
+}
+
+[node name="LevelCompletedScreen" type="Control"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xbpti")
+}
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.3)
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 24
+
+[node name="LevelCompleted" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_0bw1f")
+theme_override_font_sizes/font_size = 96
+text = "Level Completed!"
+
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+
+[node name="Diamond" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_mh3th")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Diamond2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_mh3th")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Diamond3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_mh3th")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Separator2" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Time" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_0bw1f")
+theme_override_font_sizes/font_size = 48
+text = "Time: x"
+
+[node name="Coin" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_0bw1f")
+theme_override_font_sizes/font_size = 48
+text = "Coins: x"
+
+[node name="Death" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_fonts/font = ExtResource("1_0bw1f")
+theme_override_font_sizes/font_size = 48
+text = "Deaths: x"
+
+[node name="Separator3" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Buttons" type="HBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="NextLevel" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0bw1f")
+theme_override_font_sizes/font_size = 64
+text = "Next Level"
+
+[node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("1_0bw1f")
+theme_override_font_sizes/font_size = 64
+text = "Main menu"
+
+[node name="FadeToBlack" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0)
