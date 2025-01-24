@@ -58,7 +58,7 @@ func _on_update_level_stats_ui(time : float, deaths : int, coins : int, diamonds
 			diamonds_array[i+3].show()
 	
 	#Time
-	time_label.text = "Time: " + time_convert(time)
+	time_label.text = "Time: " + time_convert(int(time))
 	#Deaths
 	death_label.text = "Deaths: " + str(deaths)
 	#Coins
