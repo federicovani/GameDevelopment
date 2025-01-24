@@ -4,7 +4,7 @@ extends Node2D
 
 func _ready() -> void:
 	Global.current_level = "livello_federico"
-	SignalBus.connect("portal_crossed", on_portal_crossed)
+	#SignalBus.connect("portal_crossed", on_portal_crossed)
 
-func on_portal_crossed():
-	get_tree().change_scene_to_file(next_level)
+#func on_portal_crossed():
+	#get_tree().change_scene_to_file(next_level)

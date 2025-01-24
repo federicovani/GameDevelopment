@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://pniqxi08j4b0" path="res://scenes/globali/UI/game_over_screen.tscn" id="4_npmhv"]
 [ext_resource type="PackedScene" uid="uid://bdwxcis2a31mn" path="res://scenes/globali/UI/level_completed_screen.tscn" id="5_4i3uh"]
 
-[node name="UI_Control" type="Control" node_paths=PackedStringArray("hearths", "coin_label")]
+[node name="UI_Control" type="Control" node_paths=PackedStringArray("hearths", "coin_label", "diamonds_array")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +16,7 @@ grow_vertical = 2
 script = ExtResource("1_l4u1q")
 hearths = [NodePath("MarginContainer/VBoxContainer/hearth_label/hearth1"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth2"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth3"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth4"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth5"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth6")]
 coin_label = NodePath("MarginContainer/VBoxContainer/Coin_Label/Label")
+diamonds_array = [NodePath("LevelCompletedScreen/MarginContainer/VBoxContainer/HBoxContainer/Diamond"), NodePath("LevelCompletedScreen/MarginContainer/VBoxContainer/HBoxContainer/Diamond2"), NodePath("LevelCompletedScreen/MarginContainer/VBoxContainer/HBoxContainer/Diamond3"), NodePath("LevelCompletedScreen/MarginContainer/VBoxContainer/HBoxContainer/Diamond4"), NodePath("LevelCompletedScreen/MarginContainer/VBoxContainer/HBoxContainer/Diamond5"), NodePath("LevelCompletedScreen/MarginContainer/VBoxContainer/HBoxContainer/Diamond6")]
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

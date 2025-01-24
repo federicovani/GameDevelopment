@@ -6,20 +6,42 @@ signal on_health_changed(node : Node, amount_changed : int)
 @warning_ignore("unused_signal")
 signal portal_crossed()
 
+signal level_changed(new_level : String)
+signal new_death()
+signal diamond_collected()
+signal update_level_stats_ui(time : float, deaths : int, coins : int, diamonds : int)
+
 signal camera_shook(trauma : float)
 
+#region Update Player Stats
 signal on_health_decreased()
 signal update_hearth_label(value : int)
 
 signal on_coin_collected(value : int)
 signal update_coin_label(value : int)
+#endregion
 
 signal show_game_over_screen()
+
+
+func emit_level_changed(new_level : String):
+	level_changed.emit(new_level)
+
+func emit_new_death():
+	new_death.emit()
+
+func emit_diamond_collected():
+	diamond_collected.emit()
+
+func emit_update_level_stats_ui(time : float, deaths : int, coins : int, diamonds : int):
+	update_level_stats_ui.emit(time, deaths, coins, diamonds)
+
 
 func emit_camera_shook(trauma : float = 1):
 	camera_shook.emit(trauma)
 
 
+#region Emit Update Player Stats
 func emit_on_health_decreased():
 	on_health_decreased.emit()
 	
@@ -32,6 +54,7 @@ func emit_on_coin_collected(value : int):
 
 func emit_update_coin_label(value : int):
 	update_coin_label.emit(value)
+#endregion
 
 
 func emit_show_game_over_screen():
