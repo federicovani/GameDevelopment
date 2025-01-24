@@ -1,7 +1,5 @@
 extends Area2D
 
-var player: CharacterBody2D = null
-
 @onready var timer: Timer = $Timer
 
 func _on_body_entered(_body: Node2D) -> void:
@@ -9,4 +7,7 @@ func _on_body_entered(_body: Node2D) -> void:
 
 
 func _on_timer_timeout() -> void:
-	get_tree().reload_current_scene()
+	SignalBus.emit_new_death()
+	SignalBus.emit_camera_shook(2)
+	SignalBus.emit_on_health_decreased()
+	SignalBus.emit_show_game_over_screen()

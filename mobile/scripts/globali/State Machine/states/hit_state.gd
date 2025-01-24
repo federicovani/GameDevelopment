@@ -30,8 +30,6 @@ func on_damageable_hit(_node : Node, _damage_taken : int, knockback_direction : 
 		emit_signal("interrupt_state", self)
 	else:
 		emit_signal("interrupt_state", character.death_state)
-		if(character == Global.playerBody):
-			SignalBus.emit_on_health_decreased()
 	
 
 func _on_timer_timeout() -> void:
