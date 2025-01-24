@@ -8,6 +8,7 @@ class_name rolling extends State
 var dash_start_position = 0
 
 func on_enter():
+	SignalBus.emit_camera_shook()
 	character.update_player_audio(character.dash_sfx)
 	dash_particles.emitting = true
 	dash_start_position = character.position.x
