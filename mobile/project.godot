@@ -28,7 +28,8 @@ SettingsDataContainer="*res://scripts/globali/autoloads/settings_data_container.
 SaveManager="*res://scripts/globali/autoloads/save_manager.gd"
 AudioManager="*res://scenes/globali/managers/audio_manager.tscn"
 PlayerStatsManager="*res://scripts/globali/managers/player_stats_manager.gd"
-LevelManager="*res://scenes/globali/managers/level_manager.tscn"
+LevelStats="*res://scripts/globali/autoloads/level_stats.gd"
+LevelManager="*res://scripts/globali/managers/level_manager.gd"
 
 [dotnet]
 
