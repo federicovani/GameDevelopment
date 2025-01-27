@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://d3k38htbk1vgs"]
+[gd_scene load_steps=22 format=3 uid="uid://d3k38htbk1vgs"]
 
 [ext_resource type="Texture2D" uid="uid://qhh04ncp81cr" path="res://assets/livello_federico/PixelFantasy_Caves_1/mainlev_build.png" id="1_4vle5"]
 [ext_resource type="Script" path="res://scripts/livello_federico/livello_federico.gd" id="1_xox4y"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dgjlol08ivpk2" path="res://scenes/livello_federico/background.tscn" id="2_pd4yd"]
 [ext_resource type="PackedScene" uid="uid://cl1m4y7imy100" path="res://scenes/globali/enemies/killzone.tscn" id="4_4yu1q"]
 [ext_resource type="PackedScene" uid="uid://bhel8jmvawyaf" path="res://scenes/globali/UI/ui_control.tscn" id="4_h22q4"]
+[ext_resource type="PackedScene" uid="uid://c3jjxg1ikomnh" path="res://scenes/globali/UI/menu/pause_menu.tscn" id="5_7gvlg"]
 [ext_resource type="PackedScene" uid="uid://c6buhchiamsw4" path="res://scenes/globali/collectables/diamond.tscn" id="5_yhc70"]
 [ext_resource type="PackedScene" uid="uid://d4aij5g6rvxa4" path="res://scenes/globali/collectables/coin.tscn" id="6_hc816"]
 [ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/enemies/skeleton.tscn" id="7_saqal"]
@@ -643,6 +644,8 @@ layer_1/tile_data = PackedInt32Array(131070, 917506, 23, 65538, 1245186, 23, 655
 [node name="UIContainer" type="CanvasLayer" parent="."]
 
 [node name="UI_Control" parent="UIContainer" instance=ExtResource("4_h22q4")]
+
+[node name="PauseMenu" parent="UIContainer" instance=ExtResource("5_7gvlg")]
 
 [node name="ManagerContainer" type="Node" parent="."]
 

@@ -1,10 +1,9 @@
-[gd_scene load_steps=6 format=3 uid="uid://co3jkipk63syf"]
+[gd_scene load_steps=5 format=3 uid="uid://co3jkipk63syf"]
 
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_3msrs"]
 [ext_resource type="Script" path="res://scripts/globali/UI/menu/main_menu.gd" id="1_ssv1y"]
 [ext_resource type="Theme" uid="uid://cnk304tv4ytv5" path="res://assets/globali/GUI/default.tres" id="2_f4hm5"]
 [ext_resource type="PackedScene" uid="uid://docl2niryulbx" path="res://scenes/globali/UI/menu/options_menu/options_menu.tscn" id="4_y17k1"]
-[ext_resource type="AudioStream" uid="uid://cn6dpdh6fk5fk" path="res://assets/globali/Audio/music/time_for_adventure.mp3" id="5_03y2m"]
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -99,12 +98,6 @@ text = "Quit Game"
 [node name="OptionsMenu" parent="." instance=ExtResource("4_y17k1")]
 visible = false
 layout_mode = 1
-
-[node name="MusicStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("5_03y2m")
-volume_db = -15.0
-autoplay = true
-bus = &"Music"
 
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_button_down"]
 [connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
