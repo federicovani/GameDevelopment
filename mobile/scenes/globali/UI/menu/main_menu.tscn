@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=3 uid="uid://co3jkipk63syf"]
+[gd_scene load_steps=6 format=3 uid="uid://co3jkipk63syf"]
 
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_3msrs"]
 [ext_resource type="Script" path="res://scripts/globali/UI/menu/main_menu.gd" id="1_ssv1y"]
 [ext_resource type="Theme" uid="uid://cnk304tv4ytv5" path="res://assets/globali/GUI/default.tres" id="2_f4hm5"]
+[ext_resource type="Texture2D" uid="uid://23vlpsuu2hgj" path="res://assets/globali/GUI/GUI.png" id="4_vaafd"]
 [ext_resource type="PackedScene" uid="uid://docl2niryulbx" path="res://scenes/globali/UI/menu/options_menu/options_menu.tscn" id="4_y17k1"]
 
 [node name="MainMenu" type="Control"]
@@ -37,7 +38,7 @@ theme_override_constants/margin_bottom = 12
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
 layout_mode = 2
-theme_override_constants/separation = 70
+theme_override_constants/separation = 45
 
 [node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
@@ -45,51 +46,63 @@ layout_mode = 2
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 10
+theme_override_constants/outline_size = 28
 theme_override_fonts/font = ExtResource("1_3msrs")
 theme_override_font_sizes/font_size = 96
 text = "Titolo"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+[node name="ButtonsContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 4
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+custom_minimum_size = Vector2(325, 350)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("4_vaafd")
+region_rect = Rect2(2, 34, 44, 44)
+patch_margin_left = 13
+patch_margin_top = 13
+patch_margin_right = 13
+patch_margin_bottom = 13
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("2_f4hm5")
 theme_override_constants/separation = 18
 alignment = 1
 
-[node name="Separator" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+[node name="Start" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 55)
 layout_mode = 2
-
-[node name="Separator2" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Separator3" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-layout_mode = 2
-
-[node name="Start" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 60)
-layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("2_f4hm5")
 theme_override_fonts/font = ExtResource("1_3msrs")
 theme_override_font_sizes/font_size = 48
 text = "Start Game"
 
-[node name="Options" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 60)
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 55)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("2_f4hm5")
 theme_override_fonts/font = ExtResource("1_3msrs")
 theme_override_font_sizes/font_size = 48
 text = "Options"
 
-[node name="Quit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
-custom_minimum_size = Vector2(300, 60)
+[node name="Quit" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 55)
 layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
 theme = ExtResource("2_f4hm5")
 theme_override_fonts/font = ExtResource("1_3msrs")
 theme_override_font_sizes/font_size = 48
@@ -99,6 +112,6 @@ text = "Quit Game"
 visible = false
 layout_mode = 1
 
-[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Start" to="." method="_on_start_button_down"]
-[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
-[connection signal="button_down" from="MarginContainer/HBoxContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Start" to="." method="_on_start_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
+[connection signal="button_down" from="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]
