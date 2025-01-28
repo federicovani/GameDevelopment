@@ -214,6 +214,9 @@ size_flags_vertical = 4
 theme_override_font_sizes/font_size = 32
 text = "Start"
 
+[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
 [node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4

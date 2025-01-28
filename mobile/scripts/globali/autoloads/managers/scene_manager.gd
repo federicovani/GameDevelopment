@@ -28,7 +28,7 @@ var level_order : Array[String] = [tutorial, livello_federico, livello_elisa, li
 var current_level : String
 
 func _ready() -> void:
-	pass
+	current_level = main_menu
 	
 func get_scene_file(level : String) -> String:
 	if scene_to_file.has(level):
@@ -64,7 +64,12 @@ func go_to_next_level():
 	go_to_scene(next_level)
 
 func go_to_scene(scene : String):
-	current_level = scene
 	var scene_file : String = get_scene_file(scene)
-	get_tree().change_scene_to_file(scene_file)
-	SignalBus.emit_level_changed()
+	#Keep the same music stream if u are navigating between main menu and level selector
+	if(!((current_level == main_menu && scene == level_selector) || (current_level == level_selector && scene == main_menu))):
+		current_level = scene
+		get_tree().change_scene_to_file(scene_file)
+		SignalBus.emit_level_changed()
+	else:
+		current_level = scene
+		get_tree().change_scene_to_file(scene_file)

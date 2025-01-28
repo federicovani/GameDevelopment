@@ -1,16 +1,16 @@
 extends Node
 
 @export var bg_music_player : AudioStreamPlayer
-var current_level : String
 
 func _ready() -> void:
-	current_level = Global.current_level
+	SignalBus.connect("level_changed", _on_level_changed)
 
-func _process(_delta: float) -> void:
-	if(current_level != Global.current_level):
-		current_level = Global.current_level
-		update_music_for_scene()
+func _on_level_changed():
+	update_music_for_scene()
 
 func update_music_for_scene():
-	var current_level_music = str(current_level + "_music")
+	var current_level_music = str(SceneManager.current_level + "_music")
+	#Same music for main menu and level selector
+	if(current_level_music == "level_selector_music"):
+		current_level_music = "main_menu_music"
 	bg_music_player["parameters/switch_to_clip"] = current_level_music

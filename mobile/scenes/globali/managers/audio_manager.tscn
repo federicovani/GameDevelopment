@@ -1,9 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://dyh8xnb16x7i3"]
+[gd_scene load_steps=10 format=3 uid="uid://dyh8xnb16x7i3"]
 
 [ext_resource type="Script" path="res://scripts/globali/autoloads/managers/audio_manager.gd" id="1_rm2hr"]
 [ext_resource type="AudioStream" uid="uid://b4rh83svqg0w8" path="res://assets/globali/Audio/music/Floating Dream.wav" id="2_ftbb6"]
+[ext_resource type="AudioStream" uid="uid://b0t4acsmpk0ky" path="res://assets/globali/Audio/music/Cuddle Clouds.wav" id="2_wr5tw"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_4vxr7"]
+stream_count = 1
+stream_0 = ExtResource("2_wr5tw")
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_f4trc"]
 
@@ -11,9 +14,9 @@
 stream_count = 1
 stream_0 = ExtResource("2_ftbb6")
 
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_0hj42"]
-
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_kjcso"]
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_0hj42"]
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_1gvrg"]
 clip_count = 5
@@ -26,15 +29,15 @@ clip_1/auto_advance = 0
 clip_2/name = &"livello_federico_music"
 clip_2/stream = SubResource("AudioStreamPlaylist_4bksf")
 clip_2/auto_advance = 0
-clip_3/name = &"livello_sara_music"
-clip_3/stream = SubResource("AudioStreamPlaylist_0hj42")
+clip_3/name = &"livello_elisa_music"
+clip_3/stream = SubResource("AudioStreamPlaylist_kjcso")
 clip_3/auto_advance = 0
-clip_4/name = &"livello_elisa_music"
-clip_4/stream = SubResource("AudioStreamPlaylist_kjcso")
+clip_4/name = &"livello_sara_music"
+clip_4/stream = SubResource("AudioStreamPlaylist_0hj42")
 clip_4/auto_advance = 0
 _transitions = {
 Vector2i(-1, -1): {
-"fade_beats": 1,
+"fade_beats": 3,
 "fade_mode": 3,
 "from_time": 0,
 "to_time": 1
@@ -46,7 +49,8 @@ script = ExtResource("1_rm2hr")
 bg_music_player = NodePath("BackgroundMusicPlayer")
 
 [node name="BackgroundMusicPlayer" type="AudioStreamPlayer" parent="."]
+process_mode = 3
 stream = SubResource("AudioStreamInteractive_1gvrg")
-volume_db = -25.0
+volume_db = -15.0
 autoplay = true
 bus = &"Music"
