@@ -1,6 +1,6 @@
-extends Control
+extends OptionsDisplayButton
 
-@onready var option_button: OptionButton = $HBoxContainer/OptionButton
+#@onready var option_button: OptionButton = $MarginContainer/MarginContainer/HBoxContainer/OptionButton
 
 const RESOLUTION_DICTIONARY : Dictionary = {
 	"1152 x 648" : Vector2i(1152, 648),

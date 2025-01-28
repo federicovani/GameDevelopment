@@ -6,5 +6,5 @@
 [node name="WindowModeButton" instance=ExtResource("1_rj5v3")]
 script = ExtResource("2_4ts3y")
 
-[node name="Label" parent="HBoxContainer" index="0"]
+[node name="Label" parent="MarginContainer/MarginContainer/HBoxContainer" index="0"]
 text = "Window Mode"

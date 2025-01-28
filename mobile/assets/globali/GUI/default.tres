@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=16 format=3 uid="uid://cnk304tv4ytv5"]
+[gd_resource type="Theme" load_steps=17 format=3 uid="uid://cnk304tv4ytv5"]
 
 [ext_resource type="Texture2D" uid="uid://23vlpsuu2hgj" path="res://assets/globali/GUI/GUI.png" id="1_p676n"]
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="2_qausg"]
@@ -16,26 +16,7 @@ corner_radius_bottom_right = 3
 corner_radius_bottom_left = 3
 corner_detail = 5
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6qj8v"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ibcd5"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_68101"]
 texture = ExtResource("1_p676n")
@@ -69,6 +50,14 @@ expand_margin_top = 15.0
 expand_margin_bottom = 15.0
 region_rect = Rect2(50, 34, 44, 12)
 
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rykrg"]
+texture = ExtResource("1_p676n")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(49, 97, 30, 30)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otuc1"]
 content_margin_left = 10.0
 content_margin_top = 4.0
@@ -80,26 +69,7 @@ border_width_right = 1
 border_color = Color(0.175, 0.175, 0.175, 1)
 corner_detail = 1
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_al1p2"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.75)
-draw_center = false
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-expand_margin_left = 2.0
-expand_margin_top = 2.0
-expand_margin_right = 2.0
-expand_margin_bottom = 2.0
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3abkv"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_uukle"]
 content_margin_left = 10.0
@@ -150,7 +120,7 @@ Button/constants/outline_size = 6
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("2_qausg")
 Button/styles/disabled = SubResource("StyleBoxFlat_2f71d")
-Button/styles/focus = SubResource("StyleBoxFlat_6qj8v")
+Button/styles/focus = SubResource("StyleBoxEmpty_ibcd5")
 Button/styles/hover = SubResource("StyleBoxTexture_68101")
 Button/styles/normal = SubResource("StyleBoxTexture_tq2y4")
 Button/styles/pressed = SubResource("StyleBoxTexture_68101")
@@ -171,6 +141,35 @@ OptionButton/styles/normal = null
 OptionButton/styles/normal_mirrored = null
 OptionButton/styles/pressed = null
 OptionButton/styles/pressed_mirrored = null
+PopupMenu/colors/font_accelerator_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_disabled_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_hover_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_outline_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_separator_color = Color(0, 0, 0, 1)
+PopupMenu/colors/font_separator_outline_color = Color(0, 0, 0, 1)
+PopupMenu/constants/h_separation = 3
+PopupMenu/constants/icon_max_width = 0
+PopupMenu/constants/v_separation = 2
+PopupMenu/font_sizes/font_separator_size = 32
+PopupMenu/font_sizes/font_size = 32
+PopupMenu/fonts/font = ExtResource("2_qausg")
+PopupMenu/fonts/font_separator = ExtResource("2_qausg")
+PopupMenu/icons/checked = null
+PopupMenu/icons/checked_disabled = null
+PopupMenu/icons/radio_checked = null
+PopupMenu/icons/radio_checked_disabled = null
+PopupMenu/icons/radio_unchecked = null
+PopupMenu/icons/radio_unchecked_disabled = null
+PopupMenu/icons/submenu = null
+PopupMenu/icons/submenu_mirrored = null
+PopupMenu/icons/unchecked = null
+PopupMenu/icons/unchecked_disabled = null
+PopupMenu/styles/hover = null
+PopupMenu/styles/labeled_separator_left = null
+PopupMenu/styles/labeled_separator_right = null
+PopupMenu/styles/panel = SubResource("StyleBoxTexture_rykrg")
+PopupMenu/styles/separator = null
 TabContainer/colors/drop_mark_color = Color(1, 1, 1, 1)
 TabContainer/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
 TabContainer/colors/font_hovered_color = Color(0.95, 0.95, 0.95, 1)
@@ -179,13 +178,13 @@ TabContainer/colors/font_selected_color = Color(0.95, 0.95, 0.95, 1)
 TabContainer/colors/font_unselected_color = Color(0.7, 0.7, 0.7, 1)
 TabContainer/constants/icon_max_width = 0
 TabContainer/constants/icon_separation = 4
-TabContainer/constants/outline_size = 0
+TabContainer/constants/outline_size = 3
 TabContainer/constants/side_margin = 8
 TabContainer/font_sizes/font_size = 32
 TabContainer/fonts/font = ExtResource("2_qausg")
 TabContainer/styles/panel = ExtResource("3_wy7g2")
 TabContainer/styles/tab_disabled = SubResource("StyleBoxFlat_otuc1")
-TabContainer/styles/tab_focus = SubResource("StyleBoxFlat_al1p2")
+TabContainer/styles/tab_focus = SubResource("StyleBoxEmpty_3abkv")
 TabContainer/styles/tab_hovered = SubResource("StyleBoxTexture_uukle")
 TabContainer/styles/tab_selected = SubResource("StyleBoxTexture_uukle")
 TabContainer/styles/tab_unselected = SubResource("StyleBoxTexture_y7fuk")

@@ -1,7 +1,9 @@
 class_name HotkeyRebindButton extends Control
 
-@onready var label : Label = $HBoxContainer/Label
-@onready var button : Button = $HBoxContainer/Button
+@onready var label: Label = $MarginContainer/MarginContainer/HBoxContainer/Label
+@onready var button: Button = $MarginContainer/MarginContainer/HBoxContainer/Button
+
+@export var setting_tab_container : SettingTabContainer
 
 @export var action_name : String = "move_left"
 
@@ -10,6 +12,9 @@ func _ready() -> void:
 	set_action_name()
 	set_text_for_key()
 	load_keybinds()
+
+func _process(_delta: float) -> void:
+	update_button_scale()
 
 func load_keybinds():
 	rebind_action_key(SettingsDataContainer.get_keybind(action_name))
@@ -40,8 +45,10 @@ func set_text_for_key():
 
 func _on_button_toggled(button_pressed: bool) -> void:
 	if button_pressed:
+		setting_tab_container.keybinding = true
 		button.text = "Press any key..."
 		set_process_unhandled_key_input(button_pressed)
+		print_debug(setting_tab_container.keybinding)
 		
 		for i in get_tree().get_nodes_in_group("hotkey_button"):
 			if i.action_name != self.action_name:
@@ -66,6 +73,9 @@ func rebind_action_key(event):
 	set_process_unhandled_key_input(false)
 	set_text_for_key()
 	set_action_name()
+	
+	setting_tab_container.keybinding = false
+	print_debug(setting_tab_container.keybinding)
 	#var is_duplicate=false
 	#var action_event=event
 	#var action_keycode=OS.get_keycode_string(action_event.physical_keycode)
@@ -86,3 +96,17 @@ func rebind_action_key(event):
 		#set_process_unhandled_key_input(false)
 		#set_text_for_key()
 		#set_action_name()
+
+func update_button_scale():
+	button_hover(button, 1.1, 0.2)
+
+func button_hover(button : Button, tween_amt, duration):
+	button.pivot_offset = button.size / 2
+	if button.is_hovered():
+		tween(button, "scale", Vector2.ONE * tween_amt, duration)
+	else:
+		tween(button, "scale", Vector2.ONE, duration)
+
+func tween(button, property, amount, duration):
+	var tween = create_tween()
+	tween.tween_property(button, property, amount, duration)
