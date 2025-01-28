@@ -86,11 +86,11 @@ func show_level_completed_screen():
 
 func next_level():
 	await level_completed_fade_to_black()
-	#Next level function
+	SceneManager.go_to_next_level()
 
 func main_menu():
 	await level_completed_fade_to_black()
-	get_tree().change_scene_to_file("res://scenes/globali/UI/menu/main_menu.tscn")
+	SceneManager.go_to_main_menu()
 
 func level_completed_fade_to_black():
 	level_completed_animation_player.play("fade_to_black")
@@ -114,11 +114,11 @@ func _on_show_game_over_screen():
 
 func retry_game():
 	await game_over_fade_to_black()
-	get_tree().reload_current_scene()
+	SceneManager.reload_current_level()
 
 func title_screen():
 	await game_over_fade_to_black()
-	get_tree().change_scene_to_file("res://scenes/globali/UI/menu/main_menu.tscn")
+	SceneManager.go_to_main_menu()
 
 func game_over_fade_to_black() -> bool:
 	game_over_animation_player.play("fade_to_black")

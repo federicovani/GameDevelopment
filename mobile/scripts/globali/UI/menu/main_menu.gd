@@ -2,7 +2,6 @@ class_name MainMenu extends Control
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 
-@onready var start_level : PackedScene = preload("res://scenes/livello_federico/livello_federico.tscn")
 @onready var options_menu: OptionsMenu = $OptionsMenu
 @onready var margin_container: MarginContainer = $MarginContainer
 
@@ -33,7 +32,7 @@ func tween(button, property, amount, duration):
 	tween.tween_property(button, property, amount, duration)
 
 func _on_start_button_down() -> void:
-	get_tree().change_scene_to_packed(start_level)
+	SceneManager.go_to_scene(SceneManager.livello_federico)
 
 func _on_options_button_down() -> void:
 	margin_container.visible = false

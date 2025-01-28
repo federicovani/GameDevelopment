@@ -1,6 +1,5 @@
 extends Node
 
-var current_level : String
 var time = 0
 var deaths = 0
 var coins = 0
@@ -16,8 +15,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	time += delta
 
-func _on_level_changed(new_level : String):
-	current_level = new_level
+func _on_level_changed():
 	time = 0
 	deaths = 0
 	coins = 0
