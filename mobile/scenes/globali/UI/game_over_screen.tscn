@@ -1,5 +1,6 @@
-[gd_scene load_steps=6 format=3 uid="uid://pniqxi08j4b0"]
+[gd_scene load_steps=7 format=3 uid="uid://pniqxi08j4b0"]
 
+[ext_resource type="Theme" uid="uid://cnk304tv4ytv5" path="res://assets/globali/GUI/default.tres" id="1_eob45"]
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_q7rgq"]
 
 [sub_resource type="Animation" id="Animation_ydvgl"]
@@ -203,7 +204,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(2, 3),
 "transitions": PackedFloat32Array(0.5, 1),
 "update": 0,
-"values": [Vector2(392, 284), Vector2(392, 326)]
+"values": [Vector2(363.5, 284), Vector2(363.5, 312)]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
@@ -245,6 +246,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_eob45")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -266,10 +268,12 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 offset_left = -276.0
-offset_top = 161.001
+offset_top = 161.0
 offset_right = 276.0
-offset_bottom = 279.001
+offset_bottom = 279.0
 grow_horizontal = 2
+theme_override_colors/font_color = Color(0.470588, 0, 0, 1)
+theme_override_constants/outline_size = 24
 theme_override_fonts/font = ExtResource("1_q7rgq")
 theme_override_font_sizes/font_size = 128
 text = "Game Over"
@@ -281,20 +285,23 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -184.0
-offset_top = 1.99887
-offset_right = 184.0
-offset_bottom = 139.999
+offset_left = -212.5
+offset_top = -12.0
+offset_right = 212.5
+offset_bottom = 166.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/separation = 28
 
 [node name="Retry" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 75)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_q7rgq")
 theme_override_font_sizes/font_size = 64
 text = "Retry"
 
 [node name="BackToTitle" type="Button" parent="VBoxContainer"]
+custom_minimum_size = Vector2(425, 75)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_q7rgq")
 theme_override_font_sizes/font_size = 64

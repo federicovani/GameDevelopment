@@ -35,6 +35,9 @@ func _ready() -> void:
 	
 	coin_label.text = str(0)
 
+func _process(_delta: float) -> void:
+	update_button_scale()
+
 func _on_update_coin_label(value : int):
 	coin_label.text = str(value)
 
@@ -126,3 +129,20 @@ func hide_game_over_screen():
 	game_over.visible = false
 	game_over.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	game_over.modulate = Color.TRANSPARENT
+
+func update_button_scale():	
+	button_hover(main_menu_button, 1.2, 0.2)
+	button_hover(next_level_button, 1.2, 0.2)
+	button_hover(retry_button, 1.2, 0.2)
+	button_hover(title_button, 1.2, 0.2)
+
+func button_hover(button : Button, tween_amt, duration):
+	button.pivot_offset = button.size / 2
+	if button.is_hovered():
+		tween(button, "scale", Vector2.ONE * tween_amt, duration)
+	else:
+		tween(button, "scale", Vector2.ONE, duration)
+
+func tween(button, property, amount, duration):
+	var tween = create_tween()
+	tween.tween_property(button, property, amount, duration)

@@ -1,6 +1,7 @@
-[gd_scene load_steps=8 format=3 uid="uid://bdwxcis2a31mn"]
+[gd_scene load_steps=9 format=3 uid="uid://bdwxcis2a31mn"]
 
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_0bw1f"]
+[ext_resource type="Theme" uid="uid://cnk304tv4ytv5" path="res://assets/globali/GUI/default.tres" id="1_y2gfo"]
 [ext_resource type="Texture2D" uid="uid://cc0jcas3ljctq" path="res://assets/globali/Collectables/diamond/diamond_big.png" id="2_mh3th"]
 [ext_resource type="Texture2D" uid="uid://bm84s2kmg4teg" path="res://assets/globali/Collectables/diamond/empty_diamond_outline.png" id="3_04upc"]
 
@@ -429,6 +430,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+theme = ExtResource("1_y2gfo")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -465,6 +467,8 @@ theme_override_constants/separation = 24
 [node name="LevelCompleted" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0, 0.341176, 0, 1)
+theme_override_constants/outline_size = 18
 theme_override_fonts/font = ExtResource("1_0bw1f")
 theme_override_font_sizes/font_size = 96
 text = "Level Completed!"
@@ -523,6 +527,7 @@ layout_mode = 2
 [node name="Time" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("1_0bw1f")
 theme_override_font_sizes/font_size = 48
 text = "Time: x"
@@ -530,6 +535,7 @@ text = "Time: x"
 [node name="Coin" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("1_0bw1f")
 theme_override_font_sizes/font_size = 48
 text = "Coins: x"
@@ -537,6 +543,7 @@ text = "Coins: x"
 [node name="Death" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
+theme_override_constants/outline_size = 8
 theme_override_fonts/font = ExtResource("1_0bw1f")
 theme_override_font_sizes/font_size = 48
 text = "Deaths: x"
@@ -550,12 +557,14 @@ theme_override_constants/separation = 64
 alignment = 1
 
 [node name="NextLevel" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(340, 70)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0bw1f")
 theme_override_font_sizes/font_size = 64
 text = "Next Level"
 
 [node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer/Buttons"]
+custom_minimum_size = Vector2(340, 70)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("1_0bw1f")
 theme_override_font_sizes/font_size = 64

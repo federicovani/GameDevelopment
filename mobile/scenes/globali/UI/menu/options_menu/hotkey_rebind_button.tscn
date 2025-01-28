@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://drljavbuoa6aj"]
+[gd_scene load_steps=5 format=3 uid="uid://drljavbuoa6aj"]
 
 [ext_resource type="Script" path="res://scripts/globali/UI/menu/options_menu/hotkey_rebind_button.gd" id="1_4lq86"]
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_a8pn6"]
+[ext_resource type="Theme" uid="uid://cnk304tv4ytv5" path="res://assets/globali/GUI/default.tres" id="1_x7cgy"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y2byi"]
 
@@ -12,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_x7cgy")
 script = ExtResource("1_4lq86")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="."]
@@ -42,6 +44,7 @@ theme_override_styles/separator = SubResource("StyleBoxEmpty_y2byi")
 [node name="Button" type="Button" parent="HBoxContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
+theme_override_font_sizes/font_size = 32
 toggle_mode = true
 text = "ACTION_KEY"
 

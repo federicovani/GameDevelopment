@@ -1,5 +1,7 @@
 class_name MainMenu extends Control
 
+@onready var animation_player: AnimationPlayer = $AnimationPlayer
+
 @onready var start_level : PackedScene = preload("res://scenes/livello_federico/livello_federico.tscn")
 @onready var options_menu: OptionsMenu = $OptionsMenu
 @onready var margin_container: MarginContainer = $MarginContainer
@@ -43,4 +45,6 @@ func on_exit_options_menu():
 	options_menu.visible = false
 
 func _on_quit_button_down() -> void:
+	animation_player.play("quit_animation")
+	await animation_player.animation_finished
 	get_tree().quit()

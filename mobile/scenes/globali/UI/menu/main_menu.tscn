@@ -1,10 +1,118 @@
-[gd_scene load_steps=6 format=3 uid="uid://co3jkipk63syf"]
+[gd_scene load_steps=9 format=3 uid="uid://co3jkipk63syf"]
 
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_3msrs"]
 [ext_resource type="Script" path="res://scripts/globali/UI/menu/main_menu.gd" id="1_ssv1y"]
 [ext_resource type="Theme" uid="uid://cnk304tv4ytv5" path="res://assets/globali/GUI/default.tres" id="2_f4hm5"]
 [ext_resource type="Texture2D" uid="uid://23vlpsuu2hgj" path="res://assets/globali/GUI/GUI.png" id="4_vaafd"]
 [ext_resource type="PackedScene" uid="uid://docl2niryulbx" path="res://scenes/globali/UI/menu/options_menu/options_menu.tscn" id="4_y17k1"]
+
+[sub_resource type="Animation" id="Animation_bdhjk"]
+resource_name = "quit_animation"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-61, -731), Vector2(-61, -382)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-45, 659), Vector2(-45, 338)]
+}
+
+[sub_resource type="Animation" id="Animation_l52wc"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("ColorRect:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("ColorRect2:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("ColorRect:position")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-61, -731)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("ColorRect2:position")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-45, 659)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_y6e28"]
+_data = {
+"RESET": SubResource("Animation_l52wc"),
+"quit_animation": SubResource("Animation_bdhjk")
+}
 
 [node name="MainMenu" type="Control"]
 layout_mode = 3
@@ -111,6 +219,38 @@ text = "Quit Game"
 [node name="OptionsMenu" parent="." instance=ExtResource("4_y17k1")]
 visible = false
 layout_mode = 1
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -61.0
+offset_top = -731.0
+offset_right = -61.0
+offset_bottom = -731.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.09386, 1.11689)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="ColorRect2" type="ColorRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = -45.0
+offset_top = 659.0
+offset_right = -5.0
+offset_bottom = 699.0
+scale = Vector2(31.0024, 18.2996)
+mouse_filter = 2
+color = Color(0, 0, 0, 1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_y6e28")
+}
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Start" to="." method="_on_start_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]

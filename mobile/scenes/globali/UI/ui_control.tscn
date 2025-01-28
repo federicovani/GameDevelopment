@@ -13,6 +13,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_l4u1q")
 hearths = [NodePath("MarginContainer/VBoxContainer/hearth_label/hearth1"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth2"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth3"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth4"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth5"), NodePath("MarginContainer/VBoxContainer/hearth_label/hearth6")]
 coin_label = NodePath("MarginContainer/VBoxContainer/Coin_Label/Label")
@@ -46,7 +47,8 @@ size_flags_horizontal = 0
 layout_mode = 1
 
 [node name="VBoxContainer" parent="GameOverScreen" index="3"]
-offset_top = 2.0
+offset_top = -5.0
+offset_bottom = 173.0
 
 [node name="LevelCompletedScreen" parent="." instance=ExtResource("5_4i3uh")]
 layout_mode = 1

@@ -89,4 +89,6 @@ func on_exit_options_menu():
 		opened_option_menu = false
 
 func _on_quit_pressed() -> void:
+	animation_player.play("quit_animation")
+	await animation_player.animation_finished
 	get_tree().quit()
