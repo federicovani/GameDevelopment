@@ -4,17 +4,17 @@
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="2_qausg"]
 [ext_resource type="StyleBox" uid="uid://m8bulnuilfbe" path="res://assets/globali/GUI/style_box_texture.tres" id="3_wy7g2"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2f71d"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(0.1, 0.1, 0.1, 0.3)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_jpnb3"]
+texture = ExtResource("1_p676n")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+expand_margin_left = 8.0
+expand_margin_top = 1.0
+expand_margin_right = 8.0
+expand_margin_bottom = 1.0
+region_rect = Rect2(65, 225, 30, 14)
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_ibcd5"]
 
@@ -24,6 +24,10 @@ texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
+expand_margin_left = 8.0
+expand_margin_top = 1.0
+expand_margin_right = 8.0
+expand_margin_bottom = 1.0
 region_rect = Rect2(145, 98, 46, 13)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_tq2y4"]
@@ -32,6 +36,10 @@ texture_margin_left = 1.0
 texture_margin_top = 1.0
 texture_margin_right = 1.0
 texture_margin_bottom = 1.0
+expand_margin_left = 8.0
+expand_margin_top = 1.0
+expand_margin_right = 8.0
+expand_margin_bottom = 1.0
 region_rect = Rect2(145, 81, 46, 14)
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ia36p"]
@@ -102,7 +110,7 @@ default_font = ExtResource("2_qausg")
 default_font_size = 32
 Button/colors/font_color = Color(0.875, 0.875, 0.875, 1)
 Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
-Button/colors/font_focus_color = Color(0.95, 0.95, 0.95, 1)
+Button/colors/font_focus_color = Color(0.94902, 0.94902, 0.94902, 1)
 Button/colors/font_hover_color = Color(0.95, 0.95, 0.95, 1)
 Button/colors/font_hover_pressed_color = Color(1, 1, 1, 1)
 Button/colors/font_outline_color = Color(0, 0, 0, 1)
@@ -119,7 +127,7 @@ Button/constants/icon_max_width = 0
 Button/constants/outline_size = 6
 Button/font_sizes/font_size = 16
 Button/fonts/font = ExtResource("2_qausg")
-Button/styles/disabled = SubResource("StyleBoxFlat_2f71d")
+Button/styles/disabled = SubResource("StyleBoxTexture_jpnb3")
 Button/styles/focus = SubResource("StyleBoxEmpty_ibcd5")
 Button/styles/hover = SubResource("StyleBoxTexture_68101")
 Button/styles/normal = SubResource("StyleBoxTexture_tq2y4")

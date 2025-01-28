@@ -32,7 +32,7 @@ func tween(button, property, amount, duration):
 	tween.tween_property(button, property, amount, duration)
 
 func _on_start_button_down() -> void:
-	SceneManager.go_to_scene(SceneManager.livello_federico)
+	SceneManager.go_to_scene(SceneManager.level_selector)
 
 func _on_options_button_down() -> void:
 	margin_container.visible = false

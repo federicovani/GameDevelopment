@@ -9,18 +9,18 @@ var livello_elisa : String = "livello_elisa"
 
 var scene_to_file : Dictionary = {
 	main_menu : "res://scenes/globali/UI/menu/main_menu.tscn",
-	level_selector : "res://scenes/globali/UI/menu/level_selector.tsc",
+	level_selector : "res://scenes/globali/UI/menu/level_selector.tscn",
 	tutorial : "",
 	livello_federico : "res://scenes/livello_federico/livello_federico.tscn",
 	livello_elisa : "res://scenes/livello_elisa/livello_elisa.tscn",
 	livello_sara : "res://scenes/livello_sara/livello_sara.tscn"
 }
 
-var level_to_locked : Dictionary = {
-	tutorial : 1,
-	livello_federico : 0,
-	livello_elisa : 0,
-	livello_sara : 0
+var level_to_unlocked : Dictionary = {
+	tutorial : true,
+	livello_federico : true,
+	livello_elisa : true,
+	livello_sara : false
 }
 
 var level_order : Array[String] = [tutorial, livello_federico, livello_elisa, livello_sara]
@@ -32,14 +32,14 @@ func _ready() -> void:
 	
 func get_scene_file(level : String) -> String:
 	if scene_to_file.has(level):
-		return scene_to_file .get(level)
+		return scene_to_file.get(level)
 	else:
 		print_debug("Can't find any level: "+ level)
 		return "error_string"
 
 func is_level_unlocked(level : String) -> bool:
-	if level_to_locked.has(level):
-		return level_to_locked.get(0)
+	if level_to_unlocked.has(level):
+		return level_to_unlocked.get(level)
 	else:
 		print_debug("Can't find any level: "+ level)
 		return 0
