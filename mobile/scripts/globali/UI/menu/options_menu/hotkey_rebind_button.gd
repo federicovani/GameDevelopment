@@ -48,7 +48,6 @@ func _on_button_toggled(button_pressed: bool) -> void:
 		setting_tab_container.keybinding = true
 		button.text = "Press any key..."
 		set_process_unhandled_key_input(button_pressed)
-		print_debug(setting_tab_container.keybinding)
 		
 		for i in get_tree().get_nodes_in_group("hotkey_button"):
 			if i.action_name != self.action_name:
@@ -75,7 +74,6 @@ func rebind_action_key(event):
 	set_action_name()
 	
 	setting_tab_container.keybinding = false
-	print_debug(setting_tab_container.keybinding)
 	#var is_duplicate=false
 	#var action_event=event
 	#var action_keycode=OS.get_keycode_string(action_event.physical_keycode)
