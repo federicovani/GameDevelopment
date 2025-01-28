@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://dyh8xnb16x7i3"]
 
-[ext_resource type="Script" path="res://scripts/globali/managers/audio_manager.gd" id="1_rm2hr"]
+[ext_resource type="Script" path="res://scripts/globali/autoloads/managers/audio_manager.gd" id="1_rm2hr"]
 [ext_resource type="AudioStream" uid="uid://b4rh83svqg0w8" path="res://assets/globali/Audio/music/Floating Dream.wav" id="2_ftbb6"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_4vxr7"]

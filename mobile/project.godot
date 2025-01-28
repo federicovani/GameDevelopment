@@ -27,9 +27,9 @@ SettingsSignalBus="*res://scripts/globali/autoloads/settings_signal_bus.gd"
 SettingsDataContainer="*res://scripts/globali/autoloads/settings_data_container.gd"
 SaveManager="*res://scripts/globali/autoloads/save_manager.gd"
 AudioManager="*res://scenes/globali/managers/audio_manager.tscn"
-PlayerStatsManager="*res://scripts/globali/managers/player_stats_manager.gd"
+PlayerStatsManager="*res://scripts/globali/autoloads/managers/player_stats_manager.gd"
 LevelStats="*res://scripts/globali/autoloads/level_stats.gd"
-LevelManager="*res://scripts/globali/managers/level_manager.gd"
+LevelManager="*res://scripts/globali/autoloads/managers/level_manager.gd"
 
 [display]
 

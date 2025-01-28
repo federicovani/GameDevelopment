@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://3udef37ixd0g"]
 
-[ext_resource type="Script" path="res://scripts/globali/managers/player_stats_manager.gd" id="1_nduvm"]
+[ext_resource type="Script" path="res://scripts/globali/autoloads/managers/player_stats_manager.gd" id="1_nduvm"]
 
 [node name="PlayerStatsManager" type="Node"]
 script = ExtResource("1_nduvm")
