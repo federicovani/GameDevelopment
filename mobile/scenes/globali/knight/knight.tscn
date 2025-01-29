@@ -993,7 +993,7 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(1, 0.355685), -2.37379, 0.0, 0, 
 point_count = 2
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sh7pf"]
-size = Vector2(48.5, 32)
+size = Vector2(49.25, 41)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euu0d"]
 size = Vector2(20, 12)
@@ -1189,15 +1189,15 @@ player = NodePath("..")
 facing_collision_shape = NodePath("CollisionShapeSword")
 
 [node name="CollisionShapeSword" type="CollisionShape2D" parent="Sword"]
-position = Vector2(35, 0)
+position = Vector2(35, -4.5)
 shape = SubResource("RectangleShape2D_sh7pf")
 script = ExtResource("4_gxm5g")
 crouch_facing_left_position = Vector2(-26, 4)
 crouch_facing_right_position = Vector2(26, 4)
 crouch_size = Vector2(32, 24)
-standard_size = Vector2(48.5, 32)
-facing_left_position = Vector2(-35, 0)
-facing_right_position = Vector2(35, 0)
+standard_size = Vector2(49.25, 41)
+facing_left_position = Vector2(-35, -4.5)
+facing_right_position = Vector2(35, -4.5)
 
 [node name="CrouchArea" type="Area2D" parent="."]
 visible = false
