@@ -740,13 +740,22 @@ position = Vector2(665, -104)
 position = Vector2(640, -104)
 
 [node name="Coin2" parent="Coins" instance=ExtResource("6_hc816")]
-position = Vector2(-121, 164)
+position = Vector2(-121, 165)
 
 [node name="Coin3" parent="Coins" instance=ExtResource("6_hc816")]
 position = Vector2(-62, 165)
 
 [node name="Coin4" parent="Coins" instance=ExtResource("6_hc816")]
 position = Vector2(-92, 165)
+
+[node name="Coin13" parent="Coins" instance=ExtResource("6_hc816")]
+position = Vector2(581, 141)
+
+[node name="Coin14" parent="Coins" instance=ExtResource("6_hc816")]
+position = Vector2(558, 141)
+
+[node name="Coin15" parent="Coins" instance=ExtResource("6_hc816")]
+position = Vector2(535, 141)
 
 [node name="Enemies" type="Node" parent="."]
 
