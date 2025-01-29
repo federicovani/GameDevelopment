@@ -6,6 +6,8 @@ extends Area2D
 @export var player : Node2D = Global.playerBody
 @export var to_damage : damageable
 
+var rng = RandomNumberGenerator.new()
+
 @export var damage : int
 
 func _ready() -> void:
@@ -20,6 +22,9 @@ func _process(_delta: float) -> void:
 					character.state_machine.switch_states(character.attack_state)
 					timer.start()
 
+func get_damage() -> int:
+	return rng.randi_range(damage - 5, damage + 5)
+
 func _on_body_entered(body: Node2D) -> void:
 	if(character.state_machine.current_state!=character.death_state && timer.is_stopped()):
 		player = body
@@ -32,9 +37,9 @@ func hit():
 		var direction_to_damageable = (player.global_position - character.global_position)
 		var direction_sign = sign(direction_to_damageable.x)
 		if(direction_sign > 0):
-			to_damage.hit(damage, Vector2.RIGHT)
+			to_damage.hit(get_damage(), Vector2.RIGHT)
 		elif(direction_sign < 0):
-			to_damage.hit(damage, Vector2.LEFT)
+			to_damage.hit(get_damage(), Vector2.LEFT)
 		else:
-			to_damage.hit(damage, Vector2.ZERO)
+			to_damage.hit(get_damage(), Vector2.ZERO)
 	

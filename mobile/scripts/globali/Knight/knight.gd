@@ -10,6 +10,8 @@ var falling_gravity = gravity * 1.5
 @export var health : float = 100
 @export var damage : float = 20
 
+var rng = RandomNumberGenerator.new()
+
 @export var is_crouching : bool = false
 @export var facing_right: bool = true
 
@@ -71,6 +73,10 @@ func update_player_audio(audio_name : String):
 	if(audio_name != player_audio_stream["parameters/switch_to_clip"]):
 		player_audio_stream.play()
 		player_audio_stream["parameters/switch_to_clip"] = audio_name
+
+func get_damage() -> int:
+	return rng.randi_range(damage - 5, damage + 5)
+	
 
 func cannot_move():
 	state_machine.current_state.can_move = false
