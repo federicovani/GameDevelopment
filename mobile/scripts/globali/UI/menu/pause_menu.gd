@@ -31,7 +31,7 @@ func _process(_delta: float) -> void:
 
 func update_button_scale():
 	for button in pause_menu_buttons:
-		button_hover(button, 1.2, 0.2)
+		button_hover(button, 1.1, 0.2)
 		
 	button_hover(open_button, 1.3, 0.2)
 
@@ -91,4 +91,5 @@ func on_exit_options_menu():
 func _on_quit_pressed() -> void:
 	animation_player.play("quit_animation")
 	await animation_player.animation_finished
-	get_tree().quit()
+	get_tree().paused = false
+	SceneManager.go_to_main_menu()
