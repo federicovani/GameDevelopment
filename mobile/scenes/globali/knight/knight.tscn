@@ -1,4 +1,4 @@
-[gd_scene load_steps=118 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=116 format=3 uid="uid://cmvr0blmdbg8h"]
 
 [ext_resource type="Script" path="res://scripts/globali/Knight/knight.gd" id="1_kihmv"]
 [ext_resource type="Shader" uid="uid://cr6q0xqv0sfdk" path="res://scripts/resources/shaders/hit_flash.tres" id="3_b5rw8"]
@@ -911,9 +911,12 @@ advance_mode = 2
 
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_3r5ao"]
 
-[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_l8xry"]
-
 [sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bytpl"]
+switch_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7lndw"]
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ng41q"]
 switch_mode = 2
 
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dy010"]
@@ -941,11 +944,11 @@ states/jump_start/position = Vector2(707, 12)
 states/move/node = SubResource("AnimationNodeBlendSpace1D_h4tog")
 states/move/position = Vector2(396, 94)
 states/wall_climb/node = SubResource("AnimationNodeAnimation_gxkh0")
-states/wall_climb/position = Vector2(1059, 20)
+states/wall_climb/position = Vector2(1085, 20)
 states/wall_hang/node = SubResource("AnimationNodeAnimation_dfbd8")
 states/wall_hang/position = Vector2(894, 6)
-transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_kryjm"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_3fbca"), "jump_end", "move", SubResource("AnimationNodeStateMachineTransition_x34cd"), "jump_start", "jump_in_between", SubResource("AnimationNodeStateMachineTransition_yv07t"), "jump_in_between", "jump_end", SubResource("AnimationNodeStateMachineTransition_qm6h5"), "move", "death", SubResource("AnimationNodeStateMachineTransition_7j6l7"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_6uuak"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_iqmbq"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_sl5lb"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_8hoys"), "move", "hit", SubResource("AnimationNodeStateMachineTransition_k0ser"), "hit", "move", SubResource("AnimationNodeStateMachineTransition_p4e4b"), "move", "crouch_transition", SubResource("AnimationNodeStateMachineTransition_47puo"), "crouch_transition", "move", SubResource("AnimationNodeStateMachineTransition_mm8iu"), "crouch_transition", "crouch_move", SubResource("AnimationNodeStateMachineTransition_065vq"), "crouch_move", "crouch_transition", SubResource("AnimationNodeStateMachineTransition_w4vrf"), "crouch_move", "crouch_attack", SubResource("AnimationNodeStateMachineTransition_to3ov"), "crouch_attack", "crouch_move", SubResource("AnimationNodeStateMachineTransition_msa1a"), "jump_start", "wall_hang", SubResource("AnimationNodeStateMachineTransition_dcuyi"), "wall_hang", "wall_climb", SubResource("AnimationNodeStateMachineTransition_3r5ao"), "wall_hang", "jump_end", SubResource("AnimationNodeStateMachineTransition_l8xry"), "wall_climb", "jump_end", SubResource("AnimationNodeStateMachineTransition_bytpl")]
-graph_offset = Vector2(-121, -138)
+transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_kryjm"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_3fbca"), "jump_end", "move", SubResource("AnimationNodeStateMachineTransition_x34cd"), "jump_start", "jump_in_between", SubResource("AnimationNodeStateMachineTransition_yv07t"), "jump_in_between", "jump_end", SubResource("AnimationNodeStateMachineTransition_qm6h5"), "move", "death", SubResource("AnimationNodeStateMachineTransition_7j6l7"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_6uuak"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_iqmbq"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_sl5lb"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_8hoys"), "move", "hit", SubResource("AnimationNodeStateMachineTransition_k0ser"), "hit", "move", SubResource("AnimationNodeStateMachineTransition_p4e4b"), "move", "crouch_transition", SubResource("AnimationNodeStateMachineTransition_47puo"), "crouch_transition", "move", SubResource("AnimationNodeStateMachineTransition_mm8iu"), "crouch_transition", "crouch_move", SubResource("AnimationNodeStateMachineTransition_065vq"), "crouch_move", "crouch_transition", SubResource("AnimationNodeStateMachineTransition_w4vrf"), "crouch_move", "crouch_attack", SubResource("AnimationNodeStateMachineTransition_to3ov"), "crouch_attack", "crouch_move", SubResource("AnimationNodeStateMachineTransition_msa1a"), "jump_start", "wall_hang", SubResource("AnimationNodeStateMachineTransition_dcuyi"), "wall_hang", "wall_climb", SubResource("AnimationNodeStateMachineTransition_3r5ao"), "wall_climb", "jump_end", SubResource("AnimationNodeStateMachineTransition_bytpl"), "wall_hang", "jump_in_between", SubResource("AnimationNodeStateMachineTransition_7lndw"), "wall_climb", "move", SubResource("AnimationNodeStateMachineTransition_ng41q")]
+graph_offset = Vector2(-169, -27)
 
 [sub_resource type="Animation" id="Animation_r7xok"]
 length = 0.001
@@ -994,15 +997,6 @@ size = Vector2(48.5, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_euu0d"]
 size = Vector2(20, 12)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_tfc4m"]
-size = Vector2(23, 0)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_idkqb"]
-size = Vector2(23, 20)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_ssobb"]
-size = Vector2(18, 20)
 
 [sub_resource type="AudioStreamWAV" id="AudioStreamWAV_tndiq"]
 format = 1
@@ -1115,13 +1109,13 @@ character = NodePath("..")
 current_state = NodePath("Idle")
 animation_tree = NodePath("../AnimationTree")
 
-[node name="Idle" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("sprite", "knight_facing_collision_shape", "sword_facing_collision_shape", "raycast_wall_check", "floor_check", "dash_timer")]
+[node name="Idle" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("sprite", "knight_facing_collision_shape", "sword_facing_collision_shape", "raycast_wall_check", "raycast_ledge_grab", "dash_timer")]
 script = ExtResource("21_lucib")
 sprite = NodePath("../../Sprite2D")
 knight_facing_collision_shape = NodePath("../../CollisionShapeKnight")
 sword_facing_collision_shape = NodePath("../../Sword/CollisionShapeSword")
 raycast_wall_check = NodePath("../../RaycastWallCheck")
-floor_check = NodePath("../../FloorCheck")
+raycast_ledge_grab = NodePath("../../RaycastLedgeGrab")
 dash_timer = NodePath("../Dash/CooldownTimer")
 
 [node name="BufferTimer" type="Timer" parent="CharacterStateMachine/Idle"]
@@ -1148,17 +1142,19 @@ one_shot = true
 [node name="Jumping" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("24_f1r60")
 
-[node name="Falling" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ledge_grab", "wall_check", "floor_check", "raycast_wall_check", "marker")]
+[node name="Falling" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ledge_grab", "wall_check", "floor_check", "raycast_wall_check", "raycast_ledge_grab", "marker")]
 script = ExtResource("25_0hf5c")
-ledge_grab = NodePath("../../LedgeGrab")
-wall_check = NodePath("../../WallCheck")
-floor_check = NodePath("../../FloorCheck")
+ledge_grab = NodePath("")
+wall_check = NodePath("")
+floor_check = NodePath("")
 raycast_wall_check = NodePath("../../RaycastWallCheck")
+raycast_ledge_grab = NodePath("../../RaycastLedgeGrab")
 marker = NodePath("../../DustMarker")
 
-[node name="Wall_Hang" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("wall_check")]
+[node name="Wall_Hang" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("raycast_wall_check", "raycast_ledge_grab")]
 script = ExtResource("26_v7b84")
-wall_check = NodePath("../../WallCheck")
+raycast_wall_check = NodePath("../../RaycastWallCheck")
+raycast_ledge_grab = NodePath("../../RaycastLedgeGrab")
 can_move = false
 
 [node name="Attacking" type="Node" parent="CharacterStateMachine"]
@@ -1214,27 +1210,12 @@ collision_layer = 0
 position = Vector2(0, -16)
 shape = SubResource("RectangleShape2D_euu0d")
 
-[node name="LedgeGrab" type="CollisionShape2D" parent="."]
-visible = false
-position = Vector2(0, -16)
-shape = SubResource("RectangleShape2D_tfc4m")
-disabled = true
-
-[node name="WallCheck" type="ShapeCast2D" parent="."]
-visible = false
-position = Vector2(0, -10)
-shape = SubResource("RectangleShape2D_idkqb")
-target_position = Vector2(0, 13)
-
-[node name="FloorCheck" type="ShapeCast2D" parent="."]
-visible = false
-position = Vector2(0, 20)
-shape = SubResource("RectangleShape2D_ssobb")
-target_position = Vector2(0, 6)
-
 [node name="RaycastWallCheck" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(0, -20)
+target_position = Vector2(14, 0)
+
+[node name="RaycastLedgeGrab" type="RayCast2D" parent="."]
+position = Vector2(0, -12)
 target_position = Vector2(14, 0)
 
 [node name="DustMarker" type="Marker2D" parent="."]

@@ -4,7 +4,7 @@ class_name idle extends State
 @export var knight_facing_collision_shape : FacingCollisionShapeKnight
 @export var sword_facing_collision_shape : FacingCollisionShapeKnight
 @export var raycast_wall_check : RayCast2D
-@export var floor_check: ShapeCast2D
+@export var raycast_ledge_grab : RayCast2D
 
 @onready var walking_particles: GPUParticles2D = $"../../WalkingParticles"
 
@@ -25,7 +25,7 @@ func on_enter():
 	set_collision_shapes()
 
 func state_process(_delta):
-	if(!floor_check.is_colliding() && !character.is_on_floor() && buffer_timer.is_stopped()):
+	if(!character.is_on_floor() && buffer_timer.is_stopped()):
 		get_tree().create_timer(coyote_time).timeout.connect(_on_coyote_timeout)
 			
 	if character.direction:
@@ -95,10 +95,12 @@ func on_player_facing_direction_changed(facing_right : bool):
 		sprite.offset = sprite.facing_right_offset
 		sword_facing_collision_shape.position = sword_facing_collision_shape.facing_right_position
 		raycast_wall_check.scale.x = 1
+		raycast_ledge_grab.scale.x = 1
 	else:
 		sprite.offset = sprite.facing_left_offset
 		sword_facing_collision_shape.position = sword_facing_collision_shape.facing_left_position
 		raycast_wall_check.scale.x = -1
+		raycast_ledge_grab.scale.x = -1
 
 func on_exit():
 	walking_particles.emitting = false
