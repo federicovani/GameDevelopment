@@ -1142,11 +1142,8 @@ one_shot = true
 [node name="Jumping" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("24_f1r60")
 
-[node name="Falling" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("ledge_grab", "wall_check", "floor_check", "raycast_wall_check", "raycast_ledge_grab", "marker")]
+[node name="Falling" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("raycast_wall_check", "raycast_ledge_grab", "marker")]
 script = ExtResource("25_0hf5c")
-ledge_grab = NodePath("")
-wall_check = NodePath("")
-floor_check = NodePath("")
 raycast_wall_check = NodePath("../../RaycastWallCheck")
 raycast_ledge_grab = NodePath("../../RaycastLedgeGrab")
 marker = NodePath("../../DustMarker")

@@ -458,6 +458,8 @@ damageable = NodePath("../../Damageable")
 can_move = false
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
+wait_time = 0.2
+one_shot = true
 
 [node name="Attack" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_53snx")
@@ -524,5 +526,6 @@ state_machine = NodePath("../CharacterStateMachine")
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attack" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="CharacterStateMachine/Flying/DirectionTimer" to="CharacterStateMachine/Flying" method="_on_direction_timer_timeout"]
 [connection signal="timeout" from="CharacterStateMachine/Chase/Timer" to="CharacterStateMachine/Chase" method="_on_timer_timeout"]
+[connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
 [connection signal="body_entered" from="ChaseArea" to="CharacterStateMachine/Flying" method="_on_chase_area_body_entered"]
 [connection signal="body_entered" from="AttackZone" to="AttackZone" method="_on_body_entered"]

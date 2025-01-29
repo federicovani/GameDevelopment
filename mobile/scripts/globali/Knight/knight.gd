@@ -3,7 +3,7 @@ class_name Knight extends CharacterBody2D
 @export var speed : float = 7000.0
 @export var dash_speed : float = 20000.0
 @export var crouching_speed : float = 2000.0
-@export var jump_velocity: float = -300.0
+@export var jump_velocity: float = -325.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") #Get the gravity from the project settings to be synced with RigidBody nodes.
 var falling_gravity = gravity * 1.5
 
