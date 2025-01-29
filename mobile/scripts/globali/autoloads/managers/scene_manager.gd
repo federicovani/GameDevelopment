@@ -19,7 +19,7 @@ var scene_to_file : Dictionary = {
 var level_to_unlocked : Dictionary = {
 	tutorial : true,
 	livello_federico : true,
-	livello_elisa : true,
+	livello_elisa : false,
 	livello_sara : false
 }
 
@@ -28,6 +28,7 @@ var level_order : Array[String] = [tutorial, livello_federico, livello_elisa, li
 var current_level : String
 
 func _ready() -> void:
+	SignalBus.connect("portal_crossed", _on_portal_crossed)
 	current_level = main_menu
 	
 func get_scene_file(level : String) -> String:
@@ -44,12 +45,18 @@ func is_level_unlocked(level : String) -> bool:
 		print_debug("Can't find any level: "+ level)
 		return 0
 
+func unlock_level(level : String):
+	if level_to_unlocked.has(level):
+		level_to_unlocked[level] = true
+	else:
+		print_debug("Can't find any level: "+ level)
+
 func get_next_level(level : String) -> String:
 	var i : int = 0
 	for lvl in level_order:
-		i += 1
 		if(lvl == level):
 			return level_order[i+1]
+		i += 1
 	print_debug("Can't find any next level for: "+ level)
 	return "error_string"
 
@@ -73,3 +80,13 @@ func go_to_scene(scene : String):
 	else:
 		current_level = scene
 		get_tree().change_scene_to_file(scene_file)
+
+func _on_portal_crossed():
+	var next_level : String = get_next_level(current_level)
+	unlock_level(next_level)
+	
+	
+	
+	
+	
+	
