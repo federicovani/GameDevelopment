@@ -1,0 +1,125 @@
+[gd_scene load_steps=9 format=3 uid="uid://ia7djvwxdy50"]
+
+[ext_resource type="Theme" uid="uid://cnk304tv4ytv5" path="res://assets/globali/GUI/default.tres" id="1_nofsw"]
+[ext_resource type="Texture2D" uid="uid://23vlpsuu2hgj" path="res://assets/globali/GUI/GUI.png" id="2_45gaf"]
+[ext_resource type="Script" path="res://scripts/globali/UI/menu/options_menu/camera_zoom_slider_settings.gd" id="2_ykwh5"]
+[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="3_yewsn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mfflk"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cpld8"]
+texture = ExtResource("2_45gaf")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+region_rect = Rect2(17, 82, 14, 13)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_i4tyt"]
+texture = ExtResource("2_45gaf")
+texture_margin_left = 1.0
+texture_margin_top = 1.0
+texture_margin_right = 1.0
+texture_margin_bottom = 1.0
+expand_margin_left = 3.0
+expand_margin_top = 3.0
+expand_margin_right = 3.0
+expand_margin_bottom = 3.0
+region_rect = Rect2(1, 81, 14, 14)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x3bc8"]
+atlas = ExtResource("2_45gaf")
+region = Rect2(52, 67, 8, 7)
+
+[node name="CameraZoomSliderSettings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_nofsw")
+script = ExtResource("2_ykwh5")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer"]
+custom_minimum_size = Vector2(831, 60)
+layout_mode = 2
+texture = ExtResource("2_45gaf")
+region_rect = Rect2(49, 97, 30, 30)
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 12
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 12
+theme_override_constants/margin_bottom = 6
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 32
+
+[node name="CameraZoom" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_yewsn")
+theme_override_font_sizes/font_size = 32
+text = "Camera Zoom"
+
+[node name="VSeparator" type="VSeparator" parent="MarginContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_mfflk")
+
+[node name="VSeparator3" type="VSeparator" parent="MarginContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_mfflk")
+
+[node name="HSlider" type="HSlider" parent="MarginContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(200, 40)
+layout_mode = 2
+size_flags_vertical = 1
+min_value = 2.0
+max_value = 5.0
+step = 0.5
+value = 2.0
+
+[node name="ResetButton" type="Button" parent="MarginContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(20, 20)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_styles/hover = SubResource("StyleBoxTexture_cpld8")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_cpld8")
+theme_override_styles/normal = SubResource("StyleBoxTexture_i4tyt")
+icon = SubResource("AtlasTexture_x3bc8")
+icon_alignment = 1
+expand_icon = true
+
+[node name="VSeparator2" type="VSeparator" parent="MarginContainer/MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_styles/separator = SubResource("StyleBoxEmpty_mfflk")
+
+[node name="ZoomValue" type="Label" parent="MarginContainer/MarginContainer/HBoxContainer"]
+custom_minimum_size = Vector2(80, 0)
+layout_mode = 2
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("3_yewsn")
+theme_override_font_sizes/font_size = 32
+text = "99
+"
+
+[connection signal="value_changed" from="MarginContainer/MarginContainer/HBoxContainer/HSlider" to="." method="_on_h_slider_value_changed"]
+[connection signal="pressed" from="MarginContainer/MarginContainer/HBoxContainer/ResetButton" to="." method="_on_reset_button_pressed"]

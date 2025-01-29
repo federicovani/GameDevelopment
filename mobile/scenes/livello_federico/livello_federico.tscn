@@ -652,6 +652,9 @@ mouse_filter = 0
 position = Vector2(-69, -7)
 
 [node name="Camera2D" parent="knight" instance=ExtResource("8_dyj66")]
+zoom = Vector2(2, 2)
+limit_top = -240
+limit_bottom = 235
 
 [node name="killzone" parent="." instance=ExtResource("4_4yu1q")]
 

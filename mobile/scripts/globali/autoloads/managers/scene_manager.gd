@@ -23,6 +23,13 @@ var level_to_unlocked : Dictionary = {
 	livello_sara : false
 }
 
+var level_to_default_zoom : Dictionary = {
+	tutorial : 2,
+	livello_federico : 2,
+	livello_elisa : 2,
+	livello_sara : 2
+}
+
 var level_order : Array[String] = [tutorial, livello_federico, livello_elisa, livello_sara]
 
 var current_level : String
