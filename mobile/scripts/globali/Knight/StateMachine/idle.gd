@@ -71,7 +71,8 @@ func attack():
 	next_state = character.attack_state
 
 func _on_coyote_timeout():
-	next_state = character.falling_state
+	if !character.is_on_floor():
+		next_state = character.falling_state
 
 func set_collision_shapes():
 	knight_facing_collision_shape.shape.set_size(knight_facing_collision_shape.standard_size)
