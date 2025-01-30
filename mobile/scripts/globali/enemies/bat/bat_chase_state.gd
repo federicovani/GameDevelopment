@@ -1,11 +1,14 @@
 class_name bat_chase extends State
 
+@onready var timer: Timer = $Timer
+
 @export var player : CharacterBody2D
 
 var chase_speed : float = 2000.0
 
 func on_enter():
 	playback.travel(character.walk_animation)
+	timer.start()
 
 func _physics_process(delta: float) -> void:
 	player = Global.playerBody
@@ -20,6 +23,8 @@ func _physics_process(delta: float) -> void:
 			character.velocity = character.direction * chase_speed * delta
 		character.move_and_slide()
 
-
 func _on_timer_timeout() -> void:
 	next_state = character.walk_state
+
+func on_exit():
+	timer.stop()
