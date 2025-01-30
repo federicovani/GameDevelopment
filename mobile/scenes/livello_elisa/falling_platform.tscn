@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://diqbbrpfvry7t"]
+
+[ext_resource type="Texture2D" uid="uid://bcaylh0cg4ri8" path="res://assets/livello_elisa/02. Crystal World/main_lev_build_1.png" id="1_dvp70"]
+
+[node name="FallingPlatform" type="Node"]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+
+[node name="TriggerArea" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+
+[node name="FallTimer" type="Timer" parent="."]
+
+[node name="SelfDestructTimer" type="Timer" parent="."]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_dvp70")
