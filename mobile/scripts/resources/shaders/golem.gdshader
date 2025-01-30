@@ -17,12 +17,12 @@ void fragment() {
 	float adjusted_progress = 2.0 * progress;
 	float scale_factor = 1.0 - 0.1 * adjusted_progress;
 	vec2 base_uv = vec2(
-		UV.x * scale_factor + 0.00625 * adjusted_progress, 
+		UV.x * scale_factor + 0.00625 * adjusted_progress,
 		UV.y * scale_factor + 0.1 * adjusted_progress);
-	vec4 base_tex = texture(TEXTURE, base_uv);	
+	vec4 base_tex = texture(TEXTURE, base_uv);
 	base_tex.a *= 1.0 - progress;
 	base_tex.rgb = base_tex.rrr;
-	
+
 	vec4 berserk_tex = COLOR;
 	berserk_tex.rgb = mix(berserk_tex.bbb, berserk_tex.rgb, progress);
 	COLOR = mix(base_tex, berserk_tex, berserk_tex.a * progress);

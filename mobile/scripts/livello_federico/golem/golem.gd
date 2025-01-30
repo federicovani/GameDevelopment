@@ -43,7 +43,7 @@ func set_berserk_progress(val : float):
 
 func berserk_tween(set_to : float) -> bool:
 	var tween = get_tree().create_tween()
-	tween.tween_method(set_berserk_progress, 1.0 - set_to, set_to, 0.6)
+	tween.tween_method(set_berserk_progress, 1.0 - set_to, set_to, 1.0)
 	await tween.finished
 	return true
 
@@ -53,7 +53,7 @@ func handle_orientation():
 		sprite.flip_h = false
 	elif(direction.x < 0):
 		sprite.flip_h = true
-	#on_facing_direction_changed(!sprite.flip_h)
+	on_facing_direction_changed(!sprite.flip_h)
 	
 #Handling CollisionShape and RayCast when character changes direction
 @warning_ignore("shadowed_variable")
