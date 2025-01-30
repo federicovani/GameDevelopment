@@ -17,12 +17,12 @@
 [ext_resource type="PackedScene" uid="uid://orkv4h8m75vj" path="res://scenes/globali/enemies/bat.tscn" id="12_vr1kg"]
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="13_ekqrr"]
 [ext_resource type="PackedScene" uid="uid://mjkc8ywujg0t" path="res://scenes/livello_sara/light.tscn" id="14_vrdyu"]
-[ext_resource type="PackedScene" path="res://scenes/globali/enemies/slime.tscn" id="14_wlg01"]
 [ext_resource type="PackedScene" uid="uid://b2l5wetgjsypj" path="res://scenes/livello_sara/torch_c.tscn" id="15_o67j1"]
 [ext_resource type="PackedScene" uid="uid://bbcthl2t0bfjq" path="res://scenes/livello_sara/torch_a.tscn" id="16_0pwj6"]
 [ext_resource type="PackedScene" uid="uid://cyyuehxd5jplb" path="res://scenes/livello_sara/torch_b.tscn" id="17_8h8nb"]
 [ext_resource type="PackedScene" uid="uid://b2uj1ljrtr3oa" path="res://scenes/livello_sara/damage_object.tscn" id="20_f3hhp"]
 [ext_resource type="PackedScene" uid="uid://bhel8jmvawyaf" path="res://scenes/globali/UI/ui_control.tscn" id="21_408eq"]
+[ext_resource type="PackedScene" uid="uid://dyoe03my1ow2x" path="res://scenes/livello_sara/falling_platform_2.tscn" id="24_gtbnh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnyg4"]
 texture = ExtResource("1_f67bj")
@@ -1291,7 +1291,7 @@ layer_3/tile_data = PackedInt32Array(327671, 917504, 20, 327675, 1179648, 20, 26
 [node name="background" parent="." instance=ExtResource("2_a7s8q")]
 
 [node name="knight" parent="." instance=ExtResource("3_n5yw1")]
-position = Vector2(0, 1)
+position = Vector2(3514, -718)
 
 [node name="PlayerCamera" parent="knight" instance=ExtResource("5_l4gmt")]
 zoom = Vector2(2.5, 2.5)
@@ -1383,7 +1383,7 @@ position = Vector2(3704, -250)
 [node name="Bats" type="Node" parent="."]
 
 [node name="Bat" parent="Bats" instance=ExtResource("12_vr1kg")]
-position = Vector2(856, 113)
+position = Vector2(793, 140)
 
 [node name="Bat2" parent="Bats" instance=ExtResource("12_vr1kg")]
 position = Vector2(3109, -644)
@@ -1393,9 +1393,6 @@ position = Vector2(3483, -327)
 
 [node name="Necromancer" parent="." instance=ExtResource("9_5vfbd")]
 position = Vector2(2563, 251)
-
-[node name="slime" parent="." instance=ExtResource("14_wlg01")]
-position = Vector2(3627, -711)
 
 [node name="Diamonds" type="Node" parent="."]
 
@@ -1566,3 +1563,16 @@ metadata/_edit_use_anchors_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI_Control" parent="CanvasLayer" instance=ExtResource("21_408eq")]
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 1.0
+offset_bottom = 2.0
+
+[node name="FallingPlatform2" parent="." instance=ExtResource("24_gtbnh")]
+position = Vector2(4033, -723)
+
+[node name="FallingPlatform3" parent="." instance=ExtResource("24_gtbnh")]
+position = Vector2(4132, -672)
+
+[node name="FallingPlatform4" parent="." instance=ExtResource("24_gtbnh")]
+position = Vector2(4207, -712)
