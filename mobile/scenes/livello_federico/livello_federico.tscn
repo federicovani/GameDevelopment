@@ -12,10 +12,14 @@
 [ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/enemies/skeleton.tscn" id="7_saqal"]
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="8_72k1w"]
 [ext_resource type="PackedScene" uid="uid://cge0406htmiti" path="res://scenes/globali/knight/camera.tscn" id="8_dyj66"]
+<<<<<<< HEAD
 [ext_resource type="PackedScene" uid="uid://dutorvfhll451" path="res://scenes/livello_federico/small_wooden_platform.tscn" id="10_2jq6i"]
 [ext_resource type="PackedScene" uid="uid://dkr3o4i2k7dhh" path="res://scenes/livello_federico/moving_platform.tscn" id="11_2ydsw"]
+=======
+[ext_resource type="PackedScene" path="res://scenes/livello_federico/small_wooden_platform.tscn" id="10_2jq6i"]
+>>>>>>> 44b55c4889e6a81833ac68235b2b2052fac4b7a8
 [ext_resource type="PackedScene" uid="uid://orkv4h8m75vj" path="res://scenes/globali/enemies/bat.tscn" id="11_5ljrp"]
-[ext_resource type="PackedScene" uid="uid://k4hw66jkf8dk" path="res://scenes/globali/enemies/slime.tscn" id="13_ssabc"]
+[ext_resource type="PackedScene" path="res://scenes/globali/enemies/slime.tscn" id="13_ssabc"]
 [ext_resource type="PackedScene" uid="uid://c84q7rgy8bd2b" path="res://scenes/globali/enemies/witch.tscn" id="16_diw2f"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_uv3x8"]
