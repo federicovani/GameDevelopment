@@ -46,9 +46,16 @@ size_flags_horizontal = 0
 [node name="GameOverScreen" parent="." instance=ExtResource("4_npmhv")]
 layout_mode = 1
 
+[node name="Label" parent="GameOverScreen" index="2"]
+offset_left = 0.480011
+offset_top = 0.296005
+offset_bottom = -0.287994
+
 [node name="VBoxContainer" parent="GameOverScreen" index="3"]
-offset_top = -5.0
-offset_bottom = 173.0
+offset_left = 27.968
+offset_top = 14.312
+offset_right = 29.032
+offset_bottom = 192.312
 
 [node name="LevelCompletedScreen" parent="." instance=ExtResource("5_4i3uh")]
 layout_mode = 1

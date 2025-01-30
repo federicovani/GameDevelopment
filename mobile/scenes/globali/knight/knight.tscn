@@ -1002,7 +1002,6 @@ size = Vector2(20, 12)
 format = 1
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_axh03"]
-initial_clip = 1
 clip_count = 6
 clip_0/name = &"reset"
 clip_0/stream = SubResource("AudioStreamWAV_tndiq")
