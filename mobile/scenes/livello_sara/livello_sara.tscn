@@ -1328,6 +1328,41 @@ position = Vector2(3377, 227)
 [node name="FallingPlatform7" parent="Platforms/FallingPlatforms" instance=ExtResource("12_istsp")]
 position = Vector2(3409, 227)
 
+[node name="FallingPlatforms2" type="Node" parent="Platforms"]
+
+[node name="FallingPlatform8" parent="Platforms/FallingPlatforms2" instance=ExtResource("24_gtbnh")]
+position = Vector2(4344, -551)
+
+[node name="FallingPlatform2" parent="Platforms/FallingPlatforms2" instance=ExtResource("24_gtbnh")]
+position = Vector2(4034, -381)
+
+[node name="FallingPlatform3" parent="Platforms/FallingPlatforms2" instance=ExtResource("24_gtbnh")]
+position = Vector2(4110, -308)
+
+[node name="FallingPlatform4" parent="Platforms/FallingPlatforms2" instance=ExtResource("24_gtbnh")]
+position = Vector2(4185, -348)
+
+[node name="FallingPlatform5" parent="Platforms/FallingPlatforms2" instance=ExtResource("24_gtbnh")]
+position = Vector2(4265, -392)
+
+[node name="FallingPlatform6" parent="Platforms/FallingPlatforms2" instance=ExtResource("24_gtbnh")]
+position = Vector2(4188, -448)
+
+[node name="FallingPlatform7" parent="Platforms/FallingPlatforms2" instance=ExtResource("24_gtbnh")]
+position = Vector2(4270, -504)
+
+[node name="FallingPlatform9" parent="Platforms/FallingPlatforms2" instance=ExtResource("24_gtbnh")]
+position = Vector2(4273, -598)
+
+[node name="FallingPlatform10" parent="Platforms/FallingPlatforms2" instance=ExtResource("24_gtbnh")]
+position = Vector2(4376, -393)
+
+[node name="FallingPlatform11" parent="Platforms/FallingPlatforms2" instance=ExtResource("24_gtbnh")]
+position = Vector2(4483, -393)
+
+[node name="FallingPlatform12" parent="Platforms/FallingPlatforms2" instance=ExtResource("24_gtbnh")]
+position = Vector2(4582, -393)
+
 [node name="Platform" parent="Platforms" instance=ExtResource("8_t5111")]
 position = Vector2(2042, 372)
 
@@ -1401,6 +1436,9 @@ position = Vector2(2802, 347)
 
 [node name="Diamond2" parent="Diamonds" instance=ExtResource("6_mpbfg")]
 position = Vector2(3441, -143)
+
+[node name="Diamond3" parent="Diamonds" instance=ExtResource("6_mpbfg")]
+position = Vector2(4271, -623)
 
 [node name="Coins" type="Node" parent="."]
 
@@ -1567,12 +1605,3 @@ offset_left = 1.0
 offset_top = 2.0
 offset_right = 1.0
 offset_bottom = 2.0
-
-[node name="FallingPlatform2" parent="." instance=ExtResource("24_gtbnh")]
-position = Vector2(4033, -723)
-
-[node name="FallingPlatform3" parent="." instance=ExtResource("24_gtbnh")]
-position = Vector2(4132, -672)
-
-[node name="FallingPlatform4" parent="." instance=ExtResource("24_gtbnh")]
-position = Vector2(4207, -712)
