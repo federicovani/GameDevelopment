@@ -11,12 +11,9 @@ class_name wall_hang extends State
 
 func on_enter():
 	character.velocity.y = 0
-	if(!raycast_wall_check.is_colliding() && raycast_ledge_grab.is_colliding()):
-		playback.travel(character.wall_hang_animation)
-		can_climb = false
-		dropped = false
-	else:
-		next_state = character.falling_state
+	playback.travel(character.wall_hang_animation)
+	can_climb = false
+	dropped = false
 
 func state_process(delta: float) -> void:
 	if can_climb:
@@ -27,18 +24,15 @@ func state_process(delta: float) -> void:
 			character.velocity.x = character.direction.x * wall_climb_speed * delta
 		else:
 			character.velocity.x = move_toward(character.velocity.x, 0, wall_climb_speed)
-			
-		#character.move_and_slide()
-	#if dropped:
-		#character.velocity.y += character.gravity * delta
+	if(!can_climb && !raycast_wall_check.is_colliding() && !raycast_ledge_grab.is_colliding()):
+		print_debug(str(raycast_wall_check.is_colliding()) + " " + str(raycast_ledge_grab.is_colliding()))
+		next_state = character.falling_state
 
 		
 func state_input(event: InputEvent):
 	if(event.is_action_pressed("jump")):
 		jump()
 	if(event.is_action_pressed("crouch")):
-		#dropped = true
-		#await get_tree().create_timer(0.10).timeout
 		next_state = character.idle_state
 
 func jump():
