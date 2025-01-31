@@ -8,7 +8,7 @@ var rng = RandomNumberGenerator.new()
 var to_damage : Node2D
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if has_overlapping_bodies() && buffer_timer.is_stopped() && !kill_timer.is_stopped():
 		for child in to_damage.get_children():
 			if child is damageable:
@@ -26,7 +26,4 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_kill_timer_timeout() -> void:
-	SignalBus.emit_new_death()
-	SignalBus.emit_camera_shook()
-	SignalBus.emit_on_health_decreased()
-	SignalBus.emit_show_game_over_screen()
+	SignalBus.emit_forced_death()

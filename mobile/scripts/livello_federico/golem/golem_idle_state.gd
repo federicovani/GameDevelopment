@@ -9,7 +9,7 @@ func _ready() -> void:
 func on_enter():
 	playback.travel(character.idle_animation)
 	
-func _on_awakening_zone_body_entered(body: Node2D) -> void:
+func _on_awakening_zone_body_entered(_body: Node2D) -> void:
 	if(get_parent().current_state == self):
 		SignalBus.emit_camera_shook(2.5)
 		await character.berserk_tween(1.0)

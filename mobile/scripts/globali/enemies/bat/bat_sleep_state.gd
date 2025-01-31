@@ -7,7 +7,7 @@ var is_on_ceiling : bool = false
 func on_enter():
 	is_on_ceiling = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if(get_parent().current_state == self || get_parent().current_state == character.walk_state):
 		if(ray_cast_sleep.is_colliding()):
 			next_state = character.chase_state

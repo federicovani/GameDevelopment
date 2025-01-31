@@ -8,6 +8,8 @@ signal portal_crossed()
 
 signal fallen_in_lava()
 
+signal forced_death()
+
 #region Level Stats
 signal level_changed()
 signal new_death()
@@ -30,6 +32,10 @@ signal show_game_over_screen()
 
 func emit_fallen_in_lava():
 	fallen_in_lava.emit()
+
+
+func emit_forced_death():
+	forced_death.emit()
 
 
 #region Emit Level Stats
