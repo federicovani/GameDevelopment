@@ -1141,6 +1141,10 @@ one_shot = true
 [node name="Jumping" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("24_f1r60")
 
+[node name="BufferTimer" type="Timer" parent="CharacterStateMachine/Jumping"]
+wait_time = 0.1
+one_shot = true
+
 [node name="Falling" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("raycast_wall_check", "raycast_ledge_grab", "marker")]
 script = ExtResource("25_0hf5c")
 raycast_wall_check = NodePath("../../RaycastWallCheck")
