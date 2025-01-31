@@ -33,6 +33,7 @@ extends CharacterBody2D
 @export var damage : float = 50
 
 func _ready() -> void:
+	set_berserk_progress(0.0)
 	animation_tree.active = true
 
 func _physics_process(_delta: float) -> void:

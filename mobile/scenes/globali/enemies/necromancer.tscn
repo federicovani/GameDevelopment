@@ -533,6 +533,7 @@ can_move = false
 
 [node name="Death" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("11_fc2e6")
+can_move = false
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(14, 0)
@@ -544,7 +545,7 @@ script = ExtResource("11_dv08v")
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
 position = Vector2(17, 0)
-target_position = Vector2(0, 24)
+target_position = Vector2(0, 29)
 script = ExtResource("11_dv08v")
 facing_left_position = Vector2(-17, 0)
 facing_right_position = Vector2(17, 0)

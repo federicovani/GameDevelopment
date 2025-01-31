@@ -439,6 +439,7 @@ animation_tree = NodePath("../AnimationTree")
 script = ExtResource("10_q08tj")
 awakening_zone = NodePath("../../AwakeningZone")
 attack_zone_collision_shape = NodePath("../../AttackZone/CollisionShape2D")
+can_move = false
 
 [node name="Walk" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_vedtx")
@@ -460,6 +461,7 @@ wait_time = 20.0
 [node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable")]
 script = ExtResource("11_ag1ne")
 damageable = NodePath("../../Damageable")
+can_move = false
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Hit"]
 wait_time = 0.2
@@ -467,9 +469,11 @@ one_shot = true
 
 [node name="Attack" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("12_tplcy")
+can_move = false
 
 [node name="Death" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("13_mh3bm")
+can_move = false
 
 [node name="AttackZone" type="Area2D" parent="." node_paths=PackedStringArray("character")]
 collision_layer = 0
