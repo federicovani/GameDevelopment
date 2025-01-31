@@ -25,7 +25,6 @@ func state_process(delta: float) -> void:
 		else:
 			character.velocity.x = move_toward(character.velocity.x, 0, wall_climb_speed)
 	if(!can_climb && !raycast_wall_check.is_colliding() && !raycast_ledge_grab.is_colliding()):
-		print_debug(str(raycast_wall_check.is_colliding()) + " " + str(raycast_ledge_grab.is_colliding()))
 		next_state = character.falling_state
 
 		

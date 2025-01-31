@@ -60,7 +60,7 @@ func _ready():
 	animation_tree.active = true
 	Global.playerBody = self
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	move_and_slide()
 
 func _process(_delta: float) -> void:
