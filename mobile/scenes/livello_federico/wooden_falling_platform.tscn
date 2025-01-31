@@ -1,0 +1,100 @@
+[gd_scene load_steps=9 format=3 uid="uid://br5q5yhfkjvjt"]
+
+[ext_resource type="Script" path="res://scripts/livello_federico/wooden_falling_platform.gd" id="1_bojki"]
+[ext_resource type="Texture2D" uid="uid://txbposiiqq72" path="res://assets/livello_federico/PixelFantasy_Caves_1/small_wooden_platform.png" id="2_60bbb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_st6fv"]
+size = Vector2(78, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_msuhp"]
+size = Vector2(78, 11.5)
+
+[sub_resource type="Animation" id="Animation_8mu1l"]
+resource_name = "shake"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WoodenFallingPlatform/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(-1, 0), Vector2(1, 0), Vector2(-1, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ukbne"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WoodenFallingPlatform/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_xwi3c"]
+resource_name = "fall"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("WoodenFallingPlatform/Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, 100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_3j1e7"]
+_data = {
+"RESET": SubResource("Animation_ukbne"),
+"fall": SubResource("Animation_xwi3c"),
+"shake": SubResource("Animation_8mu1l")
+}
+
+[node name="WoodenFallingPlatform" type="StaticBody2D"]
+script = ExtResource("1_bojki")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_60bbb")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_st6fv")
+
+[node name="TriggerArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+position = Vector2(0, -12)
+shape = SubResource("RectangleShape2D_msuhp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_3j1e7")
+}
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]

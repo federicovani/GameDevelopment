@@ -1,0 +1,18 @@
+[gd_scene load_steps=2 format=3 uid="uid://dgfw5xih331cc"]
+
+[ext_resource type="Script" path="res://scripts/globali/enemies/lava.gd" id="1_w2oe8"]
+
+[node name="Lava" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_w2oe8")
+
+[node name="BufferTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
+[node name="KillTimer" type="Timer" parent="."]
+wait_time = 1.5
+one_shot = true
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="timeout" from="KillTimer" to="." method="_on_kill_timer_timeout"]

@@ -9,8 +9,14 @@ class_name falling extends State
 @export var raycast_ledge_grab : RayCast2D
 @export var marker : Marker2D
 
+var in_lava : bool = false
+
 var jump_buffer = false
 var jump_buffer_timer : float = 0.1
+
+func _ready() -> void:
+	SignalBus.connect("fallen_in_lava", _on_fallen_in_lava)
+	in_lava = false
 
 func on_enter():
 	playback.travel(character.jump_between_animation)
@@ -35,8 +41,10 @@ func state_process(_delta):
 
 func _physics_process(delta: float) -> void:
 	# Add the gravity.
-	if !character.is_on_floor() && get_parent().current_state != character.wall_hang_state:
+	if !in_lava && !character.is_on_floor() && get_parent().current_state != character.wall_hang_state:
 		character.velocity.y += get_gravity() * delta
+	elif in_lava:
+		character.velocity.y = character.falling_gravity * delta
 
 func state_input(event: InputEvent):
 	if(event.is_action_pressed("jump")):
@@ -54,3 +62,6 @@ func get_gravity():
 
 func _on_buffer_jump_timeout():
 	jump_buffer = false
+
+func _on_fallen_in_lava():
+	in_lava = true
