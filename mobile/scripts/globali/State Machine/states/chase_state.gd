@@ -18,7 +18,6 @@ func state_process(delta):
 			character.direction.x = -character.direction.x
 			character.velocity.x = character.direction.x * character.movement_speed * delta
 			next_state = character.walk_state
-	character.move_and_slide()
 
 func _on_timer_timeout() -> void:
 	next_state = character.walk_state

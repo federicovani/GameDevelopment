@@ -42,7 +42,7 @@ func _physics_process(delta):
 		else:
 			character.velocity.x = move_toward(character.velocity.x, 0, deceleration)
 
-		character.move_and_slide()
+		#character.move_and_slide()
 		update_facing_direction()
 
 func state_input(event: InputEvent):

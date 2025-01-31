@@ -10,6 +10,7 @@ class_name wall_hang extends State
 @export var dropped : bool = false
 
 func on_enter():
+	character.velocity.y = 0
 	if(!raycast_wall_check.is_colliding() && raycast_ledge_grab.is_colliding()):
 		playback.travel(character.wall_hang_animation)
 		can_climb = false
@@ -27,7 +28,7 @@ func state_process(delta: float) -> void:
 		else:
 			character.velocity.x = move_toward(character.velocity.x, 0, wall_climb_speed)
 			
-		character.move_and_slide()
+		#character.move_and_slide()
 	#if dropped:
 		#character.velocity.y += character.gravity * delta
 

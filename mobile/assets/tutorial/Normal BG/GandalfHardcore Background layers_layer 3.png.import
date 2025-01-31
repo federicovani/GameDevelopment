@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6ih03fnbnobv"
-path="res://.godot/imported/slime basic v2-Sheet.png-8becf708fefdd84d6b62c10854c9fe64.ctex"
+uid="uid://dyxnjaulycvc3"
+path="res://.godot/imported/GandalfHardcore Background layers_layer 3.png-27974a9aa4960d65e781e1349d4fa147.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/globali/slime basic v2-Sheet.png"
-dest_files=["res://.godot/imported/slime basic v2-Sheet.png-8becf708fefdd84d6b62c10854c9fe64.ctex"]
+source_file="res://assets/tutorial/Normal BG/GandalfHardcore Background layers_layer 3.png"
+dest_files=["res://.godot/imported/GandalfHardcore Background layers_layer 3.png-27974a9aa4960d65e781e1349d4fa147.ctex"]
 
 [params]
 

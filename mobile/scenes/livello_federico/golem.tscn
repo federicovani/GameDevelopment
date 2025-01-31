@@ -447,6 +447,10 @@ script = ExtResource("9_vedtx")
 wait_time = 5.0
 autostart = true
 
+[node name="BufferTimer" type="Timer" parent="CharacterStateMachine/Walk"]
+wait_time = 0.2
+one_shot = true
+
 [node name="Chase" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("10_vutfg")
 

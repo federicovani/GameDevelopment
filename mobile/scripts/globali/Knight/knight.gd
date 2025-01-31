@@ -59,7 +59,10 @@ signal facing_direction_changed(facing_right : bool)
 func _ready():
 	animation_tree.active = true
 	Global.playerBody = self
-	
+
+func _physics_process(delta: float) -> void:
+	move_and_slide()
+
 func _process(_delta: float) -> void:
 	update_animation_parameters()
 

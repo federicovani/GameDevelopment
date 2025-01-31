@@ -459,6 +459,10 @@ script = ExtResource("12_1xjyw")
 wait_time = 5.0
 autostart = true
 
+[node name="BufferTimer" type="Timer" parent="CharacterStateMachine/Walk"]
+wait_time = 0.2
+one_shot = true
+
 [node name="Chase" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("9_drtgi")
 
@@ -510,7 +514,7 @@ script = ExtResource("13_bk2op")
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
 position = Vector2(9, 0)
-target_position = Vector2(0, 20)
+target_position = Vector2(0, 25)
 script = ExtResource("13_bk2op")
 facing_left_position = Vector2(-9, 0)
 facing_right_position = Vector2(9, 0)

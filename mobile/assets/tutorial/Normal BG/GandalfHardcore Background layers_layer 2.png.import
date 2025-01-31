@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://6sh3xlayspct"
-path="res://.godot/imported/GandalfHardcore Background layers_layer 4.png-c237e7342c8b0ac90b3c62d9cb532ae9.ctex"
+uid="uid://dwh5vlkj868dr"
+path="res://.godot/imported/GandalfHardcore Background layers_layer 2.png-bad8a595d8e0215c1fc57c4e73f387a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/globali/tutorial/Normal BG/GandalfHardcore Background layers_layer 4.png"
-dest_files=["res://.godot/imported/GandalfHardcore Background layers_layer 4.png-c237e7342c8b0ac90b3c62d9cb532ae9.ctex"]
+source_file="res://assets/tutorial/Normal BG/GandalfHardcore Background layers_layer 2.png"
+dest_files=["res://.godot/imported/GandalfHardcore Background layers_layer 2.png-bad8a595d8e0215c1fc57c4e73f387a2.ctex"]
 
 [params]
 

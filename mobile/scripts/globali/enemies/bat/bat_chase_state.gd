@@ -21,7 +21,6 @@ func _physics_process(delta: float) -> void:
 			#Migliorabile
 			character.direction.y = Vector2.UP.y
 			character.velocity = character.direction * chase_speed * delta
-		character.move_and_slide()
 
 func _on_timer_timeout() -> void:
 	next_state = character.walk_state

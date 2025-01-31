@@ -27,7 +27,6 @@ func state_process(delta):
 	
 	character.idle_state.update_facing_direction()
 	update_particles_facing_direction()
-	character.move_and_slide()
 
 
 func update_particles_facing_direction():

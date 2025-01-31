@@ -17,10 +17,6 @@ func on_enter():
 	timer.start()
 	SignalBus.emit_camera_shook()
 
-func state_process(_delta):
-	#For enabling the knockback
-	character.move_and_slide()
-
 func on_damageable_hit(_node : Node, _damage_taken : int, knockback_direction : Vector2):
 	if(hit_flash_animation_player != null):
 		hit_flash_animation_player.play("hit_flash")

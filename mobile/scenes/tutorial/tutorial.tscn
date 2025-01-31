@@ -1,0 +1,33 @@
+[gd_scene load_steps=7 format=3 uid="uid://cr7ynr4wnnfw6"]
+
+[ext_resource type="Texture2D" uid="uid://cepnf8r53a6ck" path="res://assets/tutorial/GandalfHardcore Platformer Assets v2.png" id="1_tqsvg"]
+[ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight/knight.tscn" id="2_0ltym"]
+[ext_resource type="PackedScene" uid="uid://cge0406htmiti" path="res://scenes/globali/knight/camera.tscn" id="3_5ssf8"]
+[ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/enemies/skeleton.tscn" id="4_ntswf"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nqta"]
+texture = ExtResource("1_tqsvg")
+2:0/size_in_atlas = Vector2i(2, 2)
+2:0/0 = 0
+2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="TileSet" id="TileSet_43msg"]
+physics_layer_0/collision_layer = 1
+sources/0 = SubResource("TileSetAtlasSource_8nqta")
+
+[node name="tutorial" type="Node2D"]
+
+[node name="TileMap" type="TileMap" parent="."]
+tile_set = SubResource("TileSet_43msg")
+format = 2
+layer_0/name = "background"
+layer_0/tile_data = PackedInt32Array(262140, 131072, 0, 262142, 131072, 0, 196608, 131072, 0, 196610, 131072, 0, 196612, 131072, 0, 196614, 131072, 0, 196616, 131072, 0, 196617, 131072, 0, 196618, 131072, 0, 196619, 131072, 0, 196620, 131072, 0)
+layer_1/name = "level"
+
+[node name="knight" parent="." instance=ExtResource("2_0ltym")]
+
+[node name="PlayerCamera" parent="knight" instance=ExtResource("3_5ssf8")]
+zoom = Vector2(2, 2)
+
+[node name="Skeleton" parent="." instance=ExtResource("4_ntswf")]
+position = Vector2(168, 20)

@@ -19,7 +19,6 @@ func _physics_process(delta: float) -> void:
 			if character.ray_cast_right.is_colliding():
 				character.direction.x = Vector2.LEFT.x
 			character.velocity += character.direction * character.movement_speed * delta
-		character.move_and_slide()
 
 #Every .1 to 1 seconds (random number) the character changes direction
 func _on_direction_timer_timeout() -> void:

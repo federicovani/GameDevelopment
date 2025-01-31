@@ -1,7 +1,7 @@
 [gd_scene load_steps=49 format=3 uid="uid://k4hw66jkf8dk"]
 
 [ext_resource type="Script" path="res://scripts/globali/enemies/slime/slime.gd" id="1_fn8ug"]
-[ext_resource type="Texture2D" uid="uid://6ih03fnbnobv" path="res://assets/globali/slime basic v2-Sheet.png" id="1_i4y4x"]
+[ext_resource type="Texture2D" uid="uid://6ih03fnbnobv" path="res://assets/globali/Enemies/slime basic v2-Sheet.png" id="1_i4y4x"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/damageable.gd" id="2_30wwq"]
 [ext_resource type="Shader" uid="uid://cr6q0xqv0sfdk" path="res://scripts/resources/shaders/hit_flash.tres" id="2_s2h0r"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/CharacterStateMachine.gd" id="3_m4o0j"]
@@ -582,6 +582,10 @@ script = ExtResource("4_i13l0")
 [node name="DirectionTimer" type="Timer" parent="CharacterStateMachine/Walk"]
 wait_time = 5.0
 autostart = true
+
+[node name="BufferTimer" type="Timer" parent="CharacterStateMachine/Walk"]
+wait_time = 0.2
+one_shot = true
 
 [node name="Chase" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("5_ogcnb")

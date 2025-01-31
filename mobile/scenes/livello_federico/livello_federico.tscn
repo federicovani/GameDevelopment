@@ -859,6 +859,21 @@ _data = {
 "move": SubResource("Animation_048q1")
 }
 
+[sub_resource type="Animation" id="Animation_yimfv"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1928, 74)]
+}
+
 [sub_resource type="Animation" id="Animation_cetvv"]
 resource_name = "move"
 length = 2.5
@@ -875,21 +890,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(1928, 80), Vector2(1928, 270)]
-}
-
-[sub_resource type="Animation" id="Animation_yimfv"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(1928, 74)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_w3lmp"]
@@ -924,6 +924,7 @@ layer_4/tile_data = PackedInt32Array(131063, 1572866, 23, 131065, 1376258, 23, 1
 [node name="background" parent="." instance=ExtResource("2_pd4yd")]
 
 [node name="UIContainer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="UI_Control" parent="UIContainer" instance=ExtResource("4_h22q4")]
 mouse_filter = 0
@@ -935,7 +936,7 @@ position = Vector2(1099, 74)
 
 [node name="Camera2D" parent="knight" instance=ExtResource("8_dyj66")]
 offset = Vector2(0, -30)
-zoom = Vector2(2, 2)
+zoom = Vector2(2.5, 2.5)
 limit_left = -275
 limit_bottom = 362
 drag_vertical_enabled = false
