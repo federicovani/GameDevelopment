@@ -1,10 +1,10 @@
 [gd_scene load_steps=6 format=3 uid="uid://bhel8jmvawyaf"]
 
 [ext_resource type="Script" path="res://scripts/globali/UI/ui_control.gd" id="1_l4u1q"]
-[ext_resource type="PackedScene" uid="uid://b4yncap1kwrah" path="res://scenes/globali/UI/coin_label.tscn" id="1_wfrxc"]
-[ext_resource type="PackedScene" uid="uid://cvqxijrsqtxll" path="res://scenes/globali/UI/hearth_label.tscn" id="2_13lar"]
-[ext_resource type="PackedScene" uid="uid://pniqxi08j4b0" path="res://scenes/globali/UI/game_over_screen.tscn" id="4_npmhv"]
-[ext_resource type="PackedScene" uid="uid://bdwxcis2a31mn" path="res://scenes/globali/UI/level_completed_screen.tscn" id="5_4i3uh"]
+[ext_resource type="PackedScene" path="res://scenes/globali/UI/coin_label.tscn" id="1_wfrxc"]
+[ext_resource type="PackedScene" path="res://scenes/globali/UI/hearth_label.tscn" id="2_13lar"]
+[ext_resource type="PackedScene" path="res://scenes/globali/UI/game_over_screen.tscn" id="4_npmhv"]
+[ext_resource type="PackedScene" path="res://scenes/globali/UI/level_completed_screen.tscn" id="5_4i3uh"]
 
 [node name="UI_Control" type="Control" node_paths=PackedStringArray("hearths", "coin_label", "diamonds_array")]
 layout_mode = 3
