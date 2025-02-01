@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://qcdfeswxpdnn"]
+[gd_scene load_steps=38 format=3 uid="uid://qcdfeswxpdnn"]
 
 [ext_resource type="Texture2D" uid="uid://bh7587nuibn3k" path="res://assets/livello_sara/PixelPlatformerSet1v/main_lev_build.png" id="1_f67bj"]
 [ext_resource type="PackedScene" uid="uid://csy7q6utr00gx" path="res://scenes/livello_sara/background.tscn" id="2_a7s8q"]
@@ -23,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://b2uj1ljrtr3oa" path="res://scenes/livello_sara/damage_object.tscn" id="20_f3hhp"]
 [ext_resource type="PackedScene" uid="uid://bhel8jmvawyaf" path="res://scenes/globali/UI/ui_control.tscn" id="21_408eq"]
 [ext_resource type="PackedScene" uid="uid://dyoe03my1ow2x" path="res://scenes/livello_sara/falling_platform_2.tscn" id="24_gtbnh"]
+[ext_resource type="PackedScene" uid="uid://dtckdlbq4o3rv" path="res://scenes/livello_sara/door.tscn" id="24_w8ok4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnyg4"]
 texture = ExtResource("1_f67bj")
@@ -1430,7 +1431,7 @@ position = Vector2(793, 140)
 position = Vector2(3109, -644)
 
 [node name="Bat3" parent="Bats" instance=ExtResource("12_vr1kg")]
-position = Vector2(3483, -327)
+position = Vector2(3447, -326)
 
 [node name="Necromancer" parent="." instance=ExtResource("9_5vfbd")]
 position = Vector2(2563, 251)
@@ -1629,3 +1630,6 @@ offset_left = 1.0
 offset_top = 2.0
 offset_right = 1.0
 offset_bottom = 2.0
+
+[node name="Door" parent="." instance=ExtResource("24_w8ok4")]
+position = Vector2(5490, -690)
