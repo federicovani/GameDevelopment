@@ -68,6 +68,7 @@ func get_next_level(level : String) -> String:
 	return "error_string"
 
 func reload_current_level():
+	SignalBus.emit_level_reloaded()
 	get_tree().reload_current_scene()
 
 func go_to_main_menu():

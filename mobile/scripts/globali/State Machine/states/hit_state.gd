@@ -25,7 +25,14 @@ func on_damageable_hit(_node : Node, _damage_taken : int, knockback_direction : 
 		playback.travel(character.hit_animation)
 		emit_signal("interrupt_state", self)
 	else:
-		emit_signal("interrupt_state", character.death_state)
+		if(character == Global.playerBody):
+			#For the Player
+			SignalBus.emit_on_health_decreased()
+			SignalBus.emit_camera_shook(1.5)
+			damageable.reset_health()
+		else:
+			#For the enemies
+			emit_signal("interrupt_state", character.death_state)
 	
 
 func _on_timer_timeout() -> void:

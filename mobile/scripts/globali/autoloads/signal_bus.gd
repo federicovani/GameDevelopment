@@ -12,6 +12,7 @@ signal forced_death()
 
 #region Level Stats
 signal level_changed()
+signal level_reloaded()
 signal new_death()
 signal diamond_collected()
 signal update_level_stats_ui(time : float, deaths : int, coins : int, diamonds : int)
@@ -41,6 +42,9 @@ func emit_forced_death():
 #region Emit Level Stats
 func emit_level_changed():
 	level_changed.emit()
+
+func emit_level_reloaded():
+	level_reloaded.emit()
 
 func emit_new_death():
 	new_death.emit()
