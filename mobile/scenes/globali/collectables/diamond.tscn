@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://c6buhchiamsw4"]
+[gd_scene load_steps=12 format=3 uid="uid://c6buhchiamsw4"]
 
 [ext_resource type="Script" path="res://scripts/globali/collectables/diamond.gd" id="1_l4r0j"]
 [ext_resource type="Texture2D" uid="uid://cc0jcas3ljctq" path="res://assets/globali/Collectables/diamond/diamond_big.png" id="1_mveao"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ogombl38h5t2" path="res://assets/globali/Collectables/diamond/diamond_big_04.png" id="5_mrmj2"]
 [ext_resource type="Texture2D" uid="uid://bt0ao766hsrpo" path="res://assets/globali/Collectables/diamond/diamond_big_05.png" id="6_ednq6"]
 [ext_resource type="Texture2D" uid="uid://drk5ck1r7eusc" path="res://assets/globali/Collectables/diamond/diamond_big_06.png" id="7_kj706"]
+[ext_resource type="AudioStream" uid="uid://c0ww0ajisstic" path="res://assets/globali/Audio/sfx/collectables/diamond_pickup.wav" id="9_ilxc0"]
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_7ek1w"]
 animations = [{
@@ -54,5 +55,8 @@ frame_progress = 0.463287
 visible = false
 position = Vector2(0, -1)
 shape = SubResource("CircleShape2D_6sj0r")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("9_ilxc0")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
