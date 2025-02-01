@@ -12,6 +12,7 @@ func _ready():
 	# Trova il ColorRect (assicurati che sia un figlio del CanvasLayer)
 	fade_rect = $CanvasLayer/ColorRect
 	fade_rect.modulate.a = 0  # Imposta l'opacità iniziale a 0 (trasparente)
+	fade_rect.visible = false  # Disabilita la visibilità del ColorRect inizialmente
 
 	# Crea il timer per la dissolvenza
 	fade_timer = Timer.new()
@@ -29,6 +30,7 @@ func _on_body_entered(body: Node2D) -> void:
 # Funzione per gestire la dissolvenza in uscita (fade out)
 func fade_out() -> void:
 	fade_out_progress = true
+	fade_rect.visible = true  # Rendi visibile il ColorRect durante la dissolvenza
 	var timer = 0.0
 	while timer < fade_duration:
 		timer += get_process_delta_time()
@@ -45,6 +47,8 @@ func fade_in() -> void:
 		fade_rect.modulate.a = lerp(1, 0, timer / fade_duration)
 		# Aspetta un piccolo intervallo di tempo (0.01 secondi)
 		await get_tree().create_timer(0.01).timeout
+	# Dopo la dissolvenza, nascondi il ColorRect
+	fade_rect.visible = false
 
 # Funzione che verrà chiamata dal timer quando la dissolvenza è terminata
 func _on_fade_timeout() -> void:
