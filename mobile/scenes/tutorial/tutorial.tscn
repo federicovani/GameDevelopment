@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://cr7ynr4wnnfw6"]
+[gd_scene load_steps=8 format=4 uid="uid://cr7ynr4wnnfw6"]
 
 [ext_resource type="Texture2D" uid="uid://cepnf8r53a6ck" path="res://assets/tutorial/GandalfHardcore Platformer Assets v2.png" id="1_tqsvg"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight/knight.tscn" id="2_0ltym"]
@@ -19,16 +19,21 @@ sources/0 = SubResource("TileSetAtlasSource_8nqta")
 [node name="tutorial" type="Node2D"]
 position = Vector2(72, 379)
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="Layers" type="Node2D" parent="."]
+
+[node name="background" type="TileMapLayer" parent="Layers"]
+use_parent_material = true
+tile_map_data = PackedByteArray("AAD8/wMAAAACAAAAAAD+/wMAAAACAAAAAAAAAAMAAAACAAAAAAACAAMAAAACAAAAAAAEAAMAAAACAAAAAAAGAAMAAAACAAAAAAAIAAMAAAACAAAAAAAJAAMAAAACAAAAAAAKAAMAAAACAAAAAAALAAMAAAACAAAAAAAMAAMAAAACAAAAAAA=")
 tile_set = SubResource("TileSet_43msg")
-format = 2
-layer_0/name = "background"
-layer_0/tile_data = PackedInt32Array(262140, 131072, 0, 262142, 131072, 0, 196608, 131072, 0, 196610, 131072, 0, 196612, 131072, 0, 196614, 131072, 0, 196616, 131072, 0, 196617, 131072, 0, 196618, 131072, 0, 196619, 131072, 0, 196620, 131072, 0)
-layer_1/name = "level"
+
+[node name="level" type="TileMapLayer" parent="Layers"]
+use_parent_material = true
+tile_set = SubResource("TileSet_43msg")
 
 [node name="MainMenuParallaxBackground" parent="." instance=ExtResource("2_frqea")]
 
 [node name="knight" parent="." instance=ExtResource("2_0ltym")]
+position = Vector2(-21, 21)
 
 [node name="PlayerCamera" parent="knight" instance=ExtResource("3_5ssf8")]
 zoom = Vector2(2, 2)
