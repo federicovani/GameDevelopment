@@ -1898,6 +1898,6 @@ position = Vector2(7844, 235)
 position = Vector2(7567, -481)
 
 [node name="Key" parent="." instance=ExtResource("13_pytqo")]
-position = Vector2(7020, -655)
+position = Vector2(7628, -191)
 
 [connection signal="body_exited" from="Door2" to="Door2" method="_on_body_exited"]

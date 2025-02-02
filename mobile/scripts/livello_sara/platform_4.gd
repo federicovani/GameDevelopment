@@ -1,7 +1,10 @@
 extends AnimatableBody2D
 
+@onready var collision_shape_2d: CollisionShape2D = $CollisionShape2D
+
 func _ready() -> void:
 	visible = false  # Nasconde la piattaforma all'inizio
+	collision_shape_2d.disabled = true # Elimina la collision shape all'inizio
 	try_connect_key()
 
 func try_connect_key():
@@ -15,3 +18,8 @@ func try_connect_key():
 
 func _on_key_collected() -> void:
 	visible = true  # Mostra la piattaforma
+	collision_shape_2d.disabled = false  # Ripristina la collisione
+	
+	# Forza l'aggiornamento della fisica
+	await get_tree().physics_frame
+	collision_shape_2d.set_deferred("disabled", false)
