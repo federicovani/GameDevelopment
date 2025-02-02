@@ -2,13 +2,16 @@ extends AnimatableBody2D
 
 func _ready() -> void:
 	visible = false  # Nasconde la piattaforma all'inizio
-	var key_node = get_node("res://scenes/livello_sara/key.tscn") 
-	if key_node:
-		key_node.key_collected.connect(_on_key_collected)
-		print("Segnale collegato con successo")  # Debug
+	try_connect_key()
+
+func try_connect_key():
+	var keys = get_tree().get_nodes_in_group("Keys")
+	
+	if keys.size() > 0:
+		keys[0].key_collected.connect(_on_key_collected)
 	else:
-		print("Errore: nodo chiave non trovato")  # Debug
+		await get_tree().create_timer(1.0).timeout  # Aspetta 1 secondo e riprova
+		try_connect_key()  # Riprova fino a che non trova la chiave
 
 func _on_key_collected() -> void:
-	print("Segnale ricevuto, piattaforma visibile")  # Debug
 	visible = true  # Mostra la piattaforma

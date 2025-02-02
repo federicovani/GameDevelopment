@@ -1330,7 +1330,7 @@ _data = {
 "move": SubResource("Animation_ox3t1")
 }
 
-[sub_resource type="Animation" id="Animation_daayj"]
+[sub_resource type="Animation" id="Animation_vwejj"]
 resource_name = "move"
 length = 2.0
 loop_mode = 2
@@ -1344,10 +1344,10 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(7217, -101), Vector2(7217, -308)]
+"values": [Vector2(7218, -100), Vector2(7218, -308)]
 }
 
-[sub_resource type="Animation" id="Animation_6nne0"]
+[sub_resource type="Animation" id="Animation_a7k6g"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1356,16 +1356,16 @@ tracks/0/path = NodePath(".:position")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(),
-"transitions": PackedFloat32Array(),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": []
+"values": [Vector2(7217, -100)]
 }
 
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ixa7m"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j3sge"]
 _data = {
-"RESET": SubResource("Animation_6nne0"),
-"move": SubResource("Animation_daayj")
+"RESET": SubResource("Animation_a7k6g"),
+"move": SubResource("Animation_vwejj")
 }
 
 [sub_resource type="Animation" id="Animation_dik2e"]
@@ -1534,12 +1534,11 @@ libraries = {
 autoplay = "move"
 
 [node name="Platform5" parent="Platforms" instance=ExtResource("11_oeddg")]
-position = Vector2(7217, -101)
+position = Vector2(7217, -100)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform5"]
-root_node = NodePath("../../Platform5")
 libraries = {
-"": SubResource("AnimationLibrary_ixa7m")
+"": SubResource("AnimationLibrary_j3sge")
 }
 autoplay = "move"
 
@@ -1551,9 +1550,6 @@ libraries = {
 "": SubResource("AnimationLibrary_vra8j")
 }
 autoplay = "move"
-
-[node name="Key" parent="Platforms" instance=ExtResource("13_pytqo")]
-position = Vector2(7012, -357)
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -1900,5 +1896,8 @@ position = Vector2(7844, 235)
 
 [node name="Portal" parent="." instance=ExtResource("28_x0ntk")]
 position = Vector2(7567, -481)
+
+[node name="Key" parent="." instance=ExtResource("13_pytqo")]
+position = Vector2(7020, -655)
 
 [connection signal="body_exited" from="Door2" to="Door2" method="_on_body_exited"]
