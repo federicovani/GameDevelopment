@@ -26,4 +26,5 @@ func _on_body_entered(body: Node2D) -> void:
 
 
 func _on_kill_timer_timeout() -> void:
-	SignalBus.emit_forced_death()
+	if has_overlapping_bodies():
+		SignalBus.emit_forced_death()
