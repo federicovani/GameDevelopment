@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://ctlh38oetok8h"]
+
+[ext_resource type="Script" path="res://scripts/livello_sara/pushable_object.gd" id="1_4ckn1"]
+[ext_resource type="Texture2D" uid="uid://crr82kwtpm0fy" path="res://assets/livello_sara/PixelPlatformerSet1v/other_and_decorative.png" id="1_5b3qg"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e8hb"]
+size = Vector2(24, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_itwoq"]
+size = Vector2(29, 24)
+
+[node name="PushableObject" type="RigidBody2D"]
+mass = 0.5
+lock_rotation = true
+script = ExtResource("1_4ckn1")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.65625, 1.625)
+texture = ExtResource("1_5b3qg")
+region_enabled = true
+region_rect = Rect2(208, 112, 16, 16)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_0e8hb")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
+position = Vector2(0.5, 1)
+shape = SubResource("RectangleShape2D_itwoq")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
