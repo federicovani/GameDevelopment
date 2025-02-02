@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var teleport_position: Vector2 = Vector2(6653, 107)
+@export var teleport_position: Vector2 = Vector2(6600, 110)
 @export var fade_duration: float = 1.0  # Durata della dissolvenza
 
 var fade_rect: ColorRect
