@@ -10,7 +10,7 @@ size = Vector2(24, 24)
 size = Vector2(26, 27)
 
 [node name="PushableObject" type="RigidBody2D"]
-mass = 0.2
+mass = 0.1
 script = ExtResource("1_4ckn1")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
