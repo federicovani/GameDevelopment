@@ -360,7 +360,7 @@ states/hit/position = Vector2(270, 237)
 states/walk/node = SubResource("AnimationNodeAnimation_n5iyg")
 states/walk/position = Vector2(380, 112)
 transitions = ["Start", "walk", SubResource("AnimationNodeStateMachineTransition_he5xt"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_xw1e2"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_gf2c2"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_2kd7s"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_6sr6d"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_y2y38"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_qrw0r"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_8aivl")]
-graph_offset = Vector2(-113, 45)
+graph_offset = Vector2(154.9, 33.3675)
 
 [sub_resource type="Animation" id="Animation_44idi"]
 length = 0.001
