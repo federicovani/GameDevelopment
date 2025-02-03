@@ -1292,6 +1292,21 @@ _data = {
 "move": SubResource("Animation_wm6gq")
 }
 
+[sub_resource type="Animation" id="Animation_vn2vg"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(6563, 109)]
+}
+
 [sub_resource type="Animation" id="Animation_ox3t1"]
 resource_name = "move"
 length = 2.0
@@ -1309,7 +1324,13 @@ tracks/0/keys = {
 "values": [Vector2(6563, 109), Vector2(6865, 109)]
 }
 
-[sub_resource type="Animation" id="Animation_vn2vg"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_jgr6l"]
+_data = {
+"RESET": SubResource("Animation_vn2vg"),
+"move": SubResource("Animation_ox3t1")
+}
+
+[sub_resource type="Animation" id="Animation_a7k6g"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1321,13 +1342,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(6563, 109)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_jgr6l"]
-_data = {
-"RESET": SubResource("Animation_vn2vg"),
-"move": SubResource("Animation_ox3t1")
+"values": [Vector2(7217, -100)]
 }
 
 [sub_resource type="Animation" id="Animation_vwejj"]
@@ -1347,7 +1362,13 @@ tracks/0/keys = {
 "values": [Vector2(7218, -100), Vector2(7218, -308)]
 }
 
-[sub_resource type="Animation" id="Animation_a7k6g"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_j3sge"]
+_data = {
+"RESET": SubResource("Animation_a7k6g"),
+"move": SubResource("Animation_vwejj")
+}
+
+[sub_resource type="Animation" id="Animation_6qhmt"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1359,13 +1380,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(7217, -100)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_j3sge"]
-_data = {
-"RESET": SubResource("Animation_a7k6g"),
-"move": SubResource("Animation_vwejj")
+"values": [Vector2(7762, 156)]
 }
 
 [sub_resource type="Animation" id="Animation_dik2e"]
@@ -1383,21 +1398,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
 "values": [Vector2(7762, 156), Vector2(7762, -132)]
-}
-
-[sub_resource type="Animation" id="Animation_6qhmt"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(7762, 156)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_vra8j"]
@@ -1425,7 +1425,7 @@ layer_3/tile_data = PackedInt32Array(327671, 917504, 20, 327675, 1179648, 20, 26
 [node name="background" parent="." instance=ExtResource("2_a7s8q")]
 
 [node name="knight" parent="." instance=ExtResource("3_n5yw1")]
-position = Vector2(7150, -114)
+position = Vector2(1, 15)
 
 [node name="PlayerCamera" parent="knight" instance=ExtResource("5_l4gmt")]
 zoom = Vector2(2.5, 2.5)
@@ -1898,6 +1898,6 @@ position = Vector2(7844, 235)
 position = Vector2(7567, -481)
 
 [node name="Key" parent="." instance=ExtResource("13_pytqo")]
-position = Vector2(7628, -191)
+position = Vector2(7026, -645)
 
 [connection signal="body_exited" from="Door2" to="Door2" method="_on_body_exited"]
