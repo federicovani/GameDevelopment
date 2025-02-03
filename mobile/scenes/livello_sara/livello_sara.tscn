@@ -1,4 +1,4 @@
-[gd_scene load_steps=53 format=3 uid="uid://qcdfeswxpdnn"]
+[gd_scene load_steps=54 format=3 uid="uid://qcdfeswxpdnn"]
 
 [ext_resource type="Texture2D" uid="uid://bh7587nuibn3k" path="res://assets/livello_sara/PixelPlatformerSet1v/main_lev_build.png" id="1_f67bj"]
 [ext_resource type="PackedScene" uid="uid://csy7q6utr00gx" path="res://scenes/livello_sara/background.tscn" id="2_a7s8q"]
@@ -30,6 +30,7 @@
 [ext_resource type="Script" path="res://scripts/livello_sara/door2.gd" id="25_n7uui"]
 [ext_resource type="PackedScene" uid="uid://ctlh38oetok8h" path="res://scenes/livello_sara/pushable_object.tscn" id="26_jykio"]
 [ext_resource type="PackedScene" uid="uid://glyif1t8h0h7" path="res://scenes/globali/portal.tscn" id="28_x0ntk"]
+[ext_resource type="PackedScene" uid="uid://dcn2u160ora8b" path="res://scenes/livello_sara/signal.tscn" id="31_g8s3j"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnyg4"]
 texture = ExtResource("1_f67bj")
@@ -1425,7 +1426,7 @@ layer_3/tile_data = PackedInt32Array(327671, 917504, 20, 327675, 1179648, 20, 26
 [node name="background" parent="." instance=ExtResource("2_a7s8q")]
 
 [node name="knight" parent="." instance=ExtResource("3_n5yw1")]
-position = Vector2(1, 15)
+position = Vector2(7082, -146)
 
 [node name="PlayerCamera" parent="knight" instance=ExtResource("5_l4gmt")]
 zoom = Vector2(2.5, 2.5)
@@ -2230,7 +2231,9 @@ metadata/_edit_use_anchors_ = true
 
 [node name="UI_Control" parent="CanvasLayer" instance=ExtResource("21_408eq")]
 offset_left = 1.0
+offset_top = -1.0
 offset_right = 1.0
+offset_bottom = -1.0
 
 [node name="Coin" parent="CanvasLayer" instance=ExtResource("10_goq6m")]
 position = Vector2(340, 317)
@@ -2265,5 +2268,8 @@ position = Vector2(1142, 44)
 
 [node name="PushableObject6" parent="." instance=ExtResource("26_jykio")]
 position = Vector2(1118, 19)
+
+[node name="Signal" parent="." instance=ExtResource("31_g8s3j")]
+position = Vector2(7249, -125)
 
 [connection signal="body_exited" from="Door2" to="Door2" method="_on_body_exited"]
