@@ -2233,9 +2233,6 @@ metadata/_edit_use_anchors_ = true
 offset_top = -1.0
 offset_bottom = -1.0
 
-[node name="Coin" parent="CanvasLayer" instance=ExtResource("10_goq6m")]
-position = Vector2(340, 317)
-
 [node name="Door" parent="." instance=ExtResource("24_w8ok4")]
 position = Vector2(5490, -690)
 
