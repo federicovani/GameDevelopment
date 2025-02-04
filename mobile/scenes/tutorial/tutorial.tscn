@@ -1,10 +1,11 @@
-[gd_scene load_steps=8 format=4 uid="uid://cr7ynr4wnnfw6"]
+[gd_scene load_steps=11 format=4 uid="uid://cr7ynr4wnnfw6"]
 
 [ext_resource type="Texture2D" uid="uid://cepnf8r53a6ck" path="res://assets/tutorial/GandalfHardcore Platformer Assets v2.png" id="1_tqsvg"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight/knight.tscn" id="2_0ltym"]
 [ext_resource type="PackedScene" uid="uid://cfpp0np486kcq" path="res://scenes/globali/UI/menu/main_menu_parallax_background.tscn" id="2_frqea"]
 [ext_resource type="PackedScene" uid="uid://cge0406htmiti" path="res://scenes/globali/knight/camera.tscn" id="3_5ssf8"]
 [ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/enemies/skeleton.tscn" id="4_ntswf"]
+[ext_resource type="Texture2D" uid="uid://txbposiiqq72" path="res://assets/livello_federico/PixelFantasy_Caves_1/small_wooden_platform.png" id="7_q7mdh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nqta"]
 texture = ExtResource("1_tqsvg")
@@ -15,6 +16,12 @@ texture = ExtResource("1_tqsvg")
 [sub_resource type="TileSet" id="TileSet_43msg"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_8nqta")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2tspl"]
+size = Vector2(190.5, 58.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xc3cs"]
+size = Vector2(79, 16)
 
 [node name="tutorial" type="Node2D"]
 position = Vector2(72, 379)
@@ -39,4 +46,28 @@ position = Vector2(-21, 21)
 zoom = Vector2(2, 2)
 
 [node name="Skeleton" parent="." instance=ExtResource("4_ntswf")]
-position = Vector2(168, 20)
+position = Vector2(108, 19)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(-221, 65)
+gravity_space_override = 3
+gravity = 200.0
+linear_damp_space_override = 3
+linear_damp = 40.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(53.25, 9.25)
+shape = SubResource("RectangleShape2D_2tspl")
+
+[node name="RigidBody2D2" type="RigidBody2D" parent="."]
+position = Vector2(-123, 42)
+contact_monitor = true
+max_contacts_reported = 1
+
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D2"]
+texture = ExtResource("7_q7mdh")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D2"]
+visible = false
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_xc3cs")

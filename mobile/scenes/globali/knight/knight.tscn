@@ -1052,6 +1052,8 @@ scale_curve = SubResource("CurveTexture_ip8sk")
 [node name="knight" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
+floor_constant_speed = true
+platform_on_leave = 2
 script = ExtResource("1_kihmv")
 
 [node name="DashParticles" type="GPUParticles2D" parent="."]

@@ -538,6 +538,8 @@ size = Vector2(24, 11)
 
 [node name="slime" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast_right", "ray_cast_left", "ray_cast_down", "facing_collision_shape_attack_zone_near", "facing_collision_shape_attack_zone_far", "facing_ray_cast_down")]
 collision_layer = 4
+floor_constant_speed = true
+platform_on_leave = 2
 script = ExtResource("1_fn8ug")
 ray_cast_right = NodePath("RayCastRight")
 ray_cast_left = NodePath("RayCastLeft")
