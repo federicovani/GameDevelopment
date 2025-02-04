@@ -4,6 +4,8 @@
 
 [node name="Lava" type="Area2D"]
 collision_mask = 2
+gravity_point_center = Vector2(0, -1)
+gravity_direction = Vector2(0, -1)
 script = ExtResource("1_w2oe8")
 
 [node name="BufferTimer" type="Timer" parent="."]

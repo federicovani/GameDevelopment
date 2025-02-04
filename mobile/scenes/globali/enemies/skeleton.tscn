@@ -406,6 +406,8 @@ size = Vector2(15, 23)
 [node name="Skeleton" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast_right", "ray_cast_left", "ray_cast_down", "facing_collision_shape", "facing_collision_shape_attack_zone", "facing_ray_cast_left", "facing_ray_cast_right", "facing_ray_cast_down")]
 scale = Vector2(1.14612, 1.14612)
 collision_layer = 4
+floor_constant_speed = true
+platform_on_leave = 2
 script = ExtResource("2_xy6y3")
 ray_cast_right = NodePath("RayCastRight")
 ray_cast_left = NodePath("RayCastLeft")
