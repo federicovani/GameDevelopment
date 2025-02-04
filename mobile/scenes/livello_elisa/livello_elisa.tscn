@@ -770,7 +770,7 @@ layer_1/tile_data = PackedInt32Array(-34, 917504, 17, -32, 917504, 17, -30, 9175
 [node name="background" parent="TileMap" instance=ExtResource("3_5aj5i")]
 
 [node name="knight" parent="." instance=ExtResource("1_xhdup")]
-position = Vector2(1499, -192)
+position = Vector2(-390, -36)
 
 [node name="PlayerCamera" parent="knight" instance=ExtResource("5_wqamw")]
 drag_vertical_enabled = false
