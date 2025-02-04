@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://bjlj3xnpx6kma"]
+
+[ext_resource type="Texture2D" uid="uid://qhh04ncp81cr" path="res://assets/livello_federico/PixelFantasy_Caves_1/mainlev_build.png" id="1_b5dc8"]
+[ext_resource type="Script" path="res://scripts/livello_federico/door.gd" id="1_byabg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s647b"]
+atlas = ExtResource("1_b5dc8")
+region = Rect2(960, 16, 48, 64)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t67ps"]
+size = Vector2(34, 55)
+
+[node name="door" type="Area2D"]
+collision_mask = 2
+script = ExtResource("1_byabg")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_s647b")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 4.5)
+shape = SubResource("RectangleShape2D_t67ps")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

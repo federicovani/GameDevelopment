@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://dtckdlbq4o3rv"]
 
 [ext_resource type="Script" path="res://scripts/livello_sara/door.gd" id="1_2ajmt"]
-[ext_resource type="Texture2D" uid="uid://dxiku0ri3vrk" path="res://assets/livello_sara/door.png" id="1_aedjd"]
+[ext_resource type="Texture2D" uid="uid://4pg1uhsctcwv" path="res://assets/livello_sara/door.png" id="1_aedjd"]
 [ext_resource type="Texture2D" uid="uid://crr82kwtpm0fy" path="res://assets/livello_sara/PixelPlatformerSet1v/other_and_decorative.png" id="2_pcmlr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c4pw8"]
