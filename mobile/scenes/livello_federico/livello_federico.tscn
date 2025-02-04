@@ -1,4 +1,4 @@
-[gd_scene load_steps=67 format=4 uid="uid://d3k38htbk1vgs"]
+[gd_scene load_steps=68 format=4 uid="uid://d3k38htbk1vgs"]
 
 [ext_resource type="Script" path="res://scripts/livello_federico/livello_federico.gd" id="1_xox4y"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight/knight.tscn" id="2_28qoe"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="8_72k1w"]
 [ext_resource type="PackedScene" uid="uid://cge0406htmiti" path="res://scenes/globali/knight/camera.tscn" id="8_dyj66"]
 [ext_resource type="PackedScene" uid="uid://dutorvfhll451" path="res://scenes/livello_federico/small_wooden_platform.tscn" id="10_2jq6i"]
-[ext_resource type="PackedScene" path="res://scenes/livello_federico/moving_platform.tscn" id="11_2ydsw"]
+[ext_resource type="PackedScene" uid="uid://dkr3o4i2k7dhh" path="res://scenes/livello_federico/moving_platform.tscn" id="11_2ydsw"]
 [ext_resource type="PackedScene" uid="uid://orkv4h8m75vj" path="res://scenes/globali/enemies/bat.tscn" id="11_5ljrp"]
 [ext_resource type="PackedScene" uid="uid://k4hw66jkf8dk" path="res://scenes/globali/enemies/slime.tscn" id="13_ssabc"]
 [ext_resource type="PackedScene" uid="uid://br5q5yhfkjvjt" path="res://scenes/livello_federico/wooden_falling_platform.tscn" id="14_tjldn"]
@@ -22,6 +22,7 @@
 [ext_resource type="PackedScene" uid="uid://kp6cg7pbrl77" path="res://scenes/livello_federico/stone_platform.tscn" id="20_6skij"]
 [ext_resource type="PackedScene" uid="uid://bwrre6726w3k" path="res://scenes/livello_federico/wooden_platform.tscn" id="23_0nqo3"]
 [ext_resource type="PackedScene" uid="uid://bjlj3xnpx6kma" path="res://scenes/livello_federico/door.tscn" id="24_kct84"]
+[ext_resource type="PackedScene" uid="uid://d31vrq3tav5ai" path="res://scenes/globali/checkpoint_campfire.tscn" id="25_d7yqp"]
 [ext_resource type="PackedScene" uid="uid://dgfw5xih331cc" path="res://scenes/globali/enemies/lava.tscn" id="27_vx800"]
 [ext_resource type="PackedScene" uid="uid://3bktwps6pw33" path="res://scenes/globali/enemies/necromancer.tscn" id="28_4a4ji"]
 
@@ -954,7 +955,6 @@ tile_set = ExtResource("2_gngnj")
 [node name="background" parent="." instance=ExtResource("2_pd4yd")]
 
 [node name="UIContainer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="UI_Control" parent="UIContainer" instance=ExtResource("4_h22q4")]
 mouse_filter = 0
@@ -1671,8 +1671,12 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VanishingPlatformsArea"]
+visible = false
 position = Vector2(435.5, 1.5)
 shape = SubResource("RectangleShape2D_06nyb")
+
+[node name="checkpoint_campfire" parent="." instance=ExtResource("25_d7yqp")]
+position = Vector2(4658, 144)
 
 [connection signal="body_entered" from="Lava/LavaRisingTrigger" to="." method="_on_lava_rising_trigger_body_entered"]
 [connection signal="body_entered" from="VanishingPlatformsArea" to="." method="_on_vanishing_platforms_area_body_entered"]

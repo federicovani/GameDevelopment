@@ -2,12 +2,17 @@ extends Node2D
 
 @onready var rising_lava_animation_player: AnimationPlayer = $Layers/rising_lava/RisingLavaAnimationPlayer
 @onready var camera: Camera2D = $knight/Camera2D
+@onready var knight: Knight = $knight
+@onready var checkpoint_campfire: Area2D = $checkpoint_campfire
 
 var default_camera_limit_top : int
 var default_camera_limit_bottom : int
 
 func _ready() -> void:
-	Global.current_level = "livello_federico"
+	if(LevelStats.is_checkpoint_taken()):
+		#Migliorabile
+		knight.global_position = checkpoint_campfire.global_position
+		
 
 
 func _on_lava_rising_trigger_body_entered(body: Node2D) -> void:
