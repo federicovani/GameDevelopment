@@ -6,11 +6,15 @@ class_name MainMenu extends Control
 @onready var margin_container: MarginContainer = $MarginContainer
 
 @onready var start: Button = $MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Start
+@onready var login: Button = $MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/LogIn
 @onready var options: Button = $MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Options
 @onready var quit: Button = $MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Quit
 
 func _ready() -> void:
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
+	
+	if Firebase.Auth.check_auth_file():
+		login.text = "Logout"
 
 func _process(_delta: float) -> void:
 	update_button_scale()
@@ -47,3 +51,11 @@ func _on_quit_button_down() -> void:
 	animation_player.play("quit_animation")
 	await animation_player.animation_finished
 	get_tree().quit()
+	
+	
+func _on_log_in_pressed() -> void:
+	if login.text == "Login":
+		get_tree().change_scene_to_file("res://scenes/globali/UI/authentication.tscn")
+	elif login.text == "Logout":
+		Firebase.Auth.logout()
+		login.text = "Login"
