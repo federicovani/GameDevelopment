@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d4aij5g6rvxa4"]
+[gd_scene load_steps=13 format=3 uid="uid://d4aij5g6rvxa4"]
 
 [ext_resource type="Script" path="res://scripts/globali/collectables/coin.gd" id="1_xuf06"]
 [ext_resource type="Texture2D" uid="uid://bkcpglm1n8uqw" path="res://assets/globali/Collectables/coin/coin.png" id="2_lu7ih"]
@@ -50,6 +50,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_okbn6"]
 radius = 4.0
 
+[sub_resource type="Gradient" id="Gradient_ch3jj"]
+colors = PackedColorArray(0.996078, 0.729412, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nbeb1"]
+gradient = SubResource("Gradient_ch3jj")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.863248, 0.175214)
+
 [node name="Coin" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_xuf06")
@@ -69,5 +78,13 @@ shape = SubResource("CircleShape2D_okbn6")
 stream = ExtResource("3_5ww1g")
 volume_db = -10.0
 bus = &"SFX"
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+z_index = 2
+position = Vector2(-2.38419e-07, 7.15256e-07)
+scale = Vector2(0.34375, 0.375)
+energy = 0.8
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_nbeb1")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://dutorvfhll451"]
+[gd_scene load_steps=4 format=3 uid="uid://dutorvfhll451"]
 
 [ext_resource type="Texture2D" uid="uid://txbposiiqq72" path="res://assets/livello_federico/PixelFantasy_Caves_1/small_wooden_platform.png" id="1_ib3qp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3tjtw"]
 size = Vector2(73, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uqwou"]
+cull_mode = 2
+polygon = PackedVector2Array(-33, -8, 32, -8, 35, -7, 40, -3, 37, 0, 35, 1, 34, 6, 31, 8, -30, 8, -34, 5, -34, 1, -37, 1, -39, -3, -36, -7)
 
 [node name="small_wooden_platform" type="AnimatableBody2D"]
 
@@ -16,3 +20,6 @@ visible = false
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_3tjtw")
 one_way_collision = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_uqwou")

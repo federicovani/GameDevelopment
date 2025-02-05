@@ -1,9 +1,13 @@
-[gd_scene load_steps=3 format=3 uid="uid://kp6cg7pbrl77"]
+[gd_scene load_steps=4 format=3 uid="uid://kp6cg7pbrl77"]
 
 [ext_resource type="Texture2D" uid="uid://qhh04ncp81cr" path="res://assets/livello_federico/PixelFantasy_Caves_1/mainlev_build.png" id="1_wfvnb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vts76"]
 size = Vector2(56, 15.5)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_o6o80"]
+cull_mode = 2
+polygon = PackedVector2Array(-24, -8, 23, -8, 24, -7, 26, -7, 28, -5, 28, -3, 22, 5, -22, 5, -28, -3, -28, -5, -26, -7, -24, -7, -24, -7)
 
 [node name="stone_platform" type="AnimatableBody2D"]
 
@@ -23,3 +27,6 @@ region_rect = Rect2(128, 240, 32, 16)
 visible = false
 position = Vector2(0, -0.25)
 shape = SubResource("RectangleShape2D_vts76")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_o6o80")

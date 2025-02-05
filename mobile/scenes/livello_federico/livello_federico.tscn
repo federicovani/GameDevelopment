@@ -1,4 +1,4 @@
-[gd_scene load_steps=68 format=4 uid="uid://d3k38htbk1vgs"]
+[gd_scene load_steps=72 format=4 uid="uid://d3k38htbk1vgs"]
 
 [ext_resource type="Script" path="res://scripts/livello_federico/livello_federico.gd" id="1_xox4y"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight/knight.tscn" id="2_28qoe"]
@@ -13,7 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="8_72k1w"]
 [ext_resource type="PackedScene" uid="uid://cge0406htmiti" path="res://scenes/globali/knight/camera.tscn" id="8_dyj66"]
 [ext_resource type="PackedScene" uid="uid://dutorvfhll451" path="res://scenes/livello_federico/small_wooden_platform.tscn" id="10_2jq6i"]
-[ext_resource type="PackedScene" path="res://scenes/livello_federico/moving_platform.tscn" id="11_2ydsw"]
+[ext_resource type="PackedScene" uid="uid://dkr3o4i2k7dhh" path="res://scenes/livello_federico/moving_platform.tscn" id="11_2ydsw"]
 [ext_resource type="PackedScene" uid="uid://orkv4h8m75vj" path="res://scenes/globali/enemies/bat.tscn" id="11_5ljrp"]
 [ext_resource type="PackedScene" uid="uid://k4hw66jkf8dk" path="res://scenes/globali/enemies/slime.tscn" id="13_ssabc"]
 [ext_resource type="PackedScene" uid="uid://br5q5yhfkjvjt" path="res://scenes/livello_federico/wooden_falling_platform.tscn" id="14_tjldn"]
@@ -66,6 +66,14 @@ _data = {
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_utx4e"]
 size = Vector2(640, 1125)
+
+[sub_resource type="Gradient" id="Gradient_kv12x"]
+colors = PackedColorArray(0, 0, 0, 1, 0.768627, 0.396078, 0.0862745, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tm6ny"]
+gradient = SubResource("Gradient_kv12x")
+fill_from = Vector2(0.538462, 0)
+fill_to = Vector2(0.555556, 0.564103)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e3s2w"]
 distance = -181.0
@@ -967,6 +975,14 @@ size = Vector2(193.5, 51.75)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pfd78"]
 size = Vector2(627, 52)
 
+[sub_resource type="Gradient" id="Gradient_fmeco"]
+colors = PackedColorArray(0, 0, 0, 1, 0.768627, 0.396078, 0.0862745, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v7qrf"]
+gradient = SubResource("Gradient_fmeco")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06nyb"]
 size = Vector2(1173, 639)
 
@@ -1018,6 +1034,14 @@ visible = false
 position = Vector2(-32, 542.5)
 shape = SubResource("RectangleShape2D_utx4e")
 
+[node name="PointLight2D" type="PointLight2D" parent="Layers/rising_lava/Lava"]
+position = Vector2(25, 8)
+scale = Vector2(7.07812, 20.8437)
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_tm6ny")
+offset = Vector2(0, 20)
+
 [node name="level" type="TileMapLayer" parent="Layers"]
 z_index = 15
 use_parent_material = true
@@ -1027,6 +1051,7 @@ tile_set = ExtResource("2_gngnj")
 [node name="background" parent="." instance=ExtResource("2_pd4yd")]
 
 [node name="UIContainer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="UI_Control" parent="UIContainer" instance=ExtResource("4_h22q4")]
 mouse_filter = 0
@@ -1034,7 +1059,7 @@ mouse_filter = 0
 [node name="PauseMenu" parent="UIContainer" instance=ExtResource("5_7gvlg")]
 
 [node name="knight" parent="." instance=ExtResource("2_28qoe")]
-position = Vector2(-73.4517, -44.2961)
+position = Vector2(851.251, 74.8132)
 
 [node name="Camera2D" parent="knight" instance=ExtResource("8_dyj66")]
 offset = Vector2(0, -30)
@@ -1722,6 +1747,15 @@ position = Vector2(972, 136)
 position = Vector2(4.25, -2.125)
 shape = SubResource("RectangleShape2D_etwa6")
 
+[node name="PointLight2D" type="PointLight2D" parent="Lava/Lava"]
+position = Vector2(-0.500051, 19.3945)
+scale = Vector2(7.57812, 2.99023)
+energy = 0.8
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_tm6ny")
+offset = Vector2(0, -30)
+
 [node name="Lava3" parent="Lava" instance=ExtResource("27_vx800")]
 position = Vector2(2339, 102)
 
@@ -1729,12 +1763,30 @@ position = Vector2(2339, 102)
 position = Vector2(-3, 0)
 shape = SubResource("RectangleShape2D_etwa6")
 
+[node name="PointLight2D" type="PointLight2D" parent="Lava/Lava3"]
+position = Vector2(-6.00007, 15.1686)
+scale = Vector2(8.21875, 5.40594)
+energy = 0.8
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_tm6ny")
+offset = Vector2(0, -30)
+
 [node name="Lava2" parent="Lava" instance=ExtResource("27_vx800")]
 position = Vector2(1742.88, 310.533)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Lava/Lava2"]
 position = Vector2(73.6174, 16.4668)
 shape = SubResource("RectangleShape2D_pfd78")
+
+[node name="PointLight2D" type="PointLight2D" parent="Lava/Lava2"]
+position = Vector2(46.12, 26.016)
+scale = Vector2(14.5625, 6.94434)
+energy = 0.8
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_v7qrf")
+offset = Vector2(0, -30)
 
 [node name="door" parent="." instance=ExtResource("24_kct84")]
 position = Vector2(3402, -848)
@@ -1752,6 +1804,9 @@ shape = SubResource("RectangleShape2D_06nyb")
 
 [node name="checkpoint_campfire" parent="." instance=ExtResource("25_d7yqp")]
 position = Vector2(4658, 144)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.687215, 0.687215, 0.687215, 1)
 
 [connection signal="body_entered" from="Lava/LavaRisingTrigger" to="." method="_on_lava_rising_trigger_body_entered"]
 [connection signal="body_entered" from="VanishingPlatformsArea" to="." method="_on_vanishing_platforms_area_body_entered"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://c6buhchiamsw4"]
+[gd_scene load_steps=14 format=3 uid="uid://c6buhchiamsw4"]
 
 [ext_resource type="Script" path="res://scripts/globali/collectables/diamond.gd" id="1_l4r0j"]
 [ext_resource type="Texture2D" uid="uid://cc0jcas3ljctq" path="res://assets/globali/Collectables/diamond/diamond_big.png" id="1_mveao"]
@@ -42,6 +42,15 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_6sj0r"]
 radius = 6.08276
 
+[sub_resource type="Gradient" id="Gradient_0krng"]
+colors = PackedColorArray(0.137769, 0.689332, 0.752449, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_80uwg"]
+gradient = SubResource("Gradient_0krng")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.880342, 0.128205)
+
 [node name="Diamond" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_l4r0j")
@@ -58,5 +67,10 @@ shape = SubResource("CircleShape2D_6sj0r")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("9_ilxc0")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-9.53674e-07, -9.53674e-07)
+scale = Vector2(0.5625, 0.59375)
+texture = SubResource("GradientTexture2D_80uwg")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
