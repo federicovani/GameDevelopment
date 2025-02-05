@@ -1193,6 +1193,7 @@ player = NodePath("..")
 facing_collision_shape = NodePath("CollisionShapeSword")
 
 [node name="CollisionShapeSword" type="CollisionShape2D" parent="Sword"]
+visible = false
 position = Vector2(30, -4.5)
 shape = SubResource("RectangleShape2D_sh7pf")
 script = ExtResource("4_gxm5g")

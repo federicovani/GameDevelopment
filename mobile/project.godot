@@ -31,6 +31,7 @@ PlayerStatsManager="*res://scripts/globali/autoloads/managers/player_stats_manag
 LevelStats="*res://scripts/globali/autoloads/level_stats.gd"
 SceneManager="*res://scripts/globali/autoloads/managers/scene_manager.gd"
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
+HitStopManager="*res://scripts/globali/autoloads/managers/hit_stop_manager.gd"
 
 [display]
 

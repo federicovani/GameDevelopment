@@ -18,3 +18,4 @@ func _on_body_entered(body: Node2D) -> void:
 				child.hit(get_parent().get_damage(), Vector2.LEFT)
 			else:
 				child.hit(get_parent().get_damage(), Vector2.ZERO)
+			#HitStopManager.hit_stop_short()

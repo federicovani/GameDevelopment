@@ -12,8 +12,6 @@ func _ready() -> void:
 	if(LevelStats.is_checkpoint_taken()):
 		#Migliorabile
 		knight.global_position = checkpoint_campfire.global_position
-		
-
 
 func _on_lava_rising_trigger_body_entered(body: Node2D) -> void:
 	if(body == Global.playerBody):
