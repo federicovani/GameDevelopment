@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dr444cktf4vq8"
-path="res://.godot/imported/000.png-3916f00551f0c05431a3c36a66b499b6.ctex"
+uid="uid://gs4vgiebwlx"
+path="res://.godot/imported/Ghost_animation_ghost_run_NormalMap.png-d05e421623bdafcfd0e112e841e883df.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/livello_sara/Ghost/000.png"
-dest_files=["res://.godot/imported/000.png-3916f00551f0c05431a3c36a66b499b6.ctex"]
+source_file="res://assets/livello_sara/Cute Ghost Pixel/Ghost_animation_ghost_run_NormalMap.png"
+dest_files=["res://.godot/imported/Ghost_animation_ghost_run_NormalMap.png-d05e421623bdafcfd0e112e841e883df.ctex"]
 
 [params]
 
