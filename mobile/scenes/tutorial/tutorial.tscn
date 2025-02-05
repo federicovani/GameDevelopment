@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight/knight.tscn" id="2_0ltym"]
 [ext_resource type="PackedScene" uid="uid://cfpp0np486kcq" path="res://scenes/globali/UI/menu/main_menu_parallax_background.tscn" id="2_frqea"]
 [ext_resource type="PackedScene" uid="uid://cge0406htmiti" path="res://scenes/globali/knight/camera.tscn" id="3_5ssf8"]
-[ext_resource type="PackedScene" uid="uid://dtmska2qijlsv" path="res://scenes/globali/enemies/skeleton.tscn" id="4_ntswf"]
+[ext_resource type="PackedScene" uid="uid://dgwip4pgo2fr8" path="res://scenes/globali/enemies/ghost.tscn" id="6_2ncy4"]
 [ext_resource type="Texture2D" uid="uid://txbposiiqq72" path="res://assets/livello_federico/PixelFantasy_Caves_1/small_wooden_platform.png" id="7_q7mdh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nqta"]
@@ -45,9 +45,6 @@ position = Vector2(-21, 21)
 [node name="PlayerCamera" parent="knight" instance=ExtResource("3_5ssf8")]
 zoom = Vector2(2, 2)
 
-[node name="Skeleton" parent="." instance=ExtResource("4_ntswf")]
-position = Vector2(108, 19)
-
 [node name="Area2D" type="Area2D" parent="."]
 position = Vector2(-221, 65)
 gravity_space_override = 3
@@ -71,3 +68,6 @@ texture = ExtResource("7_q7mdh")
 visible = false
 position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_xc3cs")
+
+[node name="Ghost" parent="." instance=ExtResource("6_2ncy4")]
+position = Vector2(199, 21)
