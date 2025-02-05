@@ -210,6 +210,16 @@ theme_override_fonts/font = ExtResource("1_3msrs")
 theme_override_font_sizes/font_size = 48
 text = "Start Game"
 
+[node name="LogIn" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer"]
+custom_minimum_size = Vector2(250, 55)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("2_f4hm5")
+theme_override_fonts/font = ExtResource("1_3msrs")
+theme_override_font_sizes/font_size = 48
+text = "Login"
+
 [node name="Options" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 55)
 layout_mode = 2
