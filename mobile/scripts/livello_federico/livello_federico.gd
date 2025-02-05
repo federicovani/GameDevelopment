@@ -32,9 +32,12 @@ func _on_vanishing_platforms_area_body_entered(body: Node2D) -> void:
 		save_camera_limits()
 		
 		camera.set_limit(SIDE_TOP, -60)
-		camera.set_limit(SIDE_BOTTOM, 342)
+		camera.set_limit(SIDE_BOTTOM, 320)
 
 func _on_vanishing_platforms_area_body_exited(body: Node2D) -> void:
 	if(body == Global.playerBody):
 		reset_camera_limits()
-	
+
+func _on_secret_room_area_2d_body_entered(body: Node2D) -> void:
+	if body == Global.playerBody:
+		$Platforms/VanishingPlatforms/SecretRoom/secret_small_wooden_platform/SecretAnimationPlayer.play("move")
