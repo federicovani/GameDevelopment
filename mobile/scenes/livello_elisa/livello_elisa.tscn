@@ -1117,7 +1117,7 @@ libraries = {
 autoplay = "RESET"
 
 [node name="Platform3" parent="Platforms" instance=ExtResource("11_4d7wc")]
-position = Vector2(2104, 148.323)
+position = Vector2(2104, 260.287)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Platforms/Platform3"]
 root_node = NodePath("../../Platform3")
