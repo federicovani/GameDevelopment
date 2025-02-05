@@ -3,10 +3,14 @@ extends Control
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	Firebase.auth.login_succeeded.connect(on_login_succeeded)
-	Firebase.auth.signup_succeeded.connect(on_signup_succeeded)
-	Firebase.auth.login_failed.connect(on_login_failed)
-	Firebase.auth.signup_failed.connect(on_signup_failed)
+	Firebase.Auth.login_succeeded.connect(on_login_succeeded)
+	Firebase.Auth.signup_succeeded.connect(on_signup_succeeded)
+	Firebase.Auth.login_failed.connect(on_login_failed)
+	Firebase.Auth.signup_failed.connect(on_signup_failed)
+	
+	if Firebase.Auth.check_auth_file():
+		%StateLabel.text = "Logged in"
+		get_tree().change_scene_to_file("res://scenes/globali/UI/menu/main_menu.tscn")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -31,11 +35,15 @@ func _on_signup_button_pressed() -> void:
 func on_login_succeeded(auth):
 	print(auth)
 	%StateLabel.text = "Login success!"
+	Firebase.Auth.save_auth(auth)
+	get_tree().change_scene_to_file("res://scenes/globali/UI/menu/main_menu.tscn")
 	
 	
 func on_signup_succeeded(auth):
 	print(auth)
 	%StateLabel.text = "Sign up success!"
+	Firebase.Auth.save_auth(auth)
+	get_tree().change_scene_to_file("res://scenes/globali/UI/menu/main_menu.tscn")
 	
 	
 func on_login_failed(error_code, message):
