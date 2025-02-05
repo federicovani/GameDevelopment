@@ -4,8 +4,8 @@ class_name ghost_chase extends State
 
 var chase_speed : float = 2000.0
 
-#func on_enter():
-	#playback.travel(character.walk_animation)
+func on_enter():
+	playback.travel(character.walk_animation)
 
 func _physics_process(delta: float) -> void:
 	player = Global.playerBody
