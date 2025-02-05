@@ -1,9 +1,22 @@
 extends RigidBody2D
 
-@export var push_force: float = 100.0
+@export var push_force: float = 140.0
+@onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
+
+var is_being_pushed: bool = false
+
+func _physics_process(delta: float) -> void:
+	# Controlla se l'oggetto è in movimento
+	if linear_velocity.x != 0 and not is_being_pushed:
+		is_being_pushed = true
+		audio_stream_player_2d.play()
+	elif linear_velocity.x == 0 and is_being_pushed:
+		is_being_pushed = false
+		audio_stream_player_2d.stop()
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body == Global.playerBody:
-		var direction = sign(body.velocity.x)  # Direzione del giocatore
-		linear_velocity = Vector2(push_force * direction, linear_velocity.y)  # Imposta la velocità orizzontale
+		# Imposta la velocità orizzontale in base alla direzione del giocatore
+		var direction = sign(body.velocity.x)
+		linear_velocity = Vector2(push_force * direction, linear_velocity.y)
