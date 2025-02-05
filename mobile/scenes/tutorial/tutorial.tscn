@@ -1,10 +1,11 @@
-[gd_scene load_steps=11 format=4 uid="uid://cr7ynr4wnnfw6"]
+[gd_scene load_steps=12 format=4 uid="uid://cr7ynr4wnnfw6"]
 
 [ext_resource type="Texture2D" uid="uid://cepnf8r53a6ck" path="res://assets/tutorial/GandalfHardcore Platformer Assets v2.png" id="1_tqsvg"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight/knight.tscn" id="2_0ltym"]
 [ext_resource type="PackedScene" uid="uid://cfpp0np486kcq" path="res://scenes/globali/UI/menu/main_menu_parallax_background.tscn" id="2_frqea"]
 [ext_resource type="PackedScene" uid="uid://cge0406htmiti" path="res://scenes/globali/knight/camera.tscn" id="3_5ssf8"]
 [ext_resource type="PackedScene" uid="uid://dgwip4pgo2fr8" path="res://scenes/globali/enemies/ghost.tscn" id="6_2ncy4"]
+[ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="7_of751"]
 [ext_resource type="Texture2D" uid="uid://txbposiiqq72" path="res://assets/livello_federico/PixelFantasy_Caves_1/small_wooden_platform.png" id="7_q7mdh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8nqta"]
@@ -71,3 +72,5 @@ shape = SubResource("RectangleShape2D_xc3cs")
 
 [node name="Ghost" parent="." instance=ExtResource("6_2ncy4")]
 position = Vector2(199, 21)
+
+[node name="HealthChangedManager" parent="." instance=ExtResource("7_of751")]
