@@ -5,21 +5,13 @@ extends CharacterBody2D
 @onready var sprite: Sprite2D = $Sprite2D
 
 @onready var idle_state : State = $CharacterStateMachine/Idle
-@onready var walk_state : State = $CharacterStateMachine/Walk
 @onready var chase_state : State = $CharacterStateMachine/Chase
-@onready var hit_state : State = $CharacterStateMachine/Hit
 @onready var attack_state : State = $CharacterStateMachine/Attack
 @onready var death_state : State = $CharacterStateMachine/Death
 
 @export var idle_animation : String = "idle"
 @export var walk_animation : String = "walk"
-@export var death_animation : String = "death"
-@export var hit_animation : String = "hit"
 @export var attack_animation : String = "attack"
-
-@export var ray_cast_right: RayCast2D
-@export var ray_cast_left: RayCast2D
-@export var ray_cast_down: RayCast2D
 
 @export var facing_collision_shape_attack_zone : FacingCollisionShape
 
@@ -32,8 +24,8 @@ var fade_out_progress: bool = false
 @export var facing_right : bool = true
 @export var movement_speed : float = 1250.0
 
-@export var health : float = 50
-@export var damage : float = 20
+@export var health : float = 100
+@export var damage : float = 40
 
 func _ready() -> void:
 	animation_tree.active = true
@@ -46,7 +38,7 @@ func _process(_delta: float) -> void:
 	handle_orientation()
 
 func fade_in():
-	fade_tween(1.0)
+	fade_tween(0.6)
 
 func fade_out():
 	fade_tween(0.0)
@@ -72,7 +64,7 @@ func handle_orientation():
 @warning_ignore("shadowed_variable")
 func on_facing_direction_changed(facing_right : bool):
 	self.facing_right = facing_right
-	#if(facing_right):
-		#facing_collision_shape_attack_zone.position = facing_collision_shape_attack_zone.facing_right_position
-	#else:
-		#facing_collision_shape_attack_zone.position = facing_collision_shape_attack_zone.facing_left_position
+	if(facing_right):
+		facing_collision_shape_attack_zone.position = facing_collision_shape_attack_zone.facing_right_position
+	else:
+		facing_collision_shape_attack_zone.position = facing_collision_shape_attack_zone.facing_left_position
