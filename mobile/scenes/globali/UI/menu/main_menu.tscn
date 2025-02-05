@@ -280,5 +280,6 @@ libraries = {
 }
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Start" to="." method="_on_start_button_down"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/LogIn" to="." method="_on_log_in_pressed"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Options" to="." method="_on_options_button_down"]
 [connection signal="button_down" from="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Quit" to="." method="_on_quit_button_down"]
