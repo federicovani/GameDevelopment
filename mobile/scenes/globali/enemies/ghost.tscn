@@ -1195,4 +1195,4 @@ animations = [{
 texture_filter = 1
 sprite_frames = SubResource("SpriteFrames_0qnv1")
 animation = &"attack"
-frame_progress = 0.717745
+frame_progress = 0.836635
