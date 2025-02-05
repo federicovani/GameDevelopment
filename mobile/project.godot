@@ -30,6 +30,7 @@ AudioManager="*res://scenes/globali/managers/audio_manager.tscn"
 PlayerStatsManager="*res://scripts/globali/autoloads/managers/player_stats_manager.gd"
 LevelStats="*res://scripts/globali/autoloads/level_stats.gd"
 SceneManager="*res://scripts/globali/autoloads/managers/scene_manager.gd"
+Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 
 [display]
 
@@ -39,6 +40,10 @@ window/stretch/aspect="expand"
 [dotnet]
 
 project/assembly_name="Game Development"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/godot-firebase/plugin.cfg")
 
 [input]
 
