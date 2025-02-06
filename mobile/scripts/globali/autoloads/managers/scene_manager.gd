@@ -20,7 +20,7 @@ var level_to_unlocked : Dictionary = {
 	tutorial : true,
 	livello_federico : true,
 	livello_elisa : false,
-	livello_sara : false
+	livello_sara : true
 }
 
 var level_to_default_zoom : Dictionary = {

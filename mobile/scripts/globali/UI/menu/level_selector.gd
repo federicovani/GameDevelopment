@@ -5,39 +5,38 @@ extends Control
 @onready var start: Button = $MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/Start
 @onready var main_menu: Button = $MarginContainer/VBoxContainer/MainMenu
 
-var current_level_selected : int = 0
-
 @export var levels : Array[VBoxContainer]
 
 func _ready() -> void:
+	Global.current_level_selected = 0
 	update_level_selection()
 
 func _process(_delta: float) -> void:
 	update_button_scale()
 
 func _on_next_pressed() -> void:
-	if(current_level_selected + 1 < levels.size()):
-		current_level_selected += 1
+	if(Global.current_level_selected + 1 < levels.size()):
+		Global.current_level_selected += 1
 	else:
-		current_level_selected = 0
+		Global.current_level_selected = 0
 	update_level_selection()
 
 func _on_back_pressed() -> void:
-	if(current_level_selected == 0):
-		current_level_selected = levels.size() - 1
+	if(Global.current_level_selected == 0):
+		Global.current_level_selected = levels.size() - 1
 	else:
-		current_level_selected -= 1
+		Global.current_level_selected -= 1
 	update_level_selection()
 
 func _on_start_pressed() -> void:
-	SceneManager.go_to_scene(levels[current_level_selected].name)
+	SceneManager.go_to_scene(levels[Global.current_level_selected].name)
 
 func _on_main_menu_pressed() -> void:
 	SceneManager.go_to_main_menu()
 
 func update_level_selection():
 	for i in levels.size():
-		if(i == current_level_selected):
+		if(i == Global.current_level_selected):
 			levels[i].show()
 			if(SceneManager.is_level_unlocked(levels[i].name)):
 				start.disabled = false

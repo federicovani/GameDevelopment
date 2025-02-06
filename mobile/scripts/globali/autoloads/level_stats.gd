@@ -40,7 +40,14 @@ func _on_new_death():
 	deaths += 1
 
 func _on_portal_crossed():
+	save_on_db()
 	SignalBus.emit_update_level_stats_ui(time, deaths, coins, diamonds)
 	
-
+func save_on_db():
+	var auth = Firebase.Auth.auth
+	if auth.has("localid"):
+		var local_id = auth["localid"]
+		var collection = Firebase.Firestore.collection("utenti")
+		var user_document = collection.document(local_id)
+		var subcollection = user_document.collection("level" + str(Global.current_level_selected))
 	
