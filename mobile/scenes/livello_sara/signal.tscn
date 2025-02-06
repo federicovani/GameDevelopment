@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://dcn2u160ora8b"]
 
-[ext_resource type="Texture2D" uid="uid://bje8jtui7n10" path="res://assets/livello_sara/signal.png" id="1_5eeh4"]
+[ext_resource type="Texture2D" uid="uid://l80kmf70bxie" path="res://assets/livello_sara/signal.png" id="1_5eeh4"]
 [ext_resource type="Script" path="res://scripts/livello_sara/signal.gd" id="1_8rrtd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_68hxp"]
