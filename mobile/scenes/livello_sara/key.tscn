@@ -1,6 +1,6 @@
 [gd_scene load_steps=32 format=3 uid="uid://cn4wpc3gf8qbi"]
 
-[ext_resource type="Texture2D" uid="uid://b7hs02xr3m6vw" path="res://assets/livello_sara/Key 8 - GOLD - Spritesheet.png" id="1_kgv85"]
+[ext_resource type="Texture2D" uid="uid://dxuilbxeenkl3" path="res://assets/livello_sara/Key 8 - GOLD - Spritesheet.png" id="1_kgv85"]
 [ext_resource type="Script" path="res://scripts/livello_sara/key.gd" id="1_ysfqn"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4whfm"]
