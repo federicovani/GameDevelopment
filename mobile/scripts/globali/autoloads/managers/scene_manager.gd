@@ -62,7 +62,7 @@ func get_next_level(level : String) -> String:
 	var i : int = 0
 	for lvl in level_order:
 		if(lvl == level):
-			return level_order[i+1]
+			return level_order[i]
 		i += 1
 	print_debug("Can't find any next level for: "+ level)
 	return "error_string"

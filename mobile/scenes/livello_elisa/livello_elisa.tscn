@@ -16,7 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="12_vm5gf"]
 [ext_resource type="PackedScene" uid="uid://bhel8jmvawyaf" path="res://scenes/globali/UI/ui_control.tscn" id="14_su55x"]
 [ext_resource type="PackedScene" uid="uid://orkv4h8m75vj" path="res://scenes/globali/enemies/bat.tscn" id="15_agjnw"]
-[ext_resource type="PackedScene" path="res://scenes/livello_elisa/platform_path.tscn" id="17_0bbqn"]
+[ext_resource type="PackedScene" uid="uid://chqgx28xsx4mt" path="res://scenes/livello_elisa/platform_path.tscn" id="17_0bbqn"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_aj3fg"]
 texture = ExtResource("2_a87va")

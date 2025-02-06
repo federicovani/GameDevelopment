@@ -47,7 +47,14 @@ func save_on_db():
 	var auth = Firebase.Auth.auth
 	if auth.has("localid"):
 		var local_id = auth["localid"]
-		var collection = Firebase.Firestore.collection("utenti")
-		var user_document = collection.document(local_id)
-		var subcollection = user_document.collection("level" + str(Global.current_level_selected))
-	
+		
+		var level_subcollection_name = "level_" + str(Global.current_level_selected)
+		var document_path = "utenti/" + local_id + "/" + level_subcollection_name
+		var level_subcollection = Firebase.Firestore.collection(document_path)
+		
+		var data: Dictionary = {
+			"monete raccolte": coins
+		}
+		
+		level_subcollection.add(doc_id, data)
+		
