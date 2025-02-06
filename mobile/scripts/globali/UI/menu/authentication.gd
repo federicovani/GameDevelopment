@@ -72,5 +72,5 @@ func add_user(auth_data: Dictionary):
 			"email": email
 		}
 		
-		# Usa il metodo 'set' per creare/aggiornare il documento
+		# Usa il metodo 'add' per creare il documento
 		collection.add(local_id, data)
