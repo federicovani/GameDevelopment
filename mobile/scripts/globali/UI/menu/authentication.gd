@@ -65,7 +65,7 @@ func add_user(auth_data: Dictionary):
 		var local_id = auth["localid"]
 		var email = auth_data["email"]
 		# Accedi alla collection "utenti" e seleziona il documento identificato da local_id
-		var collection = Firebase.Firestore.collection("utenti")
+		var collection = Firebase.Firestore.collection("users")
 		
 		# Crea il dizionario con l'email presa dal nodo EmailLineEdit
 		var data: Dictionary = {
