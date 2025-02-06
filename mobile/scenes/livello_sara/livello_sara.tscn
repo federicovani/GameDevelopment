@@ -1427,7 +1427,7 @@ layer_3/tile_data = PackedInt32Array(327671, 917504, 20, 327675, 1179648, 20, 26
 [node name="background" parent="." instance=ExtResource("2_a7s8q")]
 
 [node name="knight" parent="." instance=ExtResource("3_n5yw1")]
-position = Vector2(73, 22)
+position = Vector2(671, -449)
 
 [node name="PlayerCamera" parent="knight" instance=ExtResource("5_l4gmt")]
 zoom = Vector2(2.5, 2.5)
@@ -1611,6 +1611,7 @@ position = Vector2(3109, -644)
 
 [node name="Bat3" parent="Enemies/Bats" instance=ExtResource("12_vr1kg")]
 position = Vector2(3447, -326)
+collision_mask = 3
 
 [node name="Bat4" parent="Enemies/Bats" instance=ExtResource("12_vr1kg")]
 position = Vector2(7671, 383)
@@ -1636,6 +1637,50 @@ position = Vector2(7293, 272)
 [node name="Bat11" parent="Enemies/Bats" instance=ExtResource("12_vr1kg")]
 position = Vector2(7398, 331)
 
+[node name="Ghosts" type="Node" parent="Enemies"]
+
+[node name="Ghost" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(-236, 325)
+
+[node name="Ghost2" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(729, 197)
+
+[node name="Ghost3" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(3035, 149)
+
+[node name="Ghost4" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(3449, -477)
+
+[node name="Ghost5" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(3719, -467)
+
+[node name="Ghost6" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(3093, -233)
+
+[node name="Ghost7" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(5191, -426)
+
+[node name="Ghost8" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(5415, -413)
+
+[node name="Ghost9" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(7600, 92)
+
+[node name="Ghost10" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(7684, -2)
+
+[node name="Ghost11" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(7561, -78)
+
+[node name="Ghost12" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(7652, -189)
+
+[node name="Ghost13" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(7727, 98)
+
+[node name="Ghost14" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(7768, -178)
+
 [node name="Necromancer" parent="Enemies" instance=ExtResource("9_5vfbd")]
 position = Vector2(2563, 550)
 
@@ -1648,7 +1693,7 @@ position = Vector2(7798, 278)
 position = Vector2(2802, 347)
 
 [node name="Diamond2" parent="Diamonds" instance=ExtResource("6_mpbfg")]
-position = Vector2(3441, -143)
+position = Vector2(3441, -132)
 
 [node name="Diamond3" parent="Diamonds" instance=ExtResource("6_mpbfg")]
 position = Vector2(4271, -623)
@@ -2225,30 +2270,45 @@ position = Vector2(6964, 478)
 [node name="Damage Object17" parent="DamageObjects" instance=ExtResource("20_f3hhp")]
 position = Vector2(6977, 478)
 
+[node name="PushableObjects" type="Node" parent="."]
+
+[node name="PushableObject3" parent="PushableObjects" instance=ExtResource("26_jykio")]
+position = Vector2(7844, 534)
+
+[node name="PushableObject2" parent="PushableObjects" instance=ExtResource("26_jykio")]
+position = Vector2(7567, 406)
+
+[node name="PushableObject" parent="PushableObjects" instance=ExtResource("26_jykio")]
+position = Vector2(7240, 534)
+
+[node name="PushableObject4" parent="PushableObjects" instance=ExtResource("26_jykio")]
+position = Vector2(1118, 343)
+
+[node name="PushableObject5" parent="PushableObjects" instance=ExtResource("26_jykio")]
+position = Vector2(1142, 343)
+
+[node name="PushableObject6" parent="PushableObjects" instance=ExtResource("26_jykio")]
+position = Vector2(1118, 318)
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="Door" parent="Doors" instance=ExtResource("24_w8ok4")]
+position = Vector2(5490, -391)
+
+[node name="Door2" parent="Doors" instance=ExtResource("24_w8ok4")]
+position = Vector2(6600, 409)
+script = ExtResource("25_n7uui")
+
 [node name="HealthChangedManager" parent="." instance=ExtResource("13_ekqrr")]
 metadata/_edit_use_anchors_ = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI_Control" parent="CanvasLayer" instance=ExtResource("21_408eq")]
-offset_top = -1.0
-offset_bottom = -1.0
-
-[node name="Door" parent="." instance=ExtResource("24_w8ok4")]
-position = Vector2(5490, -690)
-
-[node name="Door2" parent="." instance=ExtResource("24_w8ok4")]
-position = Vector2(6600, 110)
-script = ExtResource("25_n7uui")
-
-[node name="PushableObject" parent="." instance=ExtResource("26_jykio")]
-position = Vector2(7240, 235)
-
-[node name="PushableObject2" parent="." instance=ExtResource("26_jykio")]
-position = Vector2(7567, 107)
-
-[node name="PushableObject3" parent="." instance=ExtResource("26_jykio")]
-position = Vector2(7844, 235)
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 2.0
+offset_bottom = -4.0
 
 [node name="Portal" parent="." instance=ExtResource("28_x0ntk")]
 position = Vector2(7567, -481)
@@ -2256,19 +2316,7 @@ position = Vector2(7567, -481)
 [node name="Key" parent="." instance=ExtResource("13_pytqo")]
 position = Vector2(7026, -645)
 
-[node name="PushableObject4" parent="." instance=ExtResource("26_jykio")]
-position = Vector2(1118, 44)
-
-[node name="PushableObject5" parent="." instance=ExtResource("26_jykio")]
-position = Vector2(1142, 44)
-
-[node name="PushableObject6" parent="." instance=ExtResource("26_jykio")]
-position = Vector2(1118, 19)
-
 [node name="Signal" parent="." instance=ExtResource("31_g8s3j")]
 position = Vector2(7249, -125)
 
-[node name="Ghost" parent="." instance=ExtResource("32_50qcj")]
-position = Vector2(-438, 71)
-
-[connection signal="body_exited" from="Door2" to="Door2" method="_on_body_exited"]
+[connection signal="body_exited" from="Doors/Door2" to="Doors/Door2" method="_on_body_exited"]
