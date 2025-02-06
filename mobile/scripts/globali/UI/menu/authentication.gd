@@ -43,6 +43,7 @@ func on_signup_succeeded(auth):
 	print(auth)
 	%StateLabel.text = "Sign up success!"
 	Firebase.Auth.save_auth(auth)
+	add_user(auth)
 	get_tree().change_scene_to_file("res://scenes/globali/UI/menu/main_menu.tscn")
 	
 	
@@ -56,3 +57,20 @@ func on_signup_failed(error_code, message):
 	print(error_code)
 	print(message)
 	%StateLabel.text = "Sign up failed. Error: %s" % message
+	
+	
+func add_user(auth_data: Dictionary):
+	var auth = Firebase.Auth.auth
+	if auth.has("localid") and auth_data.has("email"):
+		var local_id = auth["localid"]
+		var email = auth_data["email"]
+		# Accedi alla collection "utenti" e seleziona il documento identificato da local_id
+		var collection = Firebase.Firestore.collection("utenti")
+		
+		# Crea il dizionario con l'email presa dal nodo EmailLineEdit
+		var data: Dictionary = {
+			"email": email
+		}
+		
+		# Usa il metodo 'set' per creare/aggiornare il documento
+		collection.add(local_id, data)
