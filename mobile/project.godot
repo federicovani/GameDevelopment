@@ -21,6 +21,7 @@ buses/default_bus_layout="res://scripts/resources/default_bus_layout.tres"
 
 [autoload]
 
+SceneManager="*res://scripts/globali/autoloads/managers/scene_manager.gd"
 SignalBus="*res://scripts/globali/autoloads/signal_bus.gd"
 Global="*res://scripts/globali/autoloads/global.gd"
 SettingsSignalBus="*res://scripts/globali/autoloads/settings_signal_bus.gd"
@@ -29,7 +30,6 @@ SaveManager="*res://scripts/globali/autoloads/save_manager.gd"
 AudioManager="*res://scenes/globali/managers/audio_manager.tscn"
 PlayerStatsManager="*res://scripts/globali/autoloads/managers/player_stats_manager.gd"
 LevelStats="*res://scripts/globali/autoloads/level_stats.gd"
-SceneManager="*res://scripts/globali/autoloads/managers/scene_manager.gd"
 Firebase="*res://addons/godot-firebase/firebase/firebase.tscn"
 HitStopManager="*res://scripts/globali/autoloads/managers/hit_stop_manager.gd"
 
