@@ -41,3 +41,6 @@ func _on_new_death():
 
 func _on_portal_crossed():
 	SignalBus.emit_update_level_stats_ui(time, deaths, coins, diamonds)
+	
+func save_on_db():
+	
