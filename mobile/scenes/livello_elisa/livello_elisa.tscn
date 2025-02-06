@@ -994,9 +994,9 @@ _data = {
 }
 point_count = 7
 
-[sub_resource type="Curve2D" id="Curve2D_egaa1"]
+[sub_resource type="Curve2D" id="Curve2D_x7w7k"]
 _data = {
-"points": PackedVector2Array(0, 0, 0, 0, 72, -2, -40.604, -1.04113, 40.604, 1.04113, 211, 66, -49.4536, 15.0964, 49.4536, -15.0964, 313, -5, 0, 0, 0, 0, 445, 59)
+"points": PackedVector2Array(-18.1842, 35.5779, 18.1842, -35.5779, 69, -1, -48.2278, 11.0687, 48.2278, -11.0687, 193, 53, -50.5996, 10.2781, 50.5996, -10.2781, 264, -17, -49.809, 11.8593, 49.809, -11.8593, 362, 48)
 }
 point_count = 4
 
@@ -1253,6 +1253,6 @@ position = Vector2(2779, 39)
 curve = SubResource("Curve2D_dcn4x")
 
 [node name="Path2D" parent="." instance=ExtResource("17_0bbqn")]
-position = Vector2(3279, -545)
-curve = SubResource("Curve2D_egaa1")
+position = Vector2(3284, -526)
+curve = SubResource("Curve2D_x7w7k")
 loop = false
