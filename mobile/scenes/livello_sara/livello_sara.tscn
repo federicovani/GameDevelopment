@@ -1643,19 +1643,43 @@ position = Vector2(7398, 331)
 position = Vector2(-236, 325)
 
 [node name="Ghost2" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
-position = Vector2(729, 175)
+position = Vector2(729, 197)
 
 [node name="Ghost3" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
-position = Vector2(3037, 138)
+position = Vector2(3035, 149)
 
 [node name="Ghost4" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
-position = Vector2(3447, -506)
+position = Vector2(3449, -477)
 
 [node name="Ghost5" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
-position = Vector2(3722, -501)
+position = Vector2(3719, -467)
 
 [node name="Ghost6" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
 position = Vector2(3093, -233)
+
+[node name="Ghost7" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(5191, -426)
+
+[node name="Ghost8" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(5415, -413)
+
+[node name="Ghost9" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(7600, 92)
+
+[node name="Ghost10" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(7684, -2)
+
+[node name="Ghost11" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(7561, -78)
+
+[node name="Ghost12" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(7652, -189)
+
+[node name="Ghost13" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(7727, 98)
+
+[node name="Ghost14" parent="Enemies/Ghosts" instance=ExtResource("32_50qcj")]
+position = Vector2(7768, -178)
 
 [node name="Necromancer" parent="Enemies" instance=ExtResource("9_5vfbd")]
 position = Vector2(2563, 550)
@@ -2281,10 +2305,10 @@ metadata/_edit_use_anchors_ = true
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI_Control" parent="CanvasLayer" instance=ExtResource("21_408eq")]
-offset_left = 1.0
-offset_top = -3.0
-offset_right = 1.0
-offset_bottom = -3.0
+offset_left = 2.0
+offset_top = -4.0
+offset_right = 2.0
+offset_bottom = -4.0
 
 [node name="Portal" parent="." instance=ExtResource("28_x0ntk")]
 position = Vector2(7567, -481)
