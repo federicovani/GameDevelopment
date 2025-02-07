@@ -104,6 +104,7 @@ theme_override_fonts/font = ExtResource("5_jyr0b")
 theme_override_font_sizes/font_size = 32
 placeholder_text = "Email"
 alignment = 1
+caret_blink = true
 
 [node name="PasswordLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
@@ -116,6 +117,8 @@ theme_override_fonts/font = ExtResource("5_jyr0b")
 theme_override_font_sizes/font_size = 32
 placeholder_text = "Password"
 alignment = 1
+caret_blink = true
+secret = true
 
 [node name="Separator3" type="Control" parent="MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer"]
 layout_mode = 2

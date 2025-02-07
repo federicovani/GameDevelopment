@@ -13,7 +13,7 @@ func _ready() -> void:
 	
 	if Firebase.Auth.check_auth_file():
 		%StateLabel.text = "Logged in"
-		get_tree().change_scene_to_file("res://scenes/globali/UI/menu/main_menu.tscn")
+		SceneManager.go_to_main_menu()
 
 
 func _process(delta: float) -> void:
@@ -38,7 +38,7 @@ func on_login_succeeded(auth):
 	print(auth)
 	%StateLabel.text = "Login success!"
 	Firebase.Auth.save_auth(auth)
-	get_tree().change_scene_to_file("res://scenes/globali/UI/menu/main_menu.tscn")
+	SceneManager.go_to_main_menu()
 	
 	
 func on_signup_succeeded(auth):
@@ -46,7 +46,7 @@ func on_signup_succeeded(auth):
 	%StateLabel.text = "Sign up success!"
 	Firebase.Auth.save_auth(auth)
 	add_user(auth)
-	get_tree().change_scene_to_file("res://scenes/globali/UI/menu/main_menu.tscn")
+	SceneManager.go_to_main_menu()
 	
 	
 func on_login_failed(error_code, message):
