@@ -2,6 +2,7 @@ extends Control
 
 @onready var login: Button = $MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer/LoginButton
 @onready var signup: Button = $MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer/SignupButton
+@onready var back: Button = $MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer/BackButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -76,9 +77,13 @@ func add_user(auth_data: Dictionary):
 		# Usa il metodo 'add' per creare il documento
 		collection.add(local_id, data)
 
+func _on_back_button_pressed() -> void:
+	SceneManager.go_to_main_menu()
+
 func update_button_scale():
 	button_hover(login, 1.15, 0.2)
 	button_hover(signup, 1.15, 0.2)
+	button_hover(back, 1.15, 0.2)
 
 func button_hover(button : Button, tween_amt, duration):
 	button.pivot_offset = button.size / 2

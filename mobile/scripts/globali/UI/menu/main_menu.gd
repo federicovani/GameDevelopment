@@ -56,7 +56,7 @@ func _on_quit_button_down() -> void:
 	
 func _on_log_in_pressed() -> void:
 	if login.text == "Login":
-		get_tree().change_scene_to_file("res://scenes/globali/UI/authentication.tscn")
+		SceneManager.go_to_scene(SceneManager.login_page)
 	elif login.text == "Logout":
 		Firebase.Auth.logout()
 		login.text = "Login"
