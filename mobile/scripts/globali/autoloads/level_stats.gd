@@ -76,13 +76,21 @@ func save_on_db():
 	var auth = Firebase.Auth.auth
 	if auth.has("localid"):
 		var local_id = auth["localid"]
+		var saved = 0
 		
 		var level_subcollection_name = "level_" + str(Global.current_level_selected)
 		var document_path = "users/" + local_id + "/" + level_subcollection_name
 		var level_subcollection = Firebase.Firestore.collection(document_path)
 		
-		var doc_id = generate_random_id(16)
-		level_subcollection.add(doc_id, stats)
+		while(!saved):
+			var doc_id = generate_random_id(16)
+		
+			if(Firebase.Firestore.collection(document_path + "/" + doc_id) != null):
+				level_subcollection.add(doc_id, stats)
+				saved = 1
+				print_debug("level stats saved on db")
+			else:
+				print_debug("Error")
 		
 func generate_random_id(length: int) -> String:
 	var rng = RandomNumberGenerator.new()
