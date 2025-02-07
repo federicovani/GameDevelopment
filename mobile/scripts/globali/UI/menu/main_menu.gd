@@ -23,6 +23,7 @@ func update_button_scale():
 	button_hover(start, 1.15, 0.2)
 	button_hover(options, 1.15, 0.2)
 	button_hover(quit, 1.15, 0.2)
+	button_hover(login, 1.15, 0.2)
 
 func button_hover(button : Button, tween_amt, duration):
 	button.pivot_offset = button.size / 2

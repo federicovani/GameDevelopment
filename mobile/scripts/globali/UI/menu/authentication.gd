@@ -1,5 +1,7 @@
 extends Control
 
+@onready var login: Button = $MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer/LoginButton
+@onready var signup: Button = $MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer/SignupButton
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -13,9 +15,8 @@ func _ready() -> void:
 		get_tree().change_scene_to_file("res://scenes/globali/UI/menu/main_menu.tscn")
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	pass
+	update_button_scale()
 
 
 func _on_login_button_pressed() -> void:
@@ -74,3 +75,18 @@ func add_user(auth_data: Dictionary):
 		
 		# Usa il metodo 'add' per creare il documento
 		collection.add(local_id, data)
+
+func update_button_scale():
+	button_hover(login, 1.15, 0.2)
+	button_hover(signup, 1.15, 0.2)
+
+func button_hover(button : Button, tween_amt, duration):
+	button.pivot_offset = button.size / 2
+	if button.is_hovered():
+		tween(button, "scale", Vector2.ONE * tween_amt, duration)
+	else:
+		tween(button, "scale", Vector2.ONE, duration)
+
+func tween(button, property, amount, duration):
+	var tween = create_tween()
+	tween.tween_property(button, property, amount, duration)

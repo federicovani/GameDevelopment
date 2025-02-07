@@ -43,21 +43,20 @@ grow_vertical = 2
 layout_mode = 2
 theme_override_constants/separation = 30
 
-[node name="Separator" type="Control" parent="MarginContainer/VBoxContainer"]
+[node name="Separator2" type="Control" parent="MarginContainer/VBoxContainer"]
+custom_minimum_size = Vector2(0, 70)
 layout_mode = 2
 
 [node name="Separator3" type="Control" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="Separator2" type="Control" parent="MarginContainer/VBoxContainer"]
-custom_minimum_size = Vector2(0, 70)
-layout_mode = 2
-
 [node name="StateLabel" type="Label" parent="MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
 layout_mode = 2
+size_flags_horizontal = 4
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
-theme_override_constants/outline_size = 12
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 48
 text = "Not logged in"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -70,8 +69,6 @@ size_flags_vertical = 4
 [node name="NinePatchRect" type="NinePatchRect" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
 custom_minimum_size = Vector2(325, 325)
 layout_mode = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
 texture = ExtResource("4_ov7me")
 region_rect = Rect2(2, 34, 44, 44)
 patch_margin_left = 13
@@ -79,7 +76,14 @@ patch_margin_top = 13
 patch_margin_right = 13
 patch_margin_bottom = 13
 
-[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/ButtonsContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 25
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer"]
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -87,31 +91,34 @@ theme = ExtResource("1_ua3l5")
 theme_override_constants/separation = 18
 alignment = 1
 
-[node name="EmailLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer"]
+[node name="EmailLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(250, 55)
+custom_minimum_size = Vector2(400, 55)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_ua3l5")
 theme_override_fonts/font = ExtResource("5_jyr0b")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 placeholder_text = "Email"
 alignment = 1
 
-[node name="PasswordLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer"]
+[node name="PasswordLineEdit" type="LineEdit" parent="MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(250, 55)
+custom_minimum_size = Vector2(400, 55)
 layout_mode = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
 theme = ExtResource("1_ua3l5")
 theme_override_fonts/font = ExtResource("5_jyr0b")
-theme_override_font_sizes/font_size = 48
+theme_override_font_sizes/font_size = 32
 placeholder_text = "Password"
 alignment = 1
 
-[node name="LoginButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer"]
+[node name="Separator3" type="Control" parent="MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="LoginButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 55)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -121,7 +128,7 @@ theme_override_fonts/font = ExtResource("5_jyr0b")
 theme_override_font_sizes/font_size = 48
 text = "Log in"
 
-[node name="SignupButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer"]
+[node name="SignupButton" type="Button" parent="MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer"]
 custom_minimum_size = Vector2(250, 55)
 layout_mode = 2
 size_flags_horizontal = 4
@@ -131,5 +138,5 @@ theme_override_fonts/font = ExtResource("5_jyr0b")
 theme_override_font_sizes/font_size = 48
 text = "Sign up"
 
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]
-[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/SignupButton" to="." method="_on_signup_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]
+[connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer/SignupButton" to="." method="_on_signup_button_pressed"]

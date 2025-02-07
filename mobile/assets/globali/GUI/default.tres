@@ -1,4 +1,4 @@
-[gd_resource type="Theme" load_steps=17 format=3 uid="uid://cnk304tv4ytv5"]
+[gd_resource type="Theme" load_steps=18 format=3 uid="uid://cnk304tv4ytv5"]
 
 [ext_resource type="Texture2D" uid="uid://23vlpsuu2hgj" path="res://assets/globali/GUI/GUI.png" id="1_p676n"]
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="2_qausg"]
@@ -57,6 +57,14 @@ texture = ExtResource("1_p676n")
 expand_margin_top = 15.0
 expand_margin_bottom = 15.0
 region_rect = Rect2(50, 34, 44, 12)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ffvll"]
+texture = ExtResource("1_p676n")
+texture_margin_left = 2.0
+texture_margin_top = 2.0
+texture_margin_right = 2.0
+texture_margin_bottom = 2.0
+region_rect = Rect2(145, 65, 46, 14)
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rykrg"]
 texture = ExtResource("1_p676n")
@@ -140,6 +148,24 @@ HSlider/icons/tick = null
 HSlider/styles/grabber_area = SubResource("StyleBoxTexture_unejd")
 HSlider/styles/grabber_area_highlight = SubResource("StyleBoxTexture_unejd")
 HSlider/styles/slider = SubResource("StyleBoxTexture_sbgcx")
+LineEdit/colors/caret_color = Color(0, 0, 0, 1)
+LineEdit/colors/clear_button_color = Color(0, 0, 0, 1)
+LineEdit/colors/clear_button_color_pressed = Color(0, 0, 0, 1)
+LineEdit/colors/font_color = Color(0.1, 0.1, 0.1, 1)
+LineEdit/colors/font_outline_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_placeholder_color = Color(0.38, 0.38, 0.38, 1)
+LineEdit/colors/font_selected_color = Color(0, 0, 0, 1)
+LineEdit/colors/font_uneditable_color = Color(0, 0, 0, 1)
+LineEdit/colors/selection_color = Color(0, 0, 0, 1)
+LineEdit/constants/caret_width = 0
+LineEdit/constants/minimum_character_width = 0
+LineEdit/constants/outline_size = 0
+LineEdit/font_sizes/font_size = 32
+LineEdit/fonts/font = ExtResource("2_qausg")
+LineEdit/icons/clear = null
+LineEdit/styles/focus = null
+LineEdit/styles/normal = SubResource("StyleBoxTexture_ffvll")
+LineEdit/styles/read_only = null
 OptionButton/styles/disabled = null
 OptionButton/styles/disabled_mirrored = null
 OptionButton/styles/focus = null
