@@ -11,6 +11,6 @@ func _on_level_changed():
 func update_music_for_scene():
 	var current_level_music = str(SceneManager.current_level + "_music")
 	#Same music for main menu and level selector
-	if(current_level_music == "level_selector_music"):
+	if(current_level_music == "level_selector_music" || current_level_music == "login_page_music"):
 		current_level_music = "main_menu_music"
 	bg_music_player["parameters/switch_to_clip"] = current_level_music

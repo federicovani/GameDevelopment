@@ -86,7 +86,7 @@ func go_to_next_level():
 func go_to_scene(scene : String):
 	var scene_file : String = get_scene_file(scene)
 	#Keep the same music stream if u are navigating between main menu and level selector
-	if(!((current_level == main_menu && scene == level_selector) || (current_level == level_selector && scene == main_menu))):
+	if(!((current_level == main_menu && scene == level_selector) || (current_level == level_selector && scene == main_menu) || (current_level == main_menu && scene == login_page) || (current_level == login_page && scene == main_menu))):
 		current_level = scene
 		get_tree().change_scene_to_file(scene_file)
 		SignalBus.emit_level_changed()
