@@ -1,13 +1,13 @@
 extends Node
 
-var time : int = 0
+var time : float = 0
 var deaths : int = 0
 var coins : int = 0
 var diamonds : int = 0
 var checkpoint_taken : bool = false
 
 var stats : Dictionary = {
-	"time" : 0,
+	"time" : 0.0,
 	"deaths" : 0,
 	"coins" : 0,
 	"diamonds" : 0,
