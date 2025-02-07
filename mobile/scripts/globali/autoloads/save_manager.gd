@@ -50,8 +50,8 @@ func load_level_stats_data():
 	if !FileAccess.file_exists(SAVE_FOLDER_PATH + LEVEL_STATS_SAVE_NAME):
 		return
 	level_stats_data = ResourceLoader.load(SAVE_FOLDER_PATH + LEVEL_STATS_SAVE_NAME).duplicate(true)
-	#if(level_stats_data.get_level_to_unlocked() != null):
-		#SceneManager.level_to_unlocked = level_stats_data.get_level_to_unlocked()
-	#if(level_stats_data.get_level_stats_dictionary() != null):
-		#LevelStats.level_to_stats = level_stats_data.get_level_stats_dictionary()
+	if(level_stats_data.get_level_to_unlocked() != null):
+		SceneManager.level_to_unlocked = level_stats_data.get_level_to_unlocked()
+	if(level_stats_data.get_level_stats_dictionary() != null):
+		LevelStats.level_to_stats = level_stats_data.get_level_stats_dictionary()
 	print_debug("level stats loaded")
