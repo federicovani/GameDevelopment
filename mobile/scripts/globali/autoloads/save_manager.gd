@@ -55,4 +55,3 @@ func load_level_stats_data():
 	#if(level_stats_data.get_level_stats_dictionary() != null):
 		#LevelStats.level_to_stats = level_stats_data.get_level_stats_dictionary()
 	print_debug("level stats loaded")
-	
