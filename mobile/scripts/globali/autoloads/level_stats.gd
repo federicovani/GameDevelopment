@@ -91,6 +91,8 @@ func save_on_db():
 				print_debug("level stats saved on db")
 			else:
 				print_debug("Error")
+	else:
+		print_debug("User not logged in")
 		
 func generate_random_id(length: int) -> String:
 	var rng = RandomNumberGenerator.new()

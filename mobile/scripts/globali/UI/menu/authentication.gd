@@ -14,6 +14,8 @@ func _ready() -> void:
 	if Firebase.Auth.check_auth_file():
 		%StateLabel.text = "Logged in"
 		SceneManager.go_to_main_menu()
+	else:
+		print_debug("User not logged in")
 
 
 func _process(delta: float) -> void:
