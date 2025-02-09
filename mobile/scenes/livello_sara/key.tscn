@@ -1,7 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://cn4wpc3gf8qbi"]
+[gd_scene load_steps=33 format=3 uid="uid://cn4wpc3gf8qbi"]
 
 [ext_resource type="Texture2D" uid="uid://dxuilbxeenkl3" path="res://assets/livello_sara/Key 8 - GOLD - Spritesheet.png" id="1_kgv85"]
 [ext_resource type="Script" path="res://scripts/livello_sara/key.gd" id="1_ysfqn"]
+[ext_resource type="AudioStream" uid="uid://cdyqjf8mnk4bk" path="res://assets/livello_sara/Audio/Collectable_06.wav" id="3_2x7mk"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_4whfm"]
 atlas = ExtResource("1_kgv85")
@@ -218,5 +219,9 @@ frame_progress = 0.143371
 visible = false
 position = Vector2(-1, 8)
 shape = SubResource("RectangleShape2D_qoers")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_2x7mk")
+volume_db = 10.0
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
