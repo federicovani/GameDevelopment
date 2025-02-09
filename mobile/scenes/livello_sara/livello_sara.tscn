@@ -1427,7 +1427,7 @@ layer_3/tile_data = PackedInt32Array(327671, 917504, 20, 327675, 1179648, 20, 26
 [node name="background" parent="." instance=ExtResource("2_a7s8q")]
 
 [node name="knight" parent="." instance=ExtResource("3_n5yw1")]
-position = Vector2(7100, -166)
+position = Vector2(7094, 172)
 
 [node name="PlayerCamera" parent="knight" instance=ExtResource("5_l4gmt")]
 zoom = Vector2(2.5, 2.5)

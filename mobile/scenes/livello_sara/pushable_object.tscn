@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://scripts/livello_sara/pushable_object.gd" id="1_4ckn1"]
 [ext_resource type="Texture2D" uid="uid://crr82kwtpm0fy" path="res://assets/livello_sara/PixelPlatformerSet1v/other_and_decorative.png" id="1_5b3qg"]
-[ext_resource type="AudioStream" uid="uid://dk475rsiaah6g" path="res://assets/livello_sara/Audio/pushable-object-sound_UnDVzp1R.mp3" id="3_f3soj"]
+[ext_resource type="AudioStream" uid="uid://5ukavwywbetq" path="res://assets/livello_sara/Audio/audio4.mp3" id="3_dl2hl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0e8hb"]
 size = Vector2(24, 24)
@@ -35,7 +35,8 @@ position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_itwoq")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("3_f3soj")
-volume_db = -15.0
+stream = ExtResource("3_dl2hl")
+volume_db = -12.0
+max_polyphony = 6
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
