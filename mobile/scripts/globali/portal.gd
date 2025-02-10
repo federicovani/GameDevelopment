@@ -2,6 +2,7 @@ extends Area2D
 
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var timer: Timer = $Timer
+@onready var light: PointLight2D = $PointLight2D
 
 var playback : AnimationNodeStateMachinePlayback 
 
@@ -21,7 +22,11 @@ func _on_body_entered(body: Node2D) -> void:
 		body.cannot_move()
 
 func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	if(anim_name == emerge_animation):
+		light.enabled = true
+		self.visible = true
 	if(anim_name == vanish_animation):
+		light.enabled = false
 		self.visible = false
 		timer.start()
 

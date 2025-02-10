@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://glyif1t8h0h7"]
+[gd_scene load_steps=18 format=3 uid="uid://glyif1t8h0h7"]
 
 [ext_resource type="Script" path="res://scripts/globali/portal.gd" id="1_3ltgu"]
 [ext_resource type="Texture2D" uid="uid://ct77e6m380e6c" path="res://assets/globali/Purple Portal Sprite Sheet.png" id="1_lw33t"]
@@ -252,6 +252,15 @@ states/vanish/node = SubResource("AnimationNodeAnimation_fktmc")
 states/vanish/position = Vector2(709, 100)
 transitions = ["idle", "vanish", SubResource("AnimationNodeStateMachineTransition_ojrle"), "Start", "emerge", SubResource("AnimationNodeStateMachineTransition_52q5s"), "emerge", "idle", SubResource("AnimationNodeStateMachineTransition_0yeis")]
 
+[sub_resource type="Gradient" id="Gradient_vnloy"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_8s1js"]
+gradient = SubResource("Gradient_vnloy")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.794872, 0.0940171)
+
 [node name="Portal" type="Area2D"]
 collision_mask = 2
 script = ExtResource("1_3ltgu")
@@ -275,6 +284,12 @@ anim_player = NodePath("../AnimationPlayer")
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-9.53674e-07, 4)
+scale = Vector2(1.46875, 1.39062)
+color = Color(0.556863, 0.415686, 0.603922, 1)
+texture = SubResource("GradientTexture2D_8s1js")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
 [connection signal="animation_finished" from="AnimationTree" to="." method="_on_animation_tree_animation_finished"]

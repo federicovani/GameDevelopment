@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://k4hw66jkf8dk"]
+[gd_scene load_steps=51 format=3 uid="uid://k4hw66jkf8dk"]
 
 [ext_resource type="Script" path="res://scripts/globali/enemies/slime/slime.gd" id="1_fn8ug"]
 [ext_resource type="Texture2D" uid="uid://6ih03fnbnobv" path="res://assets/globali/Enemies/slime basic v2-Sheet.png" id="1_i4y4x"]
@@ -74,6 +74,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 9)]
+}
 
 [sub_resource type="Animation" id="Animation_cnau3"]
 resource_name = "attack1"
@@ -140,6 +152,18 @@ tracks/4/keys = {
 "args": [],
 "method": &"hit"
 }]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PointLight2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.4, 0.6, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 9), Vector2(-12, 3), Vector2(18, 3), Vector2(1, 9)]
 }
 
 [sub_resource type="Animation" id="Animation_3mt2a"]
@@ -208,6 +232,18 @@ tracks/4/keys = {
 "method": &"hit"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PointLight2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.5, 0.6, 0.9),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 9), Vector2(7, 7), Vector2(36, 8), Vector2(1, 9)]
+}
 
 [sub_resource type="Animation" id="Animation_n7quo"]
 resource_name = "death"
@@ -260,6 +296,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [72, 73, 74, 75, 76, 77, 78, 79, 80]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, 9)]
 }
 
 [sub_resource type="Animation" id="Animation_u2jm1"]
@@ -314,6 +362,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [60, 61]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-6, 9)]
+}
 
 [sub_resource type="Animation" id="Animation_hkjq1"]
 resource_name = "idle"
@@ -367,6 +427,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(1, 9)]
+}
 
 [sub_resource type="Animation" id="Animation_p45pc"]
 resource_name = "walk"
@@ -419,6 +491,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [12, 13, 14, 15, 16, 17, 18, 19, 20, 21]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.7, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(1, 9), Vector2(9, 9), Vector2(3, 9)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_0nijt"]
@@ -536,6 +620,16 @@ size = Vector2(14, 17)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_72u43"]
 size = Vector2(24, 11)
 
+[sub_resource type="Gradient" id="Gradient_6bwlh"]
+offsets = PackedFloat32Array(0, 0.991379)
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_nseua"]
+gradient = SubResource("Gradient_6bwlh")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.803419, 0.136752)
+
 [node name="slime" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast_right", "ray_cast_left", "ray_cast_down", "facing_collision_shape_attack_zone_near", "facing_collision_shape_attack_zone_far", "facing_ray_cast_down")]
 collision_layer = 4
 floor_constant_speed = true
@@ -620,6 +714,7 @@ timer = NodePath("../AttackBufferTimer")
 character = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZoneNear"]
+visible = false
 position = Vector2(16, 7.5)
 shape = SubResource("RectangleShape2D_luba4")
 script = ExtResource("12_a4t7b")
@@ -634,6 +729,7 @@ timer = NodePath("../AttackBufferTimer")
 character = NodePath("..")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackZoneFar"]
+visible = false
 position = Vector2(35, 10.5)
 shape = SubResource("RectangleShape2D_72u43")
 script = ExtResource("12_a4t7b")
@@ -645,19 +741,28 @@ wait_time = 2.5
 one_shot = true
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(0, 10)
 target_position = Vector2(16, 0)
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(0, 10)
 target_position = Vector2(-16, 0)
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(18, 0)
 target_position = Vector2(0, 24)
 script = ExtResource("10_68wcw")
 facing_left_position = Vector2(-18, 0)
 facing_right_position = Vector2(18, 0)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1, 9)
+color = Color(0.2, 0.839216, 0.780392, 1)
+energy = 0.5
+texture = SubResource("GradientTexture2D_nseua")
 
 [node name="StateDebugLabel" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("11_svq5j")]
 offset_left = -36.0

@@ -49,7 +49,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [17]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -61,7 +61,7 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [1]
+"values": [7]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
@@ -470,6 +470,9 @@ facing_ray_cast_down = NodePath("RayCastDown")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_hy0no")
 position = Vector2(0, -41)
+hframes = 17
+vframes = 7
+frame = 85
 script = ExtResource("2_lue7s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

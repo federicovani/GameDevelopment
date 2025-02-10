@@ -185,8 +185,8 @@ colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
 [sub_resource type="GradientTexture2D" id="GradientTexture2D_k06ra"]
 gradient = SubResource("Gradient_r8q74")
 fill = 1
-fill_from = Vector2(0.491453, 0.897436)
-fill_to = Vector2(1, 0.777778)
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.91453, 0.807692)
 
 [node name="checkpoint_campfire" type="Area2D"]
 collision_mask = 2
@@ -206,13 +206,12 @@ libraries = {
 }
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
-position = Vector2(9.53674e-07, 3.53125)
-scale = Vector2(2.8125, 1.78125)
+position = Vector2(5.68434e-14, 2)
+scale = Vector2(2.8125, 2.08643)
 enabled = false
 color = Color(0.978307, 0.607047, 0.394259, 1)
 shadow_enabled = true
 shadow_filter = 2
 texture = SubResource("GradientTexture2D_k06ra")
-offset = Vector2(0, -25)
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

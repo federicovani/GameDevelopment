@@ -1,4 +1,4 @@
-[gd_scene load_steps=83 format=4 uid="uid://d3k38htbk1vgs"]
+[gd_scene load_steps=86 format=4 uid="uid://d3k38htbk1vgs"]
 
 [ext_resource type="Script" path="res://scripts/livello_federico/livello_federico.gd" id="1_xox4y"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight/knight.tscn" id="2_28qoe"]
@@ -1753,6 +1753,15 @@ gradient = SubResource("Gradient_fmeco")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(1, 1)
 
+[sub_resource type="Gradient" id="Gradient_t8whk"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_odcag"]
+gradient = SubResource("Gradient_t8whk")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.803419, 0.123932)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06nyb"]
 size = Vector2(1086, 632)
 
@@ -1769,6 +1778,13 @@ fill_to = Vector2(1, 0.264957)
 gradient = SubResource("Gradient_qkyje")
 fill_from = Vector2(0, 0.034188)
 fill_to = Vector2(0, 0.726496)
+
+[sub_resource type="Environment" id="Environment_bn0f8"]
+background_mode = 3
+tonemap_mode = 3
+glow_enabled = true
+glow_strength = 1.8
+adjustment_enabled = true
 
 [node name="livello_federico" type="Node2D"]
 script = ExtResource("1_xox4y")
@@ -1821,6 +1837,7 @@ shape = SubResource("RectangleShape2D_utx4e")
 [node name="PointLight2D" type="PointLight2D" parent="Layers/rising_lava/Lava"]
 position = Vector2(26.2501, -10.5864)
 scale = Vector2(7.11719, 21.2011)
+energy = 0.6
 shadow_enabled = true
 shadow_filter = 2
 texture = SubResource("GradientTexture2D_tm6ny")
@@ -1835,6 +1852,7 @@ tile_set = ExtResource("2_gngnj")
 [node name="background" parent="." instance=ExtResource("2_pd4yd")]
 
 [node name="UIContainer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="UI_Control" parent="UIContainer" instance=ExtResource("4_h22q4")]
 mouse_filter = 0
@@ -1842,7 +1860,7 @@ mouse_filter = 0
 [node name="PauseMenu" parent="UIContainer" instance=ExtResource("5_7gvlg")]
 
 [node name="knight" parent="." instance=ExtResource("2_28qoe")]
-position = Vector2(4609.69, 80.4537)
+position = Vector2(1614.22, -196.49)
 
 [node name="Camera2D" parent="knight" instance=ExtResource("8_dyj66")]
 offset = Vector2(0, -30)
@@ -2190,7 +2208,7 @@ position = Vector2(3113, -146)
 position = Vector2(770, -106)
 
 [node name="Diamond2" parent="Diamonds" instance=ExtResource("5_yhc70")]
-position = Vector2(1985, -160)
+position = Vector2(1984, -161)
 
 [node name="Diamond3" parent="Diamonds" instance=ExtResource("5_yhc70")]
 position = Vector2(2725, -456)
@@ -2588,7 +2606,7 @@ shape = SubResource("RectangleShape2D_etwa6")
 [node name="PointLight2D" type="PointLight2D" parent="Lava/Lava"]
 position = Vector2(-0.500051, 19.3945)
 scale = Vector2(7.57812, 2.99023)
-energy = 0.8
+energy = 0.6
 shadow_enabled = true
 shadow_filter = 2
 texture = SubResource("GradientTexture2D_tm6ny")
@@ -2604,7 +2622,7 @@ shape = SubResource("RectangleShape2D_etwa6")
 [node name="PointLight2D" type="PointLight2D" parent="Lava/Lava3"]
 position = Vector2(-6.00007, 15.1686)
 scale = Vector2(8.21875, 5.40594)
-energy = 0.8
+energy = 0.6
 shadow_enabled = true
 shadow_filter = 2
 texture = SubResource("GradientTexture2D_tm6ny")
@@ -2618,13 +2636,50 @@ position = Vector2(73.6174, 16.4668)
 shape = SubResource("RectangleShape2D_pfd78")
 
 [node name="PointLight2D" type="PointLight2D" parent="Lava/Lava2"]
-position = Vector2(46.12, 26.016)
-scale = Vector2(14.5625, 6.94434)
-energy = 0.8
+position = Vector2(46.1201, 31.4045)
+scale = Vector2(14.5625, 7.03125)
+energy = 0.6
 shadow_enabled = true
 shadow_filter = 2
 texture = SubResource("GradientTexture2D_v7qrf")
 offset = Vector2(0, -30)
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="RedGem" type="PointLight2D" parent="Lights"]
+position = Vector2(1489, -129)
+scale = Vector2(1.04688, 1.04688)
+color = Color(0.819608, 0.141176, 0.180392, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_odcag")
+
+[node name="RedGem4" type="PointLight2D" parent="Lights"]
+position = Vector2(1169, -193)
+scale = Vector2(1.04688, 1.04688)
+color = Color(0.819608, 0.141176, 0.180392, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_odcag")
+
+[node name="RedGem5" type="PointLight2D" parent="Lights"]
+position = Vector2(1072, -145)
+scale = Vector2(1.04688, 1.04688)
+color = Color(0.819608, 0.141176, 0.180392, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_odcag")
+
+[node name="RedGem2" type="PointLight2D" parent="Lights"]
+position = Vector2(1664, -273)
+scale = Vector2(1.04688, 1.04688)
+color = Color(0.819608, 0.141176, 0.180392, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_odcag")
+
+[node name="RedGem3" type="PointLight2D" parent="Lights"]
+position = Vector2(1984, -161)
+scale = Vector2(1.04688, 1.04688)
+color = Color(0.819608, 0.141176, 0.180392, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_odcag")
 
 [node name="door" parent="." instance=ExtResource("24_kct84")]
 position = Vector2(3402, -848)
@@ -2664,6 +2719,9 @@ color = Color(0.687215, 0.687215, 0.687215, 1)
 
 [node name="Portal" parent="." instance=ExtResource("26_o5e5r")]
 position = Vector2(4482.29, 116.123)
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_bn0f8")
 
 [connection signal="body_entered" from="Platforms/VanishingPlatforms/SecretRoom/SecretRoomArea2D" to="." method="_on_secret_room_area_2d_body_entered"]
 [connection signal="body_entered" from="Lava/LavaRisingTrigger" to="." method="_on_lava_rising_trigger_body_entered"]
