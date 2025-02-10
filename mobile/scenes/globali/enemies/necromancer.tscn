@@ -1,10 +1,9 @@
-[gd_scene load_steps=42 format=3 uid="uid://3bktwps6pw33"]
+[gd_scene load_steps=43 format=3 uid="uid://3bktwps6pw33"]
 
 [ext_resource type="Texture2D" uid="uid://caopkrdhyl6nt" path="res://assets/globali/Enemies/Necromancer_creativekind-Sheet.png" id="1_5s5al"]
 [ext_resource type="Script" path="res://scripts/globali/enemies/necromancer/necromancer.gd" id="1_eqp6n"]
 [ext_resource type="Script" path="res://scripts/globali/facing_nodes/facing_collision_shape.gd" id="2_dn64w"]
 [ext_resource type="Shader" uid="uid://cr6q0xqv0sfdk" path="res://scripts/resources/shaders/hit_flash.tres" id="2_ivtlo"]
-[ext_resource type="Script" path="res://scripts/globali/facing_nodes/sprite_attack_offset.gd" id="2_lue7s"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/damageable.gd" id="2_tavfn"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/CharacterStateMachine.gd" id="3_wofko"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/states/walk_state.gd" id="4_ky0uy"]
@@ -75,6 +74,42 @@ tracks/3/keys = {
 "update": 1,
 "values": [85]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(18, -29)]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PointLight2D:energy")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PointLight2D:texture_scale")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [1.0]
+}
 
 [sub_resource type="Animation" id="Animation_m7ke3"]
 resource_name = "attack"
@@ -142,6 +177,42 @@ tracks/4/keys = {
 "method": &"hit"
 }]
 }
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("PointLight2D:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(18, -29), Vector2(16, -36), Vector2(17, -57)]
+}
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("PointLight2D:energy")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0.7, 0.8, 1),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [1.0, 10.39, 1.0]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("PointLight2D:texture_scale")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0.7, 0.8, 1, 1.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 0,
+"values": [1.0, 1.5, 3.0, 1.0]
+}
 
 [sub_resource type="Animation" id="Animation_htka3"]
 resource_name = "death"
@@ -195,6 +266,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [102, 103, 104, 105, 106, 107, 108, 109, 110]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(18, -29), Vector2(12, -34)]
+}
 
 [sub_resource type="Animation" id="Animation_xmml4"]
 resource_name = "hit"
@@ -247,6 +330,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 1,
 "values": [85, 86, 87, 88, 89]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(18, -29), Vector2(15, -31), Vector2(18, -29)]
 }
 
 [sub_resource type="Animation" id="Animation_gb4jv"]
@@ -302,6 +397,18 @@ tracks/3/keys = {
 "update": 1,
 "values": [0, 1, 2, 3, 4, 5, 6, 7]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.4),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(18, -29), Vector2(18, -34)]
+}
 
 [sub_resource type="Animation" id="Animation_g1tlq"]
 resource_name = "walk"
@@ -355,6 +462,18 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [17, 18, 19, 20, 21, 22, 23, 24]
+}
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("PointLight2D:position")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(18, -24), Vector2(19, -19)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_b22kj"]
@@ -453,7 +572,16 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8y436"]
 size = Vector2(67, 41)
 
-[node name="Necromancer" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast_right", "ray_cast_left", "ray_cast_down", "facing_collision_shape", "facing_collision_shape_attack_zone", "facing_ray_cast_right", "facing_ray_cast_left", "facing_ray_cast_down")]
+[sub_resource type="Gradient" id="Gradient_i0wxn"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_u383v"]
+gradient = SubResource("Gradient_i0wxn")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.858974, 0.136752)
+
+[node name="Necromancer" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast_right", "ray_cast_left", "ray_cast_down", "facing_collision_shape_attack_zone", "facing_ray_cast_down")]
 collision_layer = 4
 floor_constant_speed = true
 platform_on_leave = 2
@@ -461,10 +589,7 @@ script = ExtResource("1_eqp6n")
 ray_cast_right = NodePath("RayCastRight")
 ray_cast_left = NodePath("RayCastLeft")
 ray_cast_down = NodePath("RayCastDown")
-facing_collision_shape = NodePath("CollisionShape2D")
 facing_collision_shape_attack_zone = NodePath("AttackZone/CollisionShape2D")
-facing_ray_cast_right = NodePath("RayCastRight")
-facing_ray_cast_left = NodePath("RayCastLeft")
 facing_ray_cast_down = NodePath("RayCastDown")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -473,14 +598,11 @@ position = Vector2(0, -41)
 hframes = 17
 vframes = 7
 frame = 85
-script = ExtResource("2_lue7s")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(-0.5, -6.5)
 shape = SubResource("RectangleShape2D_x3b5d")
-script = ExtResource("2_dn64w")
-facing_left_position = Vector2(-0.5, -6.5)
-facing_right_position = Vector2(-0.5, -6.5)
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
@@ -541,14 +663,15 @@ script = ExtResource("11_fc2e6")
 can_move = false
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
+visible = false
 target_position = Vector2(14, 0)
-script = ExtResource("11_dv08v")
 
 [node name="RayCastLeft" type="RayCast2D" parent="."]
+visible = false
 target_position = Vector2(-17, 0)
-script = ExtResource("11_dv08v")
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
+visible = false
 position = Vector2(17, 0)
 target_position = Vector2(0, 29)
 script = ExtResource("11_dv08v")
@@ -556,6 +679,7 @@ facing_left_position = Vector2(-17, 0)
 facing_right_position = Vector2(17, 0)
 
 [node name="AttackZone" type="Area2D" parent="." node_paths=PackedStringArray("character")]
+visible = false
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("12_iaaq5")
@@ -571,6 +695,12 @@ facing_right_position = Vector2(44.5, -6.5)
 [node name="BufferTimer" type="Timer" parent="AttackZone"]
 wait_time = 4.0
 one_shot = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(18, -29)
+scale = Vector2(1.53125, 1.53125)
+color = Color(0.752941, 0.0509804, 0.0745098, 1)
+texture = SubResource("GradientTexture2D_u383v")
 
 [node name="StateDebugLabel" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("9_qjrf5")]
 offset_left = -45.0

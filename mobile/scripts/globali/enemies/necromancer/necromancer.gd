@@ -3,6 +3,7 @@ extends CharacterBody2D
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var state_machine: CharacterStateMachine = $CharacterStateMachine
 @onready var sprite: Sprite2D = $Sprite2D
+@onready var light: PointLight2D = $PointLight2D
 
 @onready var walk_state : State = $CharacterStateMachine/Walk
 @onready var chase_state : State = $CharacterStateMachine/Chase
@@ -19,10 +20,7 @@ extends CharacterBody2D
 @export var ray_cast_left: RayCast2D
 @export var ray_cast_down: RayCast2D
 
-@export var facing_collision_shape : FacingCollisionShape
 @export var facing_collision_shape_attack_zone : FacingCollisionShape
-@export var facing_ray_cast_right : FacingRayCast
-@export var facing_ray_cast_left : FacingRayCast
 @export var facing_ray_cast_down : FacingRayCast
 
 @export var direction : Vector2 = Vector2.RIGHT
@@ -54,14 +52,8 @@ func handle_orientation():
 func on_facing_direction_changed(facing_right : bool):
 	self.facing_right = facing_right
 	if(facing_right):
-		facing_collision_shape.position = facing_collision_shape.facing_right_position
 		facing_collision_shape_attack_zone.position = facing_collision_shape_attack_zone.facing_right_position
-		facing_ray_cast_left.position = facing_ray_cast_left.facing_right_position
-		facing_ray_cast_right.position = facing_ray_cast_right.facing_right_position
 		facing_ray_cast_down.position = facing_ray_cast_down.facing_right_position
 	else:
-		facing_collision_shape.position = facing_collision_shape.facing_left_position
 		facing_collision_shape_attack_zone.position = facing_collision_shape_attack_zone.facing_left_position
-		facing_ray_cast_left.position = facing_ray_cast_left.facing_right_position
-		facing_ray_cast_right.position = facing_ray_cast_right.facing_right_position
 		facing_ray_cast_down.position = facing_ray_cast_down.facing_left_position

@@ -1860,7 +1860,7 @@ mouse_filter = 0
 [node name="PauseMenu" parent="UIContainer" instance=ExtResource("5_7gvlg")]
 
 [node name="knight" parent="." instance=ExtResource("2_28qoe")]
-position = Vector2(1614.22, -196.49)
+position = Vector2(2163.97, 13.9764)
 
 [node name="Camera2D" parent="knight" instance=ExtResource("8_dyj66")]
 offset = Vector2(0, -30)
@@ -2288,7 +2288,7 @@ position = Vector2(2020, 253)
 position = Vector2(1795, 31)
 
 [node name="Necromancer" parent="Enemies" instance=ExtResource("28_4a4ji")]
-position = Vector2(2334, -79)
+position = Vector2(2550, 29)
 
 [node name="Bat13" parent="Enemies" instance=ExtResource("11_5ljrp")]
 position = Vector2(2774, -515)
