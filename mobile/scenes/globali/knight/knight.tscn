@@ -1,4 +1,4 @@
-[gd_scene load_steps=116 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=118 format=3 uid="uid://cmvr0blmdbg8h"]
 
 [ext_resource type="Script" path="res://scripts/globali/Knight/knight.gd" id="1_kihmv"]
 [ext_resource type="Shader" uid="uid://cr6q0xqv0sfdk" path="res://scripts/resources/shaders/hit_flash.tres" id="3_b5rw8"]
@@ -964,6 +964,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GlowLight:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_wxqtj"]
 resource_name = "hit_flash"
@@ -976,6 +988,18 @@ tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("GlowLight:enabled")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
@@ -1048,6 +1072,15 @@ angular_velocity_max = -80.0
 gravity = Vector3(0, 0, 0)
 scale_min = 0.3
 scale_curve = SubResource("CurveTexture_ip8sk")
+
+[sub_resource type="Gradient" id="Gradient_m61k6"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_tchci"]
+gradient = SubResource("Gradient_m61k6")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.820513, 0.145299)
 
 [node name="knight" type="CharacterBody2D"]
 z_index = 5
@@ -1131,9 +1164,10 @@ crouch_area = NodePath("../../CrouchArea")
 knight_facing_collision_shape = NodePath("../../CollisionShapeKnight")
 sword_facing_collision_shape = NodePath("../../Sword/CollisionShapeSword")
 
-[node name="Dash" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("dash_particles")]
+[node name="Dash" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("dash_particles", "glow_light")]
 script = ExtResource("23_mhwf4")
 dash_particles = NodePath("../../DashParticles")
+glow_light = NodePath("../../GlowLight")
 dash_curve = SubResource("Curve_p1euy")
 
 [node name="CooldownTimer" type="Timer" parent="CharacterStateMachine/Dash"]
@@ -1240,6 +1274,12 @@ amount = 20
 process_material = SubResource("ParticleProcessMaterial_gap1i")
 lifetime = 0.4
 randomness = 0.5
+
+[node name="GlowLight" type="PointLight2D" parent="."]
+scale = Vector2(1.1875, 1.1875)
+enabled = false
+energy = 0.3
+texture = SubResource("GradientTexture2D_tchci")
 
 [node name="StateDebugLabel" parent="." node_paths=PackedStringArray("state_machine") instance=ExtResource("32_n8wl2")]
 offset_left = -38.0

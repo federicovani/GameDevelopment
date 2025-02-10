@@ -101,6 +101,32 @@ scale_min = 0.1
 color = Color(0.141176, 0.211765, 0.219608, 1)
 color_ramp = SubResource("GradientTexture1D_6inhr")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhwqn"]
+size = Vector2(56, 60.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_etwa6"]
+size = Vector2(193.5, 51.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfd78"]
+size = Vector2(627, 52)
+
+[sub_resource type="Gradient" id="Gradient_fmeco"]
+colors = PackedColorArray(0, 0, 0, 1, 0.768627, 0.396078, 0.0862745, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_v7qrf"]
+gradient = SubResource("Gradient_fmeco")
+fill_from = Vector2(1, 0)
+fill_to = Vector2(1, 1)
+
+[sub_resource type="Gradient" id="Gradient_t8whk"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_odcag"]
+gradient = SubResource("Gradient_t8whk")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.803419, 0.123932)
+
 [sub_resource type="Animation" id="Animation_0duk2"]
 length = 0.001
 tracks/0/type = "value"
@@ -1736,32 +1762,6 @@ gradient = SubResource("Gradient_lanfc")
 fill_from = Vector2(1, 0)
 fill_to = Vector2(1, 0.606838)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_jhwqn"]
-size = Vector2(56, 60.5)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_etwa6"]
-size = Vector2(193.5, 51.75)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_pfd78"]
-size = Vector2(627, 52)
-
-[sub_resource type="Gradient" id="Gradient_fmeco"]
-colors = PackedColorArray(0, 0, 0, 1, 0.768627, 0.396078, 0.0862745, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_v7qrf"]
-gradient = SubResource("Gradient_fmeco")
-fill_from = Vector2(1, 0)
-fill_to = Vector2(1, 1)
-
-[sub_resource type="Gradient" id="Gradient_t8whk"]
-colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
-
-[sub_resource type="GradientTexture2D" id="GradientTexture2D_odcag"]
-gradient = SubResource("Gradient_t8whk")
-fill = 1
-fill_from = Vector2(0.5, 0.5)
-fill_to = Vector2(0.803419, 0.123932)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_06nyb"]
 size = Vector2(1086, 632)
 
@@ -1890,6 +1890,101 @@ amount = 300
 process_material = SubResource("ParticleProcessMaterial_vltxy")
 lifetime = 5.0
 visibility_rect = Rect2(-500, -250, 1000, 500)
+
+[node name="Lava" type="Node" parent="."]
+
+[node name="LavaRisingTrigger" type="Area2D" parent="Lava"]
+position = Vector2(2806, 69)
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lava/LavaRisingTrigger"]
+position = Vector2(-2, -2.75)
+shape = SubResource("RectangleShape2D_jhwqn")
+
+[node name="Lava" parent="Lava" instance=ExtResource("27_vx800")]
+position = Vector2(972, 136)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lava/Lava"]
+position = Vector2(4.25, -2.125)
+shape = SubResource("RectangleShape2D_etwa6")
+
+[node name="PointLight2D" type="PointLight2D" parent="Lava/Lava"]
+position = Vector2(-0.500051, 19.3945)
+scale = Vector2(7.57812, 2.99023)
+energy = 0.6
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_tm6ny")
+offset = Vector2(0, -30)
+
+[node name="Lava3" parent="Lava" instance=ExtResource("27_vx800")]
+position = Vector2(2339, 102)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lava/Lava3"]
+position = Vector2(-3, 0)
+shape = SubResource("RectangleShape2D_etwa6")
+
+[node name="PointLight2D" type="PointLight2D" parent="Lava/Lava3"]
+position = Vector2(-6.00007, 15.1686)
+scale = Vector2(8.21875, 5.40594)
+energy = 0.6
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_tm6ny")
+offset = Vector2(0, -30)
+
+[node name="Lava2" parent="Lava" instance=ExtResource("27_vx800")]
+position = Vector2(1742.88, 310.533)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Lava/Lava2"]
+position = Vector2(73.6174, 16.4668)
+shape = SubResource("RectangleShape2D_pfd78")
+
+[node name="PointLight2D" type="PointLight2D" parent="Lava/Lava2"]
+position = Vector2(46.1201, 31.4045)
+scale = Vector2(14.5625, 7.03125)
+energy = 0.6
+shadow_enabled = true
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_v7qrf")
+offset = Vector2(0, -30)
+
+[node name="Lights" type="Node" parent="."]
+
+[node name="RedGem" type="PointLight2D" parent="Lights"]
+position = Vector2(1489, -129)
+scale = Vector2(1.04688, 1.04688)
+color = Color(0.819608, 0.141176, 0.180392, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_odcag")
+
+[node name="RedGem4" type="PointLight2D" parent="Lights"]
+position = Vector2(1169, -193)
+scale = Vector2(1.04688, 1.04688)
+color = Color(0.819608, 0.141176, 0.180392, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_odcag")
+
+[node name="RedGem5" type="PointLight2D" parent="Lights"]
+position = Vector2(1072, -145)
+scale = Vector2(1.04688, 1.04688)
+color = Color(0.819608, 0.141176, 0.180392, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_odcag")
+
+[node name="RedGem2" type="PointLight2D" parent="Lights"]
+position = Vector2(1664, -273)
+scale = Vector2(1.04688, 1.04688)
+color = Color(0.819608, 0.141176, 0.180392, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_odcag")
+
+[node name="RedGem3" type="PointLight2D" parent="Lights"]
+position = Vector2(1984, -161)
+scale = Vector2(1.04688, 1.04688)
+color = Color(0.819608, 0.141176, 0.180392, 1)
+energy = 0.6
+texture = SubResource("GradientTexture2D_odcag")
 
 [node name="Coins" type="Node" parent="."]
 
@@ -2288,7 +2383,7 @@ position = Vector2(2020, 253)
 position = Vector2(1795, 31)
 
 [node name="Necromancer" parent="Enemies" instance=ExtResource("28_4a4ji")]
-position = Vector2(2550, 29)
+position = Vector2(2337, -82)
 
 [node name="Bat13" parent="Enemies" instance=ExtResource("11_5ljrp")]
 position = Vector2(2774, -515)
@@ -2586,101 +2681,6 @@ scale = Vector2(6.51562, 3.17421)
 blend_mode = 1
 texture = SubResource("GradientTexture2D_tcm0o")
 
-[node name="Lava" type="Node" parent="."]
-
-[node name="LavaRisingTrigger" type="Area2D" parent="Lava"]
-position = Vector2(2806, 69)
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lava/LavaRisingTrigger"]
-position = Vector2(-2, -2.75)
-shape = SubResource("RectangleShape2D_jhwqn")
-
-[node name="Lava" parent="Lava" instance=ExtResource("27_vx800")]
-position = Vector2(972, 136)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lava/Lava"]
-position = Vector2(4.25, -2.125)
-shape = SubResource("RectangleShape2D_etwa6")
-
-[node name="PointLight2D" type="PointLight2D" parent="Lava/Lava"]
-position = Vector2(-0.500051, 19.3945)
-scale = Vector2(7.57812, 2.99023)
-energy = 0.6
-shadow_enabled = true
-shadow_filter = 2
-texture = SubResource("GradientTexture2D_tm6ny")
-offset = Vector2(0, -30)
-
-[node name="Lava3" parent="Lava" instance=ExtResource("27_vx800")]
-position = Vector2(2339, 102)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lava/Lava3"]
-position = Vector2(-3, 0)
-shape = SubResource("RectangleShape2D_etwa6")
-
-[node name="PointLight2D" type="PointLight2D" parent="Lava/Lava3"]
-position = Vector2(-6.00007, 15.1686)
-scale = Vector2(8.21875, 5.40594)
-energy = 0.6
-shadow_enabled = true
-shadow_filter = 2
-texture = SubResource("GradientTexture2D_tm6ny")
-offset = Vector2(0, -30)
-
-[node name="Lava2" parent="Lava" instance=ExtResource("27_vx800")]
-position = Vector2(1742.88, 310.533)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Lava/Lava2"]
-position = Vector2(73.6174, 16.4668)
-shape = SubResource("RectangleShape2D_pfd78")
-
-[node name="PointLight2D" type="PointLight2D" parent="Lava/Lava2"]
-position = Vector2(46.1201, 31.4045)
-scale = Vector2(14.5625, 7.03125)
-energy = 0.6
-shadow_enabled = true
-shadow_filter = 2
-texture = SubResource("GradientTexture2D_v7qrf")
-offset = Vector2(0, -30)
-
-[node name="Lights" type="Node" parent="."]
-
-[node name="RedGem" type="PointLight2D" parent="Lights"]
-position = Vector2(1489, -129)
-scale = Vector2(1.04688, 1.04688)
-color = Color(0.819608, 0.141176, 0.180392, 1)
-energy = 0.6
-texture = SubResource("GradientTexture2D_odcag")
-
-[node name="RedGem4" type="PointLight2D" parent="Lights"]
-position = Vector2(1169, -193)
-scale = Vector2(1.04688, 1.04688)
-color = Color(0.819608, 0.141176, 0.180392, 1)
-energy = 0.6
-texture = SubResource("GradientTexture2D_odcag")
-
-[node name="RedGem5" type="PointLight2D" parent="Lights"]
-position = Vector2(1072, -145)
-scale = Vector2(1.04688, 1.04688)
-color = Color(0.819608, 0.141176, 0.180392, 1)
-energy = 0.6
-texture = SubResource("GradientTexture2D_odcag")
-
-[node name="RedGem2" type="PointLight2D" parent="Lights"]
-position = Vector2(1664, -273)
-scale = Vector2(1.04688, 1.04688)
-color = Color(0.819608, 0.141176, 0.180392, 1)
-energy = 0.6
-texture = SubResource("GradientTexture2D_odcag")
-
-[node name="RedGem3" type="PointLight2D" parent="Lights"]
-position = Vector2(1984, -161)
-scale = Vector2(1.04688, 1.04688)
-color = Color(0.819608, 0.141176, 0.180392, 1)
-energy = 0.6
-texture = SubResource("GradientTexture2D_odcag")
-
 [node name="door" parent="." instance=ExtResource("24_kct84")]
 position = Vector2(3402, -848)
 teleport_position = Vector2(4568, 159)
@@ -2723,7 +2723,7 @@ position = Vector2(4482.29, 116.123)
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bn0f8")
 
-[connection signal="body_entered" from="Platforms/VanishingPlatforms/SecretRoom/SecretRoomArea2D" to="." method="_on_secret_room_area_2d_body_entered"]
 [connection signal="body_entered" from="Lava/LavaRisingTrigger" to="." method="_on_lava_rising_trigger_body_entered"]
+[connection signal="body_entered" from="Platforms/VanishingPlatforms/SecretRoom/SecretRoomArea2D" to="." method="_on_secret_room_area_2d_body_entered"]
 [connection signal="body_entered" from="VanishingPlatformsArea" to="." method="_on_vanishing_platforms_area_body_entered"]
 [connection signal="body_exited" from="VanishingPlatformsArea" to="." method="_on_vanishing_platforms_area_body_exited"]

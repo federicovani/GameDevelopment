@@ -1,6 +1,7 @@
-class_name rolling extends State
+class_name dashing extends State
 
 @export var dash_particles : GPUParticles2D
+@export var glow_light: PointLight2D
 
 @export var dash_max_distance = 115
 @export var dash_curve : Curve
@@ -11,6 +12,7 @@ func on_enter():
 	SignalBus.emit_camera_shook()
 	character.update_player_audio(character.dash_sfx)
 	dash_particles.emitting = true
+	glow_light.enabled = true
 	dash_start_position = character.position.x
 
 func state_process(delta):
@@ -37,4 +39,5 @@ func update_particles_facing_direction():
 
 func on_exit():
 	dash_particles.emitting = false
+	glow_light.enabled = false
 	
