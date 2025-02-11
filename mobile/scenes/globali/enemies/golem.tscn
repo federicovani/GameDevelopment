@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://ca23ccn4r3mhd"]
+[gd_scene load_steps=52 format=3 uid="uid://ca23ccn4r3mhd"]
 
 [ext_resource type="Script" path="res://scripts/globali/enemies/golem/golem.gd" id="1_jugte"]
 [ext_resource type="Texture2D" uid="uid://w4at6rgxwv3t" path="res://assets/globali/Enemies/Golem/White_Swoosh_VFX/Golem_1_idle.png" id="1_lsewp"]
@@ -709,6 +709,44 @@ states/walk/node = SubResource("AnimationNodeAnimation_ilxah")
 states/walk/position = Vector2(441, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_fntkn"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_lb5vh"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_mid16"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_3xlyn"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_pvoya"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_dfjlc"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_u6du7"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_ywob8"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_385bn"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_uba77")]
 
+[sub_resource type="Animation" id="Animation_rcfwn"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_ajlcm"]
+resource_name = "hit_flash"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_seb2o"]
+_data = {
+"RESET": SubResource("Animation_rcfwn"),
+"hit_flash": SubResource("Animation_ajlcm")
+}
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xe2wc"]
 size = Vector2(97, 84)
 
@@ -751,6 +789,11 @@ libraries = {
 [node name="AnimationTree" type="AnimationTree" parent="."]
 tree_root = SubResource("AnimationNodeStateMachine_rdi6o")
 anim_player = NodePath("../AnimationPlayer")
+
+[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_seb2o")
+}
 
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("7_xsypi")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=55 format=3 uid="uid://qcdfeswxpdnn"]
+[gd_scene load_steps=57 format=3 uid="uid://qcdfeswxpdnn"]
 
 [ext_resource type="Texture2D" uid="uid://bh7587nuibn3k" path="res://assets/livello_sara/PixelPlatformerSet1v/main_lev_build.png" id="1_f67bj"]
 [ext_resource type="PackedScene" uid="uid://csy7q6utr00gx" path="res://scenes/livello_sara/background.tscn" id="2_a7s8q"]
@@ -30,8 +30,10 @@
 [ext_resource type="Script" path="res://scripts/livello_sara/door2.gd" id="25_n7uui"]
 [ext_resource type="PackedScene" uid="uid://ctlh38oetok8h" path="res://scenes/livello_sara/pushable_object.tscn" id="26_jykio"]
 [ext_resource type="PackedScene" uid="uid://glyif1t8h0h7" path="res://scenes/globali/portal.tscn" id="28_x0ntk"]
+[ext_resource type="PackedScene" uid="uid://c3jjxg1ikomnh" path="res://scenes/globali/UI/menu/pause_menu.tscn" id="29_krnr3"]
 [ext_resource type="PackedScene" uid="uid://dcn2u160ora8b" path="res://scenes/livello_sara/signal.tscn" id="31_g8s3j"]
 [ext_resource type="PackedScene" uid="uid://dgwip4pgo2fr8" path="res://scenes/globali/enemies/ghost.tscn" id="32_50qcj"]
+[ext_resource type="PackedScene" uid="uid://xpqg1efbdmbt" path="res://scenes/globali/UI/lost_heart_manager.tscn" id="34_pvtnr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fnyg4"]
 texture = ExtResource("1_f67bj")
@@ -2298,9 +2300,6 @@ position = Vector2(5490, -391)
 position = Vector2(6600, 409)
 script = ExtResource("25_n7uui")
 
-[node name="HealthChangedManager" parent="." instance=ExtResource("13_ekqrr")]
-metadata/_edit_use_anchors_ = true
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="UI_Control" parent="CanvasLayer" instance=ExtResource("21_408eq")]
@@ -2308,6 +2307,8 @@ offset_left = 2.0
 offset_top = -4.0
 offset_right = 2.0
 offset_bottom = -4.0
+
+[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("29_krnr3")]
 
 [node name="Portal" parent="." instance=ExtResource("28_x0ntk")]
 position = Vector2(7560, -475)
@@ -2317,5 +2318,15 @@ position = Vector2(7026, -645)
 
 [node name="Signal" parent="." instance=ExtResource("31_g8s3j")]
 position = Vector2(7249, -125)
+
+[node name="HealthManagers" type="Node" parent="."]
+
+[node name="HealthChangedManager" parent="HealthManagers" instance=ExtResource("13_ekqrr")]
+offset_left = 86.0
+offset_top = 309.0
+offset_right = 126.0
+offset_bottom = 349.0
+
+[node name="LostHeartManager" parent="HealthManagers" instance=ExtResource("34_pvtnr")]
 
 [connection signal="body_exited" from="Doors/Door2" to="Doors/Door2" method="_on_body_exited"]

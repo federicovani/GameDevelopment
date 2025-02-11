@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://137gd57n4gh"]
+
+[ext_resource type="Texture2D" uid="uid://d0outlni2s3uy" path="res://assets/globali/knight/empty_hearth.png" id="1_6snf3"]
+[ext_resource type="Script" path="res://scripts/globali/UI/lost_heart_icon.gd" id="2_l015w"]
+
+[node name="Sprite2D" type="Sprite2D"]
+texture = ExtResource("1_6snf3")
+script = ExtResource("2_l015w")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
