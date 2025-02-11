@@ -1,9 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://duabwu8cvs8w6"]
+[gd_scene load_steps=14 format=3 uid="uid://duabwu8cvs8w6"]
 
 [ext_resource type="Theme" uid="uid://cnk304tv4ytv5" path="res://assets/globali/GUI/default.tres" id="1_l4po0"]
 [ext_resource type="Script" path="res://scripts/globali/UI/menu/level_selector.gd" id="2_1gfst"]
 [ext_resource type="PackedScene" uid="uid://cfpp0np486kcq" path="res://scenes/globali/UI/menu/main_menu_parallax_background.tscn" id="2_3fcwl"]
 [ext_resource type="Texture2D" uid="uid://23vlpsuu2hgj" path="res://assets/globali/GUI/GUI.png" id="3_67sun"]
+[ext_resource type="Texture2D" uid="uid://itbjb3cgoaj0" path="res://assets/tutorial/background tutorial.png" id="5_17i44"]
+[ext_resource type="PackedScene" uid="uid://kfyxknk1d3ww" path="res://scenes/globali/UI/menu/stats_container.tscn" id="6_rtiao"]
+[ext_resource type="Texture2D" uid="uid://bpcvpohcef3w0" path="res://assets/livello_federico/PixelFantasy_Caves_1/background_livello_federico.png" id="6_uuvl8"]
+[ext_resource type="Texture2D" uid="uid://dj11lfkhvj57p" path="res://assets/livello_elisa/02. Crystal World/background_livello_elisa.png" id="7_0by27"]
+[ext_resource type="Texture2D" uid="uid://de4nj8jbnk7wi" path="res://assets/livello_sara/PixelPlatformerSet1v/Background/background_livello_sara.png" id="8_batf7"]
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_mphis"]
 texture = ExtResource("3_67sun")
@@ -113,10 +118,11 @@ theme_override_constants/margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer"]
 layout_mode = 2
+theme_override_constants/separation = 15
 
 [node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_constants/separation = 12
+theme_override_constants/separation = 17
 alignment = 1
 
 [node name="Back" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer"]
@@ -132,7 +138,6 @@ icon_alignment = 1
 expand_icon = true
 
 [node name="tutorial" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer"]
-visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/tutorial"]
@@ -143,8 +148,23 @@ theme_override_font_sizes/font_size = 48
 text = "Tutorial"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/tutorial"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/tutorial"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/tutorial/MarginContainer"]
 custom_minimum_size = Vector2(600, 275)
+layout_mode = 2
+texture = ExtResource("5_17i44")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/tutorial/MarginContainer"]
+visible = false
+layout_mode = 2
+color = Color(0, 0, 0, 0.52549)
+
+[node name="StatsContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/tutorial/MarginContainer" instance=ExtResource("6_rtiao")]
+visible = false
 layout_mode = 2
 
 [node name="livello_federico" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer"]
@@ -159,8 +179,23 @@ theme_override_font_sizes/font_size = 48
 text = "Level 1"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_federico"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_federico"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_federico/MarginContainer"]
 custom_minimum_size = Vector2(600, 275)
+layout_mode = 2
+texture = ExtResource("6_uuvl8")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_federico/MarginContainer"]
+visible = false
+layout_mode = 2
+color = Color(0, 0, 0, 0.52549)
+
+[node name="StatsContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_federico/MarginContainer" instance=ExtResource("6_rtiao")]
+visible = false
 layout_mode = 2
 
 [node name="livello_elisa" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer"]
@@ -175,11 +210,27 @@ theme_override_font_sizes/font_size = 48
 text = "Level 2"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_elisa"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_elisa"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_elisa/MarginContainer"]
 custom_minimum_size = Vector2(600, 275)
+layout_mode = 2
+texture = ExtResource("7_0by27")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_elisa/MarginContainer"]
+visible = false
+layout_mode = 2
+color = Color(0, 0, 0, 0.52549)
+
+[node name="StatsContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_elisa/MarginContainer" instance=ExtResource("6_rtiao")]
+visible = false
 layout_mode = 2
 
 [node name="livello_sara" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_sara"]
@@ -190,10 +241,24 @@ theme_override_font_sizes/font_size = 48
 text = "Level 3"
 horizontal_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_sara"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_sara"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_sara/MarginContainer"]
 custom_minimum_size = Vector2(600, 275)
 layout_mode = 2
-expand_mode = 3
+texture = ExtResource("8_batf7")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="ColorRect" type="ColorRect" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_sara/MarginContainer"]
+visible = false
+layout_mode = 2
+color = Color(0, 0, 0, 0.52549)
+
+[node name="StatsContainer" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/livello_sara/MarginContainer" instance=ExtResource("6_rtiao")]
+visible = false
+layout_mode = 2
 
 [node name="Next" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer"]
 custom_minimum_size = Vector2(40, 40)

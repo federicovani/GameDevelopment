@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://cr7ynr4wnnfw6"]
+[gd_scene load_steps=28 format=4 uid="uid://cr7ynr4wnnfw6"]
 
 [ext_resource type="Texture2D" uid="uid://cepnf8r53a6ck" path="res://assets/tutorial/GandalfHardcore Platformer Assets v2.png" id="1_tqsvg"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight/knight.tscn" id="2_0ltym"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://bhel8jmvawyaf" path="res://scenes/globali/UI/ui_control.tscn" id="10_ux17i"]
 [ext_resource type="PackedScene" uid="uid://c3jjxg1ikomnh" path="res://scenes/globali/UI/menu/pause_menu.tscn" id="11_p1cbr"]
 [ext_resource type="PackedScene" uid="uid://xpqg1efbdmbt" path="res://scenes/globali/UI/lost_heart_manager.tscn" id="12_btgev"]
+[ext_resource type="PackedScene" uid="uid://glyif1t8h0h7" path="res://scenes/globali/portal.tscn" id="13_u38vx"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vvwxh"]
 polygon = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
@@ -1056,7 +1057,6 @@ tile_set = SubResource("TileSet_43msg")
 [node name="MainMenuParallaxBackground" parent="." instance=ExtResource("2_frqea")]
 
 [node name="UIContainer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="UI_Control" parent="UIContainer" instance=ExtResource("10_ux17i")]
 mouse_filter = 0
@@ -1216,3 +1216,6 @@ offset_right = 126.0
 offset_bottom = 349.0
 
 [node name="LostHeartManager" parent="HealthManagers" instance=ExtResource("12_btgev")]
+
+[node name="Portal" parent="." instance=ExtResource("13_u38vx")]
+position = Vector2(383.127, 55.0923)

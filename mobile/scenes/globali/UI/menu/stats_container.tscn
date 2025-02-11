@@ -1,0 +1,95 @@
+[gd_scene load_steps=5 format=3 uid="uid://kfyxknk1d3ww"]
+
+[ext_resource type="Script" path="res://scripts/globali/UI/menu/stats_container.gd" id="1_3oubn"]
+[ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_8ycgm"]
+[ext_resource type="Texture2D" uid="uid://cc0jcas3ljctq" path="res://assets/globali/Collectables/diamond/diamond_big.png" id="2_yow2k"]
+[ext_resource type="Texture2D" uid="uid://bm84s2kmg4teg" path="res://assets/globali/Collectables/diamond/empty_diamond_outline.png" id="3_254qw"]
+
+[node name="StatsContainer" type="MarginContainer" node_paths=PackedStringArray("diamonds_array")]
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_3oubn")
+diamonds_array = [NodePath("VBoxContainer/HBoxContainer/Diamond"), NodePath("VBoxContainer/HBoxContainer/Diamond2"), NodePath("VBoxContainer/HBoxContainer/Diamond3"), NodePath("VBoxContainer/HBoxContainer/Diamond4"), NodePath("VBoxContainer/HBoxContainer/Diamond5"), NodePath("VBoxContainer/HBoxContainer/Diamond6")]
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 10
+
+[node name="LevelCompleted" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_8ycgm")
+theme_override_font_sizes/font_size = 40
+text = "Completed"
+
+[node name="Separator" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/separation = 15
+
+[node name="Diamond" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_yow2k")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Diamond2" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_yow2k")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Diamond3" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_yow2k")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Diamond4" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_254qw")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Diamond5" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_254qw")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Diamond6" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_254qw")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="Separator2" type="Control" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Time" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_8ycgm")
+theme_override_font_sizes/font_size = 32
+text = "Time: x"
+
+[node name="Death" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_constants/outline_size = 3
+theme_override_fonts/font = ExtResource("1_8ycgm")
+theme_override_font_sizes/font_size = 32
+text = "Deaths: x"
+
+[node name="Separator3" type="Control" parent="VBoxContainer"]
+layout_mode = 2

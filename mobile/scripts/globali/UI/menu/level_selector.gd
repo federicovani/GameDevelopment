@@ -44,6 +44,31 @@ func update_level_selection():
 			else:
 				start.disabled = true
 				start.text = "Level Locked"
+			if(SceneManager.is_level_completed(levels[i].name)):
+				var color_rect : ColorRect
+				var stats_container : StatsContainer
+				for child_1 in levels[i].get_children():
+					if child_1 is MarginContainer:
+						for child_2 in child_1.get_children():
+							if child_2 is ColorRect:
+								color_rect = child_2
+							elif child_2 is StatsContainer:
+								stats_container = child_2
+				color_rect.show()
+				stats_container.get_level_stats(levels[i].name)
+				stats_container.show()
+			else:
+				var color_rect : ColorRect
+				var stats_container : StatsContainer
+				for child_1 in levels[i].get_children():
+					if child_1 is MarginContainer:
+						for child_2 in child_1.get_children():
+							if child_2 is ColorRect:
+								color_rect = child_2
+							elif child_2 is StatsContainer:
+								stats_container = child_2
+				stats_container.hide()
+				color_rect.hide()
 		else:
 			levels[i].hide()
 

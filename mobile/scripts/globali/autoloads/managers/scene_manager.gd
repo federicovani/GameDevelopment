@@ -18,18 +18,18 @@ var scene_to_file : Dictionary = {
 	livello_sara : "res://scenes/livello_sara/livello_sara.tscn"
 }
 
+var level_to_completed : Dictionary = {
+	tutorial : false,
+	livello_federico : false,
+	livello_elisa : false,
+	livello_sara : false
+}
+
 var level_to_unlocked : Dictionary = {
 	tutorial : true,
 	livello_federico : true,
 	livello_elisa : false,
 	livello_sara : true
-}
-
-var level_to_default_zoom : Dictionary = {
-	tutorial : 2,
-	livello_federico : 2,
-	livello_elisa : 2,
-	livello_sara : 2
 }
 
 var level_order : Array[String] = [tutorial, livello_federico, livello_elisa, livello_sara]
@@ -46,6 +46,19 @@ func get_scene_file(level : String) -> String:
 	else:
 		print_debug("Can't find any level: "+ level)
 		return "error_string"
+
+func is_level_completed(level : String) -> bool:
+	if level_to_completed.has(level):
+		return level_to_completed.get(level)
+	else:
+		print_debug("Can't find any level: "+ level)
+		return 0
+
+func complete_level(level : String):
+	if level_to_completed.has(level):
+		level_to_completed[level] = true
+	else:
+		print_debug("Can't find any level: "+ level)
 
 func is_level_unlocked(level : String) -> bool:
 	if level_to_unlocked.has(level):
@@ -96,6 +109,7 @@ func go_to_scene(scene : String):
 
 func _on_portal_crossed():
 	var next_level : String = get_next_level(current_level)
+	complete_level(current_level)
 	unlock_level(next_level)
 	SignalBus.emit_save_level_stats()
 	

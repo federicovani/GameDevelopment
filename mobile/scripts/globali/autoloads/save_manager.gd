@@ -42,6 +42,7 @@ func load_settings_data():
 
 func _on_save_level_stats():
 	level_stats_data.save_level_stats(LevelStats.level_to_stats)
+	level_stats_data.save_level_to_completed(SceneManager.level_to_completed)
 	level_stats_data.save_level_to_unlocked(SceneManager.level_to_unlocked)
 	ResourceSaver.save(level_stats_data, SAVE_FOLDER_PATH + LEVEL_STATS_SAVE_NAME)
 
@@ -49,6 +50,8 @@ func load_level_stats_data():
 	if !FileAccess.file_exists(SAVE_FOLDER_PATH + LEVEL_STATS_SAVE_NAME):
 		return
 	level_stats_data = ResourceLoader.load(SAVE_FOLDER_PATH + LEVEL_STATS_SAVE_NAME).duplicate(true)
+	if(level_stats_data.get_level_to_completed() != null):
+		SceneManager.level_to_completed = level_stats_data.get_level_to_completed()
 	if(level_stats_data.get_level_to_unlocked() != null):
 		SceneManager.level_to_unlocked = level_stats_data.get_level_to_unlocked()
 	if(level_stats_data.get_level_stats_dictionary() != null):
