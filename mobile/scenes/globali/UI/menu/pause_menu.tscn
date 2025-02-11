@@ -1005,6 +1005,10 @@ libraries = {
 "": SubResource("AnimationLibrary_e7bcm")
 }
 
+[node name="BufferTimer" type="Timer" parent="."]
+wait_time = 0.5
+one_shot = true
+
 [connection signal="pressed" from="openButtonContainer/openButton" to="." method="_on_open_button_pressed"]
 [connection signal="pressed" from="MenuContainer/Menu/VBoxContainer/Resume" to="." method="_on_resume_pressed"]
 [connection signal="button_down" from="MenuContainer/Menu/VBoxContainer/Options" to="." method="_on_options_button_down"]

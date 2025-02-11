@@ -446,11 +446,12 @@ script = ExtResource("9_n27ep")
 [node name="DirectionTimer" type="Timer" parent="CharacterStateMachine/Flying"]
 autostart = true
 
-[node name="Chase" type="Node" parent="CharacterStateMachine"]
+[node name="Chase" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("chase_area")]
 script = ExtResource("10_vyjsc")
+chase_area = NodePath("../../ChaseArea")
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Chase"]
-wait_time = 5.0
+wait_time = 8.0
 
 [node name="Hit" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("damageable")]
 script = ExtResource("8_g5186")
@@ -469,6 +470,9 @@ can_move = false
 script = ExtResource("13_dxp82")
 ray_cast_death = NodePath("../../RayCastDeath")
 can_move = false
+
+[node name="Timer" type="Timer" parent="CharacterStateMachine/Death"]
+one_shot = true
 
 [node name="ChaseArea" type="Area2D" parent="."]
 visible = false

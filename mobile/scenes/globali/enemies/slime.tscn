@@ -683,8 +683,9 @@ autostart = true
 wait_time = 0.2
 one_shot = true
 
-[node name="Chase" type="Node" parent="CharacterStateMachine"]
+[node name="Chase" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("attack_zone")]
 script = ExtResource("5_ogcnb")
+attack_zone = NodePath("../../AttackZoneNear")
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Chase"]
 wait_time = 10.0
@@ -705,6 +706,10 @@ can_move = false
 [node name="Death" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("8_nix8w")
 can_move = false
+
+[node name="Timer" type="Timer" parent="CharacterStateMachine/Death"]
+wait_time = 0.05
+one_shot = true
 
 [node name="AttackZoneNear" type="Area2D" parent="." node_paths=PackedStringArray("timer", "character")]
 collision_layer = 0

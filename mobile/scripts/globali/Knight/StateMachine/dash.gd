@@ -9,6 +9,7 @@ class_name dashing extends State
 var dash_start_position = 0
 
 func on_enter():
+	playback.travel("dash")
 	SignalBus.emit_camera_shook()
 	character.update_player_audio(character.dash_sfx)
 	dash_particles.emitting = true

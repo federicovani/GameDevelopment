@@ -8,8 +8,6 @@ signal on_master_sound_set(value : float)
 signal on_music_sound_set(value : float)
 signal on_sfx_sound_set(value : float)
 
-signal on_camera_zoom_edited(value : float)
-
 signal set_settings_dictionary(settings_dict : Dictionary)
 
 signal load_settings_data(settings_dict : Dictionary)
@@ -41,7 +39,3 @@ func emit_on_music_sound_set(value : float):
 
 func emit_on_sfx_sound_set(value : float):
 	on_sfx_sound_set.emit(value)
-
-
-func emit_on_camera_zoom_edited(value : float):
-	on_camera_zoom_edited.emit(value)

@@ -1,5 +1,7 @@
 class_name bat_death extends State
 
+@onready var timer: Timer = $Timer
+
 #Handle the death animation offset
 @export var ray_cast_death : RayCast2D
 
@@ -11,7 +13,7 @@ func on_enter():
 func state_process(delta):
 	if(!ray_cast_death.is_colliding()):
 		character.velocity = character.get_gravity() * delta
-	elif(ray_cast_death.is_colliding() && !is_on_floor):
+	elif((ray_cast_death.is_colliding() || character.is_on_floor()) && !is_on_floor):
 		#When the bat is on the floor state_process starts doing nothing
 		is_on_floor = true
 		character.velocity = Vector2.ZERO
@@ -19,5 +21,6 @@ func state_process(delta):
 	character.move_and_slide()
 
 func remove():
-	await get_tree().create_timer(0.5).timeout
+	timer.start()
+	await timer.timeout
 	character.queue_free()

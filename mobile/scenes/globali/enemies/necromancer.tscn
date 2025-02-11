@@ -638,8 +638,9 @@ autostart = true
 wait_time = 0.2
 one_shot = true
 
-[node name="Chase" type="Node" parent="CharacterStateMachine"]
+[node name="Chase" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("attack_zone")]
 script = ExtResource("5_h8lsu")
+attack_zone = NodePath("../../AttackZone")
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Chase"]
 wait_time = 15.0
@@ -661,6 +662,10 @@ can_move = false
 [node name="Death" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("11_fc2e6")
 can_move = false
+
+[node name="Timer" type="Timer" parent="CharacterStateMachine/Death"]
+wait_time = 0.05
+one_shot = true
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 visible = false

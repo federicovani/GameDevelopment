@@ -10,7 +10,7 @@ func on_enter():
 func _physics_process(delta: float) -> void:
 	player = Global.playerBody
 	if (get_parent().current_state == self):
-		character.direction = character.position.direction_to(player.position)
+		character.direction = character.position.direction_to(player.global_position)
 		if(!is_player_looking()):
 			character.velocity = character.direction * chase_speed * delta
 		else:

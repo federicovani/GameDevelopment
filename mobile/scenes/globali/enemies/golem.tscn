@@ -1,6 +1,6 @@
-[gd_scene load_steps=52 format=3 uid="uid://ca23ccn4r3mhd"]
+[gd_scene load_steps=49 format=3 uid="uid://ca23ccn4r3mhd"]
 
-[ext_resource type="Script" path="res://scripts/livello_federico/golem/golem.gd" id="1_jugte"]
+[ext_resource type="Script" path="res://scripts/globali/enemies/golem/golem.gd" id="1_jugte"]
 [ext_resource type="Texture2D" uid="uid://w4at6rgxwv3t" path="res://assets/globali/Enemies/Golem/White_Swoosh_VFX/Golem_1_idle.png" id="1_lsewp"]
 [ext_resource type="Texture2D" uid="uid://cx4r4xrs42ibv" path="res://assets/globali/Enemies/Golem/White_Swoosh_VFX/Golem_1_walk.png" id="2_biw3d"]
 [ext_resource type="Shader" path="res://scripts/resources/shaders/golem.gdshader" id="2_m8guk"]
@@ -10,7 +10,7 @@
 [ext_resource type="Script" path="res://scripts/globali/State Machine/damageable.gd" id="7_xsypi"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/CharacterStateMachine.gd" id="8_0oc1q"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/states/walk_state.gd" id="9_vedtx"]
-[ext_resource type="Script" path="res://scripts/livello_federico/golem/golem_idle_state.gd" id="10_q08tj"]
+[ext_resource type="Script" path="res://scripts/globali/enemies/golem/golem_idle_state.gd" id="10_q08tj"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/states/chase_state.gd" id="10_vutfg"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/states/hit_state.gd" id="11_ag1ne"]
 [ext_resource type="Script" path="res://scripts/globali/State Machine/states/attack_state.gd" id="12_tplcy"]
@@ -709,44 +709,6 @@ states/walk/node = SubResource("AnimationNodeAnimation_ilxah")
 states/walk/position = Vector2(441, 100)
 transitions = ["Start", "idle", SubResource("AnimationNodeStateMachineTransition_fntkn"), "idle", "walk", SubResource("AnimationNodeStateMachineTransition_lb5vh"), "walk", "idle", SubResource("AnimationNodeStateMachineTransition_mid16"), "walk", "attack", SubResource("AnimationNodeStateMachineTransition_3xlyn"), "attack", "walk", SubResource("AnimationNodeStateMachineTransition_pvoya"), "walk", "hit", SubResource("AnimationNodeStateMachineTransition_dfjlc"), "hit", "walk", SubResource("AnimationNodeStateMachineTransition_u6du7"), "attack", "hit", SubResource("AnimationNodeStateMachineTransition_ywob8"), "walk", "death", SubResource("AnimationNodeStateMachineTransition_385bn"), "attack", "death", SubResource("AnimationNodeStateMachineTransition_uba77")]
 
-[sub_resource type="Animation" id="Animation_44idi"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
-
-[sub_resource type="Animation" id="Animation_43k77"]
-resource_name = "hit_flash"
-length = 0.3
-step = 0.1
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:material:shader_parameter/enabled")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.3),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_ly07n"]
-_data = {
-"RESET": SubResource("Animation_44idi"),
-"hit_flash": SubResource("Animation_43k77")
-}
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xe2wc"]
 size = Vector2(97, 84)
 
@@ -790,11 +752,6 @@ libraries = {
 tree_root = SubResource("AnimationNodeStateMachine_rdi6o")
 anim_player = NodePath("../AnimationPlayer")
 
-[node name="HitFlashAnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-"": SubResource("AnimationLibrary_ly07n")
-}
-
 [node name="Damageable" type="Node" parent="."]
 script = ExtResource("7_xsypi")
 
@@ -822,8 +779,9 @@ autostart = true
 wait_time = 0.2
 one_shot = true
 
-[node name="Chase" type="Node" parent="CharacterStateMachine"]
+[node name="Chase" type="Node" parent="CharacterStateMachine" node_paths=PackedStringArray("attack_zone")]
 script = ExtResource("10_vutfg")
+attack_zone = NodePath("../../AttackZone")
 
 [node name="Timer" type="Timer" parent="CharacterStateMachine/Chase"]
 wait_time = 20.0
@@ -844,6 +802,10 @@ can_move = false
 [node name="Death" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("13_mh3bm")
 can_move = false
+
+[node name="Timer" type="Timer" parent="CharacterStateMachine/Death"]
+wait_time = 0.05
+one_shot = true
 
 [node name="AttackZone" type="Area2D" parent="." node_paths=PackedStringArray("character")]
 collision_layer = 0

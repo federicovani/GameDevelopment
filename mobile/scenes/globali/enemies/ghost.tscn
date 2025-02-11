@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://dgwip4pgo2fr8"]
+[gd_scene load_steps=29 format=3 uid="uid://dgwip4pgo2fr8"]
 
 [ext_resource type="Script" path="res://scripts/globali/enemies/ghost/ghost.gd" id="1_3radj"]
 [ext_resource type="Texture2D" uid="uid://dfq336ojcuixo" path="res://assets/livello_sara/Cute Ghost Pixel/Ghost_animation_ghost_attack.png" id="2_3qqn2"]
@@ -10,7 +10,6 @@
 [ext_resource type="Script" path="res://scripts/globali/enemies/ghost/ghost_chase_state.gd" id="6_u3wtu"]
 [ext_resource type="Script" path="res://scripts/globali/enemies/attack_zone.gd" id="8_jjs7b"]
 [ext_resource type="PackedScene" uid="uid://c5cvstt813ph0" path="res://scenes/globali/UI/state_debug_label.tscn" id="9_avxf0"]
-[ext_resource type="Script" path="res://scripts/globali/State Machine/states/death_state.gd" id="9_eukid"]
 [ext_resource type="Script" path="res://scripts/globali/facing_nodes/facing_collision_shape.gd" id="10_myn07"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n3xud"]
@@ -327,9 +326,6 @@ player = NodePath("../..")
 [node name="Attack" type="Node" parent="CharacterStateMachine"]
 script = ExtResource("6_8875e")
 can_move = false
-
-[node name="Death" type="Node" parent="CharacterStateMachine"]
-script = ExtResource("9_eukid")
 
 [node name="AttackZone" type="Area2D" parent="." node_paths=PackedStringArray("character")]
 collision_layer = 0

@@ -7,7 +7,7 @@ extends CharacterBody2D
 @onready var idle_state : State = $CharacterStateMachine/Idle
 @onready var chase_state : State = $CharacterStateMachine/Chase
 @onready var attack_state : State = $CharacterStateMachine/Attack
-@onready var death_state : State = $CharacterStateMachine/Death
+@onready var death_state : State = null
 
 @export var idle_animation : String = "idle"
 @export var walk_animation : String = "walk"

@@ -18,7 +18,7 @@
 [ext_resource type="PackedScene" uid="uid://k4hw66jkf8dk" path="res://scenes/globali/enemies/slime.tscn" id="13_ssabc"]
 [ext_resource type="PackedScene" uid="uid://br5q5yhfkjvjt" path="res://scenes/livello_federico/wooden_falling_platform.tscn" id="14_tjldn"]
 [ext_resource type="PackedScene" uid="uid://c84q7rgy8bd2b" path="res://scenes/globali/enemies/witch.tscn" id="16_diw2f"]
-[ext_resource type="PackedScene" uid="uid://ca23ccn4r3mhd" path="res://scenes/livello_federico/golem.tscn" id="18_yohc7"]
+[ext_resource type="PackedScene" uid="uid://ca23ccn4r3mhd" path="res://scenes/globali/enemies/golem.tscn" id="18_yohc7"]
 [ext_resource type="PackedScene" uid="uid://kp6cg7pbrl77" path="res://scenes/livello_federico/stone_platform.tscn" id="20_6skij"]
 [ext_resource type="PackedScene" uid="uid://bwrre6726w3k" path="res://scenes/livello_federico/wooden_platform.tscn" id="23_0nqo3"]
 [ext_resource type="PackedScene" uid="uid://bjlj3xnpx6kma" path="res://scenes/livello_federico/door.tscn" id="24_kct84"]
@@ -1852,7 +1852,6 @@ tile_set = ExtResource("2_gngnj")
 [node name="background" parent="." instance=ExtResource("2_pd4yd")]
 
 [node name="UIContainer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="UI_Control" parent="UIContainer" instance=ExtResource("4_h22q4")]
 mouse_filter = 0
@@ -1860,14 +1859,13 @@ mouse_filter = 0
 [node name="PauseMenu" parent="UIContainer" instance=ExtResource("5_7gvlg")]
 
 [node name="knight" parent="." instance=ExtResource("2_28qoe")]
-position = Vector2(2163.97, 13.9764)
+position = Vector2(1470.48, 189.59)
 
 [node name="Camera2D" parent="knight" instance=ExtResource("8_dyj66")]
 offset = Vector2(0, -30)
 zoom = Vector2(2.2, 2.2)
 limit_left = -275
 limit_bottom = 362
-drag_vertical_enabled = false
 
 [node name="killzone" parent="." instance=ExtResource("4_4yu1q")]
 position = Vector2(1, 347)

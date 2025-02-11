@@ -6,10 +6,6 @@ var rng = RandomNumberGenerator.new()
 
 func _physics_process(delta: float) -> void:
 	if (get_parent().current_state == self):
-		# Add the gravity.
-		if not character.is_on_floor():
-			character.velocity += character.get_gravity() * delta
-		
 		if character.direction && get_parent().check_if_can_move():
 			#Change direction if the enemy collide with a wall
 			if character.ray_cast_right.is_colliding():
@@ -23,6 +19,10 @@ func _physics_process(delta: float) -> void:
 			character.velocity.x = character.direction.x * character.movement_speed * delta
 		elif get_parent().current_state != character.hit_state:
 			character.velocity.x = move_toward(character.velocity.x, 0, character.movement_speed)
+	
+	# Add the gravity.
+	if not character.is_on_floor():
+		character.velocity += character.get_gravity() * delta
 
 #Every 3 to 10 seconds (random number) the character changes direction
 func _on_direction_timer_timeout() -> void:

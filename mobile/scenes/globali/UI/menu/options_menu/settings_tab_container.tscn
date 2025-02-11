@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://b03ggtovvlac2"]
+[gd_scene load_steps=8 format=3 uid="uid://b03ggtovvlac2"]
 
 [ext_resource type="PackedScene" uid="uid://cbf0vxt0sorvk" path="res://scenes/globali/UI/menu/options_menu/audio_slider_settings.tscn" id="1_8vsk2"]
 [ext_resource type="Script" path="res://scripts/globali/UI/menu/options_menu/settings_tab_container.gd" id="1_g8wcf"]
@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://thb203ifi7nq" path="res://scenes/globali/UI/menu/options_menu/window_mode_button.tscn" id="2_6q4a5"]
 [ext_resource type="PackedScene" uid="uid://drljavbuoa6aj" path="res://scenes/globali/UI/menu/options_menu/hotkey_rebind_button.tscn" id="2_dbqi0"]
 [ext_resource type="PackedScene" uid="uid://oketusljfawx" path="res://scenes/globali/UI/menu/options_menu/resolution_mode_button.tscn" id="3_mdjd0"]
-[ext_resource type="PackedScene" uid="uid://ia7djvwxdy50" path="res://scenes/globali/UI/menu/options_menu/camera_zoom_slider_settings.tscn" id="6_rpmx5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_5xcwx"]
 
@@ -97,9 +96,6 @@ theme_override_constants/separation = 70
 layout_mode = 2
 
 [node name="ResolutionModeButton" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("3_mdjd0")]
-layout_mode = 2
-
-[node name="CameraZoomSliderSettings" parent="TabContainer/Graphics/MarginContainer/ScrollContainer/VBoxContainer" instance=ExtResource("6_rpmx5")]
 layout_mode = 2
 
 [node name="Controls" type="TabBar" parent="TabContainer"]

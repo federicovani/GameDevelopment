@@ -15,7 +15,7 @@
 [ext_resource type="PackedScene" uid="uid://c41nqrqu2i12q" path="res://scenes/livello_elisa/platform.tscn" id="11_4d7wc"]
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="12_vm5gf"]
 [ext_resource type="PackedScene" uid="uid://bhel8jmvawyaf" path="res://scenes/globali/UI/ui_control.tscn" id="14_su55x"]
-[ext_resource type="PackedScene" uid="uid://ca23ccn4r3mhd" path="res://scenes/livello_federico/golem.tscn" id="14_u03oq"]
+[ext_resource type="PackedScene" uid="uid://ca23ccn4r3mhd" path="res://scenes/globali/enemies/golem.tscn" id="14_u03oq"]
 [ext_resource type="PackedScene" uid="uid://orkv4h8m75vj" path="res://scenes/globali/enemies/bat.tscn" id="15_agjnw"]
 [ext_resource type="PackedScene" uid="uid://chqgx28xsx4mt" path="res://scenes/livello_elisa/platform_path.tscn" id="17_0bbqn"]
 [ext_resource type="PackedScene" uid="uid://glyif1t8h0h7" path="res://scenes/globali/portal.tscn" id="19_cm7tb"]

@@ -9,7 +9,6 @@ var minZoom : float = 2
 var shake_trauma : float = 0
 
 func _ready() -> void:
-	SettingsSignalBus.on_camera_zoom_edited.connect(_on_camera_zoom_edited)
 	SignalBus.camera_shook.connect(_add_camera_shake)
 
 func _physics_process(delta: float) -> void:
@@ -23,7 +22,3 @@ func _add_camera_shake(value : float):
 func shake():
 	var amount : float = pow(shake_trauma * shake_power, 2)
 	offset = Vector2(randf_range(-1, 1), randf_range(-1, 1)) * shake_max_offset * amount
-
-func _on_camera_zoom_edited(value : float):
-	zoom.x = value
-	zoom.y = value

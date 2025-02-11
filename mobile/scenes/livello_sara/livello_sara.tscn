@@ -1427,11 +1427,10 @@ layer_3/tile_data = PackedInt32Array(327671, 917504, 20, 327675, 1179648, 20, 26
 [node name="background" parent="." instance=ExtResource("2_a7s8q")]
 
 [node name="knight" parent="." instance=ExtResource("3_n5yw1")]
-position = Vector2(7059, -680)
+position = Vector2(3094.82, -798.823)
 
 [node name="PlayerCamera" parent="knight" instance=ExtResource("5_l4gmt")]
 zoom = Vector2(2.5, 2.5)
-drag_vertical_enabled = false
 drag_left_margin = 0.2
 
 [node name="killzone" parent="." instance=ExtResource("5_bdxp3")]

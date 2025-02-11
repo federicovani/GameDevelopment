@@ -1,6 +1,7 @@
 class_name PauseMenu extends Control
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var buffer_timer: Timer = $BufferTimer
 
 @onready var options_menu: OptionsMenu = $OptionsMenu
 @onready var menu_container: MarginContainer = $MenuContainer
@@ -26,7 +27,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	update_button_scale()
-	if Input.is_action_just_pressed("pause") && !opened_option_menu:
+	if Input.is_action_just_pressed("pause") && buffer_timer.is_stopped() && !opened_option_menu:
 		pause_menu()
 
 func update_button_scale():
@@ -47,6 +48,7 @@ func tween(button, property, amount, duration):
 	tween.tween_property(button, property, amount, duration)
 
 func pause_menu():
+	buffer_timer.start()
 	#Already in pause, hide the menu
 	if paused:
 		animation_player.play("close_pause_menu")
