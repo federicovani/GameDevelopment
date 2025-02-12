@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ct77e6m380e6c" path="res://assets/globali/Purple Portal Sprite Sheet.png" id="1_lw33t"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_t3hdv"]
-radius = 5.0
+radius = 3.0
 height = 34.0
 
 [sub_resource type="Animation" id="Animation_iowm3"]
@@ -266,6 +266,7 @@ collision_mask = 2
 script = ExtResource("1_3ltgu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+flip_h = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false

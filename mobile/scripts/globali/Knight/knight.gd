@@ -83,3 +83,4 @@ func get_damage() -> int:
 
 func cannot_move():
 	state_machine.current_state.can_move = false
+	velocity = Vector2.ZERO
