@@ -1853,6 +1853,7 @@ tile_set = ExtResource("2_gngnj")
 [node name="background" parent="." instance=ExtResource("2_pd4yd")]
 
 [node name="UIContainer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="UI_Control" parent="UIContainer" instance=ExtResource("4_h22q4")]
 mouse_filter = 0
@@ -1860,7 +1861,7 @@ mouse_filter = 0
 [node name="PauseMenu" parent="UIContainer" instance=ExtResource("5_7gvlg")]
 
 [node name="knight" parent="." instance=ExtResource("2_28qoe")]
-position = Vector2(1470.48, 189.59)
+position = Vector2(-84.2161, -16.9041)
 
 [node name="Camera2D" parent="knight" instance=ExtResource("8_dyj66")]
 offset = Vector2(0, -30)
@@ -2312,7 +2313,7 @@ position = Vector2(2725, -456)
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Bat" parent="Enemies" instance=ExtResource("11_5ljrp")]
-position = Vector2(146, -165)
+position = Vector2(132, 14)
 
 [node name="Bat2" parent="Enemies" instance=ExtResource("11_5ljrp")]
 position = Vector2(-121, 89)
