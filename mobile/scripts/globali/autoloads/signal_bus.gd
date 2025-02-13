@@ -30,6 +30,7 @@ signal update_coin_label(value : int)
 
 signal show_game_over_screen()
 
+signal update_tutorial_keybinds_labels()
 
 func emit_fallen_in_lava():
 	fallen_in_lava.emit()
@@ -85,3 +86,7 @@ func emit_update_coin_label(value : int):
 
 func emit_show_game_over_screen():
 	show_game_over_screen.emit()
+
+
+func emit_update_tutorial_keybinds_labels():
+	update_tutorial_keybinds_labels.emit()

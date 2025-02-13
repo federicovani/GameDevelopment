@@ -6,6 +6,7 @@
 [node name="QuestBox" type="MarginContainer"]
 offset_right = 162.0
 offset_bottom = 61.0
+scale = Vector2(0.697821, 0.697821)
 size_flags_horizontal = 0
 size_flags_vertical = 0
 

@@ -37,6 +37,14 @@ SceneManager="*res://scripts/globali/autoloads/managers/scene_manager.gd"
 LevelStats="*res://scripts/globali/autoloads/level_stats.gd"
 HitStopManager="*res://scripts/globali/autoloads/managers/hit_stop_manager.gd"
 
+[debug]
+
+gdscript/warnings/unused_signal=0
+gdscript/warnings/shadowed_variable=0
+gdscript/warnings/shadowed_global_identifier=0
+gdscript/warnings/integer_division=0
+gdscript/warnings/narrowing_conversion=0
+
 [display]
 
 window/stretch/mode="viewport"

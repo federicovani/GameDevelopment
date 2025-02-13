@@ -1,14 +1,18 @@
-[gd_scene load_steps=10 format=3 uid="uid://dyh8xnb16x7i3"]
+[gd_scene load_steps=12 format=3 uid="uid://dyh8xnb16x7i3"]
 
 [ext_resource type="Script" path="res://scripts/globali/autoloads/managers/audio_manager.gd" id="1_rm2hr"]
 [ext_resource type="AudioStream" uid="uid://b4rh83svqg0w8" path="res://assets/globali/Audio/music/Floating Dream.wav" id="2_ftbb6"]
 [ext_resource type="AudioStream" uid="uid://b0t4acsmpk0ky" path="res://assets/globali/Audio/music/Cuddle Clouds.wav" id="2_wr5tw"]
+[ext_resource type="AudioStream" uid="uid://b8k3po6sbbgwu" path="res://assets/globali/Audio/music/Gentle Breeze.wav" id="3_6k5rd"]
+[ext_resource type="AudioStream" uid="uid://gye045kt4vi" path="res://assets/globali/Audio/music/Wanderer's Tale.wav" id="5_jhv6m"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_4vxr7"]
 stream_count = 1
 stream_0 = ExtResource("2_wr5tw")
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_f4trc"]
+stream_count = 1
+stream_0 = ExtResource("3_6k5rd")
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_4bksf"]
 stream_count = 1
@@ -17,6 +21,8 @@ stream_0 = ExtResource("2_ftbb6")
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_kjcso"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_0hj42"]
+stream_count = 1
+stream_0 = ExtResource("5_jhv6m")
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_1gvrg"]
 clip_count = 5

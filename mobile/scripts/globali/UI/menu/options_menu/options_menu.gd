@@ -29,6 +29,7 @@ func tween(button, property, amount, duration):
 
 func on_exit_button_down() -> void:
 	exit_options_menu.emit()
+	SignalBus.emit_update_tutorial_keybinds_labels()
 	#Save all the settings
 	SettingsSignalBus.emit_set_settings_dictionary(SettingsDataContainer.create_storage_dictionary())
 	set_process(false)

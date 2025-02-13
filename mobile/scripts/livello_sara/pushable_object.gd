@@ -6,7 +6,7 @@ extends RigidBody2D
 var is_playing: bool = false
 var is_being_pushed: bool = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	# Controlla se l'oggetto è in movimento
 	if linear_velocity.x != 0 and not is_being_pushed:
 		is_being_pushed = true

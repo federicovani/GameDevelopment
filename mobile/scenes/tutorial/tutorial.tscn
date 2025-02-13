@@ -1,5 +1,6 @@
-[gd_scene load_steps=126 format=4 uid="uid://cr7ynr4wnnfw6"]
+[gd_scene load_steps=128 format=4 uid="uid://cr7ynr4wnnfw6"]
 
+[ext_resource type="Script" path="res://scripts/tutorial/tutorial.gd" id="1_qlvf2"]
 [ext_resource type="Texture2D" uid="uid://cepnf8r53a6ck" path="res://assets/tutorial/GandalfHardcore Platformer Assets v2.png" id="1_tqsvg"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight/knight.tscn" id="2_0ltym"]
 [ext_resource type="PackedScene" uid="uid://cfpp0np486kcq" path="res://scenes/globali/UI/menu/main_menu_parallax_background.tscn" id="2_frqea"]
@@ -9,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://6c8h1h33nore" path="res://scenes/globali/UI/health_changed_manager.tscn" id="7_of751"]
 [ext_resource type="PackedScene" uid="uid://d4aij5g6rvxa4" path="res://scenes/globali/collectables/coin.tscn" id="7_scjkt"]
 [ext_resource type="PackedScene" uid="uid://d31vrq3tav5ai" path="res://scenes/globali/checkpoint_campfire.tscn" id="8_4fwa8"]
+[ext_resource type="PackedScene" uid="uid://cre8gimicsene" path="res://scenes/tutorial/quest_box.tscn" id="9_8du0k"]
 [ext_resource type="PackedScene" uid="uid://bhel8jmvawyaf" path="res://scenes/globali/UI/ui_control.tscn" id="10_ux17i"]
 [ext_resource type="PackedScene" uid="uid://c3jjxg1ikomnh" path="res://scenes/globali/UI/menu/pause_menu.tscn" id="11_p1cbr"]
 [ext_resource type="PackedScene" uid="uid://k4hw66jkf8dk" path="res://scenes/globali/enemies/slime.tscn" id="11_vchht"]
@@ -1379,6 +1381,21 @@ polygon = PackedVector2Array(33.1367, -25.2896, 39.1367, -17.2896, 42.1367, -13.
 closed = false
 polygon = PackedVector2Array(46.748, 11.4524, 45.748, 17.4524, 45.748, 23.4524, 46.748, 27.4524, 28.748, 27.4524)
 
+[sub_resource type="Animation" id="Animation_mp42m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2920, 592)]
+}
+
 [sub_resource type="Animation" id="Animation_rfbdm"]
 resource_name = "move"
 length = 2.0
@@ -1396,7 +1413,13 @@ tracks/0/keys = {
 "values": [Vector2(2920, 592), Vector2(2920, 479)]
 }
 
-[sub_resource type="Animation" id="Animation_mp42m"]
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5lyqc"]
+_data = {
+"RESET": SubResource("Animation_mp42m"),
+"move": SubResource("Animation_rfbdm")
+}
+
+[sub_resource type="Animation" id="Animation_g5qcd"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -1408,13 +1431,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(2920, 592)]
-}
-
-[sub_resource type="AnimationLibrary" id="AnimationLibrary_5lyqc"]
-_data = {
-"RESET": SubResource("Animation_mp42m"),
-"move": SubResource("Animation_rfbdm")
+"values": [Vector2(2504, 446)]
 }
 
 [sub_resource type="Animation" id="Animation_a5nb7"]
@@ -1435,21 +1452,6 @@ tracks/0/keys = {
 "values": [Vector2(2504, 446), Vector2(2504, 446), Vector2(2680, 446), Vector2(2680, 446)]
 }
 
-[sub_resource type="Animation" id="Animation_g5qcd"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:position")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(2504, 446)]
-}
-
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_fke15"]
 _data = {
 "RESET": SubResource("Animation_g5qcd"),
@@ -1464,6 +1466,7 @@ tonemap_mode = 3
 
 [node name="tutorial" type="Node2D"]
 position = Vector2(72, 379)
+script = ExtResource("1_qlvf2")
 
 [node name="Layers" type="Node2D" parent="."]
 
@@ -1489,7 +1492,6 @@ tile_set = SubResource("TileSet_43msg")
 [node name="MainMenuParallaxBackground" parent="." instance=ExtResource("2_frqea")]
 
 [node name="UIContainer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="UI_Control" parent="UIContainer" instance=ExtResource("10_ux17i")]
 mouse_filter = 0
@@ -1505,18 +1507,109 @@ offset_right = 126.0
 offset_bottom = 349.0
 
 [node name="LostHeartManager" parent="HealthManagers" instance=ExtResource("12_btgev")]
+offset_left = -252.0
+offset_top = 41.0
+offset_right = -252.0
+offset_bottom = 41.0
 
 [node name="knight" parent="." instance=ExtResource("2_0ltym")]
-position = Vector2(1860.03, 67.9694)
+position = Vector2(60, 79)
 
 [node name="PlayerCamera" parent="knight" instance=ExtResource("3_5ssf8")]
 offset = Vector2(0, -30)
-zoom = Vector2(2.2, 2.2)
+zoom = Vector2(2.3, 2.3)
 limit_left = 0
 limit_top = 200
 limit_bottom = 630
 
 [node name="QuestBoxes" type="Node" parent="."]
+
+[node name="QuestBoxMove" parent="QuestBoxes" instance=ExtResource("9_8du0k")]
+offset_left = 90.0
+offset_top = 370.0
+offset_right = 217.0
+offset_bottom = 420.0
+
+[node name="Label" parent="QuestBoxes/QuestBoxMove/MarginContainer" index="0"]
+text = "Press a and d to 
+move around"
+
+[node name="QuestBoxJump" parent="QuestBoxes" instance=ExtResource("9_8du0k")]
+modulate = Color(1, 1, 1, 0)
+offset_left = 281.0
+offset_top = 371.0
+offset_right = 386.0
+offset_bottom = 421.0
+
+[node name="Label" parent="QuestBoxes/QuestBoxJump/MarginContainer" index="0"]
+text = "Press space
+to jump"
+
+[node name="QuestBoxHoldJump" parent="QuestBoxes" instance=ExtResource("9_8du0k")]
+modulate = Color(1, 1, 1, 0)
+offset_left = 430.0
+offset_top = 344.0
+offset_right = 542.0
+offset_bottom = 394.0
+
+[node name="Label" parent="QuestBoxes/QuestBoxHoldJump/MarginContainer" index="0"]
+text = "Hold space to 
+jump higher"
+
+[node name="QuestBoxWallHang" parent="QuestBoxes" instance=ExtResource("9_8du0k")]
+modulate = Color(1, 1, 1, 0)
+offset_left = 560.0
+offset_top = 282.0
+offset_right = 708.0
+offset_bottom = 332.0
+
+[node name="Label" parent="QuestBoxes/QuestBoxWallHang/MarginContainer" index="0"]
+text = "Jump onto a ledge
+to hang on the wall"
+
+[node name="QuestBoxDash" parent="QuestBoxes" instance=ExtResource("9_8du0k")]
+modulate = Color(1, 1, 1, 0)
+offset_left = 818.0
+offset_top = 340.0
+offset_right = 921.0
+offset_bottom = 390.0
+
+[node name="Label" parent="QuestBoxes/QuestBoxDash/MarginContainer" index="0"]
+text = "Press Lshift
+to dash"
+
+[node name="QuestBoxCrouch" parent="QuestBoxes" instance=ExtResource("9_8du0k")]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1046.0
+offset_top = 340.0
+offset_right = 1146.0
+offset_bottom = 390.0
+
+[node name="Label" parent="QuestBoxes/QuestBoxCrouch/MarginContainer" index="0"]
+text = "Hold s to
+crouch"
+
+[node name="QuestBoxCheckpoint" parent="QuestBoxes" instance=ExtResource("9_8du0k")]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1561.0
+offset_top = 381.0
+offset_right = 1717.0
+offset_bottom = 431.0
+
+[node name="Label" parent="QuestBoxes/QuestBoxCheckpoint/MarginContainer" index="0"]
+text = "Light the campfire to 
+save a checkpoint"
+
+[node name="QuestBoxAttack" parent="QuestBoxes" instance=ExtResource("9_8du0k")]
+modulate = Color(1, 1, 1, 0)
+offset_left = 1917.0
+offset_top = 375.0
+offset_right = 2017.0
+offset_bottom = 425.0
+
+[node name="Label" parent="QuestBoxes/QuestBoxAttack/MarginContainer" index="0"]
+text = "Press e to
+attack"
 
 [node name="LightOccluders" type="Node" parent="."]
 
@@ -1781,6 +1874,27 @@ position = Vector2(980, 374)
 [node name="Coin16" parent="Coins" instance=ExtResource("7_scjkt")]
 position = Vector2(1011, 374)
 
+[node name="Coin65" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(1159, 426)
+
+[node name="Coin66" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(1191, 426)
+
+[node name="Coin67" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(1221, 426)
+
+[node name="Coin68" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(1252, 426)
+
+[node name="Coin69" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(1586, 421)
+
+[node name="Coin70" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(1616, 421)
+
+[node name="Coin71" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(1647, 421)
+
 [node name="Coin26" parent="Coins" instance=ExtResource("7_scjkt")]
 position = Vector2(1985, 406)
 
@@ -1792,6 +1906,24 @@ position = Vector2(2047, 406)
 
 [node name="Coin29" parent="Coins" instance=ExtResource("7_scjkt")]
 position = Vector2(2078, 406)
+
+[node name="Coin72" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(2002, 453)
+
+[node name="Coin73" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(2032, 453)
+
+[node name="Coin74" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(2063, 453)
+
+[node name="Coin75" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(2369, 418)
+
+[node name="Coin76" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(2399, 418)
+
+[node name="Coin77" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(2430, 418)
 
 [node name="Coin51" parent="Coins" instance=ExtResource("7_scjkt")]
 position = Vector2(2017, 353)
@@ -1862,6 +1994,18 @@ position = Vector2(2828, 566)
 [node name="Coin34" parent="Coins" instance=ExtResource("7_scjkt")]
 position = Vector2(2858, 566)
 
+[node name="Coin78" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(3208, 418)
+
+[node name="Coin79" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(3238, 418)
+
+[node name="Coin80" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(3268, 418)
+
+[node name="Coin81" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(3298, 418)
+
 [node name="Coin35" parent="Coins" instance=ExtResource("7_scjkt")]
 position = Vector2(2920, 474)
 
@@ -1873,6 +2017,45 @@ position = Vector2(2920, 514)
 
 [node name="Coin38" parent="Coins" instance=ExtResource("7_scjkt")]
 position = Vector2(2920, 534)
+
+[node name="Coin23" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(208, 446)
+
+[node name="Coin53" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(243, 446)
+
+[node name="Coin54" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(278, 446)
+
+[node name="Coin55" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(313, 446)
+
+[node name="Coin56" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(410, 428)
+
+[node name="Coin57" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(445, 428)
+
+[node name="Coin58" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(480, 428)
+
+[node name="Coin59" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(574, 383)
+
+[node name="Coin60" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(609, 383)
+
+[node name="Coin61" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(644, 383)
+
+[node name="Coin62" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(719, 281)
+
+[node name="Coin64" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(719, 301)
+
+[node name="Coin63" parent="Coins" instance=ExtResource("7_scjkt")]
+position = Vector2(719, 261)
 
 [node name="Diamonds" type="Node" parent="."]
 
@@ -1886,7 +2069,7 @@ position = Vector2(1210, 299)
 position = Vector2(2032, 291)
 
 [node name="checkpoint_campfire" parent="." instance=ExtResource("8_4fwa8")]
-position = Vector2(1545, 64)
+position = Vector2(1544, 64)
 
 [node name="killzone" parent="." instance=ExtResource("13_jlshx")]
 
@@ -1908,3 +2091,12 @@ color = Color(0.568973, 0.568973, 0.568972, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_c2jti")
+
+[editable path="QuestBoxes/QuestBoxMove"]
+[editable path="QuestBoxes/QuestBoxJump"]
+[editable path="QuestBoxes/QuestBoxHoldJump"]
+[editable path="QuestBoxes/QuestBoxWallHang"]
+[editable path="QuestBoxes/QuestBoxDash"]
+[editable path="QuestBoxes/QuestBoxCrouch"]
+[editable path="QuestBoxes/QuestBoxCheckpoint"]
+[editable path="QuestBoxes/QuestBoxAttack"]
