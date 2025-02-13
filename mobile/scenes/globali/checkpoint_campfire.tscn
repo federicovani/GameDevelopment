@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://d31vrq3tav5ai"]
+[gd_scene load_steps=14 format=3 uid="uid://d31vrq3tav5ai"]
 
 [ext_resource type="Script" path="res://scripts/globali/checkpoint_campfire.gd" id="1_rvqbu"]
 [ext_resource type="Texture2D" uid="uid://cj41fhfb5sxre" path="res://assets/globali/Campfire sheet.png" id="2_fou0h"]
 [ext_resource type="Texture2D" uid="uid://cepnf8r53a6ck" path="res://assets/tutorial/GandalfHardcore Platformer Assets v2.png" id="3_yb8bx"]
+[ext_resource type="AudioStream" uid="uid://c7ots05ibapok" path="res://assets/globali/Audio/sfx/campfirefireplace-crackling.wav" id="4_1fklm"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8slmu"]
 atlas = ExtResource("3_yb8bx")
@@ -213,5 +214,11 @@ color = Color(0.978307, 0.607047, 0.394259, 1)
 shadow_enabled = true
 shadow_filter = 2
 texture = SubResource("GradientTexture2D_k06ra")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("4_1fklm")
+volume_db = -3.0
+max_distance = 250.0
+bus = &"SFX"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
