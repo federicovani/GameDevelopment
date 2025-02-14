@@ -1,7 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dqxwdsbcpblkr"]
+[gd_scene load_steps=5 format=3 uid="uid://dqxwdsbcpblkr"]
 
 [ext_resource type="Script" path="res://scripts/globali/UI/health_changer_label.gd" id="1_730rt"]
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_sj17n"]
+
+[sub_resource type="Gradient" id="Gradient_q6be1"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6n4lt"]
+gradient = SubResource("Gradient_q6be1")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.850427, 0.200855)
 
 [node name="HealthChangerLabel" type="Label"]
 offset_left = -12.0
@@ -13,11 +22,18 @@ size_flags_horizontal = 4
 theme_override_constants/outline_size = 2
 theme_override_fonts/font = ExtResource("1_sj17n")
 text = "10000"
+horizontal_alignment = 1
 script = ExtResource("1_730rt")
 
 [node name="Timer" type="Timer" parent="."]
 wait_time = 0.5
 one_shot = true
 autostart = true
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(18.4747, 7.69779)
+scale = Vector2(1.20278, 0.914113)
+color = Color(1, 0, 0, 1)
+texture = SubResource("GradientTexture2D_6n4lt")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
