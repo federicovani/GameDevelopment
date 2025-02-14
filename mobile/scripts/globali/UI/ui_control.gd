@@ -50,16 +50,17 @@ func _on_update_hearth_label(current_hearth_amount : int):
 			hearths[i].hide()
 			hearths[i+3].show()
 
-func _on_update_level_stats_ui(time : float, deaths : int, coins : int, diamonds : int):
+func _on_update_level_stats_ui(time : float, deaths : int, coins : int, diamonds : Array):
 	#Diamonds:
 	for i in 3:
-		if(i < diamonds):
+		if(diamonds[i] == true):
+			i*=2
 			diamonds_array[i].show()
-			diamonds_array[i+3].hide()
+			diamonds_array[i+1].hide()
 		else:
+			i*=2
 			diamonds_array[i].hide()
-			diamonds_array[i+3].show()
-	
+			diamonds_array[i+1].show()
 	#Time
 	time_label.text = "Time: " + time_convert(int(time))
 	#Deaths

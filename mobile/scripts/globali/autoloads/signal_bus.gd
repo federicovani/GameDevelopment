@@ -13,9 +13,9 @@ signal save_level_stats()
 signal level_changed()
 signal level_reloaded()
 signal new_death()
-signal diamond_collected()
+signal diamond_collected(diamond : int)
 signal checkpoint_taken()
-signal update_level_stats_ui(time : float, deaths : int, coins : int, diamonds : int)
+signal update_level_stats_ui(time : float, deaths : int, coins : int, diamonds : Array)
 #endregion
 
 signal camera_shook(trauma : float)
@@ -53,13 +53,13 @@ func emit_level_reloaded():
 func emit_new_death():
 	new_death.emit()
 
-func emit_diamond_collected():
-	diamond_collected.emit()
+func emit_diamond_collected(diamond : int):
+	diamond_collected.emit(diamond)
 
 func emit_checkpoint_taken():
 	checkpoint_taken.emit()
 
-func emit_update_level_stats_ui(time : float, deaths : int, coins : int, diamonds : int):
+func emit_update_level_stats_ui(time : float, deaths : int, coins : int, diamonds : Array):
 	update_level_stats_ui.emit(time, deaths, coins, diamonds)
 #endregion
 

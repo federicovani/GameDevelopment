@@ -6,7 +6,7 @@ class_name StatsContainer
 
 @export var diamonds_array : Array[Node]
 
-var diamonds : int
+var diamonds : Array
 var time : float
 var deaths : int
 
@@ -16,17 +16,19 @@ func get_level_stats(level : String):
 	diamonds = stats.get("diamonds")
 	time = stats.get("time")
 	deaths = stats.get("deaths")
-	update_leve_completed_stats()
+	update_level_completed_stats()
 
-func update_leve_completed_stats():
+func update_level_completed_stats():
 	#Diamonds:
 	for i in 3:
-		if(i < diamonds):
+		if(diamonds[i] == true):
+			i*=2
 			diamonds_array[i].show()
-			diamonds_array[i+3].hide()
+			diamonds_array[i+1].hide()
 		else:
+			i*=2
 			diamonds_array[i].hide()
-			diamonds_array[i+3].show()
+			diamonds_array[i+1].show()
 	
 	#Time
 	time_label.text = "Time: " + time_convert(int(time))

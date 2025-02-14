@@ -1493,7 +1493,6 @@ tile_set = SubResource("TileSet_43msg")
 [node name="MainMenuParallaxBackground" parent="." instance=ExtResource("2_frqea")]
 
 [node name="UIContainer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="UI_Control" parent="UIContainer" instance=ExtResource("10_ux17i")]
 mouse_filter = 0
@@ -1515,7 +1514,7 @@ offset_right = -252.0
 offset_bottom = 41.0
 
 [node name="knight" parent="." instance=ExtResource("2_0ltym")]
-position = Vector2(60, 79)
+position = Vector2(71, 79)
 
 [node name="PlayerCamera" parent="knight" instance=ExtResource("3_5ssf8")]
 offset = Vector2(0, -30)
@@ -2074,12 +2073,14 @@ position = Vector2(719, 261)
 
 [node name="Diamond" parent="Diamonds" instance=ExtResource("14_8wstd")]
 position = Vector2(3011, 562)
+diamond_number = 2
 
 [node name="Diamond2" parent="Diamonds" instance=ExtResource("14_8wstd")]
 position = Vector2(1210, 299)
 
 [node name="Diamond3" parent="Diamonds" instance=ExtResource("14_8wstd")]
 position = Vector2(2032, 291)
+diamond_number = 1
 
 [node name="checkpoint_campfire" parent="." instance=ExtResource("8_4fwa8")]
 position = Vector2(1544, 64)
@@ -2091,7 +2092,7 @@ position = Vector2(52, 237)
 shape = SubResource("WorldBoundaryShape2D_jj7t8")
 
 [node name="Portal" parent="." instance=ExtResource("13_u38vx")]
-position = Vector2(3299, 37)
+position = Vector2(3302, 42)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 rotation = -0.436332

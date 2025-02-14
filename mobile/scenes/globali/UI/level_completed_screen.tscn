@@ -118,7 +118,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond4:modulate")
+tracks/9/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/NoDiamond:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -130,7 +130,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond5:modulate")
+tracks/10/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/NoDiamond2:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -142,7 +142,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond6:modulate")
+tracks/11/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/NoDiamond3:modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -379,7 +379,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond4:modulate")
+tracks/9/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/NoDiamond:modulate")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -391,7 +391,7 @@ tracks/9/keys = {
 tracks/10/type = "value"
 tracks/10/imported = false
 tracks/10/enabled = true
-tracks/10/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond5:modulate")
+tracks/10/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/NoDiamond2:modulate")
 tracks/10/interp = 1
 tracks/10/loop_wrap = true
 tracks/10/keys = {
@@ -403,7 +403,7 @@ tracks/10/keys = {
 tracks/11/type = "value"
 tracks/11/imported = false
 tracks/11/enabled = true
-tracks/11/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/Diamond6:modulate")
+tracks/11/path = NodePath("MarginContainer/VBoxContainer/HBoxContainer/NoDiamond3:modulate")
 tracks/11/interp = 1
 tracks/11/loop_wrap = true
 tracks/11/keys = {
@@ -488,9 +488,23 @@ texture = ExtResource("2_mh3th")
 expand_mode = 3
 stretch_mode = 4
 
+[node name="NoDiamond" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("3_04upc")
+expand_mode = 3
+stretch_mode = 4
+
 [node name="Diamond2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_mh3th")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="NoDiamond2" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 2
+texture = ExtResource("3_04upc")
 expand_mode = 3
 stretch_mode = 4
 
@@ -500,21 +514,7 @@ texture = ExtResource("2_mh3th")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="Diamond4" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-texture = ExtResource("3_04upc")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="Diamond5" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
-modulate = Color(1, 1, 1, 0)
-layout_mode = 2
-texture = ExtResource("3_04upc")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="Diamond6" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
+[node name="NoDiamond3" type="TextureRect" parent="MarginContainer/VBoxContainer/HBoxContainer"]
 modulate = Color(1, 1, 1, 0)
 layout_mode = 2
 texture = ExtResource("3_04upc")

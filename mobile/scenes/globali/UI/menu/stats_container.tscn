@@ -11,7 +11,7 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 script = ExtResource("1_3oubn")
-diamonds_array = [NodePath("VBoxContainer/HBoxContainer/Diamond"), NodePath("VBoxContainer/HBoxContainer/Diamond2"), NodePath("VBoxContainer/HBoxContainer/Diamond3"), NodePath("VBoxContainer/HBoxContainer/Diamond4"), NodePath("VBoxContainer/HBoxContainer/Diamond5"), NodePath("VBoxContainer/HBoxContainer/Diamond6")]
+diamonds_array = [NodePath("VBoxContainer/HBoxContainer/Diamond"), NodePath("VBoxContainer/HBoxContainer/NoDiamond"), NodePath("VBoxContainer/HBoxContainer/Diamond2"), NodePath("VBoxContainer/HBoxContainer/NoDiamond2"), NodePath("VBoxContainer/HBoxContainer/Diamond3"), NodePath("VBoxContainer/HBoxContainer/NoDiamond3")]
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -42,9 +42,21 @@ texture = ExtResource("2_yow2k")
 expand_mode = 3
 stretch_mode = 4
 
+[node name="NoDiamond" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_254qw")
+expand_mode = 3
+stretch_mode = 4
+
 [node name="Diamond2" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("2_yow2k")
+expand_mode = 3
+stretch_mode = 4
+
+[node name="NoDiamond2" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+texture = ExtResource("3_254qw")
 expand_mode = 3
 stretch_mode = 4
 
@@ -54,19 +66,7 @@ texture = ExtResource("2_yow2k")
 expand_mode = 3
 stretch_mode = 4
 
-[node name="Diamond4" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("3_254qw")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="Diamond5" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-texture = ExtResource("3_254qw")
-expand_mode = 3
-stretch_mode = 4
-
-[node name="Diamond6" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
+[node name="NoDiamond3" type="TextureRect" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
 texture = ExtResource("3_254qw")
 expand_mode = 3

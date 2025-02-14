@@ -3,14 +3,15 @@ extends Node
 var time : float = 0
 var deaths : int = 0
 var coins : int = 0
-var diamonds : int = 0
+var diamonds : Array[bool] = [false, false, false]
+var diamonds_taken_before_checkpoint : Array[bool] = [false, false, false]
 var checkpoint_taken : bool = false
 
 var stats : Dictionary = {
 	"time" : 0.0,
 	"deaths" : 0,
 	"coins" : 0,
-	"diamonds" : 0,
+	"diamonds" : null,
 	"checkpoint_taken" : false
 }
 
@@ -36,23 +37,37 @@ func _on_level_changed():
 	time = 0
 	deaths = 0
 	coins = 0
-	diamonds = 0
 	checkpoint_taken = false
+	
+	#If the level was already completed take the diamonds from the saved stats
+	var temp_stats : Dictionary
+	if(level_to_stats.has(SceneManager.current_level)):
+		temp_stats = level_to_stats.get(SceneManager.current_level)
+		diamonds = temp_stats.get("diamonds")
+	else:
+		diamonds = [false, false, false]
+		
+	diamonds_taken_before_checkpoint = [false, false, false]
 
 func _on_coin_collected(value : int):
 	coins += value
 
-func _on_diamond_collected():
-	diamonds += 1
+func _on_diamond_collected(diamond : int):
+	diamonds[diamond] = true
 
 func _on_checkpoint_taken():
 	checkpoint_taken = true
+	diamonds_taken_before_checkpoint = diamonds
 
 func is_checkpoint_taken() -> bool:
 	return checkpoint_taken
 
 func _on_new_death():
 	deaths += 1
+	diamonds = diamonds_taken_before_checkpoint
+
+func is_diamond_taken(diamond : int) -> bool:
+	return diamonds[diamond]
 
 func _on_portal_crossed():
 	save_level_to_stats_dictionary()
