@@ -1109,14 +1109,16 @@ position = Vector2(2086, 474)
 
 [node name="Diamonds" type="Node" parent="Collectibles"]
 
-[node name="Diamond2" parent="Collectibles/Diamonds" instance=ExtResource("9_ern55")]
-position = Vector2(3788, -657)
-
 [node name="Diamond" parent="Collectibles/Diamonds" instance=ExtResource("9_ern55")]
 position = Vector2(133, 141)
 
+[node name="Diamond2" parent="Collectibles/Diamonds" instance=ExtResource("9_ern55")]
+position = Vector2(3788, -657)
+diamond_number = 1
+
 [node name="Diamond3" parent="Collectibles/Diamonds" instance=ExtResource("9_ern55")]
 position = Vector2(-953, -9)
+diamond_number = 2
 
 [node name="Coins" type="Node" parent="Collectibles"]
 

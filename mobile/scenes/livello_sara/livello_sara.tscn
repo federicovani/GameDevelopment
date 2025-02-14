@@ -1695,9 +1695,11 @@ position = Vector2(2802, 347)
 
 [node name="Diamond2" parent="Diamonds" instance=ExtResource("6_mpbfg")]
 position = Vector2(3441, -132)
+diamond_number = 1
 
 [node name="Diamond3" parent="Diamonds" instance=ExtResource("6_mpbfg")]
 position = Vector2(4271, -623)
+diamond_number = 2
 
 [node name="Coins" type="Node" parent="."]
 
