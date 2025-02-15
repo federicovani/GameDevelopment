@@ -29,3 +29,4 @@ func _on_body_entered(_body: Node2D) -> void:
 		audio_stream_player_2d.play()
 		await audio_stream_player_2d.finished
 		queue_free()
+		
