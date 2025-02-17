@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://bcq4rsees2q27"]
+[gd_scene load_steps=7 format=3 uid="uid://bcq4rsees2q27"]
 
 [ext_resource type="Script" path="res://scripts/livello_federico/swing_platform.gd" id="1_ls364"]
 [ext_resource type="Texture2D" uid="uid://qhh04ncp81cr" path="res://assets/livello_federico/PixelFantasy_Caves_1/mainlev_build.png" id="2_ws12f"]
@@ -12,6 +12,10 @@ size = Vector2(170, 16)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7ab0b"]
 size = Vector2(170, 19)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_bcn4h"]
+cull_mode = 2
+polygon = PackedVector2Array(-85, -3, -78, -8, 79, -8, 85, -3, 82, 1, 80, 1, 80, 6, 79, 6, 76, 8, -77, 8, -78, 6, -80, 6, -80, 1, -83, 1)
 
 [node name="SwingPlatform" type="RigidBody2D"]
 gravity_scale = 0.0
@@ -29,7 +33,11 @@ collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+visible = false
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_7ab0b")
 
 [node name="Marker" type="Marker2D" parent="."]
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_bcn4h")

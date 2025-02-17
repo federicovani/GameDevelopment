@@ -7,11 +7,12 @@ extends RigidBody2D
 func _physics_process(delta: float) -> void:
 	if(area.has_overlapping_bodies()):
 		var distance = Global.playerBody.global_position.x - marker.global_position.x
-		if((distance < 20 || distance > -20) && rotation != 0):
-			rotation = lerp(rotation, 0.0, delta)
-		if(distance < -20 || distance > 20):
-			var angular : float = distance/2
+		if(distance < -15 || distance > 15):
+			var angular : float = distance
 			angular_velocity = angular * delta
+		else:
+			rotation = lerp(rotation, 0.0, delta)
+			
 	else:
 		if(rotation != 0):
 			rotation = lerp(rotation, 0.0, delta)

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://py14osfo4yyr"]
+
+[ext_resource type="Texture2D" uid="uid://qhh04ncp81cr" path="res://assets/livello_federico/PixelFantasy_Caves_1/mainlev_build.png" id="1_dapqw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_u2rup"]
+atlas = ExtResource("1_dapqw")
+region = Rect2(749, 288, 24, 16)
+
+[sub_resource type="Gradient" id="Gradient_ilmwl"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_oqebv"]
+gradient = SubResource("Gradient_ilmwl")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.846154, 0.179487)
+
+[node name="GlowingRock" type="Sprite2D"]
+texture = SubResource("AtlasTexture_u2rup")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1.43051e-06, -4.76837e-07)
+scale = Vector2(1.03125, 1.03125)
+color = Color(0.839216, 0.858824, 0.654902, 1)
+energy = 0.7
+shadow_filter = 2
+texture = SubResource("GradientTexture2D_oqebv")
