@@ -1,6 +1,6 @@
 [gd_scene load_steps=7 format=3 uid="uid://chqgx28xsx4mt"]
 
-[ext_resource type="Script" path="res://moving_path.gd" id="1_gx5de"]
+[ext_resource type="Script" path="res://scripts/livello_elisa/moving_path.gd" id="1_gx5de"]
 [ext_resource type="Texture2D" uid="uid://bcaylh0cg4ri8" path="res://assets/livello_elisa/02. Crystal World/main_lev_build_1.png" id="2_ehtag"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sp6q6"]

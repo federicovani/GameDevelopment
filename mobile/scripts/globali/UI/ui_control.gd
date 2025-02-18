@@ -78,6 +78,7 @@ func time_convert(time : int):
 	return "%02d:%02d" % [minutes, seconds]
 
 func show_level_completed_screen():
+	get_tree().paused = true
 	level_completed.visible = true
 	level_completed.mouse_filter = Control.MOUSE_FILTER_STOP
 	
@@ -87,10 +88,12 @@ func show_level_completed_screen():
 
 func next_level():
 	await level_completed_fade_to_black()
+	get_tree().paused = false
 	SceneManager.go_to_next_level()
 
 func main_menu():
 	await level_completed_fade_to_black()
+	get_tree().paused = false
 	SceneManager.go_to_main_menu()
 
 func level_completed_fade_to_black():
@@ -110,6 +113,7 @@ func _on_show_game_over_screen():
 	
 	game_over_animation_player.play("show_game_over")
 	await game_over_animation_player.animation_finished
+	get_tree().paused = true
 	
 	retry_button.grab_focus()
 
@@ -118,6 +122,7 @@ func retry_game():
 	SceneManager.reload_current_level()
 
 func title_screen():
+	get_tree().paused = false
 	await game_over_fade_to_black()
 	SceneManager.go_to_main_menu()
 

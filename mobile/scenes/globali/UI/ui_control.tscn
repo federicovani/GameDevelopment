@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b2g4vbpahb3t0" path="res://scenes/globali/UI/level_completed_screen.tscn" id="5_4i3uh"]
 
 [node name="UI_Control" type="Control" node_paths=PackedStringArray("hearths", "coin_label", "diamonds_array")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
