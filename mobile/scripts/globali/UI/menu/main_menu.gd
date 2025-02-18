@@ -4,6 +4,7 @@ class_name MainMenu extends Control
 
 @onready var options_menu: OptionsMenu = $OptionsMenu
 @onready var margin_container: MarginContainer = $MarginContainer
+@onready var transition_controller: SceneTransitionController = $TransitionController
 
 @onready var start: Button = $MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Start
 @onready var login: Button = $MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/LogIn
@@ -11,6 +12,8 @@ class_name MainMenu extends Control
 @onready var quit: Button = $MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Quit
 
 func _ready() -> void:
+	transition_controller.fade_in(0.5)
+	
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
 	
 	if Firebase.Auth.check_auth_file():
@@ -37,16 +40,29 @@ func tween(button, property, amount, duration):
 	tween.tween_property(button, property, amount, duration)
 
 func _on_start_button_down() -> void:
+	transition_controller.fade_out(0.5)
+	await transition_controller.animation_player.animation_finished
+	
 	SceneManager.go_to_scene(SceneManager.level_selector)
 
 func _on_options_button_down() -> void:
+	transition_controller.fade_out(0.5)
+	await transition_controller.animation_player.animation_finished
+	
 	margin_container.visible = false
 	options_menu.set_process(true)
 	options_menu.visible = true
+	
+	transition_controller.fade_in(0.5)
 
 func on_exit_options_menu():
+	transition_controller.fade_out(0.5)
+	await transition_controller.animation_player.animation_finished
+	
 	margin_container.visible = true
 	options_menu.visible = false
+	
+	transition_controller.fade_in(0.5)
 
 func _on_quit_button_down() -> void:
 	animation_player.play("quit_animation")
@@ -56,6 +72,9 @@ func _on_quit_button_down() -> void:
 	
 func _on_log_in_pressed() -> void:
 	if login.text == "Login":
+		transition_controller.fade_out(0.5)
+		await transition_controller.animation_player.animation_finished
+		
 		SceneManager.go_to_scene(SceneManager.login_page)
 	elif login.text == "Logout":
 		Firebase.Auth.logout()

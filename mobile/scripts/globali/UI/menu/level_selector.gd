@@ -1,5 +1,7 @@
 extends Control
 
+@onready var transition_controller: SceneTransitionController = $TransitionController
+
 @onready var back: Button = $MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/Back
 @onready var next: Button = $MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/HBoxContainer/Next
 @onready var start: Button = $MarginContainer/VBoxContainer/MarginContainer/MarginContainer/LevelContainer/VBoxContainer/Start
@@ -8,6 +10,8 @@ extends Control
 @export var levels : Array[VBoxContainer]
 
 func _ready() -> void:
+	transition_controller.fade_in(0.5)
+	
 	Global.current_level_selected = 0
 	update_level_selection()
 
@@ -29,9 +33,15 @@ func _on_back_pressed() -> void:
 	update_level_selection()
 
 func _on_start_pressed() -> void:
+	transition_controller.fade_out(0.5)
+	await transition_controller.animation_player.animation_finished
+	
 	SceneManager.go_to_scene(levels[Global.current_level_selected].name)
 
 func _on_main_menu_pressed() -> void:
+	transition_controller.fade_out(0.5)
+	await transition_controller.animation_player.animation_finished
+	
 	SceneManager.go_to_main_menu()
 
 func update_level_selection():

@@ -1,5 +1,7 @@
 class_name UIControl extends Control
 
+@onready var transition_controller: SceneTransitionController = $TransitionController
+
 @onready var game_over: Control = $GameOverScreen
 @onready var retry_button : Button = $GameOverScreen/VBoxContainer/Retry
 @onready var title_button: Button = $GameOverScreen/VBoxContainer/BackToTitle
@@ -20,6 +22,8 @@ class_name UIControl extends Control
 
 
 func _ready() -> void:
+	transition_controller.fade_in(0.5)
+	
 	SignalBus.connect("update_coin_label", _on_update_coin_label)
 	SignalBus.connect("update_hearth_label", _on_update_hearth_label)
 	SignalBus.connect("show_game_over_screen", _on_show_game_over_screen)
@@ -119,6 +123,7 @@ func _on_show_game_over_screen():
 
 func retry_game():
 	await game_over_fade_to_black()
+	get_tree().paused = false
 	SceneManager.reload_current_level()
 
 func title_screen():

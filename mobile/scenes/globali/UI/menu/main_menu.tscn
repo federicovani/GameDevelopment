@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://co3jkipk63syf"]
+[gd_scene load_steps=11 format=3 uid="uid://co3jkipk63syf"]
 
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_3msrs"]
 [ext_resource type="Script" path="res://scripts/globali/UI/menu/main_menu.gd" id="1_ssv1y"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cfpp0np486kcq" path="res://scenes/globali/UI/menu/main_menu_parallax_background.tscn" id="3_tap3c"]
 [ext_resource type="Texture2D" uid="uid://23vlpsuu2hgj" path="res://assets/globali/GUI/GUI.png" id="4_vaafd"]
 [ext_resource type="PackedScene" uid="uid://docl2niryulbx" path="res://scenes/globali/UI/menu/options_menu/options_menu.tscn" id="4_y17k1"]
+[ext_resource type="PackedScene" uid="uid://bjtun1thhimm2" path="res://scenes/globali/UI/transition_controller.tscn" id="7_2nxb0"]
 
 [sub_resource type="Animation" id="Animation_l52wc"]
 length = 0.001
@@ -242,6 +243,9 @@ text = "Quit Game"
 
 [node name="OptionsMenu" parent="." instance=ExtResource("4_y17k1")]
 visible = false
+layout_mode = 1
+
+[node name="TransitionController" parent="." instance=ExtResource("7_2nxb0")]
 layout_mode = 1
 
 [node name="ColorRect" type="ColorRect" parent="."]

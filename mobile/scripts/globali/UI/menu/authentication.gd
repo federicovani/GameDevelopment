@@ -1,5 +1,7 @@
 extends Control
 
+@onready var transition_controller: SceneTransitionController = $TransitionController
+
 @onready var login: Button = $MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer/LoginButton
 @onready var signup: Button = $MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer/SignupButton
 @onready var back: Button = $MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer/BackButton
@@ -16,6 +18,8 @@ func _ready() -> void:
 		SceneManager.go_to_main_menu()
 	else:
 		print_debug("User not logged in")
+	
+	transition_controller.fade_in(0.5)
 
 
 func _process(delta: float) -> void:
@@ -48,6 +52,9 @@ func on_signup_succeeded(auth):
 	%StateLabel.text = "Sign up success!"
 	Firebase.Auth.save_auth(auth)
 	add_user(auth)
+	
+	transition_controller.fade_out(0.5)
+	await transition_controller.animation_player.animation_finished
 	SceneManager.go_to_main_menu()
 	
 	
@@ -80,6 +87,9 @@ func add_user(auth_data: Dictionary):
 		collection.add(local_id, data)
 
 func _on_back_button_pressed() -> void:
+	transition_controller.fade_out(0.5)
+	await transition_controller.animation_player.animation_finished
+	
 	SceneManager.go_to_main_menu()
 
 func update_button_scale():
