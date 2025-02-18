@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=4 uid="uid://d3k38htbk1vgs"]
+[gd_scene load_steps=97 format=4 uid="uid://d3k38htbk1vgs"]
 
 [ext_resource type="Script" path="res://scripts/livello_federico/livello_federico.gd" id="1_xox4y"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight/knight.tscn" id="2_28qoe"]
@@ -30,6 +30,7 @@
 [ext_resource type="PackedScene" uid="uid://dgfw5xih331cc" path="res://scenes/globali/enemies/lava.tscn" id="27_vx800"]
 [ext_resource type="PackedScene" uid="uid://bcq4rsees2q27" path="res://scenes/livello_federico/swing_platform.tscn" id="28_3uvmg"]
 [ext_resource type="PackedScene" uid="uid://3bktwps6pw33" path="res://scenes/globali/enemies/necromancer.tscn" id="28_4a4ji"]
+[ext_resource type="PackedScene" uid="uid://dgwip4pgo2fr8" path="res://scenes/globali/enemies/ghost.tscn" id="31_gxtxn"]
 
 [sub_resource type="Animation" id="Animation_ukrbr"]
 length = 0.001
@@ -3462,6 +3463,9 @@ position = Vector2(8864, -110)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bn0f8")
+
+[node name="Ghost" parent="." instance=ExtResource("31_gxtxn")]
+position = Vector2(190, -14)
 
 [connection signal="body_entered" from="Lava/LavaRisingTrigger" to="." method="_on_lava_rising_trigger_body_entered"]
 [connection signal="body_entered" from="Platforms/VanishingPlatforms/SecretRoom/SecretRoomArea2D" to="." method="_on_secret_room_area_2d_body_entered"]
