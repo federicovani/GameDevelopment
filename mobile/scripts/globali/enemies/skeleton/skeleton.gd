@@ -50,7 +50,6 @@ func handle_orientation():
 	on_skeleton_facing_direction_changed(!sprite.flip_h)
 	
 #Handling CollisionShape and RayCast when character changes direction
-@warning_ignore("shadowed_variable")
 func on_skeleton_facing_direction_changed(facing_right : bool):
 	self.facing_right = facing_right
 	if(facing_right):

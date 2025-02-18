@@ -43,7 +43,10 @@ func _on_level_changed():
 	var temp_stats : Dictionary
 	if(level_to_stats.has(SceneManager.current_level)):
 		temp_stats = level_to_stats.get(SceneManager.current_level)
-		diamonds = temp_stats.get("diamonds")
+		if(temp_stats.get("diamonds") != null):
+			diamonds = temp_stats.get("diamonds")
+		else:
+			diamonds = [false, false, false]
 	else:
 		diamonds = [false, false, false]
 		
