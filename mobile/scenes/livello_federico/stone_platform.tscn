@@ -10,6 +10,7 @@ cull_mode = 2
 polygon = PackedVector2Array(-24, -8, 23, -8, 24, -7, 26, -7, 28, -5, 28, -3, 22, 5, -22, 5, -28, -3, -28, -5, -26, -7, -24, -7, -24, -7)
 
 [node name="stone_platform" type="AnimatableBody2D"]
+collision_layer = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 position = Vector2(-12, 0)

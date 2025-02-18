@@ -397,6 +397,7 @@ size = Vector2(40, 40)
 size = Vector2(8.5, 7)
 
 [node name="Bat" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast_right", "ray_cast_left", "ray_cast_up", "ray_cast_down", "facing_collision_shape_attack_zone")]
+z_index = 1
 collision_layer = 4
 wall_min_slide_angle = 0.0
 platform_on_leave = 2
@@ -507,6 +508,7 @@ target_position = Vector2(0, -20)
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
 target_position = Vector2(0, 20)
+collision_mask = 9
 
 [node name="RayCastRight" type="RayCast2D" parent="."]
 target_position = Vector2(20, 0)

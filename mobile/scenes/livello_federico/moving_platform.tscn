@@ -10,6 +10,7 @@ cull_mode = 2
 polygon = PackedVector2Array(-23, -8, 23, -8, 23, -7, 24, -7, 24, 8, -24, 8, -24, -7, -23, -7)
 
 [node name="MovingPlatform" type="AnimatableBody2D"]
+collision_layer = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_xcyxu")

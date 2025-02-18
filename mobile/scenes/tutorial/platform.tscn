@@ -10,6 +10,7 @@ region = Rect2(416, 32, 32, 6)
 size = Vector2(32, 6)
 
 [node name="Platform" type="AnimatableBody2D"]
+collision_layer = 8
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = SubResource("AtlasTexture_dvrjy")

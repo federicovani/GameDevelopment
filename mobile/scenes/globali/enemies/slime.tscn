@@ -632,6 +632,7 @@ fill_to = Vector2(0.803419, 0.136752)
 
 [node name="slime" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast_right", "ray_cast_left", "ray_cast_down", "facing_collision_shape_attack_zone_near", "facing_collision_shape_attack_zone_far", "facing_ray_cast_down")]
 collision_layer = 4
+collision_mask = 9
 floor_constant_speed = true
 platform_on_leave = 2
 script = ExtResource("1_fn8ug")
@@ -759,6 +760,7 @@ target_position = Vector2(-16, 0)
 visible = false
 position = Vector2(18, 0)
 target_position = Vector2(0, 24)
+collision_mask = 9
 script = ExtResource("10_68wcw")
 facing_left_position = Vector2(-18, 0)
 facing_right_position = Vector2(18, 0)

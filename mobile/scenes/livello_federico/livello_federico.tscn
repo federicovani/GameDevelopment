@@ -1911,7 +1911,7 @@ mouse_filter = 0
 [node name="PauseMenu" parent="UIContainer" instance=ExtResource("5_7gvlg")]
 
 [node name="knight" parent="." instance=ExtResource("2_28qoe")]
-position = Vector2(8627, -73.7974)
+position = Vector2(-90, -1)
 
 [node name="Camera2D" parent="knight" instance=ExtResource("8_dyj66")]
 offset = Vector2(0, -30)
@@ -3046,54 +3046,71 @@ autoplay = "move"
 
 [node name="1_small_wooden_platform" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(4776, -130)
+collision_layer = 1
 
 [node name="2_small_wooden_platform3" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(4776, -47)
+collision_layer = 1
 
 [node name="3_small_wooden_platform4" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(4776, 36)
+collision_layer = 1
 
 [node name="4_small_wooden_platform2" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(4888, 368)
+collision_layer = 1
 
 [node name="5_small_wooden_platform3" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(4888, 285)
+collision_layer = 1
 
 [node name="6_small_wooden_platform4" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(4888, 202)
+collision_layer = 1
 
 [node name="7_small_wooden_platform5" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(4888, -43)
+collision_layer = 1
 
 [node name="8_small_wooden_platform6" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(5000, -130)
+collision_layer = 1
 
 [node name="9_small_wooden_platform7" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(5000, -47)
+collision_layer = 1
 
 [node name="10_small_wooden_platform8" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(5000, 36)
+collision_layer = 1
 
 [node name="11_small_wooden_platform9" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(5112, 368)
+collision_layer = 1
 
 [node name="12_small_wooden_platform10" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(5112, 285)
+collision_layer = 1
 
 [node name="13_small_wooden_platform11" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(5112, 202)
+collision_layer = 1
 
 [node name="14_small_wooden_platform10" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(5112, 368)
+collision_layer = 1
 
 [node name="15_small_wooden_platform8" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(5224, -130)
+collision_layer = 1
 
 [node name="16_small_wooden_platform9" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(5224, -47)
+collision_layer = 1
 
 [node name="17_small_wooden_platform10" parent="Platforms/VanishingPlatforms" instance=ExtResource("10_2jq6i")]
 position = Vector2(5224, 36)
+collision_layer = 1
 
 [node name="SecretRoom" type="Node" parent="Platforms/VanishingPlatforms"]
 

@@ -5,6 +5,7 @@
 [node name="FallingPlatform" type="Node"]
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
 

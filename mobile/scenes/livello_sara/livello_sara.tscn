@@ -2303,6 +2303,7 @@ position = Vector2(6600, 409)
 script = ExtResource("25_n7uui")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="UI_Control" parent="CanvasLayer" instance=ExtResource("21_408eq")]
 offset_left = 2.0

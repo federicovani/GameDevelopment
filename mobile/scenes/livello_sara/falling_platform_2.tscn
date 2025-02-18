@@ -47,6 +47,7 @@ _data = {
 }
 
 [node name="FallingPlatform2" type="StaticBody2D"]
+collision_layer = 8
 script = ExtResource("1_3k3up")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

@@ -583,6 +583,7 @@ fill_to = Vector2(0.858974, 0.136752)
 
 [node name="Necromancer" type="CharacterBody2D" node_paths=PackedStringArray("ray_cast_right", "ray_cast_left", "ray_cast_down", "facing_collision_shape_attack_zone", "facing_ray_cast_down")]
 collision_layer = 4
+collision_mask = 9
 floor_constant_speed = true
 platform_on_leave = 2
 script = ExtResource("1_eqp6n")
@@ -679,6 +680,7 @@ target_position = Vector2(-17, 0)
 visible = false
 position = Vector2(17, 0)
 target_position = Vector2(0, 29)
+collision_mask = 9
 script = ExtResource("11_dv08v")
 facing_left_position = Vector2(-17, 0)
 facing_right_position = Vector2(17, 0)

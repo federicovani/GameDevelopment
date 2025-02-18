@@ -16,14 +16,8 @@ func on_enter():
 
 func _physics_process(delta: float) -> void:
 	if (get_parent().current_state == self):
-		if !character.ray_cast_down.is_colliding():
-			character.direction = character.position.direction_to(player.global_position)
-			character.velocity = character.direction * chase_speed * delta
-		else:
-			character.direction = character.position.direction_to(player.global_position)
-			#Migliorabile
-			character.direction.y = Vector2.UP.y
-			character.velocity = character.direction * chase_speed * delta
+		character.direction = character.position.direction_to(player.global_position)
+		character.velocity = character.direction * chase_speed * delta
 
 func _on_timer_timeout() -> void:
 	if !chase_area.has_overlapping_bodies():

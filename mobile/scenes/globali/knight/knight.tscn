@@ -1139,6 +1139,7 @@ fill_to = Vector2(0.820513, 0.145299)
 [node name="knight" type="CharacterBody2D"]
 z_index = 5
 collision_layer = 2
+collision_mask = 9
 floor_constant_speed = true
 platform_on_leave = 2
 script = ExtResource("1_kihmv")
