@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/globali/UI/ui_control.gd" id="1_l4u1q"]
 [ext_resource type="PackedScene" uid="uid://b4yncap1kwrah" path="res://scenes/globali/UI/coin_label.tscn" id="1_wfrxc"]
 [ext_resource type="PackedScene" uid="uid://cvqxijrsqtxll" path="res://scenes/globali/UI/heart_label.tscn" id="2_13lar"]
-[ext_resource type="PackedScene" uid="uid://pniqxi08j4b0" path="res://scenes/globali/UI/game_over_screen.tscn" id="4_npmhv"]
+[ext_resource type="PackedScene" uid="uid://cadtcwc4aci1m" path="res://scenes/globali/UI/game_over_screen.tscn" id="4_npmhv"]
 [ext_resource type="PackedScene" uid="uid://b2g4vbpahb3t0" path="res://scenes/globali/UI/level_completed_screen.tscn" id="5_4i3uh"]
 [ext_resource type="PackedScene" uid="uid://bjtun1thhimm2" path="res://scenes/globali/UI/transition_controller.tscn" id="6_kghfy"]
 
