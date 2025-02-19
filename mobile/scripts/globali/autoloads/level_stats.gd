@@ -82,13 +82,11 @@ func save_level_to_stats_dictionary():
 	save_stats_dictionary()
 	if(level_to_stats.has(SceneManager.current_level)):
 		level_to_stats[SceneManager.current_level] = stats.duplicate(true)
-		print_debug(level_to_stats)
 
 func save_stats_dictionary():
 	stats["time"] = time
 	stats["deaths"] = deaths
 	stats["coins"] = coins
-	print_debug(diamonds)
 	stats["diamonds"] = diamonds.duplicate(true)
 	stats["checkpoint_taken"] = checkpoint_taken
 
