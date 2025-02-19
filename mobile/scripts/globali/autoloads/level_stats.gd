@@ -16,10 +16,10 @@ var stats : Dictionary = {
 }
 
 var level_to_stats : Dictionary = {
-	SceneManager.tutorial : stats,
-	SceneManager.livello_federico : stats,
-	SceneManager.livello_elisa : stats,
-	SceneManager.livello_sara : stats
+	SceneManager.tutorial : stats.duplicate(true),
+	SceneManager.livello_federico : stats.duplicate(true),
+	SceneManager.livello_elisa : stats.duplicate(true),
+	SceneManager.livello_sara : stats.duplicate(true)
 }
 
 func _ready() -> void:
@@ -42,9 +42,9 @@ func _on_level_changed():
 	#If the level was already completed take the diamonds from the saved stats
 	var temp_stats : Dictionary
 	if(level_to_stats.has(SceneManager.current_level)):
-		temp_stats = level_to_stats.get(SceneManager.current_level)
+		temp_stats = level_to_stats.get(SceneManager.current_level).duplicate(true)
 		if(temp_stats.get("diamonds") != null):
-			diamonds = temp_stats.get("diamonds")
+			diamonds = temp_stats.get("diamonds").duplicate(true)
 		else:
 			diamonds = [false, false, false]
 	else:
@@ -60,14 +60,14 @@ func _on_diamond_collected(diamond : int):
 
 func _on_checkpoint_taken():
 	checkpoint_taken = true
-	diamonds_taken_before_checkpoint = diamonds
+	diamonds_taken_before_checkpoint = diamonds.duplicate(true)
 
 func is_checkpoint_taken() -> bool:
 	return checkpoint_taken
 
 func _on_new_death():
 	deaths += 1
-	diamonds = diamonds_taken_before_checkpoint
+	diamonds = diamonds_taken_before_checkpoint.duplicate(true)
 
 func is_diamond_taken(diamond : int) -> bool:
 	return diamonds[diamond]
@@ -80,14 +80,16 @@ func _on_portal_crossed():
 
 func save_level_to_stats_dictionary():
 	save_stats_dictionary()
-	if(level_to_stats.has(SceneManager.current_scene_to_var())):
-		level_to_stats[SceneManager.current_scene_to_var()] = stats
+	if(level_to_stats.has(SceneManager.current_level)):
+		level_to_stats[SceneManager.current_level] = stats.duplicate(true)
+		print_debug(level_to_stats)
 
 func save_stats_dictionary():
 	stats["time"] = time
 	stats["deaths"] = deaths
 	stats["coins"] = coins
-	stats["diamonds"] = diamonds
+	print_debug(diamonds)
+	stats["diamonds"] = diamonds.duplicate(true)
 	stats["checkpoint_taken"] = checkpoint_taken
 
 func save_on_db():
