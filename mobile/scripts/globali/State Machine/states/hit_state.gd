@@ -7,7 +7,6 @@ class_name HitState
 
 @export var knockback_speed : float = 15.0
 
-@warning_ignore("shadowed_global_identifier")
 @export var damageable : damageable
 
 func _ready() -> void:
@@ -30,6 +29,9 @@ func on_damageable_hit(_node : Node, _damage_taken : int, knockback_direction : 
 			SignalBus.emit_on_health_decreased()
 			SignalBus.emit_camera_shook(1.5)
 			damageable.reset_health()
+			if(PlayerStatsManager.current_hearth_amount > 0):
+				playback.travel(character.hit_animation)
+				emit_signal("interrupt_state", self)
 		else:
 			#For the enemies
 			emit_signal("interrupt_state", character.death_state)

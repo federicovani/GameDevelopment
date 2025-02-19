@@ -8,6 +8,8 @@ class_name idle extends State
 
 @onready var walking_particles: GPUParticles2D = $"../../WalkingParticles"
 
+@onready var attack_buffer_timer: Timer = $"../Attacking/BufferTimer"
+
 #Prevent entering the falling state when the game is starting
 @onready var buffer_timer: Timer = $BufferTimer
 @export var dash_timer : Timer
@@ -51,7 +53,7 @@ func state_input(event: InputEvent):
 		crouch()
 	if(event.is_action_pressed("dash")):
 		dash()
-	if(event.is_action_pressed("attack")):
+	if(event.is_action_pressed("attack") && attack_buffer_timer.is_stopped()):
 		attack()
 
 func jump():

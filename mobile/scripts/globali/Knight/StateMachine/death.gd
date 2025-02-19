@@ -5,7 +5,6 @@ func _ready() -> void:
 
 func on_enter():
 	playback.travel(character.death_animation)
-	death_signals()
 
 func death_signals():
 	SignalBus.emit_new_death()
@@ -14,3 +13,8 @@ func death_signals():
 
 func _on_forced_death():
 	emit_signal("interrupt_state", self)
+
+
+func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
+	if(anim_name == character.death_animation):
+		death_signals()

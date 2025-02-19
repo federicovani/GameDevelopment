@@ -28,9 +28,10 @@ extends CharacterBody2D
 @export var direction : Vector2 = Vector2.RIGHT
 @export var facing_right : bool
 @export var movement_speed : float = 1250.0
+@export var chase_speed : float = 1500.0
 
 @export var health : float = 80
-@export var damage : float = 35
+@export var damage : float = 40
 
 func _ready() -> void:
 	animation_tree.active = true

@@ -1,4 +1,4 @@
-[gd_scene load_steps=123 format=3 uid="uid://cmvr0blmdbg8h"]
+[gd_scene load_steps=124 format=3 uid="uid://cmvr0blmdbg8h"]
 
 [ext_resource type="Script" path="res://scripts/globali/Knight/knight.gd" id="1_kihmv"]
 [ext_resource type="Texture2D" uid="uid://dy1mmfydkp8xh" path="res://assets/globali/knight/120x80_PNGSheets1/_Roll.png" id="2_rkqlk"]
@@ -971,6 +971,8 @@ switch_mode = 2
 switch_mode = 2
 advance_mode = 2
 
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ws675"]
+
 [sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_dy010"]
 states/End/position = Vector2(1428, 110)
 states/attack1/node = SubResource("AnimationNodeAnimation_dkr12")
@@ -1001,8 +1003,8 @@ states/wall_climb/node = SubResource("AnimationNodeAnimation_gxkh0")
 states/wall_climb/position = Vector2(1085, 20)
 states/wall_hang/node = SubResource("AnimationNodeAnimation_dfbd8")
 states/wall_hang/position = Vector2(894, 6)
-transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_kryjm"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_3fbca"), "jump_end", "move", SubResource("AnimationNodeStateMachineTransition_x34cd"), "jump_start", "jump_in_between", SubResource("AnimationNodeStateMachineTransition_yv07t"), "jump_in_between", "jump_end", SubResource("AnimationNodeStateMachineTransition_qm6h5"), "move", "death", SubResource("AnimationNodeStateMachineTransition_7j6l7"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_6uuak"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_iqmbq"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_sl5lb"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_8hoys"), "move", "hit", SubResource("AnimationNodeStateMachineTransition_k0ser"), "hit", "move", SubResource("AnimationNodeStateMachineTransition_p4e4b"), "move", "crouch_transition", SubResource("AnimationNodeStateMachineTransition_47puo"), "crouch_transition", "move", SubResource("AnimationNodeStateMachineTransition_mm8iu"), "crouch_transition", "crouch_move", SubResource("AnimationNodeStateMachineTransition_065vq"), "crouch_move", "crouch_transition", SubResource("AnimationNodeStateMachineTransition_w4vrf"), "crouch_move", "crouch_attack", SubResource("AnimationNodeStateMachineTransition_to3ov"), "crouch_attack", "crouch_move", SubResource("AnimationNodeStateMachineTransition_msa1a"), "jump_start", "wall_hang", SubResource("AnimationNodeStateMachineTransition_dcuyi"), "wall_hang", "wall_climb", SubResource("AnimationNodeStateMachineTransition_3r5ao"), "wall_climb", "jump_end", SubResource("AnimationNodeStateMachineTransition_bytpl"), "wall_hang", "jump_in_between", SubResource("AnimationNodeStateMachineTransition_7lndw"), "wall_climb", "move", SubResource("AnimationNodeStateMachineTransition_ng41q"), "move", "dash", SubResource("AnimationNodeStateMachineTransition_7ggpg"), "dash", "move", SubResource("AnimationNodeStateMachineTransition_doy1i")]
-graph_offset = Vector2(-89, -59)
+transitions = ["Start", "move", SubResource("AnimationNodeStateMachineTransition_kryjm"), "move", "jump_start", SubResource("AnimationNodeStateMachineTransition_3fbca"), "jump_end", "move", SubResource("AnimationNodeStateMachineTransition_x34cd"), "jump_start", "jump_in_between", SubResource("AnimationNodeStateMachineTransition_yv07t"), "jump_in_between", "jump_end", SubResource("AnimationNodeStateMachineTransition_qm6h5"), "move", "death", SubResource("AnimationNodeStateMachineTransition_7j6l7"), "move", "attack1", SubResource("AnimationNodeStateMachineTransition_6uuak"), "attack1", "move", SubResource("AnimationNodeStateMachineTransition_iqmbq"), "attack1", "attack2", SubResource("AnimationNodeStateMachineTransition_sl5lb"), "attack2", "move", SubResource("AnimationNodeStateMachineTransition_8hoys"), "move", "hit", SubResource("AnimationNodeStateMachineTransition_k0ser"), "hit", "move", SubResource("AnimationNodeStateMachineTransition_p4e4b"), "move", "crouch_transition", SubResource("AnimationNodeStateMachineTransition_47puo"), "crouch_transition", "move", SubResource("AnimationNodeStateMachineTransition_mm8iu"), "crouch_transition", "crouch_move", SubResource("AnimationNodeStateMachineTransition_065vq"), "crouch_move", "crouch_transition", SubResource("AnimationNodeStateMachineTransition_w4vrf"), "crouch_move", "crouch_attack", SubResource("AnimationNodeStateMachineTransition_to3ov"), "crouch_attack", "crouch_move", SubResource("AnimationNodeStateMachineTransition_msa1a"), "jump_start", "wall_hang", SubResource("AnimationNodeStateMachineTransition_dcuyi"), "wall_hang", "wall_climb", SubResource("AnimationNodeStateMachineTransition_3r5ao"), "wall_climb", "jump_end", SubResource("AnimationNodeStateMachineTransition_bytpl"), "wall_hang", "jump_in_between", SubResource("AnimationNodeStateMachineTransition_7lndw"), "wall_climb", "move", SubResource("AnimationNodeStateMachineTransition_ng41q"), "move", "dash", SubResource("AnimationNodeStateMachineTransition_7ggpg"), "dash", "move", SubResource("AnimationNodeStateMachineTransition_doy1i"), "hit", "death", SubResource("AnimationNodeStateMachineTransition_ws675")]
+graph_offset = Vector2(-213, -114)
 
 [sub_resource type="Animation" id="Animation_r7xok"]
 length = 0.001
@@ -1252,7 +1254,10 @@ can_move = false
 script = ExtResource("27_pjlg0")
 can_move = false
 
-[node name="Timer" type="Timer" parent="CharacterStateMachine/Attacking"]
+[node name="BufferTimer" type="Timer" parent="CharacterStateMachine/Attacking"]
+one_shot = true
+
+[node name="ComboTimer" type="Timer" parent="CharacterStateMachine/Attacking"]
 wait_time = 0.4
 one_shot = true
 
@@ -1347,5 +1352,6 @@ state_machine = NodePath("../CharacterStateMachine")
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Wall_Hang" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Attacking" method="_on_animation_tree_animation_finished"]
 [connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Crouch_Attack" method="_on_animation_tree_animation_finished"]
+[connection signal="animation_finished" from="AnimationTree" to="CharacterStateMachine/Death" method="_on_animation_tree_animation_finished"]
 [connection signal="timeout" from="CharacterStateMachine/Hit/Timer" to="CharacterStateMachine/Hit" method="_on_timer_timeout"]
 [connection signal="body_entered" from="Sword" to="Sword" method="_on_body_entered"]

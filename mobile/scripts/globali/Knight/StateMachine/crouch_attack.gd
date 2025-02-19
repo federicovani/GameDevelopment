@@ -1,5 +1,7 @@
 class_name crouch_attack extends State
 
+@onready var buffer_timer: Timer = $"../Attacking/BufferTimer"
+
 func on_enter():
 	playback.travel(character.crouch_attack_animation)
 	character.update_player_audio(character.attack1_sfx)
@@ -10,5 +12,5 @@ func _on_animation_tree_animation_finished(anim_name: StringName) -> void:
 			next_state = character.crouch_state
 		else:
 			next_state = character.idle_state
-
+		buffer_timer.start()
 	

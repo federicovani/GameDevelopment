@@ -35,7 +35,6 @@ AudioManager="*res://scenes/globali/managers/audio_manager.tscn"
 PlayerStatsManager="*res://scripts/globali/autoloads/managers/player_stats_manager.gd"
 SceneManager="*res://scripts/globali/autoloads/managers/scene_manager.gd"
 LevelStats="*res://scripts/globali/autoloads/level_stats.gd"
-HitStopManager="*res://scripts/globali/autoloads/managers/hit_stop_manager.gd"
 
 [debug]
 

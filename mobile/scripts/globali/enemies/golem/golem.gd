@@ -27,10 +27,11 @@ extends CharacterBody2D
 
 @export var direction : Vector2 = Vector2.RIGHT
 @export var facing_right : bool
-@export var movement_speed : float = 1750.0
+@export var movement_speed : float = 1500.0
+@export var chase_speed : float = 1750.0
 
 @export var health : float = 200
-@export var damage : float = 50
+@export var damage : float = 70
 
 func _ready() -> void:
 	set_berserk_progress(0.0)

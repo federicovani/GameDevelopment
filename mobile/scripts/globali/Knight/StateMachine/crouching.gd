@@ -1,5 +1,7 @@
 class_name crouching extends State
 
+@onready var attack_buffer_timer: Timer = $"../Attacking/BufferTimer"
+
 @export var sprite : FacingSpriteOffset
 @export var crouch_area : Area2D
 @export var knight_facing_collision_shape : FacingCollisionShapeKnight
@@ -37,7 +39,7 @@ func _input(event: InputEvent) -> void:
 func state_input(event: InputEvent):
 	if(event.is_action_released("crouch") && can_standup()):
 		walk()
-	if(event.is_action_pressed("attack")):
+	if(event.is_action_pressed("attack") && attack_buffer_timer.is_stopped()):
 		attack()
 
 func walk():

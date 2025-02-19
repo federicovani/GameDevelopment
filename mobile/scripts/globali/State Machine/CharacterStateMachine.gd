@@ -42,4 +42,5 @@ func _input(event : InputEvent):
 	current_state.state_input(event)
 	
 func on_state_interrupt_state(new_state : State):
-	switch_states(new_state)
+	if(current_state != get_parent().death_state):
+		switch_states(new_state)

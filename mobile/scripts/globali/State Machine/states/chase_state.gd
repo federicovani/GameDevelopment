@@ -14,10 +14,10 @@ func on_enter():
 func state_process(delta):
 	if get_parent().check_if_can_move():
 		character.direction = character.position.direction_to(player.global_position)
-		character.velocity.x = character.direction.x * character.movement_speed * delta
+		character.velocity.x = character.direction.x * character.chase_speed * delta
 		if !character.ray_cast_down.is_colliding():
 			character.direction.x = -character.direction.x
-			character.velocity.x = character.direction.x * character.movement_speed * delta
+			character.velocity.x = character.direction.x * character.chase_speed * delta
 			next_state = character.walk_state
 
 func _on_timer_timeout() -> void:
