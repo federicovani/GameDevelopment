@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cyyuehxd5jplb"]
+[gd_scene load_steps=9 format=3 uid="uid://cyyuehxd5jplb"]
 
 [ext_resource type="Texture2D" uid="uid://yylg17oged4d" path="res://assets/livello_sara/PixelPlatformerSet1v/Anim/torch-B-01.png" id="1_38815"]
 [ext_resource type="Texture2D" uid="uid://ct1ucv305aq7p" path="res://assets/livello_sara/PixelPlatformerSet1v/Anim/torch-B-02.png" id="2_egswj"]
@@ -28,14 +28,29 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_2nyow"]
 radius = 8.06226
 
+[sub_resource type="Gradient" id="Gradient_k504e"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_6bgxp"]
+gradient = SubResource("Gradient_k504e")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.850427, 0.183761)
+
 [node name="torch-B" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_3iksl")
 autoplay = "default"
-frame_progress = 0.0253997
+frame_progress = 0.830488
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
 position = Vector2(0, -3)
 shape = SubResource("CircleShape2D_2nyow")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(1.42109e-14, -3)
+scale = Vector2(1.67969, 1.67969)
+color = Color(0.8, 0.464, 0.5032, 1)
+texture = SubResource("GradientTexture2D_6bgxp")

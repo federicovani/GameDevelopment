@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://mjkc8ywujg0t"]
+[gd_scene load_steps=9 format=3 uid="uid://mjkc8ywujg0t"]
 
 [ext_resource type="Texture2D" uid="uid://cxuyb2txdkylr" path="res://assets/livello_sara/PixelPlatformerSet1v/Anim/light-01.png" id="1_shto0"]
 [ext_resource type="Texture2D" uid="uid://cktpxknem0rs3" path="res://assets/livello_sara/PixelPlatformerSet1v/Anim/light-02.png" id="2_mi2jp"]
@@ -28,6 +28,15 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_b67k6"]
 size = Vector2(7, 41)
 
+[sub_resource type="Gradient" id="Gradient_k504e"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_iv715"]
+gradient = SubResource("Gradient_k504e")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.850427, 0.183761)
+
 [node name="light" type="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
@@ -40,3 +49,10 @@ frame_progress = 0.905787
 visible = false
 position = Vector2(0.5, -0.5)
 shape = SubResource("RectangleShape2D_b67k6")
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 10)
+scale = Vector2(1.51562, 1.51562)
+color = Color(0.819608, 0.72549, 0.623529, 1)
+energy = 0.8
+texture = SubResource("GradientTexture2D_iv715")

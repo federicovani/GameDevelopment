@@ -38,5 +38,6 @@ shape = SubResource("RectangleShape2D_itwoq")
 stream = ExtResource("3_dl2hl")
 volume_db = -12.0
 max_polyphony = 6
+bus = &"SFX"
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

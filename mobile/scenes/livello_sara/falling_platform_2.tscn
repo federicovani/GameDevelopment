@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dyoe03my1ow2x"]
+[gd_scene load_steps=9 format=3 uid="uid://dyoe03my1ow2x"]
 
 [ext_resource type="Script" path="res://scripts/livello_sara/falling_platform.gd" id="1_3k3up"]
 [ext_resource type="Texture2D" uid="uid://bh7587nuibn3k" path="res://assets/livello_sara/PixelPlatformerSet1v/main_lev_build.png" id="2_ah28j"]
@@ -46,6 +46,10 @@ _data = {
 "shake": SubResource("Animation_wkell")
 }
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_uxl0v"]
+cull_mode = 2
+polygon = PackedVector2Array(-31, -15, 26, -15, 26, 17, -31, 17)
+
 [node name="FallingPlatform2" type="StaticBody2D"]
 collision_layer = 8
 script = ExtResource("1_3k3up")
@@ -83,6 +87,9 @@ one_shot = true
 [node name="RespawnTimer" type="Timer" parent="."]
 wait_time = 3.0
 one_shot = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_uxl0v")
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
