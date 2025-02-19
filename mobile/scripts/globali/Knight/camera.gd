@@ -1,8 +1,5 @@
 extends Camera2D
 
-var maxZoom : float = 5
-var minZoom : float = 2
-
 @export_range(0, 1, 0.05, "or_greater") var shake_power : float = 0.5
 @export var shake_max_offset : float = 5.0 #Maximum shake in pixels
 @export var shake_decay : float = 2.0
