@@ -2092,7 +2092,7 @@ position = Vector2(52, 237)
 shape = SubResource("WorldBoundaryShape2D_jj7t8")
 
 [node name="Portal" parent="." instance=ExtResource("13_u38vx")]
-position = Vector2(3302, 42)
+position = Vector2(3302, 36)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 rotation = -0.436332

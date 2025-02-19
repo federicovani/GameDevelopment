@@ -2,6 +2,7 @@ class_name PauseMenu extends Control
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var buffer_timer: Timer = $BufferTimer
+@onready var transition_controller: SceneTransitionController = $TransitionController
 
 @onready var options_menu: OptionsMenu = $OptionsMenu
 @onready var menu_container: MarginContainer = $MenuContainer
@@ -19,6 +20,8 @@ var paused : bool = false
 var opened_option_menu : bool = false
 
 func _ready() -> void:
+	transition_controller.fade_in(0.5)
+	
 	options_menu.exit_options_menu.connect(on_exit_options_menu)
 	pause_menu_buttons = [resume_button, options_button, quit_button]
 	menu_container.visible = false
@@ -91,7 +94,7 @@ func on_exit_options_menu():
 		opened_option_menu = false
 
 func _on_quit_pressed() -> void:
-	animation_player.play("quit_animation")
-	await animation_player.animation_finished
+	transition_controller.fade_out(0.5)
+	await transition_controller.animation_player.animation_finished
 	get_tree().paused = false
 	SceneManager.go_to_main_menu()

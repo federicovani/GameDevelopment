@@ -28,7 +28,7 @@ var level_to_completed : Dictionary = {
 var level_to_unlocked : Dictionary = {
 	tutorial : true,
 	livello_federico : true,
-	livello_elisa : false,
+	livello_elisa : true,
 	livello_sara : true
 }
 
