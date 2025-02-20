@@ -112,18 +112,22 @@ func save_on_db():
 	else:
 		print_debug("User not logged in")
 
-func load_from_cloud():
+func load_from_db():
 	var auth = Firebase.Auth.auth
 	if auth.has("localid"):
 		var local_id = auth["localid"]
 		
-		for i in SceneManager.level_order.size():
-			var level_subcollection_name = "level_" + str(i)
-			var document_path = "users/" + local_id + "/" + level_subcollection_name
-			var level_subcollection = Firebase.Firestore.collection(document_path)
-			
-			var task = await level_subcollection.get_doc(auth.localid)
-			var result = task.get_value("fields")
+		#for i in SceneManager.level_order.size()-1:
+		var level_subcollection_name = "level_" + str(0)
+		var document_path = "users/" + local_id + "/" + level_subcollection_name
+		var level_subcollection = Firebase.Firestore.collection(document_path)
+		var level_documents = await Firebase.Firestore.list(document_path)
+		var level_doc = level_documents[0]
+		var level_doc_name = level_doc.select("doc_name")
+		
+			#var task = await level_subcollection.get_doc(level_doc)
+			#var result = task.get_value("diamonds")
+			#print_debug(result)
 		
 	
 func generate_random_id(length: int) -> String:
