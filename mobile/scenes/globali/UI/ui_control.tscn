@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bhel8jmvawyaf"]
+[gd_scene load_steps=8 format=3 uid="uid://bhel8jmvawyaf"]
 
 [ext_resource type="Script" path="res://scripts/globali/UI/ui_control.gd" id="1_l4u1q"]
 [ext_resource type="PackedScene" uid="uid://b4yncap1kwrah" path="res://scenes/globali/UI/coin_label.tscn" id="1_wfrxc"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://cadtcwc4aci1m" path="res://scenes/globali/UI/game_over_screen.tscn" id="4_npmhv"]
 [ext_resource type="PackedScene" uid="uid://b2g4vbpahb3t0" path="res://scenes/globali/UI/level_completed_screen.tscn" id="5_4i3uh"]
 [ext_resource type="PackedScene" uid="uid://bjtun1thhimm2" path="res://scenes/globali/UI/transition_controller.tscn" id="6_kghfy"]
+[ext_resource type="PackedScene" uid="uid://75lilav7cvt7" path="res://scenes/globali/managers/button_sounds_manager.tscn" id="7_6olbx"]
 
 [node name="UI_Control" type="Control" node_paths=PackedStringArray("hearths", "coin_label", "diamonds_array")]
 process_mode = 3
@@ -48,15 +49,7 @@ size_flags_horizontal = 0
 [node name="GameOverScreen" parent="." instance=ExtResource("4_npmhv")]
 layout_mode = 1
 
-[node name="Label" parent="GameOverScreen" index="2"]
-offset_left = 0.480011
-offset_top = 0.296005
-offset_bottom = -0.287994
-
 [node name="VBoxContainer" parent="GameOverScreen" index="3"]
-offset_left = 27.968
-offset_top = 14.312
-offset_right = 29.032
 offset_bottom = 192.312
 
 [node name="LevelCompletedScreen" parent="." instance=ExtResource("5_4i3uh")]
@@ -64,6 +57,9 @@ layout_mode = 1
 
 [node name="TransitionController" parent="." instance=ExtResource("6_kghfy")]
 layout_mode = 1
+
+[node name="ButtonSoundsManager" parent="." instance=ExtResource("7_6olbx")]
+root_path = NodePath("..")
 
 [editable path="MarginContainer/VBoxContainer/hearth_label"]
 [editable path="MarginContainer/VBoxContainer/Coin_Label"]

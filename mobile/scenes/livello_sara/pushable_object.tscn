@@ -1,17 +1,16 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctlh38oetok8h"]
+[gd_scene load_steps=5 format=3 uid="uid://ctlh38oetok8h"]
 
 [ext_resource type="Script" path="res://scripts/livello_sara/pushable_object.gd" id="1_4ckn1"]
 [ext_resource type="Texture2D" uid="uid://crr82kwtpm0fy" path="res://assets/livello_sara/PixelPlatformerSet1v/other_and_decorative.png" id="1_5b3qg"]
-[ext_resource type="AudioStream" uid="uid://5ukavwywbetq" path="res://assets/livello_sara/Audio/audio4.mp3" id="3_dl2hl"]
+[ext_resource type="AudioStream" uid="uid://5ukavwywbetq" path="res://assets/livello_sara/Audio/pushable_object.mp3" id="3_dl2hl"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0e8hb"]
-size = Vector2(24, 24)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_itwoq"]
-size = Vector2(26, 27)
+[sub_resource type="CircleShape2D" id="CircleShape2D_yop4w"]
+radius = 12.0
 
 [node name="PushableObject" type="RigidBody2D"]
-mass = 0.1
+collision_layer = 16
+collision_mask = 27
+mass = 0.8
 lock_rotation = true
 script = ExtResource("1_4ckn1")
 
@@ -22,22 +21,11 @@ region_enabled = true
 region_rect = Rect2(208, 112, 16, 16)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 1)
-shape = SubResource("RectangleShape2D_0e8hb")
-
-[node name="Area2D" type="Area2D" parent="."]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
-visible = false
-position = Vector2(0, 0.5)
-shape = SubResource("RectangleShape2D_itwoq")
+shape = SubResource("CircleShape2D_yop4w")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_dl2hl")
 volume_db = -12.0
 max_polyphony = 6
 bus = &"SFX"
-
-[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

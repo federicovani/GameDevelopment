@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://co3jkipk63syf"]
+[gd_scene load_steps=12 format=3 uid="uid://co3jkipk63syf"]
 
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="1_3msrs"]
 [ext_resource type="Script" path="res://scripts/globali/UI/menu/main_menu.gd" id="1_ssv1y"]
@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://23vlpsuu2hgj" path="res://assets/globali/GUI/GUI.png" id="4_vaafd"]
 [ext_resource type="PackedScene" uid="uid://docl2niryulbx" path="res://scenes/globali/UI/menu/options_menu/options_menu.tscn" id="4_y17k1"]
 [ext_resource type="PackedScene" uid="uid://bjtun1thhimm2" path="res://scenes/globali/UI/transition_controller.tscn" id="7_2nxb0"]
+[ext_resource type="PackedScene" uid="uid://75lilav7cvt7" path="res://scenes/globali/managers/button_sounds_manager.tscn" id="8_7ulo4"]
 
 [sub_resource type="Animation" id="Animation_l52wc"]
 length = 0.001
@@ -282,6 +283,9 @@ color = Color(0, 0, 0, 1)
 libraries = {
 "": SubResource("AnimationLibrary_y6e28")
 }
+
+[node name="ButtonSoundsManager" parent="." instance=ExtResource("8_7ulo4")]
+root_path = NodePath("..")
 
 [connection signal="button_down" from="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/Start" to="." method="_on_start_button_down"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsContainer/VBoxContainer/LogIn" to="." method="_on_log_in_pressed"]

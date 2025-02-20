@@ -20,19 +20,19 @@ var scene_to_file : Dictionary = {
 
 var level_to_completed : Dictionary = {
 	tutorial : false,
-	livello_federico : false,
 	livello_elisa : false,
+	livello_federico : false,
 	livello_sara : false
 }
 
 var level_to_unlocked : Dictionary = {
 	tutorial : true,
-	livello_federico : true,
-	livello_elisa : true,
-	livello_sara : true
+	livello_elisa : false,
+	livello_federico : false,
+	livello_sara : false
 }
 
-var level_order : Array[String] = [tutorial, livello_federico, livello_elisa, livello_sara]
+var level_order : Array[String] = [tutorial, livello_elisa, livello_federico, livello_sara]
 
 var current_level : String
 

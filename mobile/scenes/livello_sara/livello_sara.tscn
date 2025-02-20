@@ -1849,7 +1849,6 @@ tile_set = SubResource("TileSet_jy7so")
 [node name="background" parent="." instance=ExtResource("2_a7s8q")]
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="UI_Control" parent="CanvasLayer" instance=ExtResource("21_408eq")]
 offset_left = 2.0
@@ -1870,7 +1869,7 @@ offset_bottom = 349.0
 [node name="LostHeartManager" parent="HealthManagers" instance=ExtResource("34_pvtnr")]
 
 [node name="knight" parent="." instance=ExtResource("3_n5yw1")]
-position = Vector2(-34, 40)
+position = Vector2(-37, 41)
 
 [node name="PlayerCamera" parent="knight" instance=ExtResource("5_l4gmt")]
 zoom = Vector2(2.5, 2.5)
@@ -2162,7 +2161,7 @@ texture = SubResource("GradientTexture2D_yi40t")
 offset = Vector2(0, 25)
 
 [node name="PointLight2D40" type="PointLight2D" parent="PointLights"]
-position = Vector2(663, -431.281)
+position = Vector2(663, -430)
 scale = Vector2(24.0625, 14.5312)
 color = Color(0.831373, 0.45098, 0.290196, 1)
 shadow_enabled = true

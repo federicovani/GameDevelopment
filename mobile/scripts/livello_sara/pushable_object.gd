@@ -1,4 +1,4 @@
-extends RigidBody2D
+class_name PushableObject extends RigidBody2D
 
 @export var push_force: float = 140.0
 @onready var audio_stream_player_2d: AudioStreamPlayer2D = $AudioStreamPlayer2D
@@ -21,10 +21,5 @@ func audio_manager():
 			is_playing = true
 	else:
 		is_playing = false
+		audio_stream_player_2d.stop()
 		# fade_out_audio()
-
-func _on_area_2d_body_entered(body: Node2D) -> void:
-	if body == Global.playerBody:
-		# Imposta la velocità orizzontale in base alla direzione del giocatore
-		var direction = sign(body.velocity.x)
-		linear_velocity = Vector2(push_force * direction, linear_velocity.y)

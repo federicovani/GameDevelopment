@@ -49,6 +49,7 @@ var rng = RandomNumberGenerator.new()
 @export var jump_velocity: float = -325.0
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") #Get the gravity from the project settings to be synced with RigidBody nodes.
 var falling_gravity = gravity * 1.5
+var push_force = 80
 
 @export var health : float = 80
 @export var damage : float = 20
@@ -62,6 +63,12 @@ func _ready():
 
 func _physics_process(_delta: float) -> void:
 	move_and_slide()
+	
+	#Handle the movement for pushable objects
+	for i in get_slide_collision_count():
+		var c = get_slide_collision(i)
+		if c.get_collider() is PushableObject:
+			c.get_collider().apply_central_impulse(-c.get_normal() * push_force)
 
 func _process(_delta: float) -> void:
 	update_animation_parameters()
