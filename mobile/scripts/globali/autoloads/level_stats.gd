@@ -111,7 +111,21 @@ func save_on_db():
 				print_debug("Error")
 	else:
 		print_debug("User not logged in")
+
+func load_from_cloud():
+	var auth = Firebase.Auth.auth
+	if auth.has("localid"):
+		var local_id = auth["localid"]
 		
+		for i in SceneManager.level_order.size():
+			var level_subcollection_name = "level_" + str(i)
+			var document_path = "users/" + local_id + "/" + level_subcollection_name
+			var level_subcollection = Firebase.Firestore.collection(document_path)
+			
+			var task = await level_subcollection.get_doc(auth.localid)
+			var result = task.get_value("fields")
+		
+	
 func generate_random_id(length: int) -> String:
 	var rng = RandomNumberGenerator.new()
 	rng.randomize() 

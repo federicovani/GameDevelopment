@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://bwub2yduum0nv"]
+[gd_scene load_steps=8 format=3 uid="uid://bwub2yduum0nv"]
 
 [ext_resource type="Script" path="res://scripts/globali/UI/menu/authentication.gd" id="1_sl3lk"]
 [ext_resource type="Theme" uid="uid://cnk304tv4ytv5" path="res://assets/globali/GUI/default.tres" id="1_ua3l5"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://23vlpsuu2hgj" path="res://assets/globali/GUI/GUI.png" id="4_ov7me"]
 [ext_resource type="FontFile" uid="uid://ci3inxy6xbgfy" path="res://assets/globali/GUI/fonts/ThaleahFat.ttf" id="5_jyr0b"]
 [ext_resource type="PackedScene" uid="uid://bjtun1thhimm2" path="res://scenes/globali/UI/transition_controller.tscn" id="6_3apps"]
+[ext_resource type="PackedScene" uid="uid://75lilav7cvt7" path="res://scenes/globali/managers/button_sounds_manager.tscn" id="7_0ki5x"]
 
 [node name="Authentication" type="Control"]
 layout_mode = 3
@@ -154,6 +155,9 @@ text = "BACK"
 
 [node name="TransitionController" parent="." instance=ExtResource("6_3apps")]
 layout_mode = 1
+
+[node name="ButtonSoundsManager" parent="." instance=ExtResource("7_0ki5x")]
+root_path = NodePath("..")
 
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer/LoginButton" to="." method="_on_login_button_pressed"]
 [connection signal="pressed" from="MarginContainer/VBoxContainer/ButtonsContainer/MarginContainer/VBoxContainer/SignupButton" to="." method="_on_signup_button_pressed"]
