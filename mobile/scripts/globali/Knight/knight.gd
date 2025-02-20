@@ -50,7 +50,7 @@ var rng = RandomNumberGenerator.new()
 var gravity = ProjectSettings.get_setting("physics/2d/default_gravity") #Get the gravity from the project settings to be synced with RigidBody nodes.
 var falling_gravity = gravity * 1.5
 
-@export var health : float = 75
+@export var health : float = 80
 @export var damage : float = 20
 
 @warning_ignore("unused_signal")
