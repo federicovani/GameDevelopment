@@ -757,9 +757,8 @@ position = Vector2(0, 10)
 target_position = Vector2(-16, 0)
 
 [node name="RayCastDown" type="RayCast2D" parent="."]
-visible = false
 position = Vector2(18, 0)
-target_position = Vector2(0, 24)
+target_position = Vector2(0, 26)
 collision_mask = 9
 script = ExtResource("10_68wcw")
 facing_left_position = Vector2(-18, 0)

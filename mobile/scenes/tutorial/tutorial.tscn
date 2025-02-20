@@ -2096,6 +2096,7 @@ position = Vector2(3302, 36)
 
 [node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
 rotation = -0.436332
+color = Color(1, 0.7245, 0.13, 1)
 energy = 0.3
 shadow_enabled = true
 shadow_filter = 2

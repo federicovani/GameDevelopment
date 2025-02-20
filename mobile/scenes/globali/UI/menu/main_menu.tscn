@@ -169,7 +169,7 @@ theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 28
 theme_override_fonts/font = ExtResource("1_3msrs")
 theme_override_font_sizes/font_size = 96
-text = "Titolo"
+text = "Ironheart"
 horizontal_alignment = 1
 vertical_alignment = 1
 

@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://bwqsj0qfesurb"]
+
+[ext_resource type="Texture2D" uid="uid://bcaylh0cg4ri8" path="res://assets/livello_elisa/02. Crystal World/main_lev_build_1.png" id="1_jjbue"]
+
+[sub_resource type="Gradient" id="Gradient_hb812"]
+colors = PackedColorArray(1, 1, 1, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_vsfbg"]
+gradient = SubResource("Gradient_hb812")
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+fill_to = Vector2(0.820513, 0.132479)
+
+[node name="GlowingRock" type="Sprite2D"]
+texture = ExtResource("1_jjbue")
+region_enabled = true
+region_rect = Rect2(256, 880, 32, 16)
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(0, 1)
+scale = Vector2(1.14062, 1.14062)
+color = Color(0.576471, 0.803922, 0.901961, 1)
+energy = 0.7
+texture = SubResource("GradientTexture2D_vsfbg")

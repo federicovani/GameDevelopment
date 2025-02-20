@@ -74,6 +74,7 @@ collision_layer = 8
 script = ExtResource("1_bojki")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 100)
 texture = ExtResource("2_60bbb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

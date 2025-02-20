@@ -1,21 +1,149 @@
-[gd_scene load_steps=2 format=3 uid="uid://diqbbrpfvry7t"]
+[gd_scene load_steps=9 format=3 uid="uid://diqbbrpfvry7t"]
 
 [ext_resource type="Texture2D" uid="uid://bcaylh0cg4ri8" path="res://assets/livello_elisa/02. Crystal World/main_lev_build_1.png" id="1_dvp70"]
+[ext_resource type="Script" path="res://scripts/livello_elisa/falling_platform.gd" id="1_fmc7x"]
 
-[node name="FallingPlatform" type="Node"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vslp4"]
+size = Vector2(48, 6)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_67cx3"]
+size = Vector2(48, 3)
+
+[sub_resource type="Animation" id="Animation_0u4hw"]
+resource_name = "shake"
+length = 0.5
+loop_mode = 1
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(-12, 0), Vector2(-13, 0), Vector2(-11, 0), Vector2(-13, 0), Vector2(-11, 0), Vector2(-13, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [Vector2(12, 0), Vector2(11, 0), Vector2(13, 0), Vector2(11, 0), Vector2(13, 0), Vector2(11, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_qob83"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(-12, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(12, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_ynhs3"]
+resource_name = "fall"
+length = 0.3
+step = 0.1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-12, 0), Vector2(-12, 100)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D2:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.3),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(12, 0), Vector2(12, 100)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nb3ml"]
+_data = {
+"RESET": SubResource("Animation_qob83"),
+"fall": SubResource("Animation_ynhs3"),
+"shake": SubResource("Animation_0u4hw")
+}
+
+[node name="FallingPlatform" type="StaticBody2D"]
 collision_layer = 8
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-
-[node name="TriggerArea" type="Area2D" parent="."]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
-
-[node name="FallTimer" type="Timer" parent="."]
-
-[node name="SelfDestructTimer" type="Timer" parent="."]
+script = ExtResource("1_fmc7x")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-12, 0)
 texture = ExtResource("1_dvp70")
+region_enabled = true
+region_rect = Rect2(800, 32, 24, 6)
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(12, 0)
+texture = ExtResource("1_dvp70")
+region_enabled = true
+region_rect = Rect2(952, 64, 24, 6)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_vslp4")
+one_way_collision = true
+
+[node name="TriggerArea" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TriggerArea"]
+visible = false
+position = Vector2(0, -4.5)
+shape = SubResource("RectangleShape2D_67cx3")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nb3ml")
+}
+
+[node name="FallTimer" type="Timer" parent="."]
+wait_time = 0.7
+one_shot = true
+
+[node name="RespawnTimer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+
+[connection signal="body_entered" from="TriggerArea" to="." method="_on_trigger_area_body_entered"]
+[connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]
+[connection signal="timeout" from="RespawnTimer" to="." method="_on_respawn_timer_timeout"]
