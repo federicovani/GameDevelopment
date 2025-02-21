@@ -10,6 +10,7 @@ signal forced_death()
 
 #region Level Stats
 signal save_level_stats()
+signal load_level_stats()
 signal level_changed()
 signal level_reloaded()
 signal new_death()
@@ -43,6 +44,9 @@ func emit_forced_death():
 #region Emit Level Stats
 func emit_save_level_stats():
 	save_level_stats.emit()
+
+func emit_load_level_stats():
+	load_level_stats.emit()
 
 func emit_level_changed():
 	level_changed.emit()

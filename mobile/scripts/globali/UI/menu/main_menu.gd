@@ -65,6 +65,7 @@ func on_exit_options_menu():
 	transition_controller.fade_in(0.5)
 
 func _on_quit_button_down() -> void:
+	SignalBus.emit_save_level_stats()
 	animation_player.play("quit_animation")
 	await animation_player.animation_finished
 	get_tree().quit()

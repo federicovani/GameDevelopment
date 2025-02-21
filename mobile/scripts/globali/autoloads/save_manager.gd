@@ -10,6 +10,7 @@ var level_stats_data = LevelStatsData.new()
 func _ready() -> void:
 	SettingsSignalBus.set_settings_dictionary.connect(on_settings_save)
 	SignalBus.connect("save_level_stats", _on_save_level_stats)
+	SignalBus.connect("load_level_stats", load_level_stats_data)
 	verify_save_directory(SAVE_FOLDER_PATH)
 	load_settings_data()
 	load_level_stats_data()
@@ -47,12 +48,15 @@ func _on_save_level_stats():
 	ResourceSaver.save(level_stats_data, SAVE_FOLDER_PATH + LEVEL_STATS_SAVE_NAME)
 
 func load_level_stats_data():
-	if !FileAccess.file_exists(SAVE_FOLDER_PATH + LEVEL_STATS_SAVE_NAME):
-		return
-	level_stats_data = ResourceLoader.load(SAVE_FOLDER_PATH + LEVEL_STATS_SAVE_NAME).duplicate(true)
-	if(level_stats_data.get_level_to_completed() != null):
-		SceneManager.level_to_completed = level_stats_data.get_level_to_completed()
-	if(level_stats_data.get_level_to_unlocked() != null):
-		SceneManager.level_to_unlocked = level_stats_data.get_level_to_unlocked()
-	if(level_stats_data.get_level_stats_dictionary() != null):
-		LevelStats.level_to_stats = level_stats_data.get_level_stats_dictionary()
+	if Firebase.Auth.check_auth_file():
+		LevelStats.load_from_db()
+	else:
+		if !FileAccess.file_exists(SAVE_FOLDER_PATH + LEVEL_STATS_SAVE_NAME):
+			return
+		level_stats_data = ResourceLoader.load(SAVE_FOLDER_PATH + LEVEL_STATS_SAVE_NAME).duplicate(true)
+		if(level_stats_data.get_level_to_completed() != null):
+			SceneManager.level_to_completed = level_stats_data.get_level_to_completed()
+		if(level_stats_data.get_level_to_unlocked() != null):
+			SceneManager.level_to_unlocked = level_stats_data.get_level_to_unlocked()
+		if(level_stats_data.get_level_stats_dictionary() != null):
+			LevelStats.level_to_stats = level_stats_data.get_level_stats_dictionary()

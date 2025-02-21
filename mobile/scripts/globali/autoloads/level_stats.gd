@@ -3,7 +3,7 @@ extends Node
 var time : float = 0
 var deaths : int = 0
 var coins : int = 0
-var diamonds : Array[bool] = [false, false, false]
+var diamonds : Array = [false, false, false]
 var diamonds_taken_before_checkpoint : Array[bool] = [false, false, false]
 var checkpoint_taken : bool = false
 
@@ -117,18 +117,32 @@ func load_from_db():
 	if auth.has("localid"):
 		var local_id = auth["localid"]
 		
-		#for i in SceneManager.level_order.size()-1:
-		var level_subcollection_name = "level_" + str(0)
-		var document_path = "users/" + local_id + "/" + level_subcollection_name
-		var level_subcollection = Firebase.Firestore.collection(document_path)
-		var level_documents = await Firebase.Firestore.list(document_path)
-		var level_doc = level_documents[0]
-		var level_doc_name = level_doc.select("doc_name")
-		
-			#var task = await level_subcollection.get_doc(level_doc)
-			#var result = task.get_value("diamonds")
-			#print_debug(result)
-		
+		for i in SceneManager.level_order.size()-1:
+			var level_subcollection_name = "level_" + str(i)
+			var document_path = "users/" + local_id + "/" + level_subcollection_name
+			var level_documents = await Firebase.Firestore.list(document_path)
+			if(!level_documents.is_empty()):
+				var level_doc = level_documents[0]
+				var level_name = SceneManager.level_order[i]
+				
+				coins = level_doc.get_value("coins")
+				diamonds = level_doc.get_value("diamonds").duplicate(true)
+				time = level_doc.get_value("time")
+				deaths = level_doc.get_value("deaths")
+				checkpoint_taken = level_doc.get_value("checkpoint_taken")
+				
+				save_stats_dictionary()
+				if(level_to_stats.has(level_name)):
+					level_to_stats[level_name] = stats.duplicate(true)
+					if(time != 0):
+						SceneManager.complete_level(level_name)
+						SceneManager.unlock_level(SceneManager.get_next_level(level_name))
+				else:
+					print_debug("level not found")
+		print_debug("level stats loaded from db")
+	else:
+		print_debug("user not logged in")
+
 	
 func generate_random_id(length: int) -> String:
 	var rng = RandomNumberGenerator.new()

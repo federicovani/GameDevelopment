@@ -44,6 +44,7 @@ func on_login_succeeded(auth):
 	print(auth)
 	%StateLabel.text = "Login success!"
 	Firebase.Auth.save_auth(auth)
+	SignalBus.emit_load_level_stats()
 	SceneManager.go_to_main_menu()
 	
 	

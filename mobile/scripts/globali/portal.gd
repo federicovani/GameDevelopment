@@ -3,6 +3,7 @@ extends Area2D
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var timer: Timer = $Timer
 @onready var light: PointLight2D = $PointLight2D
+@onready var audio_stream_player: AudioStreamPlayer2D = $AudioStreamPlayer2D
 
 var playback : AnimationNodeStateMachinePlayback 
 
@@ -17,6 +18,7 @@ func _ready() -> void:
 
 func _on_body_entered(body: Node2D) -> void:
 	if(body == Global.playerBody):
+		audio_stream_player.play()
 		playback.travel(vanish_animation)
 		body.visible = false
 		body.cannot_move()

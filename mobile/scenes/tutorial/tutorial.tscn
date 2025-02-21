@@ -1514,7 +1514,7 @@ offset_right = -252.0
 offset_bottom = 41.0
 
 [node name="knight" parent="." instance=ExtResource("2_0ltym")]
-position = Vector2(3125.03, 38.5189)
+position = Vector2(93, 80)
 
 [node name="PlayerCamera" parent="knight" instance=ExtResource("3_5ssf8")]
 offset = Vector2(0, -30)
