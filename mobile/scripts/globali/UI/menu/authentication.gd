@@ -22,7 +22,7 @@ func _ready() -> void:
 	transition_controller.fade_in(0.5)
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	update_button_scale()
 
 
@@ -50,9 +50,10 @@ func on_login_succeeded(auth):
 	
 func on_signup_succeeded(auth):
 	print(auth)
-	%StateLabel.text = "Sign up success!"
+	%StateLabel.text = "Sign up success! Check your email."
 	Firebase.Auth.save_auth(auth)
 	add_user(auth)
+	Firebase.Auth.send_account_verification_email()
 	
 	transition_controller.fade_out(0.5)
 	await transition_controller.animation_player.animation_finished

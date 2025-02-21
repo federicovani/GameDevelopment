@@ -18,7 +18,7 @@ func try_connect_key():
 
 func _on_key_collected() -> void:
 	visible = true  # Mostra la piattaforma
-	collision_shape_2d.disabled = false  # Ripristina la collisione
+	set_deferred("collision_shape_2d.disabled", false) #Ripristina la collisione
 	
 	# Forza l'aggiornamento della fisica
 	await get_tree().physics_frame

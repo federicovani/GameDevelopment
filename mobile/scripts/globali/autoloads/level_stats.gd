@@ -4,7 +4,7 @@ var time : float = 0
 var deaths : int = 0
 var coins : int = 0
 var diamonds : Array = [false, false, false]
-var diamonds_taken_before_checkpoint : Array[bool] = [false, false, false]
+var diamonds_taken_before_checkpoint : Array = [false, false, false]
 var checkpoint_taken : bool = false
 
 var stats : Dictionary = {

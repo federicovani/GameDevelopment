@@ -15,7 +15,7 @@ warnings/check_invalid_track_paths=false
 [application]
 
 config/name="Game Development"
-run/main_scene="res://scenes/livello_sara/livello_sara.tscn"
+run/main_scene="res://scenes/globali/UI/menu/main_menu.tscn"
 config/features=PackedStringArray("4.3", "Mobile")
 config/icon="res://icon.svg"
 
