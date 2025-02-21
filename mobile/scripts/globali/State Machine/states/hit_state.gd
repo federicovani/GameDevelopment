@@ -13,6 +13,8 @@ func _ready() -> void:
 	damageable.connect("on_hit", on_damageable_hit)
 
 func on_enter():
+	if(character == Global.playerBody):
+		character.update_player_audio(character.hit_sfx)
 	timer.start()
 	SignalBus.emit_camera_shook(1.5)
 

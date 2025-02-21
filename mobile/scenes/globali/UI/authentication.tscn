@@ -164,7 +164,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 
 [node name="TransitionController" parent="." instance=ExtResource("6_3apps")]
-visible = false
 layout_mode = 1
 
 [node name="ButtonSoundsManager" parent="." instance=ExtResource("7_0ki5x")]

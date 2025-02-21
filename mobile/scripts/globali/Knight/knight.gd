@@ -34,12 +34,12 @@ var rng = RandomNumberGenerator.new()
 @export var death_animation : String = "death"
 
 @export var reset_sfx : String = "reset"
-@export var run_sfx : String = "running"
 @export var jump_sfx : String = "jumping"
 @export var land_sfx : String = "landing"
 @export var dash_sfx : String = "dashing"
 @export var attack1_sfx : String = "attacking1"
 @export var attack2_sfx : String = "attacking2"
+@export var hit_sfx : String = "hitted"
 
 @export var direction : Vector2 = Vector2.ZERO
 
@@ -54,7 +54,6 @@ var push_force = 80
 @export var health : float = 80
 @export var damage : float = 20
 
-@warning_ignore("unused_signal")
 signal facing_direction_changed(facing_right : bool)
 
 func _ready():

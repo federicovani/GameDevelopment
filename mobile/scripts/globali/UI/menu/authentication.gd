@@ -15,7 +15,6 @@ func _ready() -> void:
 	
 	if Firebase.Auth.check_auth_file():
 		%StateLabel.text = "Logged in"
-		SceneManager.go_to_main_menu()
 	else:
 		print_debug("User not logged in")
 	
@@ -45,19 +44,14 @@ func on_login_succeeded(auth):
 	%StateLabel.text = "Login success!"
 	Firebase.Auth.save_auth(auth)
 	SignalBus.emit_load_level_stats()
-	SceneManager.go_to_main_menu()
 	
 	
 func on_signup_succeeded(auth):
 	print(auth)
-	%StateLabel.text = "Sign up success! Check your email."
+	%StateLabel.text = "Sign up success! Check your email to verify your account."
 	Firebase.Auth.save_auth(auth)
 	add_user(auth)
 	Firebase.Auth.send_account_verification_email()
-	
-	transition_controller.fade_out(0.5)
-	await transition_controller.animation_player.animation_finished
-	SceneManager.go_to_main_menu()
 	
 	
 func on_login_failed(error_code, message):

@@ -3,7 +3,6 @@ extends CharacterBody2D
 @onready var animation_tree : AnimationTree = $AnimationTree
 @onready var state_machine: CharacterStateMachine = $CharacterStateMachine
 @onready var sprite: Sprite2D = $Sprite2D
-@onready var light: PointLight2D = $PointLight2D
 
 @onready var walk_state : State = $CharacterStateMachine/Walk
 @onready var chase_state : State = $CharacterStateMachine/Chase
@@ -49,7 +48,6 @@ func handle_orientation():
 	on_facing_direction_changed(!sprite.flip_h)
 	
 #Handling CollisionShape and RayCast when character changes direction
-@warning_ignore("shadowed_variable")
 func on_facing_direction_changed(facing_right : bool):
 	self.facing_right = facing_right
 	if(facing_right):

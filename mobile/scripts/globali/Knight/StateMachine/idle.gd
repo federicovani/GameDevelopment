@@ -5,6 +5,7 @@ class_name idle extends State
 @export var sword_facing_collision_shape : FacingCollisionShapeKnight
 @export var raycast_wall_check : RayCast2D
 @export var raycast_ledge_grab : RayCast2D
+@export var raycast_floor_check : RayCast2D
 
 @onready var walking_particles: GPUParticles2D = $"../../WalkingParticles"
 
@@ -27,7 +28,7 @@ func on_enter():
 	set_collision_shapes()
 
 func state_process(_delta):
-	if(!character.is_on_floor() && buffer_timer.is_stopped()):
+	if(!character.is_on_floor() && !raycast_floor_check.is_colliding() && buffer_timer.is_stopped()):
 		get_tree().create_timer(coyote_time).timeout.connect(_on_coyote_timeout)
 			
 	if character.direction:

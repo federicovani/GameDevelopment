@@ -1485,16 +1485,16 @@ limit_bottom = 690
 position = Vector2(94, 346)
 shape = SubResource("WorldBoundaryShape2D_ibqvc")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UIContainer" type="CanvasLayer" parent="."]
 
-[node name="UI_Control" parent="CanvasLayer" instance=ExtResource("14_su55x")]
+[node name="UI_Control" parent="UIContainer" instance=ExtResource("14_su55x")]
 offset_left = 4.0
 offset_top = -3.0
 offset_right = 4.0
 offset_bottom = -3.0
 metadata/_edit_use_anchors_ = true
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("9_idbd0")]
+[node name="PauseMenu" parent="UIContainer" instance=ExtResource("9_idbd0")]
 
 [node name="LightOccluders" type="Node" parent="."]
 

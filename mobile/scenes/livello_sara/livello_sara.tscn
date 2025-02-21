@@ -1848,15 +1848,15 @@ tile_set = SubResource("TileSet_jy7so")
 
 [node name="background" parent="." instance=ExtResource("2_a7s8q")]
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UIContainer" type="CanvasLayer" parent="."]
 
-[node name="UI_Control" parent="CanvasLayer" instance=ExtResource("21_408eq")]
+[node name="UI_Control" parent="UIContainer" instance=ExtResource("21_408eq")]
 offset_left = 2.0
 offset_top = -4.0
 offset_right = 2.0
 offset_bottom = -4.0
 
-[node name="PauseMenu" parent="CanvasLayer" instance=ExtResource("29_krnr3")]
+[node name="PauseMenu" parent="UIContainer" instance=ExtResource("29_krnr3")]
 
 [node name="HealthManagers" type="Node" parent="."]
 

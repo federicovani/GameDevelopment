@@ -1,4 +1,4 @@
-[gd_scene load_steps=96 format=4 uid="uid://d3k38htbk1vgs"]
+[gd_scene load_steps=93 format=4 uid="uid://d3k38htbk1vgs"]
 
 [ext_resource type="Script" path="res://scripts/livello_federico/livello_federico.gd" id="1_xox4y"]
 [ext_resource type="PackedScene" uid="uid://cmvr0blmdbg8h" path="res://scenes/globali/knight/knight.tscn" id="2_28qoe"]
@@ -82,28 +82,6 @@ fill_to = Vector2(1, 0.354701)
 
 [sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_e3s2w"]
 distance = -181.0
-
-[sub_resource type="Gradient" id="Gradient_ju766"]
-offsets = PackedFloat32Array(0, 0.28, 0.745, 1)
-colors = PackedColorArray(0, 0, 0, 0, 0.215686, 0.262745, 0.309804, 1, 0.0784314, 0.117647, 0.12549, 1, 1, 1, 1, 0)
-
-[sub_resource type="GradientTexture1D" id="GradientTexture1D_6inhr"]
-gradient = SubResource("Gradient_ju766")
-
-[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_vltxy"]
-particle_flag_disable_z = true
-emission_shape = 3
-emission_box_extents = Vector3(500, 200, 1)
-direction = Vector3(1, -1, 0)
-spread = 25.0
-initial_velocity_min = 10.0
-initial_velocity_max = 50.0
-angular_velocity_min = -1.60933e-05
-angular_velocity_max = 50.0
-gravity = Vector3(0, -10, 0)
-scale_min = 0.1
-color = Color(0.141176, 0.211765, 0.219608, 1)
-color_ramp = SubResource("GradientTexture1D_6inhr")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_jhwqn"]
 size = Vector2(56, 60.5)
@@ -1936,13 +1914,6 @@ offset_bottom = -20.0
 
 [node name="LostHeartManager" parent="HealthManagers" instance=ExtResource("11_qncym")]
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
-visible = false
-amount = 300
-process_material = SubResource("ParticleProcessMaterial_vltxy")
-lifetime = 5.0
-visibility_rect = Rect2(-500, -250, 1000, 500)
-
 [node name="Lava" type="Node" parent="."]
 
 [node name="LavaRisingTrigger" type="Area2D" parent="Lava"]
@@ -3454,11 +3425,11 @@ teleport_position = Vector2(5000, -600)
 [node name="checkpoint_campfire" parent="." instance=ExtResource("25_d7yqp")]
 position = Vector2(4658, 144)
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.687215, 0.687215, 0.687215, 1)
-
 [node name="Portal" parent="." instance=ExtResource("26_o5e5r")]
 position = Vector2(8864, -110)
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.687215, 0.687215, 0.687215, 1)
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_bn0f8")
